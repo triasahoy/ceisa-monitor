@@ -1,5 +1,12 @@
 # Catatan Perubahan
 
+## 1.8.2 (29 September 2026)
+
+- Riwayat dari portal langsung aktif: CEISA Monitor memakai alamat yang sama dengan tab Riwayat Status dan Riwayat Respon di portal, sehingga tidak perlu lagi Pelajari dari portal. Jam status memakai waktu mulai seperti tampilan portal, dan nama status serta respons sama persis dengan portal.
+- Ambil riwayat banyak dokumen sekaligus: pilih dokumen di tabel lalu Ambil riwayat portal, atau Lengkapi riwayat dari portal di dialog Excel (maks 300 dokumen per klik, berurutan agar tidak membebani portal).
+- Excel: lembar baru Riwayat Portal (mulai, penjaluran, respons pertama dan terakhir, waktu layanan dalam jam, serta median lama setiap perpindahan status) dan Riwayat Rinci (setiap status dan respons dengan jamnya).
+- Perbaikan Excel: tanggal tidak lagi bergeser satu hari lebih awal pada zona waktu WIB/WITA/WIT.
+
 ## 1.8.1 (29 September 2026)
 
 - Pembaruan yang berjalan di latar belakang (misalnya otomatis saat masuk portal) kini terlihat di dasbor: bilah kemajuan, halaman ke berapa dari total, jumlah dokumen, dan perkiraan sisa waktu. Data tampil sendiri setelah selesai.

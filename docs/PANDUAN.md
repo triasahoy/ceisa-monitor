@@ -29,7 +29,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.8.1.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.8.2.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -97,13 +97,7 @@ Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data.
 
 **Kode respons angka.** Respons yang tampil sebagai angka (misalnya 2305) langsung diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/). Artinya bergantung pada jenis dokumen: akhiran 03 berarti SPPB pada BC 2.3, tetapi Surat Perintah Pemeriksaan Fisik pada BC 2.6.1. Sel Respons menampilkan singkatannya; klik untuk melihat nama lengkap. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi, sehingga kodenya tidak ditebak.
 
-**Riwayat dari portal (jam pasti).** Klik **Ambil riwayat dari portal** di kartu ini, di kolom Respons yang bertuliskan "tanpa nama" atau berupa angka, atau di dialog tindak lanjut. CEISA Monitor mengambil Riwayat Status (termasuk Validasi, Siap Jalur, dan Penjaluran) dan Riwayat Respon langsung dari portal, sehingga Anda tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon satu per satu. Fitur ini diaktifkan sekali:
-
-1. Di portal, buka Daftar Dokumen dan klik dua kali satu nomor pengajuan.
-2. Buka tab **Riwayat Status**, lalu tab **Riwayat Respon**.
-3. Di dasbor, buka **Pengaturan → Riwayat dari portal**, lalu klik **Pelajari dari portal**.
-
-Tidak perlu F12 atau alat pengembang. Nama petugas dan pengguna tidak diambil. Bila riwayat tidak dapat diambil, klik **Salin info teknis** (hanya alamat layanan dan nama kolom, tanpa data dokumen) dan kirimkan melalui Issues. Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
+**Riwayat dari portal (jam pasti).** Klik **Ambil riwayat dari portal** di kartu ini, di kolom Respons yang bertuliskan "tanpa nama" atau berupa angka, atau di dialog tindak lanjut. CEISA Monitor mengambil Riwayat Status (termasuk Validasi, Siap Jalur, dan Penjaluran) dan Riwayat Respon langsung dari portal, sehingga Anda tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon satu per satu. Fitur ini langsung aktif tanpa pengaturan. Untuk laporan, pilih beberapa dokumen lalu klik **Ambil riwayat portal**, atau klik **Lengkapi riwayat dari portal** di dialog Excel; lembar **Riwayat Portal** berisi waktu layanan dan lama setiap perpindahan status, dan **Riwayat Rinci** berisi setiap status dan respons dengan jamnya. Nama petugas dan pengguna tidak diambil. Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
 
 ![Rincian perubahan status](images/26_rincian_perubahan.png)
 

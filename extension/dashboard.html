@@ -78,7 +78,7 @@
         <div class="field"><label for="d-o">Urutkan</label><select id="d-o"><option value="new">Terbaru</option><option value="age">Umur terlama</option><option value="sla">Paling lama melewati SLA</option><option value="lead">Penyelesaian terlama</option><option value="target">Target terdekat</option></select></div>
         <button class="btn ghost" id="d-clear" type="button">Hapus filter rincian</button>
       </div>
-      <div class="bulk" id="bulk" hidden><b id="bulk-n"></b> <span>dokumen dipilih</span> <button class="btn primary" id="bulk-fu" type="button">Isi tindak lanjut</button><button class="btn" id="bulk-copy" type="button">Salin nomor pengajuan</button><button class="btn ghost" id="bulk-clear" type="button">Batal pilih</button></div>
+      <div class="bulk" id="bulk" hidden><b id="bulk-n"></b> <span>dokumen dipilih</span> <button class="btn primary" id="bulk-fu" type="button">Isi tindak lanjut</button><button class="btn" id="bulk-copy" type="button">Salin nomor pengajuan</button><button class="btn" id="bulk-ph" type="button">Ambil riwayat portal</button><button class="btn ghost" id="bulk-clear" type="button">Batal pilih</button></div>
       <div class="tbl-wrap tall"><table id="t-detail"></table></div>
       <div class="pager"><span id="pg-info"></span><button class="btn" id="pg-p" type="button">‹ Sebelumnya</button><button class="btn" id="pg-n" type="button">Berikutnya ›</button></div>
     </section>
@@ -143,8 +143,8 @@
     </div>
     <h3>Riwayat dari portal</h3>
     <div class="ph-set">
-      <p class="muted" style="margin-top:0">Ambil jam pasti setiap status dan semua respons dokumen langsung dari portal, tanpa mencari manual. Cukup diaktifkan sekali:</p>
-      <ol class="steps sm"><li>Di portal, buka Daftar Dokumen, klik dua kali satu nomor pengajuan.</li><li>Buka tab <b>Riwayat Status</b>, lalu tab <b>Riwayat Respon</b>.</li><li>Kembali ke sini dan klik <b>Pelajari dari portal</b>.</li></ol>
+      <p class="muted" style="margin-top:0">Jam pasti setiap status dan semua respons dokumen diambil langsung dari portal (sama dengan tab Riwayat Status dan Riwayat Respon), tanpa mencari manual. Sudah aktif tanpa pengaturan: klik <b>Ambil riwayat dari portal</b> di kartu rincian, pilih beberapa dokumen lalu <b>Ambil riwayat portal</b>, atau <b>Lengkapi riwayat dari portal</b> saat membuat Excel.</p>
+      <p class="muted">Bila suatu saat portal mengubah alamat layanannya: di portal klik dua kali satu nomor pengajuan, buka tab Riwayat Status dan Riwayat Respon, lalu klik <b>Pelajari dari portal</b>.</p>
       <div class="fu-io"><button class="btn ghost" type="button" id="s-ph-learn">Pelajari dari portal</button><span id="s-ph-state" class="muted"></span><button class="btn ghost sm" type="button" id="s-ph-tech">Salin info teknis</button></div>
       <p id="s-ph-msg" class="ph-msg" role="status" hidden></p>
       <p class="muted">Hanya membaca, dengan sesi login Anda. Nama petugas dan pengguna tidak diambil. Info teknis hanya berisi alamat layanan dan nama kolom, tanpa data dokumen.</p>
@@ -230,6 +230,8 @@
     <h2>Ekspor Excel</h2>
     <p class="muted" style="margin-top:0" id="x-intro">Isi mengikuti filter dasbor yang sedang aktif.</p>
     <div class="checks" id="x-sheets"></div>
+    <div class="fu-io" style="margin-top:10px"><button class="btn ghost" type="button" id="x-ph">Lengkapi riwayat dari portal</button><span id="x-ph-state" class="muted"></span></div>
+    <p class="muted" style="margin:4px 0 0">Lembar Riwayat dari portal berisi jam pasti setiap status dan respons, waktu layanan, dan lama setiap perpindahan status. Pengambilan berjalan pelan (maks 300 dokumen per klik) agar tidak membebani portal.</p>
     <label class="chk" style="margin-top:10px"><input type="checkbox" id="x-perpic"> Tambahkan satu lembar untuk setiap penanggung jawab (siap dikirim ke masing-masing)</label>
     <div class="quick" style="margin-top:10px"><button type="button" data-preset="all">Lengkap</button><button type="button" data-preset="boss">Untuk atasan (tanpa rincian)</button><button type="button" data-preset="team">Untuk tim (rincian dan tindak lanjut)</button></div>
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit">Unduh Excel</button></div>

@@ -13,9 +13,9 @@
 | Apakah data tahun lalu ikut ditarik? | Ya. Secara bawaan semua data yang tersedia di portal ditarik. Bila tanggal awal pernah diubah, klik **Semua data** di Pengaturan. |
 | Penarikan pertama lama? | Wajar untuk ribuan dokumen. Biarkan tab portal terbuka; pembaruan berikutnya berjalan otomatis. |
 | Bagaimana jika komputer mati atau sesi habis? | Data diperbarui otomatis saat Anda masuk kembali. Tren tetap lengkap karena dihitung ulang dari tanggal dokumen. Ringkasan pagi muncul saat Chrome dibuka pada hari itu. |
-| Seberapa tepat waktu perubahan status? | Kartu rincian menampilkan kapan perubahan terlihat pada pembaruan data. Untuk jam pasti setiap status dan semua respons, klik **Ambil riwayat dari portal** (aktifkan sekali di Pengaturan → Riwayat dari portal). |
+| Seberapa tepat waktu perubahan status? | Kartu rincian menampilkan kapan perubahan terlihat pada pembaruan data. Untuk jam pasti, klik **Ambil riwayat dari portal**; untuk banyak dokumen, pilih dokumen lalu **Ambil riwayat portal**, atau **Lengkapi riwayat dari portal** saat membuat Excel (lembar Riwayat Portal dan Riwayat Rinci). |
 | Respons tampil sebagai angka, misalnya 2305. Apa artinya? | Kode respons angka diterjemahkan otomatis dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/), sesuai jenis dokumen (2305 pada BC 2.3 = SPPD). Arahkan kursor atau klik sel Respons untuk melihat nama lengkapnya. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi; untuk dokumen tersebut gunakan **Ambil riwayat dari portal**. |
-| Perlukah membuka F12 atau alat pengembang? | Tidak. Alamat layanan riwayat dipelajari otomatis dari portal setelah Anda sekali membuka tab Riwayat Status dan Riwayat Respon pada satu dokumen. |
+| Perlukah membuka F12 atau alat pengembang? | Tidak. Riwayat status dan respons diambil dari alamat yang sama dengan tab Riwayat Status dan Riwayat Respon di portal, tanpa pengaturan. |
 | Apakah bisa dipakai PPJK atau kawasan berikat? | Bisa. Pilih jenis fasilitas di Profil perusahaan. PPJK dapat menyaring dasbor, presentasi, dan laporan per klien. |
 | Bisakah dipakai lebih dari satu akun perusahaan? | Bisa. Data setiap akun disimpan terpisah dan dapat dipilih di kepala dasbor. |
 | Bisakah tim memakai catatan yang sama? | Bisa, melalui Ekspor dan Impor tindak lanjut (.json) di Pengaturan. |

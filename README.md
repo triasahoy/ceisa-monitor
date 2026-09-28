@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, ringkasan pagi, presentasi rapat, laporan resmi,
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.8.1</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.8.2</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -53,7 +53,7 @@ Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF 
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.8.1.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.8.2.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.

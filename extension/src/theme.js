@@ -1,2 +1,2 @@
-/*! CEISA Monitor v1.8.1 (c) 2026 Trias Purwantoro. Hak cipta dilindungi. Dilarang menyalin, mengubah, atau mendistribusikan tanpa izin tertulis. */
+/*! CEISA Monitor v1.8.2 (c) 2026 Trias Purwantoro. Hak cipta dilindungi. Dilarang menyalin, mengubah, atau mendistribusikan tanpa izin tertulis. */
 (()=>{let t="auto";try{t=localStorage.getItem("ceisa-theme")||"auto"}catch{}"auto"!==t&&(document.documentElement.dataset.theme=t)})();
