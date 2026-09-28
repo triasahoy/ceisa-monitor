@@ -35,4 +35,4 @@ Pertanyaan tentang privasi dapat disampaikan kepada pengembang melalui halaman p
 
 ## Perubahan kebijakan
 
-Perubahan kebijakan ini dicatat di CHANGELOG.md dan diumumkan pada halaman toko.
+Perubahan kebijakan ini dicatat di CHANGELOG.md
