@@ -1,5 +1,18 @@
 # Catatan Perubahan
 
+## 1.8.0 (29 September 2026)
+
+- Riwayat dari portal: jam pasti setiap status (termasuk Validasi, Siap Jalur, Penjaluran) dan semua respons dokumen diambil langsung dari portal dengan satu klik, dari kartu rincian perubahan, kolom Respons, atau dialog tindak lanjut. Tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon secara manual.
+- Respons "tanpa nama" atau berupa angka di tabel rincian dapat diklik dan diganti dengan nama respons terbaru dari riwayat respons portal.
+- Alamat layanan riwayat dipelajari dari portal (Pengaturan → Riwayat dari portal), sehingga tidak memerlukan alat pengembang (F12). Nama petugas dan pengguna tidak diambil.
+- Kode respons angka (mis. 2305) langsung diterjemahkan menjadi nama resminya sesuai jenis dokumen (mis. SPPD untuk BC 2.3) memakai tabel Referensi Respon dan Referensi Status CEISA 4.0 dari portal pengembang Bea Cukai (openapi.beacukai.go.id/portal). Berlaku di tabel rincian, grafik respons, ekspor Excel/CSV (kolom Kode Respons baru), dan riwayat dari portal. Kode yang tidak tercantum di tabel resmi (misalnya BC 4.0 dan BC 4.1) tidak ditebak.
+- Tombol Salin info teknis berisi alamat layanan dan nama kolom saja, tanpa data dokumen, untuk keperluan dukungan.
+
+## 1.7.1 (29 September 2026)
+
+- Mode demo: riwayat status contoh tidak lagi memuat tanggal di masa depan.
+- Tombol "Tampilkan ringkasan pagi sekarang" pada mode demo langsung membuka ringkasan pagi di dasbor.
+
 ## 1.7.0 (29 September 2026)
 
 - Rincian perubahan status: arahkan kursor atau klik tanda BERUBAH di tabel rincian untuk melihat status sebelum dan sesudah, kapan status lama terakhir terlihat dan status baru pertama terlihat, rentang waktu perubahan, respons dan waktu respons dari portal, serta riwayat status dokumen. Waktu yang diperkirakan diberi label "perkiraan".

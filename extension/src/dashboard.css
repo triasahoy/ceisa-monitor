@@ -343,3 +343,10 @@ tr.prio td:first-child{box-shadow:inset 3px 0 0 var(--bad)}
 .st-hist{list-style:none;margin:6px 0 0;padding:0 0 0 12px;border-left:2px solid var(--line)}.st-hist li{display:flex;gap:8px;align-items:center;margin:4px 0;position:relative}
 .st-hist li::before{content:"";position:absolute;left:-17px;width:8px;height:8px;border-radius:50%;background:var(--line);border:2px solid var(--surface)}.st-hist li:last-child::before{background:var(--brass)}
 .st-hist time{font-family:var(--mono);font-size:11px;color:var(--ink-3);min-width:52px}
+
+/* Riwayat dari portal */
+.resp-unk{border-bottom:1px dashed var(--ink-3);color:var(--ink-2);cursor:pointer}.resp-ok{cursor:pointer;border-bottom:1px dotted var(--ok);display:inline-block;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+.ph-btn{margin-top:8px}.ph-hint{margin-top:8px}
+.st-hist.ph li span{font-size:12px}.st-hist.ph time{min-width:118px}
+.steps.sm{font-size:12.5px;margin:4px 0 8px;padding-left:20px}
+.pop{max-height:calc(100vh - 24px);overflow:auto}

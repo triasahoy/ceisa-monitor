@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, ringkasan pagi, presentasi rapat, laporan resmi,
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.7.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.8.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -31,7 +31,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Periode bebas | 7/30/90 hari, bulan ini, bulan lalu, kuartal, tahun ini, tahun lalu, semua data, atau rentang tanggal sendiri |
 | Tren yang mudah dibaca | Grafik Aliran dokumen: masuk, selesai, dan posisi yang belum selesai |
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
-| Kapan berubah | Kartu rincian: status sebelum dan sesudah, kapan terlihat, waktu respons portal, dan riwayat status |
+| Kapan berubah | Kartu rincian: status sebelum dan sesudah, riwayat status, jam pasti setiap status dan semua respons langsung dari portal, serta kode respons angka yang diterjemahkan dengan tabel referensi resmi CEISA 4.0 |
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
 | Pengingat | Ringkasan pagi, tugas jatuh tempo, dan peringatan prioritas untuk Jalur Merah, pemeriksaan, dan SPJM |
@@ -49,11 +49,11 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | **Tindak lanjut** | **Presentasi rapat** |
 | ![Tindak lanjut](docs/gif/tindak_lanjut.gif) | ![Presentasi](docs/gif/presentasi.gif) |
 
-Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
+Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.7.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.8.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.
