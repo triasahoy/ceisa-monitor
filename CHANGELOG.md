@@ -1,5 +1,13 @@
 # Catatan Perubahan
 
+## 1.10.0 (29 September 2026)
+
+- Lebih ringkas: menu Ekspor tinggal tiga pilihan. **Buat laporan** memilih periode sekali lalu membuat presentasi, laporan resmi, dan/atau Excel sekaligus (menggantikan Paket bulanan, Presentasi, dan Laporan resmi yang terpisah); **Excel sesuai filter dasbor**; dan **Ringkasan WhatsApp/surel**. CSV dan Cetak dasbor dihapus karena sudah tercakup Excel dan laporan resmi PDF.
+- Kartu **Waktu proses** menggabungkan Waktu penyelesaian dan Rata-rata lama per status, ditambah **Waktu layanan (portal)**: median jam dari status pertama sampai respons pertama dan sampai penjaluran, per jenis dokumen, serta lama setiap perpindahan status dari riwayat portal. KPI Waktu penyelesaian ikut menampilkan waktu layanan portal.
+- Setelah Perbarui data, riwayat portal dokumen yang berubah status diambil otomatis (maks 50) sehingga jam perubahan dan waktu layanan terisi tanpa klik tambahan.
+- Kartu Perubahan mendapat tombol **Ringkasan untuk tim** (ringkasan sejak kemarin siap ditempel ke WhatsApp).
+- Pengaturan lebih bersih: tombol teknis riwayat portal dipindah ke bagian Lanjutan; tombol mode demo cukup di layar sambutan dan kepala dasbor.
+
 ## 1.9.0 (29 September 2026)
 
 - Isi dokumen dari portal: CEISA Monitor membaca isi lengkap setiap nomor pengajuan dari layanan Unduh Excel portal (21 lembar), tanpa menyimpan berkas ke folder kecuali diminta. Berlaku untuk semua jenis dokumen.

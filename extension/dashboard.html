@@ -18,13 +18,9 @@
       <button class="btn primary" id="b-refresh" type="button">Perbarui data</button>
       <div class="menu"><button class="btn" id="b-export" type="button" aria-haspopup="true" aria-expanded="false">Ekspor ▾</button>
         <div class="menu-pop" id="m-export" hidden>
-          <button type="button" data-x="bundle">Paket bulanan (3 berkas)…</button>
-          <button type="button" data-x="pptx">Presentasi (.pptx)…</button>
-          <button type="button" data-x="report">Laporan resmi (PDF/Word)…</button>
-          <button type="button" data-x="xlsx">Excel (.xlsx)…</button>
-          <button type="button" data-x="csv">CSV rincian</button>
+          <button type="button" data-x="laporan">Buat laporan (presentasi, laporan resmi, Excel)…</button>
+          <button type="button" data-x="xlsx">Excel sesuai filter dasbor…</button>
           <button type="button" data-x="copy">Ringkasan WhatsApp/surel…</button>
-          <button type="button" data-x="print">Cetak dasbor</button>
         </div></div>
       <button class="btn" id="b-profile" type="button">Profil perusahaan</button>
       <button class="btn" id="b-settings" type="button">Pengaturan</button>
@@ -53,7 +49,7 @@
     <div class="period-line" id="period-line"></div>
     <section class="kpis" id="kpis"></section>
     <div class="insight" id="insight"></div>
-    <section class="card"><div class="card-h"><h2>Perubahan</h2><div class="card-tools"><div class="field sm"><select id="chg-base" aria-label="Pembanding perubahan"></select></div></div></div><p class="chg-note" id="chg-hint"></p><div id="c-change"></div></section>
+    <section class="card"><div class="card-h"><h2>Perubahan</h2><div class="card-tools"><div class="field sm"><select id="chg-base" aria-label="Pembanding perubahan"></select></div><button class="btn sm" type="button" id="chg-share">Ringkasan untuk tim</button></div></div><p class="chg-note" id="chg-hint"></p><div id="c-change"></div></section>
     <section class="card"><div class="card-h"><h2 id="flow-title">Aliran dokumen</h2><span class="hint" id="flow-hint"></span></div><p class="lead-line" id="flow-lead"></p><div class="chart" id="c-flow"></div><div class="legend" id="lg-flow"></div></section>
     <div class="grid g-2">
       <section class="card"><div class="card-h"><h2>Status per jenis dokumen</h2><span class="hint">Klik baris untuk menyaring</span></div><div class="tbl-wrap"><table id="t-kode"></table></div></section>
@@ -65,10 +61,11 @@
       <section class="card"><div class="card-h"><h2>Tindak lanjut</h2><span class="hint" id="fu-hint"></span></div><div id="c-follow"></div></section>
     </div>
     <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="out" aria-pressed="true">Pengeluaran sementara</button><button type="button" data-t="nilai" aria-pressed="false">Nilai dan pungutan</button><button type="button" data-t="periksa" aria-pressed="false">Pemeriksaan</button></div><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen periode ini</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
-    <div class="grid g-2e">
-      <section class="card"><div class="card-h"><h2>Waktu penyelesaian</h2><span class="hint" id="lt-hint"></span></div><div class="bars" id="c-lead"></div></section>
-      <section class="card"><div class="card-h"><h2>Rata-rata lama per status</h2><span class="hint">Dari perubahan yang teramati</span></div><div id="c-tis"></div></section>
-    </div>
+    <section class="card" id="time-card"><div class="card-h"><h2>Waktu proses</h2><div class="card-tools"><div class="seg sm" id="time-tab"><button type="button" data-t="svc" aria-pressed="true">Waktu layanan (portal)</button><button type="button" data-t="lead" aria-pressed="false">Hari penyelesaian</button><button type="button" data-t="tis" aria-pressed="false">Lama per status</button></div></div></div>
+      <p class="lead-line" id="time-lead"></p>
+      <div id="tp-svc"></div>
+      <div id="tp-lead" hidden><div class="bars" id="c-lead"></div><p class="muted" id="lt-hint"></p></div>
+      <div id="tp-tis" hidden><p class="muted">Dari perubahan yang teramati pada pembaruan data.</p><div id="c-tis"></div></div></section>
     <section class="card" id="detail-card"><div class="card-h"><h2>Rincian dokumen</h2><span class="hint" id="d-hint"></span></div>
       <div class="tools">
         <input id="d-q" type="search" placeholder="Cari nomor pengajuan, nomor daftar, respons, penanggung jawab, atau catatan" aria-label="Cari dokumen">
@@ -134,7 +131,6 @@
     <h3>Tindak lanjut dan pengingat</h3>
     <div class="form-grid">
       <label class="chk"><input type="checkbox" id="s-morning"> Ringkasan pagi: notifikasi harian berisi dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo</label>
-      <label class="chk"><input type="checkbox" id="s-savexlsx"> Saat mengambil isi dokumen, simpan juga berkas Excel asli portal ke folder Unduhan</label>
       <label class="chk"><input type="checkbox" id="s-remind"> Pengingat tugas yang jatuh tempo hari ini, besok, atau terlambat</label>
       <label class="chk"><input type="checkbox" id="s-prio"> Peringatan prioritas saat dokumen baru terkena Jalur Merah, pemeriksaan, atau respons SPJM/SPJK</label>
       <label>Jam ringkasan pagi<input type="time" id="s-mtime" value="08:00"></label>
@@ -145,10 +141,12 @@
     </div>
     <h3>Riwayat dari portal</h3>
     <div class="ph-set">
-      <p class="muted" style="margin-top:0">Jam pasti setiap status dan semua respons dokumen diambil langsung dari portal (sama dengan tab Riwayat Status dan Riwayat Respon), tanpa mencari manual. Sudah aktif tanpa pengaturan: klik <b>Ambil riwayat dari portal</b> di kartu rincian, pilih beberapa dokumen lalu <b>Ambil riwayat portal</b>, atau <b>Lengkapi riwayat dari portal</b> saat membuat Excel.</p>
-      <p class="muted">Bila suatu saat portal mengubah alamat layanannya: di portal klik dua kali satu nomor pengajuan, buka tab Riwayat Status dan Riwayat Respon, lalu klik <b>Pelajari dari portal</b>.</p>
+      <p class="muted" style="margin-top:0">Jam pasti setiap status dan semua respons dokumen diambil langsung dari portal (sama dengan tab Riwayat Status dan Riwayat Respon), tanpa mencari manual. Sudah aktif tanpa pengaturan: klik dua kali baris di tabel rincian (kartu arsip), pilih beberapa dokumen lalu <b>Ambil rincian portal</b>, atau klik <b>Ambil isi dokumen periode ini</b> di kartu Isi dokumen.</p>
+      <label class="chk"><input type="checkbox" id="s-savexlsx"> Saat mengambil isi dokumen, simpan juga berkas Excel asli portal ke folder Unduhan</label>
+      <details class="adv"><summary>Lanjutan: bila portal mengubah alamat layanannya</summary>
+      <p class="muted">Di portal klik dua kali satu nomor pengajuan, buka tab Riwayat Status dan Riwayat Respon, lalu klik <b>Pelajari dari portal</b>. Info teknis hanya berisi alamat layanan dan nama kolom, untuk dikirim melalui Issues.</p>
       <div class="fu-io"><button class="btn ghost" type="button" id="s-ph-learn">Pelajari dari portal</button><span id="s-ph-state" class="muted"></span><button class="btn ghost sm" type="button" id="s-ph-tech">Salin info teknis</button></div>
-      <p id="s-ph-msg" class="ph-msg" role="status" hidden></p>
+      <p id="s-ph-msg" class="ph-msg" role="status" hidden></p></details>
       <p class="muted">Hanya membaca, dengan sesi login Anda. Nama petugas dan pengguna tidak diambil. Info teknis hanya berisi alamat layanan dan nama kolom, tanpa data dokumen.</p>
     </div>
     <h3>Batas waktu penyelesaian (SLA internal)</h3>
@@ -170,7 +168,7 @@
     <div class="sla-wrap" id="s-sla-rules"></div>
     <p class="sla-sum" id="s-sla-sum"></p>
     <p class="muted">Pembaruan otomatis hanya dapat berjalan selama peramban menyala, tab portal CEISA terbuka, dan sesi masih aktif. Bila komputer dimatikan atau sesi berakhir, data diperbarui otomatis saat Anda masuk kembali ke portal. Tren dan perubahan tetap lengkap karena dihitung ulang dari tanggal daftar dan tanggal respons setiap dokumen. Seluruh data tersimpan lokal di peramban ini, terpisah per akun perusahaan.</p>
-    <div class="dlg-actions"><button class="btn ghost" id="s-clear" type="button">Hapus data tersimpan</button><button class="btn ghost" id="s-demo" type="button">Coba mode demo</button><a class="btn ghost" id="s-support" href="#" target="_blank" rel="noopener noreferrer" hidden>Dukung proyek ini</a><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" id="s-save" type="submit">Simpan</button></div>
+    <div class="dlg-actions"><button class="btn ghost" id="s-clear" type="button">Hapus data tersimpan</button><button class="btn ghost" id="s-demo" type="button" hidden>Coba mode demo</button><a class="btn ghost" id="s-support" href="#" target="_blank" rel="noopener noreferrer" hidden>Dukung proyek ini</a><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" id="s-save" type="submit">Simpan</button></div>
   </form>
 </dialog>
 
@@ -272,6 +270,7 @@
       <label id="k-comp-wrap" hidden>Perusahaan<select id="k-comp"></select></label>
     </div>
     <div class="quick" id="k-quick"></div>
+    <div id="k-fmt-wrap" hidden><div class="st-h">Buat</div><div class="checks" id="k-fmt"><label><input type="checkbox" value="pptx"> Presentasi rapat (.pptx)</label><label><input type="checkbox" value="report"> Laporan resmi A4 (PDF/Word, terbuka di tab baru)</label><label><input type="checkbox" value="xlsx"> Excel (.xlsx) <button type="button" class="linkbtn" id="k-sheets">pilih lembar</button></label></div></div>
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit" id="k-go">Unduh .pptx</button></div>
   </form>
 </dialog>

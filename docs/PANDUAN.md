@@ -29,7 +29,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.9.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.10.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -58,7 +58,7 @@ Secara bawaan, CEISA Monitor menarik **semua data** yang tersedia di portal, ter
 - **Auto / Terang / Gelap**: tema tampilan.
 - **Status sesi**: menunjukkan apakah portal terhubung dan berapa lama lagi sesi berlaku.
 - **Perbarui data**: menarik data terbaru dari portal.
-- **Ekspor**: presentasi, laporan resmi, Excel, CSV, ringkasan WhatsApp, dan cetak.
+- **Ekspor**: Buat laporan (presentasi, laporan resmi, Excel sekaligus), Excel sesuai filter, dan ringkasan WhatsApp/surel.
 - **Profil perusahaan** dan **Pengaturan**: dijelaskan di bagian 16 dan 17.
 
 ## 4. Periode, pembanding, dan filter
@@ -192,6 +192,7 @@ Ekstensi tidak mengirim pesan sendiri. WhatsApp hanya dibuka saat Anda mengklik 
 
 ## 13. Ringkasan pagi, pengingat, dan prioritas
 
+- **Ringkasan untuk tim**: tombol di kartu Perubahan menyusun ringkasan sejak kemarin yang siap ditempel ke WhatsApp.
 - **Ringkasan pagi**: setiap hari pada jam yang diatur (bawaan 08.00), notifikasi menampilkan dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo. Tombol **Salin ringkasan WhatsApp** membuka ringkasan siap tempel ke grup tim; tombol **Kirim tugas jatuh tempo** membuka dialog penugasan. Bila komputer mati pada jam tersebut, notifikasi muncul saat Chrome dibuka kembali pada hari itu.
 - **Pengingat tugas**: tugas terlambat, jatuh tempo hari ini, dan besok. Saring di tabel rincian dengan **Tindak lanjut → Jatuh tempo**.
 - **Peringatan prioritas**: notifikasi saat dokumen baru terkena Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF. Saring dengan **Perubahan → Prioritas**.
@@ -252,11 +253,8 @@ Pilih jenis fasilitas (KEK, kawasan berikat, importir/eksportir umum, PPJK, atau
 
 | Ekspor | Isi |
 |---|---|
-| Paket bulanan | Presentasi, Excel, dan laporan resmi sekaligus |
-| Presentasi (.pptx) | 22 slide dengan judul berupa kesimpulan dan slide "Keputusan yang dimohon" |
-| Laporan resmi | Format dinas A4 dengan kop, nomor, perihal, dan lembar pengesahan; cetak ke PDF atau unduh sebagai Word |
-| Excel (.xlsx) | 8 lembar berformat, preset untuk atasan atau tim, opsi satu lembar per penanggung jawab; tugas ikut di kolom catatan |
-| CSV rincian | Data mentah sesuai filter rincian |
+| Buat laporan | Pilih periode sekali, lalu centang berkas yang dibuat: presentasi 22 slide (judul berupa kesimpulan, slide "Keputusan yang dimohon"), laporan resmi A4 format dinas (cetak ke PDF atau unduh sebagai Word), dan/atau Excel dengan lembar pilihan |
+| Excel sesuai filter dasbor | Excel untuk filter yang sedang aktif: preset untuk atasan atau tim, satu lembar per penanggung jawab, serta lembar Riwayat Portal dan Isi Dokumen |
 | Ringkasan WhatsApp/surel | Pratinjau, pilihan bagian, format WhatsApp atau teks biasa |
 
 ![Presentasi](images/14_presentasi.png)

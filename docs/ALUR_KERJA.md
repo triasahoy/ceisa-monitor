@@ -45,7 +45,7 @@ Data hanya mengalir dari portal ke peramban Anda. Ekstensi tidak mengubah apa pu
 
 ## Bulanan (rapat, 15 menit persiapan)
 
-1. **Ekspor → Paket bulanan**: presentasi 22 slide, Excel 8 lembar, dan laporan resmi A4 sekaligus.
+1. **Ekspor → Buat laporan**: pilih bulan, centang presentasi, laporan resmi A4, dan Excel, lalu klik Buat.
 2. Periksa slide **Keputusan yang dimohon** dan sesuaikan usulan.
 3. Cetak atau simpan laporan resmi sebagai PDF/Word untuk tanda tangan.
 4. Bandingkan dengan **Periode sama tahun lalu** untuk melihat tren musiman.
