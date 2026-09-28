@@ -1,5 +1,12 @@
 # Catatan Perubahan
 
+## 1.8.1 (29 September 2026)
+
+- Pembaruan yang berjalan di latar belakang (misalnya otomatis saat masuk portal) kini terlihat di dasbor: bilah kemajuan, halaman ke berapa dari total, jumlah dokumen, dan perkiraan sisa waktu. Data tampil sendiri setelah selesai.
+- Mengklik Perbarui data saat pembaruan lain berjalan tidak lagi menampilkan pesan galat merah, tetapi menampilkan kemajuan pembaruan yang sedang berjalan.
+- Kunci pembaruan memakai detak per halaman: penarikan semua data yang lama tidak lagi dianggap macet setelah 5 menit, sehingga tidak terjadi dua penarikan bersamaan. Kunci tanpa detak lebih dari 3 menit dianggap berhenti.
+- Pelajari dari portal: hasilnya tampil langsung di bawah tombol dan pesan tidak lagi tertutup jendela Pengaturan. Alamat riwayat kini dapat dipelajari walaupun data belum ditarik.
+
 ## 1.8.0 (29 September 2026)
 
 - Riwayat dari portal: jam pasti setiap status (termasuk Validasi, Siap Jalur, Penjaluran) dan semua respons dokumen diambil langsung dari portal dengan satu klik, dari kartu rincian perubahan, kolom Respons, atau dialog tindak lanjut. Tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon secara manual.

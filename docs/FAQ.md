@@ -22,6 +22,7 @@
 | Bagaimana jika struktur portal berubah? | Ekstensi memeriksa struktur data setiap kali menarik data. Bila berubah, angka tidak ditampilkan dan muncul pesan agar ekstensi diperbarui. |
 | Apakah tersedia di Chrome Web Store? | Sedang dalam peninjauan. Sementara itu, pasang dari halaman [Releases](../../../releases/latest). |
 | Apakah kode sumbernya terbuka? | Tidak. Repositori ini berisi paket rilis yang sudah diminifikasi dan dokumentasi. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
-| Bagaimana cara memperbarui versi? | Ekstrak paket baru ke folder yang sama, lalu klik muat ulang (↻) di `chrome://extensions`. Data tidak hilang. |
+| Bagaimana cara memperbarui versi? | Ekstrak paket baru ke folder yang sama (timpa berkas lama), lalu klik muat ulang (↻) di `chrome://extensions`. Data tidak hilang. Jangan memasang folder baru dengan Load unpacked: Chrome menganggapnya ekstensi lain, sehingga datanya kosong dan semua data ditarik ulang dari awal. |
+| Mengapa muncul "Pembaruan sedang berjalan" dan dasbor masih kosong? | Pembaruan otomatis (misalnya saat masuk portal) sedang menarik data. Dasbor menampilkan halaman ke berapa, jumlah dokumen, dan perkiraan sisa waktu; data tampil sendiri setelah selesai. Penarikan pertama untuk semua data memerlukan beberapa menit sampai puluhan menit, bergantung pada jumlah dokumen dan kecepatan internet. Biarkan tab portal tetap terbuka. |
 | Bagaimana cara menghapus semua data? | Pengaturan → Hapus data tersimpan, atau hapus ekstensi dari Chrome. |
 | Ke mana saya mengirim masukan? | Buka [Issues](../../../issues/new/choose) dan pilih templat yang sesuai. |
