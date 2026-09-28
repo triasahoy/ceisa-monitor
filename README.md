@@ -49,7 +49,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | **Tindak lanjut** | **Presentasi rapat** |
 | ![Tindak lanjut](docs/gif/tindak_lanjut.gif) | ![Presentasi](docs/gif/presentasi.gif) |
 
-Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
+Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
