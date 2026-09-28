@@ -29,7 +29,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.8.2.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.9.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -94,6 +94,8 @@ Di tabel rincian, arahkan kursor atau klik tanda **BERUBAH** untuk melihat:
 - riwayat status dokumen.
 
 Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data. Bila rekaman pada tanggal pembanding tidak ada, status sebelumnya diperkirakan dari tanggal daftar dan tanggal respons, dan diberi label **perkiraan**.
+
+**Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, jaminan, dan pengeluaran sementara terkait. Isinya dibaca dari layanan Unduh Excel portal. Untuk banyak dokumen, klik **Ambil isi dokumen periode ini** di kartu **Isi dokumen**, yang juga menampilkan Pengeluaran sementara (barang yang belum kembali), Nilai dan pungutan, serta Pemeriksaan otomatis. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
 
 **Kode respons angka.** Respons yang tampil sebagai angka (misalnya 2305) langsung diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/). Artinya bergantung pada jenis dokumen: akhiran 03 berarti SPPB pada BC 2.3, tetapi Surat Perintah Pemeriksaan Fisik pada BC 2.6.1. Sel Respons menampilkan singkatannya; klik untuk melihat nama lengkap. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi, sehingga kodenya tidak ditebak.
 

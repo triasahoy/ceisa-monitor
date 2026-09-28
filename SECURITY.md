@@ -19,12 +19,12 @@ Unduh paket hanya dari halaman [Releases](../../releases) repositori ini atau da
 
 | Berkas | SHA-256 |
 |---|---|
-| `ceisa-monitor-v1.8.2.zip` | `e24d24ac49933221c7f347a0820b1fcddddf01e5d22aeb4c15c2727ae9b696bb` |
+| `ceisa-monitor-v1.9.0.zip` | `de73476b211239eccb88bc5b0b6ac12004cb180dda5f69403af324dc028afffa` |
 
 Cara memeriksa:
 
-- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.8.2.zip -Algorithm SHA256`
-- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.8.2.zip`
+- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.9.0.zip -Algorithm SHA256`
+- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.9.0.zip`
 
 Kode untuk setiap berkas di folder `extension/` tercantum di [SHA256SUMS.txt](SHA256SUMS.txt) dan diperiksa otomatis oleh GitHub Actions setiap ada perubahan.
 
@@ -38,8 +38,8 @@ Jangan menyertakan data asli perusahaan, nomor pengajuan, atau token sesi dalam 
 
 | Versi | Didukung |
 |---|---|
-| 1.8.x | Ya |
-| < 1.8 | Tidak, mohon perbarui |
+| 1.9.x | Ya |
+| < 1.9 | Tidak, mohon perbarui |
 
 ## Tentang perlindungan kode
 

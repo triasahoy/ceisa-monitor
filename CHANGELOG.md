@@ -1,5 +1,16 @@
 # Catatan Perubahan
 
+## 1.9.0 (29 September 2026)
+
+- Isi dokumen dari portal: CEISA Monitor membaca isi lengkap setiap nomor pengajuan dari layanan Unduh Excel portal (21 lembar), tanpa menyimpan berkas ke folder kecuali diminta. Berlaku untuk semua jenis dokumen.
+- Kartu arsip: klik dua kali baris di tabel rincian untuk melihat dokumen pelengkap (invoice, packing list, B/L atau AWB, kontrak, COO, dan lainnya dengan nama resmi), barang, nilai dan logistik, pungutan, jaminan, pengeluaran sementara terkait, serta riwayat dari portal.
+- Pencarian di tabel rincian kini juga mencari nomor invoice, B/L, kontrak, kontainer, jaminan, dan kode barang.
+- Kartu Isi dokumen di dasbor: Pengeluaran sementara (barang keluar, sudah kembali, sisa, umur, jatuh tempo jaminan; pasangan seperti BC 2.6.1 dan 2.6.2 dicocokkan per seri barang), Nilai dan pungutan (nilai pabean, netto, kontainer, pungutan dibayar dan fasilitas), serta Pemeriksaan (dokumen pelengkap yang belum ada, tanggal janggal, invoice ganda, HS berbeda untuk kode barang yang sama, asal negara mitra FTA tanpa COO, jaminan mendekati jatuh tempo). Pola dokumen pelengkap wajib dipelajari dari data perusahaan sendiri, sehingga cocok untuk jenis perusahaan apa pun.
+- Excel: lembar Dokumen Pelengkap, Barang, Pengeluaran Sementara, Nilai & Pungutan, dan Pemeriksaan; kolom Invoice dan B/L / AWB di lembar Rincian dan CSV.
+- Satu tombol Ambil rincian portal mengambil riwayat dan isi dokumen sekaligus; klik lagi untuk berhenti.
+- Tabel referensi resmi CEISA 4.0 ditambah: dokumen, negara, satuan, kemasan, fasilitas tarif, jenis pungutan, jaminan, cara angkut, valuta, dan kantor.
+- Pilihan di Pengaturan: simpan juga berkas Excel asli portal ke folder Unduhan saat mengambil isi dokumen.
+
 ## 1.8.2 (29 September 2026)
 
 - Riwayat dari portal langsung aktif: CEISA Monitor memakai alamat yang sama dengan tab Riwayat Status dan Riwayat Respon di portal, sehingga tidak perlu lagi Pelajari dari portal. Jam status memakai waktu mulai seperti tampilan portal, dan nama status serta respons sama persis dengan portal.

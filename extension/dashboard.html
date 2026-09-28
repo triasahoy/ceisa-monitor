@@ -64,6 +64,7 @@
       <section class="card"><div class="card-h"><h2>Penjaluran dokumen</h2><span class="hint" id="jalur-hint"></span></div><div class="bars" id="c-jalur"></div><div id="c-jalur-kode" style="margin-top:14px"></div></section>
       <section class="card"><div class="card-h"><h2>Tindak lanjut</h2><span class="hint" id="fu-hint"></span></div><div id="c-follow"></div></section>
     </div>
+    <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="out" aria-pressed="true">Pengeluaran sementara</button><button type="button" data-t="nilai" aria-pressed="false">Nilai dan pungutan</button><button type="button" data-t="periksa" aria-pressed="false">Pemeriksaan</button></div><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen periode ini</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
     <div class="grid g-2e">
       <section class="card"><div class="card-h"><h2>Waktu penyelesaian</h2><span class="hint" id="lt-hint"></span></div><div class="bars" id="c-lead"></div></section>
       <section class="card"><div class="card-h"><h2>Rata-rata lama per status</h2><span class="hint">Dari perubahan yang teramati</span></div><div id="c-tis"></div></section>
@@ -78,7 +79,7 @@
         <div class="field"><label for="d-o">Urutkan</label><select id="d-o"><option value="new">Terbaru</option><option value="age">Umur terlama</option><option value="sla">Paling lama melewati SLA</option><option value="lead">Penyelesaian terlama</option><option value="target">Target terdekat</option></select></div>
         <button class="btn ghost" id="d-clear" type="button">Hapus filter rincian</button>
       </div>
-      <div class="bulk" id="bulk" hidden><b id="bulk-n"></b> <span>dokumen dipilih</span> <button class="btn primary" id="bulk-fu" type="button">Isi tindak lanjut</button><button class="btn" id="bulk-copy" type="button">Salin nomor pengajuan</button><button class="btn" id="bulk-ph" type="button">Ambil riwayat portal</button><button class="btn ghost" id="bulk-clear" type="button">Batal pilih</button></div>
+      <div class="bulk" id="bulk" hidden><b id="bulk-n"></b> <span>dokumen dipilih</span> <button class="btn primary" id="bulk-fu" type="button">Isi tindak lanjut</button><button class="btn" id="bulk-copy" type="button">Salin nomor pengajuan</button><button class="btn" id="bulk-ph" type="button">Ambil rincian portal</button><button class="btn ghost" id="bulk-clear" type="button">Batal pilih</button></div>
       <div class="tbl-wrap tall"><table id="t-detail"></table></div>
       <div class="pager"><span id="pg-info"></span><button class="btn" id="pg-p" type="button">‹ Sebelumnya</button><button class="btn" id="pg-n" type="button">Berikutnya ›</button></div>
     </section>
@@ -133,6 +134,7 @@
     <h3>Tindak lanjut dan pengingat</h3>
     <div class="form-grid">
       <label class="chk"><input type="checkbox" id="s-morning"> Ringkasan pagi: notifikasi harian berisi dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo</label>
+      <label class="chk"><input type="checkbox" id="s-savexlsx"> Saat mengambil isi dokumen, simpan juga berkas Excel asli portal ke folder Unduhan</label>
       <label class="chk"><input type="checkbox" id="s-remind"> Pengingat tugas yang jatuh tempo hari ini, besok, atau terlambat</label>
       <label class="chk"><input type="checkbox" id="s-prio"> Peringatan prioritas saat dokumen baru terkena Jalur Merah, pemeriksaan, atau respons SPJM/SPJK</label>
       <label>Jam ringkasan pagi<input type="time" id="s-mtime" value="08:00"></label>
@@ -225,13 +227,21 @@
   </form>
 </dialog>
 
+<dialog id="dlg-doc" class="wide">
+  <form method="dialog">
+    <h2 id="doc-title" class="mono">Kartu arsip</h2>
+    <div id="doc-body"></div>
+    <div class="dlg-actions"><button class="btn" type="button" id="doc-fetch">Ambil isi dari portal</button><button class="btn" type="button" id="doc-copy">Salin nomor pengajuan</button><button class="btn" type="button" id="doc-fu">Tindak lanjut</button><span class="spacer"></span><button class="btn primary" value="close" type="submit">Tutup</button></div>
+  </form>
+</dialog>
+
 <dialog id="dlg-xlsx">
   <form method="dialog" id="f-xlsx">
     <h2>Ekspor Excel</h2>
     <p class="muted" style="margin-top:0" id="x-intro">Isi mengikuti filter dasbor yang sedang aktif.</p>
     <div class="checks" id="x-sheets"></div>
-    <div class="fu-io" style="margin-top:10px"><button class="btn ghost" type="button" id="x-ph">Lengkapi riwayat dari portal</button><span id="x-ph-state" class="muted"></span></div>
-    <p class="muted" style="margin:4px 0 0">Lembar Riwayat dari portal berisi jam pasti setiap status dan respons, waktu layanan, dan lama setiap perpindahan status. Pengambilan berjalan pelan (maks 300 dokumen per klik) agar tidak membebani portal.</p>
+    <div class="fu-io" style="margin-top:10px"><button class="btn ghost" type="button" id="x-ph">Lengkapi dari portal</button><span id="x-ph-state" class="muted"></span></div>
+    <p class="muted" style="margin:4px 0 0">Mengambil riwayat status dan respons serta isi dokumen (dokumen pelengkap, barang, nilai, pungutan, jaminan) untuk lembar Riwayat Portal dan Isi Dokumen. Berjalan pelan, maks 300 dokumen per klik, agar tidak membebani portal.</p>
     <label class="chk" style="margin-top:10px"><input type="checkbox" id="x-perpic"> Tambahkan satu lembar untuk setiap penanggung jawab (siap dikirim ke masing-masing)</label>
     <div class="quick" style="margin-top:10px"><button type="button" data-preset="all">Lengkap</button><button type="button" data-preset="boss">Untuk atasan (tanpa rincian)</button><button type="button" data-preset="team">Untuk tim (rincian dan tindak lanjut)</button></div>
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit">Unduh Excel</button></div>

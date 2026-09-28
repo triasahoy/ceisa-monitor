@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, ringkasan pagi, presentasi rapat, laporan resmi,
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.8.2</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.9.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -32,6 +32,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Tren yang mudah dibaca | Grafik Aliran dokumen: masuk, selesai, dan posisi yang belum selesai |
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
 | Kapan berubah | Kartu rincian: status sebelum dan sesudah, riwayat status, jam pasti setiap status dan semua respons langsung dari portal, serta kode respons angka yang diterjemahkan dengan tabel referensi resmi CEISA 4.0 |
+| Isi dokumen | Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap, barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer; pengeluaran sementara (mis. BC 2.6.1 dan 2.6.2) dicocokkan per seri barang; pemeriksaan otomatis |
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
 | Pengingat | Ringkasan pagi, tugas jatuh tempo, dan peringatan prioritas untuk Jalur Merah, pemeriksaan, dan SPJM |
@@ -53,7 +54,7 @@ Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF 
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.8.2.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.9.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.
@@ -94,7 +95,7 @@ Hak cipta © 2026 Trias Purwantoro. Hak cipta dilindungi. Folder `extension/` be
 <a id="english"></a>
 ## English
 
-CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison, a document-flow chart, status-change details (before/after, when it changed, portal response time, status history), follow-up tracking with WhatsApp task messages per owner, a morning summary with due-task reminders, priority alerts for red-channel and inspection documents, a 22-slide meeting deck, a formal A4 report, and an 8-sheet Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. Interface in Indonesian or English, light or dark theme.
+CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison, a document-flow chart, an archive card per submission read from the portal's own Excel export (supporting documents, goods, value, duties, guarantees) with temporary-export matching and automatic checks, status-change details (before/after, when it changed, portal response time, status history), follow-up tracking with WhatsApp task messages per owner, a morning summary with due-task reminders, priority alerts for red-channel and inspection documents, a 22-slide meeting deck, a formal A4 report, and an 8-sheet Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. Interface in Indonesian or English, light or dark theme.
 
 Install: download the zip from [Releases](../../releases/latest), unzip, open `chrome://extensions`, enable Developer mode, and choose Load unpacked. Try demo mode first if you do not have a CEISA account.
 
