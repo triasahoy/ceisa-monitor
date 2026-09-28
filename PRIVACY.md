@@ -31,7 +31,7 @@ Buka Pengaturan di dasbor, lalu pilih Hapus data tersimpan. Menghapus ekstensi j
 
 ## Kontak
 
-Pertanyaan tentang privasi dapat disampaikan kepada pengembang melalui halaman proyek https://github.com/triasahoy/ceisa-monitor/issues.
+Pertanyaan tentang privasi dapat disampaikan kepada pengembang melalui surel triasx6@gmail.com atau halaman proyek https://github.com/triasahoy/ceisa-monitor/issues.
 
 ## Perubahan kebijakan
 
