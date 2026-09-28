@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kebijakan Privasi CEISA Monitor</title>
+<style>
+body{margin:0;background:#f4f6f9;color:#1a2330;font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 20px 64px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:19px;margin:32px 0 8px}
+.meta{color:#5b6470;font-size:14px;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #d5dbe3;padding:8px 10px;text-align:left;vertical-align:top}th{background:#eaeef3}
+hr{border:0;border-top:1px solid #d5dbe3;margin:48px 0}
+code{background:#eaeef3;padding:1px 5px;border-radius:4px;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Kebijakan Privasi CEISA Monitor</h1>
+<p class="meta">Berlaku sejak 28 September 2026 · Versi 1.3.0 dan seterusnya</p>
+
+<p>CEISA Monitor adalah ekstensi Chrome tidak resmi untuk memantau status dokumen pabean di portal CEISA 4.0. Ekstensi ini tidak berafiliasi dengan, tidak disetujui oleh, dan tidak dibuat oleh Direktorat Jenderal Bea dan Cukai.</p>
+
+<h2>Data yang dibaca</h2>
+<p>Ketika pengguna menekan <b>Perbarui data</b> atau mengaktifkan pembaruan otomatis, ekstensi membaca daftar dokumen pabean yang dapat diakses pengguna di portal CEISA 4.0 (portal.beacukai.go.id): nomor pengajuan, nomor dan tanggal pendaftaran, jenis dokumen, status proses, jalur, respons, kantor pabean, dan nama perusahaan. Ekstensi juga membaca nama pengguna serta nomor identitas perusahaan (NPWP/NITKU) dari sesi login, semata-mata untuk memisahkan data antarakun.</p>
+<p>Token sesi dibaca dari tab portal hanya pada saat penarikan data, dipakai untuk permintaan baca tersebut, lalu dibuang. Ekstensi tidak membaca atau menyimpan kata sandi, tidak menyimpan token, tidak memperpanjang sesi, dan tidak mengubah data apa pun di CEISA.</p>
+
+<h2>Tempat data disimpan</h2>
+<p>Hasil olahan, rekaman status harian (paling lama 62 hari), pengaturan, pilihan bahasa, profil perusahaan, dan catatan tindak lanjut disimpan di <code>chrome.storage.local</code> pada komputer pengguna, terpisah per akun. Data tidak dikirim ke server pengembang atau pihak mana pun. Ekstensi tidak memakai analitik, iklan, pelacakan, atau layanan pihak ketiga, dan tidak menjual atau mengalihkan data pengguna. Tautan &ldquo;Dukung proyek ini&rdquo; hanya membuka halaman Saweria (saweria.co) di tab baru bila diklik; ekstensi tidak mengirim data apa pun ke Saweria. Fitur penugasan menyusun pesan tugas di peramban; pesan hanya disalin atau dibuka di WhatsApp (wa.me) bila pengguna mengklik tombolnya, dan dikirim oleh pengguna sendiri. Nomor WhatsApp penanggung jawab, riwayat tindak lanjut, dan templat tugas disimpan lokal di komputer pengguna. Berkas ekspor tindak lanjut (.json) hanya dibuat bila pengguna mengkliknya.</p>
+<p>Berkas yang diekspor (Excel, CSV, presentasi, laporan) dibuat di peramban dan disimpan ke folder unduhan pengguna. Pembagian berkas tersebut sepenuhnya berada di bawah kendali pengguna.</p>
+
+<h2>Izin yang diminta</h2>
+<table>
+<tr><th>Izin</th><th>Kegunaan</th></tr>
+<tr><td>Akses ke portal.beacukai.go.id dan <code>scripting</code></td><td>Menjalankan permintaan baca daftar dokumen di tab portal dengan sesi yang masih aktif dan menampilkan tombol pintas di portal</td></tr>
+<tr><td><code>storage</code>, <code>unlimitedStorage</code></td><td>Menyimpan hasil, pengaturan, dan catatan tindak lanjut di komputer pengguna, tanpa batas 10 MB untuk data banyak akun dan periode panjang</td></tr>
+<tr><td><code>alarms</code></td><td>Pembaruan otomatis, hanya bila diaktifkan pengguna</td></tr>
+<tr><td><code>notifications</code></td><td>Pemberitahuan perubahan status, hanya bila diaktifkan pengguna</td></tr>
+</table>
+
+<h2>Menghapus data</h2>
+<p>Buka Pengaturan di dasbor, lalu pilih <b>Hapus data tersimpan</b>. Menghapus ekstensi dari Chrome menghapus seluruh data yang tersimpan.</p>
+
+<h2>Kontak</h2>
+<p>Pertanyaan tentang privasi: <a href="https://github.com/triasahoy/ceisa-monitor/issues">github.com/triasahoy/ceisa-monitor/issues</a></p>
+
+<hr>
+
+<h1>CEISA Monitor Privacy Policy</h1>
+<p class="meta">Effective 28 September 2026 · Version 1.3.0 and later</p>
+<p>CEISA Monitor is an unofficial Chrome extension for tracking customs document status in the CEISA 4.0 portal. It is not affiliated with, endorsed by, or produced by the Directorate General of Customs and Excise of Indonesia (DJBC).</p>
+<h2>Data accessed</h2>
+<p>When the user clicks <b>Refresh</b> or enables automatic refresh, the extension reads the list of customs documents the user can already see in the CEISA 4.0 portal: submission number, registration number and date, document type, process status, inspection lane, response, customs office, and company name. It also reads the user's name and company tax ID (NPWP/NITKU) from the logged-in session, only to keep data from different accounts separate.</p>
+<p>The session token is read from the portal tab only during a refresh, used for that read-only request, and discarded. The extension never reads or stores passwords, never stores tokens, never extends sessions, and never changes any data in CEISA.</p>
+<h2>Storage and sharing</h2>
+<p>Processed results, daily status records (kept for up to 62 days to show changes), settings, language choice, company profile, and follow-up notes are stored in <code>chrome.storage.local</code> on the user's computer, separated per account. No data is sent to the developer or any third party. The extension uses no analytics, advertising, tracking, or third-party services, and does not sell or transfer user data. The &ldquo;Support this project&rdquo; link only opens the Saweria page (saweria.co) in a new tab when clicked; the extension sends no data to Saweria. The task feature composes messages in the browser; a message is only copied or opened in WhatsApp (wa.me) when the user clicks the button, and the user sends it themselves. Owners' WhatsApp numbers, follow-up history, and task templates are stored locally on the user's computer. A follow-up export file (.json) is only created when the user clicks the button. Exported files are created in the browser and saved to the user's downloads folder.</p>
+<h2>Deleting data</h2>
+<p>Open Settings in the dashboard and choose <b>Delete stored data</b>, or remove the extension from Chrome to delete all stored data.</p>
+<h2>Contact</h2>
+<p>Privacy questions: <b>[CONTACT EMAIL]</b></p>
+</main>
+</body>
+</html>

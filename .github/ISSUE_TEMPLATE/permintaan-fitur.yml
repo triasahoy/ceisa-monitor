@@ -1,0 +1,14 @@
+name: Permintaan fitur
+description: Usulkan fitur atau perbaikan
+labels: ["ide"]
+body:
+  - type: textarea
+    id: masalah
+    attributes: { label: Masalah yang ingin diselesaikan, placeholder: "Contoh: setiap Senin saya harus …" }
+    validations: { required: true }
+  - type: textarea
+    id: usulan
+    attributes: { label: Usulan solusi }
+  - type: dropdown
+    id: fasilitas
+    attributes: { label: Jenis fasilitas, options: ["KEK", "Kawasan berikat / TPB", "Importir/eksportir umum", "PPJK", "Lainnya"] }

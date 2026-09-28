@@ -1,0 +1,34 @@
+CEISA Monitor
+Hak Cipta (c) 2026 Trias Purwantoro. Hak cipta dilindungi undang-undang.
+
+Perangkat lunak ini, termasuk kode sumber, desain antarmuka, logo, dokumentasi, dan
+materi video, adalah milik Trias Purwantoro.
+
+Yang diizinkan:
+1. Memasang dan memakai ekstensi dari saluran resmi (Chrome Web Store atau rilis
+   resmi di GitHub milik pemegang hak cipta) untuk keperluan kerja pengguna sendiri
+   atau perusahaannya.
+
+Yang tidak diizinkan tanpa izin tertulis dari pemegang hak cipta:
+1. Menyalin, mengubah, menerjemahkan, atau membuat karya turunan dari kode sumber.
+2. Mendistribusikan ulang, menjual, menyewakan, atau menerbitkan ulang ekstensi ini,
+   baik utuh maupun sebagian, termasuk dengan nama atau merek lain.
+3. Membongkar atau mengekstrak kode untuk dipakai dalam produk lain.
+
+Perangkat lunak ini disediakan "sebagaimana adanya" tanpa jaminan apa pun. Pemegang
+hak cipta tidak bertanggung jawab atas kerugian yang timbul dari pemakaiannya.
+CEISA Monitor adalah proyek independen dan tidak berafiliasi dengan Direktorat
+Jenderal Bea dan Cukai.
+
+Permohonan izin: melalui https://github.com/triasahoy/ceisa-monitor/issues
+
+---------------------------------------------------------------------------------
+English summary: Copyright (c) 2026 Trias Purwantoro. All rights reserved. You may
+install and use the extension from official channels for your own work. Copying,
+modifying, redistributing, selling, or reusing the code without written permission
+is not permitted. Provided "as is", without warranty. Not affiliated with DJBC.
+---------------------------------------------------------------------------------
+
+Pustaka pihak ketiga di folder vendor/ tetap memakai lisensinya sendiri:
+- ExcelJS (MIT License), https://github.com/exceljs/exceljs
+- PptxGenJS (MIT License), https://github.com/gitbrent/PptxGenJS

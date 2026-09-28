@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CEISA Monitor – Dasbor</title>
+<link rel="icon" href="icons/icon32.png">
+<link rel="stylesheet" href="src/dashboard.css">
+<script src="src/theme.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top" id="top">
+    <div class="brand"><img src="icons/icon48.png" alt="" id="brand-logo"><div><div class="eyebrow">CEISA 4.0 · Pemantauan Dokumen Pabean</div><h1 id="h-title">Status Dokumen Pabean</h1><div class="sub" id="h-sub"></div></div></div>
+    <div class="top-actions">
+      <div class="seg lang" id="lang" aria-label="Bahasa"><button type="button" data-l="id" aria-pressed="true">ID</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+      <div class="seg lang" id="theme" aria-label="Tema tampilan"><button type="button" data-t="auto" title="Ikuti pengaturan sistem">Auto</button><button type="button" data-t="light" title="Tampilan terang">Terang</button><button type="button" data-t="dark" title="Tampilan gelap">Gelap</button></div>
+      <button class="chip demo" id="b-demo-x" type="button" hidden title="Klik untuk keluar dari mode demo">Mode demo aktif · Keluar ✕</button>
+      <select class="acct" id="acct" aria-label="Akun perusahaan" hidden></select>
+      <span class="chip" id="sess">Memeriksa sesi…</span>
+      <button class="btn primary" id="b-refresh" type="button">Perbarui data</button>
+      <div class="menu"><button class="btn" id="b-export" type="button" aria-haspopup="true" aria-expanded="false">Ekspor ▾</button>
+        <div class="menu-pop" id="m-export" hidden>
+          <button type="button" data-x="bundle">Paket bulanan (3 berkas)…</button>
+          <button type="button" data-x="pptx">Presentasi (.pptx)…</button>
+          <button type="button" data-x="report">Laporan resmi (PDF/Word)…</button>
+          <button type="button" data-x="xlsx">Excel (.xlsx)…</button>
+          <button type="button" data-x="csv">CSV rincian</button>
+          <button type="button" data-x="copy">Ringkasan WhatsApp/surel…</button>
+          <button type="button" data-x="print">Cetak dasbor</button>
+        </div></div>
+      <button class="btn" id="b-profile" type="button">Profil perusahaan</button>
+      <button class="btn" id="b-settings" type="button">Pengaturan</button>
+    </div>
+  </header>
+  <div class="progress" id="progress" hidden><div class="bar"><i id="p-bar"></i></div><span id="p-txt"></span></div>
+  <div class="banner" id="demo-banner" hidden>Mode demo: data contoh, bukan data perusahaan. Aman untuk tangkapan layar dan presentasi. <button class="linkbtn" id="b-demo-off" type="button">Keluar dari mode demo</button></div>
+  <div class="print-head" id="print-head"></div>
+  <div class="banner" id="fresh-banner" hidden></div>
+  <div class="banner" id="profile-banner" hidden></div>
+  <div class="banner warn" id="err" hidden></div>
+
+  <div class="banner" id="range-banner" hidden></div>
+  <div class="filters" id="filters" aria-label="Filter">
+    <div class="field period"><label for="f-preset">Periode</label><select id="f-preset"></select>
+      <input type="date" id="f-from" aria-label="Tanggal awal"><span class="dash">–</span><input type="date" id="f-to" aria-label="Tanggal akhir"></div>
+    <div class="field"><label for="f-cmp">Bandingkan dengan</label><select id="f-cmp"></select></div>
+    <div class="seg" id="f-jalur" aria-label="Jalur"></div>
+    <div class="field" id="f-comp-wrap" hidden><label for="f-comp">Perusahaan</label><select id="f-comp"></select></div>
+    <div class="field" id="f-kantor-wrap" hidden><label for="f-kantor">Kantor</label><select id="f-kantor"></select></div>
+    <div class="kchips" id="f-kode" aria-label="Jenis dokumen"></div>
+    <button class="btn ghost" id="b-reset" type="button">Atur ulang</button>
+  </div>
+
+  <main id="main">
+    <div class="period-line" id="period-line"></div>
+    <section class="kpis" id="kpis"></section>
+    <div class="insight" id="insight"></div>
+    <section class="card"><div class="card-h"><h2>Perubahan</h2><div class="card-tools"><div class="field sm"><select id="chg-base" aria-label="Pembanding perubahan"></select></div></div></div><p class="chg-note" id="chg-hint"></p><div id="c-change"></div></section>
+    <section class="card"><div class="card-h"><h2 id="flow-title">Aliran dokumen</h2><span class="hint" id="flow-hint"></span></div><p class="lead-line" id="flow-lead"></p><div class="chart" id="c-flow"></div><div class="legend" id="lg-flow"></div></section>
+    <div class="grid g-2">
+      <section class="card"><div class="card-h"><h2>Status per jenis dokumen</h2><span class="hint">Klik baris untuk menyaring</span></div><div class="tbl-wrap"><table id="t-kode"></table></div></section>
+      <section class="card"><div class="card-h"><h2>Umur dokumen belum selesai</h2><span class="hint">Klik sel untuk melihat dokumennya</span></div><div class="tbl-wrap"><table class="heat" id="t-aging"></table></div></section>
+    </div>
+    <section class="card"><div class="card-h"><h2 id="month-title">Tingkat penyelesaian menurut tanggal daftar</h2><div class="card-tools"><div class="seg sm" id="month-mode"><button type="button" data-m="done" aria-pressed="true">Selesai dan belum selesai</button><button type="button" data-m="status" aria-pressed="false">Rincian status</button></div></div></div><p class="lead-line" id="month-lead"></p><div class="chart" id="c-month"></div><div class="legend" id="lg-month"></div><div class="events" id="ev-list"></div></section>
+    <div class="grid g-2e">
+      <section class="card"><div class="card-h"><h2>Penjaluran dokumen</h2><span class="hint" id="jalur-hint"></span></div><div class="bars" id="c-jalur"></div><div id="c-jalur-kode" style="margin-top:14px"></div></section>
+      <section class="card"><div class="card-h"><h2>Tindak lanjut</h2><span class="hint" id="fu-hint"></span></div><div id="c-follow"></div></section>
+    </div>
+    <div class="grid g-2e">
+      <section class="card"><div class="card-h"><h2>Waktu penyelesaian</h2><span class="hint" id="lt-hint"></span></div><div class="bars" id="c-lead"></div></section>
+      <section class="card"><div class="card-h"><h2>Rata-rata lama per status</h2><span class="hint">Dari perubahan yang teramati</span></div><div id="c-tis"></div></section>
+    </div>
+    <section class="card" id="detail-card"><div class="card-h"><h2>Rincian dokumen</h2><span class="hint" id="d-hint"></span></div>
+      <div class="tools">
+        <input id="d-q" type="search" placeholder="Cari nomor pengajuan, nomor daftar, respons, penanggung jawab, atau catatan" aria-label="Cari dokumen">
+        <div class="field"><label for="d-s">Status</label><select id="d-s"></select></div>
+        <div class="field"><label for="d-a">Umur</label><select id="d-a"></select></div>
+        <div class="field"><label for="d-f">Tindak lanjut</label><select id="d-f"></select></div>
+        <div class="field"><label for="d-c">Perubahan</label><select id="d-c"><option value="">Semua</option><option value="changed">Berubah status</option><option value="completed">Selesai</option><option value="newover">Baru melewati SLA</option><option value="new">Dokumen baru</option><option value="priority">Prioritas (Jalur Merah/pemeriksaan)</option></select></div>
+        <div class="field"><label for="d-o">Urutkan</label><select id="d-o"><option value="new">Terbaru</option><option value="age">Umur terlama</option><option value="sla">Paling lama melewati SLA</option><option value="lead">Penyelesaian terlama</option><option value="target">Target terdekat</option></select></div>
+        <button class="btn ghost" id="d-clear" type="button">Hapus filter rincian</button>
+      </div>
+      <div class="bulk" id="bulk" hidden><b id="bulk-n"></b> <span>dokumen dipilih</span> <button class="btn primary" id="bulk-fu" type="button">Isi tindak lanjut</button><button class="btn" id="bulk-copy" type="button">Salin nomor pengajuan</button><button class="btn ghost" id="bulk-clear" type="button">Batal pilih</button></div>
+      <div class="tbl-wrap tall"><table id="t-detail"></table></div>
+      <div class="pager"><span id="pg-info"></span><button class="btn" id="pg-p" type="button">‹ Sebelumnya</button><button class="btn" id="pg-n" type="button">Berikutnya ›</button></div>
+    </section>
+  </main>
+
+  <section class="empty-state" id="empty" hidden>
+    <img src="icons/icon128.png" alt="" width="72" height="72">
+    <h2>Belum ada data</h2>
+    <ol><li>Masuk ke portal CEISA 4.0 seperti biasa dengan akun Anda sendiri.</li><li>Buka halaman <a href="https://portal.beacukai.go.id/dokumen-pabean/" target="_blank" rel="noopener">Daftar Dokumen</a> dan tunggu sampai tabel dokumen tampil.</li><li>Kembali ke halaman ini, lalu klik <b>Perbarui data</b>. Biarkan tab portal tetap terbuka.</li><li>Atur <b>Profil perusahaan</b>: jenis fasilitas, status final, dan target SLA.</li></ol>
+    <p class="muted">Ingin melihat tampilannya terlebih dahulu? <button class="linkbtn" id="b-demo-on" type="button">Coba mode demo</button> · <button class="linkbtn" id="b-guide" type="button">Lihat panduan</button></p>
+  </section>
+
+  <footer class="foot" id="foot"></footer>
+  <p class="support" id="support-wrap" hidden><span>CEISA Monitor gratis untuk semua pengguna.</span> <a id="support" href="#" target="_blank" rel="noopener noreferrer">Dukung pengembangannya lewat Saweria</a></p>
+</div>
+
+<dialog id="dlg-profile">
+  <form method="dialog" id="f-profile">
+    <h2>Profil perusahaan</h2>
+    <p class="muted" style="margin-top:0" id="pf-intro">Profil ini menyesuaikan perhitungan dan tampilan dengan situasi perusahaan Anda. Isi sekali pada pemakaian pertama, lalu simpan.</p>
+    <div class="form-grid">
+      <label>Jenis fasilitas<select id="pf-fac" required></select><small class="muted" id="pf-fac-hint"></small></label>
+      <label>Nama yang ditampilkan<input type="text" id="pf-name" placeholder="Nama perusahaan"></label>
+      <label>Warna utama<input type="color" id="pf-accent" value="#13315C"></label>
+      <label>Logo (PNG/JPG, opsional)<input type="file" id="pf-logo" accept="image/png,image/jpeg"></label>
+      <label>Target kepatuhan SLA (%)<input type="number" id="pf-target" min="50" max="100"></label>
+      <label class="chk"><input type="checkbox" id="pf-apply-sla" checked> Terapkan templat SLA sesuai jenis fasilitas (dapat diubah di Pengaturan)</label>
+    </div>
+    <div class="logo-prev" id="pf-logo-prev"></div>
+    <h3>Status final</h3>
+    <p class="muted" style="margin:0 0 8px">Centang status yang berarti proses dokumen sudah berakhir. Status lain dihitung "belum selesai".</p>
+    <div class="checks" id="pf-closed"></div>
+    <h3>Catatan kejadian</h3>
+    <p class="muted" style="margin:0 0 8px">Satu baris per kejadian, format <code>YYYY-MM: keterangan</code>. Contoh: <code>2026-08: Gangguan sistem CEISA 12–14 Agustus</code>. Ditampilkan di grafik tren dan presentasi.</p>
+    <textarea id="pf-events" rows="3" spellcheck="false"></textarea>
+    <div class="dlg-actions"><button class="btn ghost" id="pf-export" type="button">Ekspor profil</button><label class="btn ghost" for="pf-import">Impor profil<input type="file" id="pf-import" accept="application/json" hidden></label><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" type="submit">Simpan profil</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-settings">
+  <form method="dialog" id="f-settings">
+    <h2>Pengaturan</h2>
+    <div class="form-grid">
+      <label>Tarik dokumen sejak tanggal daftar<span class="inrow"><input type="date" id="s-start"><button class="btn ghost sm" type="button" id="s-all">Semua data</button></span><small class="muted" id="s-start-hint">Kosong berarti semua data yang tersedia di portal CEISA 4.0.</small></label>
+      <label>Tanggal akhir (kosongkan untuk hari ini)<input type="date" id="s-end"></label>
+      <label>Kode dokumen yang ditarik<input type="text" id="s-kode" placeholder="Kosongkan untuk semua jenis. Contoh: 613, 631, 25"></label>
+      <label>Pembaruan otomatis<select id="s-auto"><option value="0">Nonaktif</option><option value="30">Setiap 30 menit</option><option value="60">Setiap 1 jam</option><option value="180">Setiap 3 jam</option></select></label>
+      <label class="chk"><input type="checkbox" id="s-login"> Perbarui otomatis saat saya masuk ke portal CEISA bila data sudah lama</label>
+      <label>Data dianggap lama setelah<select id="s-stale"><option value="2">2 jam</option><option value="4">4 jam</option><option value="6">6 jam</option><option value="12">12 jam</option><option value="24">24 jam</option></select></label>
+      <label class="chk"><input type="checkbox" id="s-notify"> Notifikasi saat ada perubahan status atau dokumen baru melewati SLA</label>
+    </div>
+    <h3>Tindak lanjut dan pengingat</h3>
+    <div class="form-grid">
+      <label class="chk"><input type="checkbox" id="s-morning"> Ringkasan pagi: notifikasi harian berisi dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo</label>
+      <label class="chk"><input type="checkbox" id="s-remind"> Pengingat tugas yang jatuh tempo hari ini, besok, atau terlambat</label>
+      <label class="chk"><input type="checkbox" id="s-prio"> Peringatan prioritas saat dokumen baru terkena Jalur Merah, pemeriksaan, atau respons SPJM/SPJK</label>
+      <label>Jam ringkasan pagi<input type="time" id="s-mtime" value="08:00"></label>
+      <label>Uji notifikasi<button class="btn ghost" type="button" id="s-mtest">Tampilkan ringkasan pagi sekarang</button></label>
+      <label class="wide">Templat tugas sendiri (satu per baris)<textarea id="s-tpl" rows="4" placeholder="Pembongkaran; Gate In TPS | Minta gudang mengirim foto dan berita acara bongkar&#10;Minta PPJK mengirim draf PIB untuk diperiksa"></textarea></label>
+      <p class="muted wide-p">Format: <b>status; status | teks tugas</b> untuk status tertentu, atau cukup <b>teks tugas</b> untuk templat umum. Templat sendiri muncul paling atas di dialog tindak lanjut.</p>
+      <div class="wide-p fu-io"><button class="btn ghost" type="button" id="s-fu-exp">Ekspor tindak lanjut (.json)</button><button class="btn ghost" type="button" id="s-fu-imp">Impor tindak lanjut</button><input type="file" id="s-fu-file" accept=".json,application/json" hidden><span class="muted">Untuk berbagi catatan tindak lanjut, nomor WhatsApp, dan templat antarkomputer tim tanpa server. Saat impor, isian yang lebih baru dipertahankan.</span></div>
+    </div>
+    <h3>Batas waktu penyelesaian (SLA internal)</h3>
+    <div class="sla-help">
+      <p>SLA adalah jumlah hari sejak tanggal pendaftaran yang dianggap wajar sampai dokumen selesai. Dokumen yang belum selesai melewati batas ini dihitung <b>melewati SLA</b>.</p>
+      <ol>
+        <li><b>SLA bawaan</b> berlaku untuk semua dokumen.</li>
+        <li>Isi angka pada <b>jenis dokumen</b> bila jenis itu perlu batas berbeda.</li>
+        <li>Buka <b>Atur per status</b> bila status tertentu perlu batas sendiri. Kolom kosong berarti mengikuti batas di atasnya.</li>
+      </ol>
+    </div>
+    <div class="sla-def">
+      <label for="s-sla">SLA bawaan</label>
+      <span class="slanum"><input type="number" id="s-sla" min="1" max="180"><span>hari</span></span>
+      <span class="spacer"></span>
+      <button class="btn ghost sm" type="button" id="s-sla-tpl">Pakai templat fasilitas</button>
+      <button class="btn ghost sm" type="button" id="s-sla-reset">Kosongkan aturan</button>
+    </div>
+    <div class="sla-wrap" id="s-sla-rules"></div>
+    <p class="sla-sum" id="s-sla-sum"></p>
+    <p class="muted">Pembaruan otomatis hanya dapat berjalan selama peramban menyala, tab portal CEISA terbuka, dan sesi masih aktif. Bila komputer dimatikan atau sesi berakhir, data diperbarui otomatis saat Anda masuk kembali ke portal. Tren dan perubahan tetap lengkap karena dihitung ulang dari tanggal daftar dan tanggal respons setiap dokumen. Seluruh data tersimpan lokal di peramban ini, terpisah per akun perusahaan.</p>
+    <div class="dlg-actions"><button class="btn ghost" id="s-clear" type="button">Hapus data tersimpan</button><button class="btn ghost" id="s-demo" type="button">Coba mode demo</button><a class="btn ghost" id="s-support" href="#" target="_blank" rel="noopener noreferrer" hidden>Dukung proyek ini</a><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" id="s-save" type="submit">Simpan</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-welcome">
+  <form method="dialog" class="welcome">
+    <h2>Selamat datang di CEISA Monitor</h2>
+    <p class="muted" style="margin-top:0">Pantau status dokumen CEISA 4.0 perusahaan Anda dalam satu layar. Empat langkah untuk memulai:</p>
+    <ol class="steps">
+      <li><b>Masuk ke portal CEISA 4.0</b> seperti biasa dengan akun Anda sendiri.</li>
+      <li><b>Buka halaman Daftar Dokumen</b> <span class="url">portal.beacukai.go.id/dokumen-pabean/</span> dan tunggu sampai tabel dokumen tampil. Tombol <b>CEISA Monitor</b> akan muncul di pojok kanan bawah portal.</li>
+      <li><b>Kembali ke dasbor ini, lalu klik Perbarui data.</b> Ekstensi membaca daftar dokumen dari sesi login Anda. Penarikan pertama memerlukan 1 sampai 3 menit. Biarkan tab portal tetap terbuka.</li>
+      <li><b>Atur Profil perusahaan</b>: jenis fasilitas, status final, dan target SLA.</li>
+    </ol>
+    <p class="note">Data diolah dan disimpan hanya di peramban ini. Ekstensi tidak menyimpan kata sandi atau token, tidak mengirim data ke server, dan hanya membaca data. Ekstensi ini tidak resmi dan tidak berafiliasi dengan Direktorat Jenderal Bea dan Cukai.</p>
+    <p class="muted">Ingin melihat hasilnya terlebih dahulu tanpa masuk ke portal? Coba mode demo dengan data contoh.</p>
+    <div class="dlg-actions"><button class="btn ghost" value="close" type="submit">Tutup</button><span class="spacer"></span><button class="btn" id="w-demo" type="button">Coba mode demo</button><button class="btn primary" id="w-portal" type="button">Buka Daftar Dokumen CEISA</button></div>
+  </form>
+</dialog>
+<dialog id="dlg-fu">
+  <form method="dialog" id="f-fu">
+    <h2 id="fu-title">Tindak lanjut</h2>
+    <div class="fu-doc" id="fu-doc"></div>
+    <div class="form-grid">
+      <label>Penanggung jawab<input type="text" id="fu-pic" list="fu-pics" placeholder="Nama penanggung jawab"></label>
+      <label>Status tindak lanjut<select id="fu-state"></select></label>
+      <label>Target selesai<input type="date" id="fu-target"></label>
+      <label>Nomor WhatsApp penanggung jawab<input type="tel" id="fu-wa" placeholder="Contoh: 0812 3456 7890 (opsional)" autocomplete="off"></label>
+      <label class="wide">Tugas yang diminta<select id="fu-tpl"></select></label>
+      <label class="wide"><span class="sr">Rincian tugas</span><textarea id="fu-task" rows="2" placeholder="Apa yang harus dilakukan penanggung jawab"></textarea></label>
+      <label class="wide">Catatan<textarea id="fu-note" rows="2" placeholder="Contoh: barang sudah diterima gudang pada 12 September, menunggu realisasi pembongkaran"></textarea></label>
+    </div>
+    <details class="fu-log" id="st-log" hidden><summary>Riwayat status dokumen</summary><div id="st-log-body"></div></details>
+    <details class="fu-log" id="fu-log" hidden><summary>Riwayat tindak lanjut</summary><ol id="fu-log-list"></ol></details>
+    <p class="muted fu-wa-hint">Pesan tugas disusun dalam format WhatsApp. Ekstensi tidak mengirim pesan; Anda yang menempelkan atau mengirimnya dari WhatsApp.</p>
+    <datalist id="fu-pics"></datalist>
+    <div class="dlg-actions"><button class="btn ghost" id="fu-del" type="button">Hapus</button><button class="btn ghost" value="cancel" type="submit" formnovalidate>Batal</button><span class="spacer"></span><button class="btn" value="save-copy" type="submit">Simpan &amp; salin pesan</button><button class="btn" value="save-wa" type="submit">Simpan &amp; buka WhatsApp</button><button class="btn primary" value="save" type="submit">Simpan</button></div>
+  </form>
+</dialog>
+<dialog id="dlg-morning">
+  <form method="dialog">
+    <h2>Ringkasan pagi</h2>
+    <p class="muted" style="margin-top:0">Ringkasan sejak kemarin, siap ditempel ke grup WhatsApp tim atau dikirim ke atasan.</p>
+    <textarea id="mo-text" rows="18" readonly aria-label="Ringkasan pagi"></textarea>
+    <div class="dlg-actions"><button class="btn ghost" value="close" type="submit">Tutup</button><span class="spacer"></span><button class="btn" id="mo-tasks" type="button">Kirim tugas jatuh tempo</button><button class="btn" id="mo-copy" type="button">Salin</button><button class="btn primary" id="mo-wa" type="button">Buka WhatsApp</button></div>
+  </form>
+</dialog>
+<dialog id="dlg-task">
+  <form method="dialog" class="task-dlg">
+    <h2>Kirim tugas ke penanggung jawab</h2>
+    <p class="muted" style="margin-top:0">Satu pesan per penanggung jawab, berisi dokumen yang belum selesai beserta tugas, target, dan catatannya. Pilih nama untuk melihat pratinjau.</p>
+    <div class="form-grid"><label>Nama pengirim (opsional)<input type="text" id="tk-from" placeholder="Contoh: Trias, Supervisor EXIM"></label><label>Cakupan<select id="tk-scope"><option value="open">Semua tugas yang belum selesai</option><option value="overdue">Hanya yang melewati target</option><option value="due">Jatuh tempo (terlambat, hari ini, besok)</option><option value="unsent">Hanya yang belum pernah dikirim</option></select></label></div>
+    <div class="tk-grid"><div class="tk-list" id="tk-list"></div><textarea id="tk-preview" rows="16" readonly aria-label="Pratinjau pesan"></textarea></div>
+    <div class="dlg-actions"><button class="btn ghost" value="close" type="submit">Tutup</button><span class="spacer"></span><button class="btn" id="tk-copy" type="button">Salin pesan</button><button class="btn primary" id="tk-wa" type="button">Buka WhatsApp</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-xlsx">
+  <form method="dialog" id="f-xlsx">
+    <h2>Ekspor Excel</h2>
+    <p class="muted" style="margin-top:0" id="x-intro">Isi mengikuti filter dasbor yang sedang aktif.</p>
+    <div class="checks" id="x-sheets"></div>
+    <label class="chk" style="margin-top:10px"><input type="checkbox" id="x-perpic"> Tambahkan satu lembar untuk setiap penanggung jawab (siap dikirim ke masing-masing)</label>
+    <div class="quick" style="margin-top:10px"><button type="button" data-preset="all">Lengkap</button><button type="button" data-preset="boss">Untuk atasan (tanpa rincian)</button><button type="button" data-preset="team">Untuk tim (rincian dan tindak lanjut)</button></div>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit">Unduh Excel</button></div>
+  </form>
+</dialog>
+<dialog id="dlg-share">
+  <form method="dialog" id="f-share">
+    <h2>Ringkasan WhatsApp/surel</h2>
+    <div class="share-grid">
+      <div>
+        <div class="seg" id="sh-style"><button type="button" data-s="wa" aria-pressed="true">WhatsApp</button><button type="button" data-s="plain" aria-pressed="false">Surel / teks biasa</button></div>
+        <p class="muted" style="margin:10px 0 6px">Bagian yang disertakan</p>
+        <div class="checks col" id="sh-parts"></div>
+        <p class="muted" id="sh-count" style="margin-top:10px"></p>
+      </div>
+      <pre class="share-prev" id="sh-prev" aria-label="Pratinjau ringkasan"></pre>
+    </div>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Tutup</button><button class="btn primary" type="button" id="sh-copy">Salin</button></div>
+  </form>
+</dialog>
+<dialog id="dlg-deck">
+  <form method="dialog" id="f-deck">
+    <h2 id="k-title">Buat presentasi</h2>
+    <p class="muted" style="margin-top:0" id="k-intro">Mencakup semua jenis dokumen pada periode yang dipilih. Bulan akhir dibandingkan dengan bulan sebelumnya dan bulan yang sama tahun lalu (bila datanya tersedia).</p>
+    <div class="form-grid">
+      <label>Bulan awal<select id="k-from"></select></label>
+      <label>Bulan akhir<select id="k-to"></select></label>
+      <label id="k-comp-wrap" hidden>Perusahaan<select id="k-comp"></select></label>
+    </div>
+    <div class="quick" id="k-quick"></div>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit" id="k-go">Unduh .pptx</button></div>
+  </form>
+</dialog>
+<div class="tip" id="tip" hidden></div>
+<div class="pop" id="chgpop" role="dialog" aria-label="Rincian perubahan" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="vendor/exceljs.min.js"></script>
+<script src="vendor/pptxgen.bundle.js"></script>
+<script type="module" src="src/dashboard.js"></script>
+</body></html>

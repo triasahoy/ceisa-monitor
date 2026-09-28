@@ -1,0 +1,6 @@
+{
+  "extName": { "message": "CEISA Monitor – Pemantau Dokumen Pabean (Tidak Resmi)" },
+  "extShortName": { "message": "CEISA Monitor" },
+  "extDescription": { "message": "Pantau status dokumen CEISA 4.0: dasbor, SLA, tindak lanjut, presentasi, dan laporan resmi. Diproses lokal, tanpa server." },
+  "actionTitle": { "message": "CEISA Monitor" }
+}

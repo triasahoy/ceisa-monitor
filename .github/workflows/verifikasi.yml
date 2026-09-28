@@ -1,0 +1,30 @@
+name: Verifikasi paket
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verifikasi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cocokkan SHA-256 setiap berkas ekstensi
+        run: sha256sum -c SHA256SUMS.txt --quiet
+      - name: Periksa manifest dan larangan kode berbahaya
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, sys
+          m = json.load(open('extension/manifest.json'))
+          assert m['manifest_version'] == 3, 'Harus Manifest V3'
+          assert m['host_permissions'] == ['https://portal.beacukai.go.id/*'], 'Izin host melebar'
+          assert 'script-src \'self\'' in m['content_security_policy']['extension_pages'], 'CSP berubah'
+          bad = []
+          for f in pathlib.Path('extension/src').glob('*.js'):
+              t = f.read_text(encoding='utf-8')
+              if re.search(r'\beval\(|new Function\(', t): bad.append(f'{f}: eval')
+              for u in re.findall(r'https?://([a-z0-9.-]+)', t, re.I):
+                  if u.lower() not in ('portal.beacukai.go.id', 'apis-gw.beacukai.go.id', 'www.w3.org', 'saweria.co', 'wa.me'): bad.append(f'{f}: {u}')
+          if bad: print('\n'.join(bad)); sys.exit(1)
+          print('Manifest, CSP, dan kode lolos pemeriksaan.')
+          PY
