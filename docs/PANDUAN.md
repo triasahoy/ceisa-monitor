@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.10
+# Panduan Lengkap CEISA Monitor v1.11
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -29,7 +29,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.10.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.11.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -58,7 +58,7 @@ Secara bawaan, CEISA Monitor menarik **semua data** yang tersedia di portal, ter
 - **Auto / Terang / Gelap**: tema tampilan.
 - **Status sesi**: menunjukkan apakah portal terhubung dan berapa lama lagi sesi berlaku.
 - **Perbarui data**: menarik data terbaru dari portal.
-- **Ekspor**: Buat laporan (presentasi, laporan resmi, Excel sekaligus), Excel sesuai filter, dan ringkasan WhatsApp/surel.
+- **Ekspor**: **Buat laporan** (presentasi, laporan resmi, dan Excel sekaligus) dan **Bagikan ringkasan** (WhatsApp/surel).
 - **Profil perusahaan** dan **Pengaturan**: dijelaskan di bagian 16 dan 17.
 
 ## 4. Periode, pembanding, dan filter
@@ -67,12 +67,21 @@ Secara bawaan, CEISA Monitor menarik **semua data** yang tersedia di portal, ter
 
 - **Periode**: 7, 30, atau 90 hari terakhir, bulan ini, bulan lalu, kuartal ini, tahun ini, tahun lalu, 12 bulan terakhir, semua data, atau rentang tanggal khusus. Grafik otomatis menjadi harian (≤ 45 hari), mingguan (≤ 200 hari), atau bulanan.
 - **Bandingkan dengan**: 7 hari lalu, 30 hari lalu, periode sebelumnya, atau periode sama tahun lalu.
-- **Jalur, perusahaan, kantor, dan jenis dokumen**: menyaring seluruh dasbor sekaligus.
+- **Jalur dan jenis dokumen**: menyaring seluruh dasbor sekaligus. Bilah filter hanya dua baris agar tidak menutupi layar.
+- **Filter lain**: membuka pilihan **Bandingkan dengan**, perusahaan, dan kantor. Titik emas di tombol menandakan ada filter lain yang aktif.
 - **Atur ulang**: kembali ke tampilan awal.
+
+![Filter lain](images/36_filter_terbuka.png)
 
 Bila tanggal awal penarikan pernah diubah dan periode yang dipilih lebih awal dari data yang tersimpan, dasbor menampilkan tombol **Tarik data sejak …** dan **Tarik semua data**.
 
 ![Periode](gif/periode.gif)
+
+## Hari ini
+
+Kartu **Hari ini** di bagian atas dasbor menampilkan hal yang perlu ditindaklanjuti sekarang: tugas terlambat atau jatuh tempo, dokumen Jalur Merah atau pemeriksaan, dokumen yang baru melewati SLA, dokumen melewati SLA yang belum memiliki penanggung jawab, serta (setelah isi dokumen diambil) pengeluaran sementara yang melewati batas hari dan jaminan yang jatuh tempo dalam 30 hari. Klik satu baris untuk langsung melihat daftarnya. Bila tidak ada yang mendesak, kartu menyatakannya.
+
+![Kartu Hari ini](images/33_hari_ini.png)
 
 ## 5. Enam angka utama
 
@@ -101,17 +110,19 @@ Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data.
 
 ![Isi dokumen: pengeluaran sementara](images/28_isi_dokumen.png)
 
-Tab **Nilai dan pungutan** merangkum nilai pabean dan pungutan per jenis fasilitas. Tab **Pemeriksaan** menandai dokumen pelengkap yang belum ada, jaminan yang jatuh tempo dalam 30 hari, invoice ganda, dan perbedaan HS. Setiap temuan dapat ditandai **Sudah dicek**.
+Tab **Nilai dan pungutan** merangkum nilai pabean dan pungutan per jenis fasilitas. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas; angka yang sama masuk ke lembar Nilai & Pungutan di Excel. Tab **Pemeriksaan** menandai dokumen pelengkap yang belum ada, jaminan yang jatuh tempo dalam 30 hari, invoice ganda, dan perbedaan HS. Setiap temuan dapat ditandai **Sudah dicek**.
 
 ![Nilai dan pungutan](images/32_nilai_pungutan.png)
+
+![Rekap bulanan](images/34_rekap_bulanan.png)
 
 ![Pemeriksaan otomatis](images/30_pemeriksaan.png)
 
 **Kode respons angka.** Respons yang tampil sebagai angka (misalnya 2305) langsung diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/). Artinya bergantung pada jenis dokumen: akhiran 03 berarti SPPB pada BC 2.3, tetapi Surat Perintah Pemeriksaan Fisik pada BC 2.6.1. Sel Respons menampilkan singkatannya; klik untuk melihat nama lengkap. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi, sehingga kodenya tidak ditebak.
 
-**Riwayat dari portal (jam pasti).** Klik **Ambil riwayat dari portal** di kartu ini, di kolom Respons yang bertuliskan "tanpa nama" atau berupa angka, atau di dialog tindak lanjut. CEISA Monitor mengambil Riwayat Status (termasuk Validasi, Siap Jalur, dan Penjaluran) dan Riwayat Respon langsung dari portal, sehingga Anda tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon satu per satu. Fitur ini langsung aktif tanpa pengaturan. Untuk laporan, pilih beberapa dokumen lalu klik **Ambil riwayat portal**, atau klik **Lengkapi riwayat dari portal** di dialog Excel; lembar **Riwayat Portal** berisi waktu layanan dan lama setiap perpindahan status, dan **Riwayat Rinci** berisi setiap status dan respons dengan jamnya. Nama petugas dan pengguna tidak diambil. Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
+Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
 
-Kartu **Waktu proses** merangkum riwayat tersebut: median waktu layanan portal per jenis dokumen, hari penyelesaian, dan lama setiap perpindahan status.
+Kartu **Waktu proses** merangkum hari penyelesaian (dari tanggal daftar sampai respons terakhir) dan lama setiap perpindahan status, dihitung dari rekaman pembaruan Anda sendiri.
 
 ![Waktu proses](images/31_waktu_proses.png)
 
@@ -166,7 +177,7 @@ Klik **+ Catat** pada baris dokumen, atau centang beberapa dokumen lalu klik **I
 | Status tindak lanjut | Belum ditindaklanjuti, Sedang dicek, Menunggu pihak lain, Selesai dicek |
 | Target selesai | Tanggal target; dipakai untuk pengingat dan filter Jatuh tempo |
 | Nomor WhatsApp | Disimpan per nama, cukup diisi sekali |
-| Tugas yang diminta | Terisi otomatis sesuai status dokumen; dapat diubah |
+| Tugas yang diminta | Terisi otomatis sesuai status dokumen. Pilih **Tulis sendiri…** untuk mengosongkan kolom lalu mengetik tugas sendiri; mengetik langsung di kolom juga bisa |
 | Catatan | Keterangan bebas |
 
 Bagian bawah dialog menampilkan **Riwayat status dokumen** dan **Riwayat tindak lanjut**. Setiap perubahan penanggung jawab, status, target, tugas, catatan, dan pengiriman WhatsApp tercatat dengan waktunya. Riwayat tidak dapat diubah karena berfungsi sebagai jejak audit.
@@ -206,9 +217,10 @@ Ekstensi tidak mengirim pesan sendiri. WhatsApp hanya dibuka saat Anda mengklik 
 
 ## 13. Ringkasan pagi, pengingat, dan prioritas
 
-- **Ringkasan untuk tim**: tombol di kartu Perubahan menyusun ringkasan sejak kemarin yang siap ditempel ke WhatsApp.
+- **Bagikan ringkasan**: menu Ekspor → Bagikan ringkasan menyusun ringkasan sejak kemarin yang siap ditempel ke WhatsApp atau surel.
 - **Ringkasan pagi**: setiap hari pada jam yang diatur (bawaan 08.00), notifikasi menampilkan dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo. Tombol **Salin ringkasan WhatsApp** membuka ringkasan siap tempel ke grup tim; tombol **Kirim tugas jatuh tempo** membuka dialog penugasan. Bila komputer mati pada jam tersebut, notifikasi muncul saat Chrome dibuka kembali pada hari itu.
 - **Pengingat tugas**: tugas terlambat, jatuh tempo hari ini, dan besok. Saring di tabel rincian dengan **Tindak lanjut → Jatuh tempo**.
+- **Pengeluaran sementara**: notifikasi harian bila sisa barang belum kembali melewati batas hari (bawaan 180 hari, dapat diubah atau dimatikan dengan 0) atau jaminan jatuh tempo dalam 30 hari. Dihitung dari isi dokumen yang sudah diambil.
 - **Peringatan prioritas**: notifikasi saat dokumen baru terkena Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF. Saring dengan **Perubahan → Prioritas**.
 
 ![Ringkasan pagi](images/22_ringkasan_pagi.png)
@@ -249,17 +261,18 @@ Nama status di depan tanda `|` membuat templat disarankan untuk status tersebut;
 
 ![Pengaturan](images/11_pengaturan.png)
 
-- **Tarik dokumen sejak tanggal daftar**: kosongkan (atau klik **Semua data**) untuk menarik semua dokumen di portal.
-- **Kode dokumen yang ditarik**: kosongkan untuk semua jenis.
-- **Pembaruan otomatis**: saat masuk ke portal bila data sudah lama, dan opsional terjadwal setiap 30 menit, 1 jam, atau 3 jam selama portal terbuka.
-- **Tindak lanjut dan pengingat**: bagian 13 dan 15.
-- **SLA**: batas hari bawaan, batas khusus per jenis dokumen, dan per status. Jumlah dokumen yang melewati SLA dihitung ulang saat angka diubah.
+Empat bagian yang dapat dilipat:
+
+- **Data**: sejak tanggal daftar (kosong = semua data), kode dokumen (kosong = semua), pembaruan otomatis, dan batas data dianggap lama.
+- **Notifikasi**: satu pilihan (Lengkap, Ringkasan pagi saja, atau Nonaktif) dan jam ringkasan pagi. **Atur satu per satu** menyesuaikan tiap jenis, termasuk batas umur pengeluaran sementara. Lihat bagian 13.
+- **Tindak lanjut dan tim**: templat tugas sendiri, ekspor/impor catatan, dan pilihan menyimpan Excel asli portal ke Unduhan.
+- **SLA**: batas hari bawaan, per jenis dokumen, dan per status. Kolom kosong mengikuti batas di atasnya.
 
 ## 17. Profil perusahaan
 
 ![Profil perusahaan](images/12_profil.png)
 
-Pilih jenis fasilitas (KEK, kawasan berikat, importir/eksportir umum, PPJK, atau lainnya), nama tampilan, logo, warna, target SLA, status final, dan catatan kejadian. Profil dapat diekspor dan diimpor agar rekan satu perusahaan memakai pengaturan yang sama.
+Isi jenis fasilitas (menentukan templat SLA), nama, target SLA, warna, dan logo. **Status final** dan **Catatan kejadian** ada di bagian yang dapat dilipat. Profil dapat diekspor dan diimpor agar rekan satu perusahaan memakai pengaturan yang sama.
 
 ## 18. Ekspor
 
@@ -268,8 +281,7 @@ Pilih jenis fasilitas (KEK, kawasan berikat, importir/eksportir umum, PPJK, atau
 | Ekspor | Isi |
 |---|---|
 | Buat laporan | Pilih periode sekali, lalu centang berkas yang dibuat: presentasi 22 slide (judul berupa kesimpulan, slide "Keputusan yang dimohon"), laporan resmi A4 format dinas (cetak ke PDF atau unduh sebagai Word), dan/atau Excel dengan lembar pilihan |
-| Excel sesuai filter dasbor | Excel untuk filter yang sedang aktif: preset untuk atasan atau tim, satu lembar per penanggung jawab, serta lembar Riwayat Portal dan Isi Dokumen |
-| Ringkasan WhatsApp/surel | Pratinjau, pilihan bagian, format WhatsApp atau teks biasa |
+| Bagikan ringkasan | Pratinjau, pilihan bagian, format WhatsApp atau teks biasa |
 
 ![Presentasi](images/14_presentasi.png)
 

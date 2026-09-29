@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, ringkasan pagi, presentasi rapat, laporan resmi,
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.10.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.11.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -31,11 +31,11 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Periode bebas | 7/30/90 hari, bulan ini, bulan lalu, kuartal, tahun ini, tahun lalu, semua data, atau rentang tanggal sendiri |
 | Tren yang mudah dibaca | Grafik Aliran dokumen: masuk, selesai, dan posisi yang belum selesai |
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
-| Kapan berubah | Kartu rincian: status sebelum dan sesudah, riwayat status, jam pasti setiap status dan respons dari portal, dan kode respons resmi CEISA 4.0; kartu Waktu proses menampilkan waktu layanan portal dalam jam |
-| Isi dokumen | Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap, barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer; pengeluaran sementara (mis. BC 2.6.1 dan 2.6.2) dicocokkan per seri barang; pemeriksaan otomatis |
+| Kapan berubah | Kartu rincian: status sebelum dan sesudah, riwayat status yang terekam, dan kode respons resmi CEISA 4.0 diterjemahkan otomatis; kartu Waktu proses menampilkan hari penyelesaian dan lama setiap perpindahan status |
+| Isi dokumen | Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap, barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer; pengeluaran sementara (mis. BC 2.6.1 dan 2.6.2) dicocokkan per seri barang; pemeriksaan otomatis; rekap pungutan dan fasilitas per bulan |
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
-| Pengingat | Ringkasan pagi, tugas jatuh tempo, dan peringatan prioritas untuk Jalur Merah, pemeriksaan, dan SPJM |
+| Pengingat | Kartu **Hari ini** di dasbor, ringkasan pagi, tugas jatuh tempo, peringatan prioritas (Jalur Merah, pemeriksaan, SPJM), dan peringatan pengeluaran sementara (sisa belum kembali dan jaminan jatuh tempo) |
 | Laporan | Presentasi .pptx 22 slide, laporan resmi A4 (PDF/Word), Excel 8 lembar, ringkasan WhatsApp |
 | Tim | Templat tugas sendiri, ekspor/impor catatan tindak lanjut antarkomputer tanpa server |
 | Kenyamanan | Bahasa Indonesia dan English, tema terang dan gelap, mode demo |
@@ -53,14 +53,16 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Isi dokumen](docs/images/28_isi_dokumen.png) |
 | **Waktu proses** | **Pemeriksaan otomatis** |
 | ![Waktu proses](docs/images/31_waktu_proses.png) | ![Pemeriksaan](docs/images/30_pemeriksaan.png) |
+| **Hari ini** | **Rekap bulanan** |
+| ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
 
-Video **Yang baru di v1.10** (3 menit, bernarasi dan bersubtitle): riwayat portal dan kode respons, isi dokumen dan pengeluaran sementara, kartu arsip, serta waktu proses dan laporan. Unduh `CEISA_Monitor_Yang_Baru_v1.10.mp4` dari rilis [v1.10.0](../../releases/tag/v1.10.0).
+Video **Yang baru di v1.11** (bernarasi dan bersubtitle): kartu Hari ini, filter yang lebih ringkas, isi dokumen dan pengeluaran sementara, rekap bulanan, dan laporan. Unduh `CEISA_Monitor_Yang_Baru_v1.11.mp4` dari rilis [v1.11.0](../../releases/tag/v1.11.0).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.10.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.11.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.

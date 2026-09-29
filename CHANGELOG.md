@@ -1,5 +1,16 @@
 # Catatan Perubahan
 
+## 1.11.0 (29 September 2026)
+
+- **Riwayat dari portal dihapus.** Jam pasti status dan respons dari portal jarang dipakai untuk keputusan, sementara memperbanyak permintaan ke portal. Yang dipertahankan: kode respons angka tetap diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0, dan kartu Waktu proses tetap menampilkan hari penyelesaian serta lama per status dari rekaman Anda sendiri. Lembar Excel Riwayat Portal dan Riwayat Rinci, tombol Ambil riwayat/rincian portal, dan pengaturan teknis riwayat ikut dihapus. Setelah Perbarui data, ekstensi tidak lagi mengambil riwayat otomatis.
+- **Kartu Hari ini** di bagian atas dasbor: tugas terlambat atau jatuh tempo, Jalur Merah/pemeriksaan, baru melewati SLA, belum ada penanggung jawab, serta pengeluaran sementara melewati batas hari dan jaminan jatuh tempo ≤ 30 hari. Setiap baris membuka daftarnya.
+- **Rekap bulanan** di kartu Isi dokumen (dan di lembar Nilai & Pungutan pada Excel): dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, dan persentase fasilitas per bulan.
+- **Peringatan pengeluaran sementara**: notifikasi harian bila sisa barang belum kembali melewati batas hari (bawaan 180, dapat diubah atau 0 = mati) atau jaminan jatuh tempo dalam 30 hari.
+- **Tampilan**: font Plus Jakarta Sans dan JetBrains Mono disertakan di dalam paket (lisensi SIL OFL) sehingga tampilan sama di semua komputer; bilah filter menjadi dua baris dengan tombol **Filter lain** (Bandingkan dengan, perusahaan, kantor); tanggal seragam dd-mm-yyyy; satuan barang memakai nama (pcs, kg, m); kolom umur bersatuan hari; penanda bentuk (▲ ◆) selain warna.
+- **Pengaturan dan Profil lebih ringkas**: bagian yang dapat dilipat (Data, Notifikasi, Tindak lanjut dan tim, SLA), teks penjelasan dipangkas menjadi satu baris, dan Profil hanya menampilkan isian utama dengan Status final serta Catatan kejadian yang dapat dilipat.
+- **Perbaikan**: memilih **Tulis sendiri…** pada Tugas yang diminta kini mengosongkan kolom dan langsung siap diketik; mengetik di kolom tidak lagi tertahan pada templat terpilih.
+- **Lebih ringkas**: menu Ekspor tinggal Buat laporan dan Bagikan ringkasan; tombol Ringkasan untuk tim di kartu Perubahan dihapus (fungsinya ada di menu); notifikasi diatur dengan satu pilihan (Lengkap, Ringkasan pagi saja, Nonaktif), rincian ada di Atur satu per satu.
+
 ## 1.10.0 (29 September 2026)
 
 - Lebih ringkas: menu Ekspor tinggal tiga pilihan. **Buat laporan** memilih periode sekali lalu membuat presentasi, laporan resmi, dan/atau Excel sekaligus (menggantikan Paket bulanan, Presentasi, dan Laporan resmi yang terpisah); **Excel sesuai filter dasbor**; dan **Ringkasan WhatsApp/surel**. CSV dan Cetak dasbor dihapus karena sudah tercakup Excel dan laporan resmi PDF.
