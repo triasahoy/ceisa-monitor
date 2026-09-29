@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.12.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.12.1</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -56,13 +56,13 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | **Hari ini** | **Rekap bulanan** |
 | ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
 
-Video **Yang baru di v1.12** (bernarasi dan bersubtitle): bahasa Indonesia bawaan, ambil isi dokumen dengan cakupan, nilai dan pungutan per dokumen, komposisi status, dan riwayat status. Unduh `CEISA_Monitor_Yang_Baru_v1.12.mp4` dari rilis [v1.12.0](../../releases/tag/v1.12.0).
+Video **Yang baru di v1.12** (bernarasi dan bersubtitle): bahasa Indonesia bawaan, ambil isi dokumen dengan cakupan, nilai dan pungutan per dokumen, komposisi status, dan riwayat status. Unduh `CEISA_Monitor_Yang_Baru_v1.12.mp4` dari rilis [v1.12.1](../../releases/tag/v1.12.1).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.12.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.12.1.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.

@@ -332,6 +332,8 @@ input[type=date]{color-scheme:inherit}
 #dlg-morning{max-width:720px}
 #mo-text{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface-2);font:12.5px/1.5 var(--mono);color:var(--ink);resize:vertical}
 tr.prio td:first-child{box-shadow:inset 3px 0 0 var(--bad)}
+tr.prio-doc td:first-child{box-shadow:inset 3px 0 0 var(--brass)}
+.tag.doc{background:var(--brass-soft);color:var(--brass);border:1px solid color-mix(in srgb,var(--brass) 40%,transparent)}
 
 /* Kartu yang digulir otomatis tidak tertutup bilah filter yang menempel */
 .card,#detail-card{scroll-margin-top:calc(var(--fh,0px) + 12px)}
@@ -428,3 +430,14 @@ th.sortable{cursor:pointer;user-select:none}
 #c-flow .comp-list{min-width:0}
 .pk .pk-i{display:flex;flex-direction:row;align-items:flex-start;gap:9px;font-weight:400;color:var(--ink)}
 .pk .pk-i input{width:auto;flex:none}
+
+.kk{display:grid;gap:8px}.kk-row{display:grid;grid-template-columns:minmax(110px,190px) 1fr 56px;gap:10px;align-items:center;font-size:13px}
+.kk-nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.kk-track{display:block;height:20px;background:var(--line-2);border-radius:6px;overflow:hidden}
+.kk-bar{display:flex;height:100%}.kk-bar i{display:block;height:100%;cursor:pointer;border-right:1px solid var(--surface)}.kk-bar i:hover{filter:brightness(1.12)}
+.kk-n{text-align:right;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+#lg-kk{margin-top:12px}
+#sc-pk .pk-list{max-height:260px}#sc-pk .pk-i{padding:5px 0}#sc-pk .pk-i span{display:flex;justify-content:space-between;gap:12px;width:100%}#sc-pk .pk-i small{font-family:var(--mono);color:var(--ink-3)}
+#sc-pk .pk-i span{align-items:center}#sc-pk .pk-i b,#sc-pk .pk-i small{display:inline;margin:0}
+#sc-pk .pk-i span{display:flex!important;flex:1;justify-content:space-between;text-align:left}#sc-pk .pk-i b{font-weight:500}
+#sc-pk .pk-i span{flex-direction:row}#sc-pk .pk-i{align-items:center}
+#dlg-scope label.chk{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}

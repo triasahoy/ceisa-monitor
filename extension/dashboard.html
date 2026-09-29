@@ -65,11 +65,10 @@
       <section class="card"><div class="card-h"><h2>Penjaluran dokumen</h2><span class="hint" id="jalur-hint"></span></div><div class="bars" id="c-jalur"></div><div id="c-jalur-kode" style="margin-top:14px"></div></section>
       <section class="card"><div class="card-h"><h2>Tindak lanjut</h2><span class="hint" id="fu-hint"></span></div><div id="c-follow"></div></section>
     </div>
-    <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="nilai" aria-pressed="true">Nilai dan pungutan</button><button type="button" data-t="bulan" aria-pressed="false">Rekap bulanan</button></div><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen…</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
-    <section class="card" id="time-card"><div class="card-h"><h2>Waktu proses</h2><div class="card-tools"><div class="seg sm" id="time-tab"><button type="button" data-t="lead" aria-pressed="true">Hari penyelesaian</button><button type="button" data-t="tis" aria-pressed="false">Lama per status</button></div></div></div>
-      <p class="lead-line" id="time-lead"></p>
-      <div id="tp-lead" hidden><div class="bars" id="c-lead"></div><p class="muted" id="lt-hint"></p></div>
-      <div id="tp-tis" hidden><p class="muted">Dari perubahan yang teramati pada pembaruan data.</p><div id="c-tis"></div></div></section>
+    <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="nilai" aria-pressed="true">Nilai dan pungutan</button><button type="button" data-t="bulan" aria-pressed="false">Rekap bulanan</button></div><button class="btn sm" type="button" id="isi-xl" hidden>Excel</button><button class="btn sm" type="button" id="isi-rest" hidden>Ambil yang belum</button><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen…</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
+    <section class="card" id="kk-card"><div class="card-h"><h2>Komposisi status per jenis dokumen</h2><div class="card-tools"><div class="seg sm" id="kk-tab"><button type="button" data-t="pct" aria-pressed="true">Persentase</button><button type="button" data-t="n" aria-pressed="false">Jumlah</button></div></div></div>
+      <p class="lead-line" id="kk-lead"></p>
+      <div class="kk" id="c-kk"></div><div class="legend" id="lg-kk"></div></section>
     <section class="card" id="detail-card"><div class="card-h"><h2>Rincian dokumen</h2><span class="hint" id="d-hint"></span></div>
       <div class="tools">
         <input id="d-q" type="search" placeholder="Cari nomor pengajuan, nomor daftar, respons, penanggung jawab, atau catatan" aria-label="Cari dokumen">
@@ -77,6 +76,7 @@
         <div class="field"><label for="d-a">Umur</label><select id="d-a"></select></div>
         <div class="field"><label for="d-f">Tindak lanjut</label><select id="d-f"></select></div>
         <div class="field"><label for="d-c">Perubahan</label><select id="d-c"><option value="">Semua</option><option value="changed">Berubah status</option><option value="completed">Selesai</option><option value="newover">Baru melewati SLA</option><option value="new">Dokumen baru</option><option value="priority">Prioritas (Jalur Merah/pemeriksaan)</option></select></div>
+        <div class="field"><label for="d-i">Isi dokumen</label><select id="d-i"><option value="">Semua</option><option value="yes">Sudah diambil</option><option value="no">Belum diambil</option></select></div>
         <div class="field"><label for="d-o">Urutkan</label><select id="d-o"><option value="new">Terbaru</option><option value="age">Umur terlama</option><option value="sla">Paling lama melewati SLA</option><option value="lead">Penyelesaian terlama</option><option value="target">Target terdekat</option></select></div>
         <button class="btn ghost" id="d-clear" type="button">Hapus filter rincian</button>
       </div>
@@ -125,7 +125,7 @@
         <label>Sejak tanggal daftar<span class="inrow"><input type="date" id="s-start"><button class="btn ghost sm" type="button" id="s-all">Semua data</button></span></label>
         <label>Sampai (kosong = hari ini)<input type="date" id="s-end"></label>
         <details class="adv wide" id="s-kode-d"><summary>Jenis dokumen yang ditarik <small id="s-kode-sum">Semua</small></summary><div id="s-kode-pk" class="pk"></div></details>
-        <label>Pembaruan otomatis<select id="s-auto"><option value="0">Nonaktif</option><option value="30">Setiap 30 menit</option><option value="60">Setiap 1 jam</option><option value="180">Setiap 3 jam</option></select></label>
+        <label>Pembaruan otomatis<select id="s-auto"><option value="0">Nonaktif</option><option value="5">Setiap 5 menit</option><option value="15">Setiap 15 menit</option><option value="30">Setiap 30 menit</option><option value="60">Setiap 1 jam</option><option value="180">Setiap 3 jam</option></select></label>
         <label class="chk"><input type="checkbox" id="s-login"> Perbarui saat masuk portal bila data lama</label>
         <label class="chk"><input type="checkbox" id="s-savexlsx"> Simpan Excel asli portal ke Unduhan saat mengambil isi dokumen</label>
         <label>Data dianggap lama setelah<select id="s-stale"><option value="2">2 jam</option><option value="4">4 jam</option><option value="6">6 jam</option><option value="12">12 jam</option><option value="24">24 jam</option></select></label>
@@ -196,16 +196,17 @@
 <dialog id="dlg-scope" class="wide">
   <form method="dialog" id="f-scope">
     <h2>Ambil isi dokumen</h2>
-    <p class="muted" style="margin-top:0">Pilih dokumen yang isinya dibaca dari portal. Makin sempit cakupannya, makin cepat selesai. Dokumen yang sudah diambil dilewati.</p>
+    
     <div class="form-grid">
       <label>Tanggal daftar dari<input type="date" id="sc-from"></label>
       <label>Sampai<input type="date" id="sc-to"></label>
       <div class="chips wide" id="sc-quick"><button class="btn ghost sm" type="button" data-q="month">Bulan ini</button><button class="btn ghost sm" type="button" data-q="q3">90 hari</button><button class="btn ghost sm" type="button" data-q="year">Tahun ini</button><button class="btn ghost sm" type="button" data-q="filter">Sesuai filter dasbor</button></div>
     </div>
-    <div class="st-h">Jenis dokumen <small class="muted">kosong = semua</small></div>
+    <div class="st-h">Jenis dokumen <small class="muted">tanpa centang = semua</small></div>
     <div id="sc-pk" class="pk"></div>
+    <label class="chk"><input type="checkbox" id="sc-redo"> Ambil ulang yang sudah diambil</label>
     <p class="sc-sum" id="sc-sum" aria-live="polite"></p>
-    <p class="hint1" id="sc-warn" hidden>Jumlahnya besar. Anda dapat menekan tombol yang sama untuk berhenti kapan saja dan melanjutkannya nanti.</p>
+    <p class="hint1" id="sc-warn" hidden>Jumlahnya besar. Tombol yang sama menghentikan proses; lanjutkan kapan saja.</p>
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" id="sc-go" type="button">Mulai ambil</button></div>
   </form>
 </dialog>

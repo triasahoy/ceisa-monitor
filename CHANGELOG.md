@@ -1,5 +1,16 @@
 # Catatan Perubahan
 
+## 1.12.1 (29 September 2026)
+
+- **Pemeriksaan Dokumen dibedakan dari Jalur Merah.** Dokumen berstatus Pemeriksaan Dokumen dengan jalur bukan merah kini bertanda garis kuning dan label VERIFIKASI (dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai), bukan garis merah. Kartu Hari ini memisahkannya menjadi satu baris tersendiri.
+- **Kartu Waktu proses diganti Komposisi status per jenis dokumen**: satu batang per jenis dokumen berisi porsi tiap status (tombol Persentase atau Jumlah); klik segmen untuk menyaring rincian.
+- **Tombol Excel di kartu Isi dokumen**: mengunduh lembar Nilai & Pungutan (ringkasan, total per jenis pungutan, rekap bulanan) dan Nilai per Dokumen untuk periode yang tampil.
+- **Perbaikan nilai pungutan BC 2.5 dan sejenisnya**: BM, PPN, PPh, total dibayar, dan fasilitas kini dibaca dari lembar PUNGUTAN portal (dibayar = kode fasilitas 1 dan 7; dibebaskan, ditangguhkan, DTP, dan tidak dipungut = fasilitas). Sebelumnya dibaca dari kolom tarif per barang yang di BC 2.5 bernilai 0. Isi yang sudah diambil langsung terhitung benar tanpa ambil ulang.
+- **Waktu perubahan status lebih tepat dan lebih cepat**: pembaruan otomatis kini dapat setiap 5 atau 15 menit; bila respons portal mencatat jamnya, popup BERUBAH memakai jam itu sebagai waktu perubahan dan menampilkan kapan ekstensi melihatnya, bukan lagi rentang perkiraan.
+- **Pengambilan isi dokumen bertahap**: kolom Isi (✓) dan filter Isi dokumen (Sudah/Belum diambil) di tabel rincian, tombol Ambil yang belum, jumlah terambil per jenis dan opsi Ambil ulang di dialog cakupan.
+- **Kartu Nilai dan pungutan**: tabel Menurut fasilitas (dibayar, dibebaskan, ditangguhkan, dan seterusnya) serta penanda bila total pungutan portal berbeda dari jumlah tarif per barang.
+- **Dialog Ambil isi dokumen lebih ringkas**: daftar jenis dokumen hanya memuat jenis yang ada di data pada rentang tanggal terpilih (dengan jumlahnya), tanpa kolom cari dan kode.
+
 ## 1.12.0 (29 September 2026)
 
 - **Bahasa Indonesia sejak pembukaan pertama.** Bahasa tidak lagi mengikuti bahasa Chrome; English hanya tampil bila dipilih dari tombol ID/EN.
