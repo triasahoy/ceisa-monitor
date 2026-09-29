@@ -51,11 +51,11 @@
 
   <main id="main">
     <div class="period-line" id="period-line"></div>
-    <section class="card today" id="today-card" aria-labelledby="today-h"><div class="card-h"><h2 id="today-h">Hari ini</h2><span class="hint" id="today-hint"></span></div><ul class="today-list" id="today-list"></ul><p class="muted" id="today-note" hidden>Isi dokumen belum diambil, jadi peringatan jaminan dan pengeluaran sementara belum aktif. Klik Ambil isi dokumen periode ini di kartu Isi dokumen.</p></section>
+    <section class="card today" id="today-card" aria-labelledby="today-h"><div class="card-h"><h2 id="today-h">Hari ini</h2><span class="hint" id="today-hint"></span></div><ul class="today-list" id="today-list"></ul><p class="muted" id="today-note" hidden>Isi dokumen belum diambil, sehingga nilai dan pungutan belum tampil. Klik Ambil isi dokumen di kartu Isi dokumen.</p></section>
     <section class="kpis" id="kpis"></section>
     <div class="insight" id="insight"></div>
     <section class="card"><div class="card-h"><h2>Perubahan</h2><div class="card-tools"><div class="field sm"><select id="chg-base" aria-label="Pembanding perubahan"></select></div></div></div><p class="chg-note" id="chg-hint"></p><div id="c-change"></div></section>
-    <section class="card"><div class="card-h"><h2 id="flow-title">Aliran dokumen</h2><span class="hint" id="flow-hint"></span></div><p class="lead-line" id="flow-lead"></p><div class="chart" id="c-flow"></div><div class="legend" id="lg-flow"></div></section>
+    <section class="card"><div class="card-h"><h2 id="flow-title">Komposisi status</h2><span class="hint" id="flow-hint"></span></div><p class="lead-line" id="flow-lead"></p><div class="chart" id="c-flow"></div><div class="legend" id="lg-flow"></div></section>
     <div class="grid g-2">
       <section class="card"><div class="card-h"><h2>Status per jenis dokumen</h2><span class="hint">Klik baris untuk menyaring</span></div><div class="tbl-wrap"><table id="t-kode"></table></div></section>
       <section class="card"><div class="card-h"><h2>Umur dokumen belum selesai</h2><span class="hint">Klik sel untuk melihat dokumennya</span></div><div class="tbl-wrap"><table class="heat" id="t-aging"></table></div></section>
@@ -65,7 +65,7 @@
       <section class="card"><div class="card-h"><h2>Penjaluran dokumen</h2><span class="hint" id="jalur-hint"></span></div><div class="bars" id="c-jalur"></div><div id="c-jalur-kode" style="margin-top:14px"></div></section>
       <section class="card"><div class="card-h"><h2>Tindak lanjut</h2><span class="hint" id="fu-hint"></span></div><div id="c-follow"></div></section>
     </div>
-    <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="out" aria-pressed="true">Pengeluaran sementara</button><button type="button" data-t="nilai" aria-pressed="false">Nilai dan pungutan</button><button type="button" data-t="bulan" aria-pressed="false">Rekap bulanan</button><button type="button" data-t="periksa" aria-pressed="false">Pemeriksaan</button></div><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen periode ini</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
+    <section class="card" id="isi-card"><div class="card-h"><h2>Isi dokumen</h2><div class="card-tools"><div class="seg sm" id="isi-tab"><button type="button" data-t="nilai" aria-pressed="true">Nilai dan pungutan</button><button type="button" data-t="bulan" aria-pressed="false">Rekap bulanan</button></div><button class="btn sm" type="button" id="isi-fetch">Ambil isi dokumen…</button></div></div><p class="lead-line" id="isi-lead"></p><div id="isi-body"></div></section>
     <section class="card" id="time-card"><div class="card-h"><h2>Waktu proses</h2><div class="card-tools"><div class="seg sm" id="time-tab"><button type="button" data-t="lead" aria-pressed="true">Hari penyelesaian</button><button type="button" data-t="tis" aria-pressed="false">Lama per status</button></div></div></div>
       <p class="lead-line" id="time-lead"></p>
       <div id="tp-lead" hidden><div class="bars" id="c-lead"></div><p class="muted" id="lt-hint"></p></div>
@@ -124,33 +124,11 @@
       <div class="form-grid">
         <label>Sejak tanggal daftar<span class="inrow"><input type="date" id="s-start"><button class="btn ghost sm" type="button" id="s-all">Semua data</button></span></label>
         <label>Sampai (kosong = hari ini)<input type="date" id="s-end"></label>
-        <label>Kode dokumen<input type="text" id="s-kode" placeholder="Semua. Contoh: 613, 25"></label>
+        <details class="adv wide" id="s-kode-d"><summary>Jenis dokumen yang ditarik <small id="s-kode-sum">Semua</small></summary><div id="s-kode-pk" class="pk"></div></details>
         <label>Pembaruan otomatis<select id="s-auto"><option value="0">Nonaktif</option><option value="30">Setiap 30 menit</option><option value="60">Setiap 1 jam</option><option value="180">Setiap 3 jam</option></select></label>
         <label class="chk"><input type="checkbox" id="s-login"> Perbarui saat masuk portal bila data lama</label>
-        <label>Data dianggap lama setelah<select id="s-stale"><option value="2">2 jam</option><option value="4">4 jam</option><option value="6">6 jam</option><option value="12">12 jam</option><option value="24">24 jam</option></select></label>
-      </div>
-    </details>
-    <details class="sec"><summary>Notifikasi</summary>
-      <div class="form-grid">
-        <label>Tingkat<select id="s-nlevel"><option value="all">Lengkap</option><option value="daily">Ringkasan pagi saja</option><option value="off">Nonaktif</option><option value="custom" disabled>Kustom</option></select></label>
-        <label>Jam ringkasan pagi<input type="time" id="s-mtime" value="08:00"></label>
-        <label class="wide">Uji<button class="btn ghost" type="button" id="s-mtest">Tampilkan ringkasan pagi sekarang</button></label>
-        <details class="adv wide"><summary>Atur satu per satu</summary>
-          <label class="chk"><input type="checkbox" id="s-notify"> Perubahan status dan dokumen baru melewati SLA</label>
-          <label class="chk"><input type="checkbox" id="s-morning"> Ringkasan pagi</label>
-          <label class="chk"><input type="checkbox" id="s-remind"> Pengingat tugas jatuh tempo</label>
-          <label class="chk"><input type="checkbox" id="s-prio"> Prioritas: Jalur Merah, pemeriksaan, SPJM/SPJK</label>
-          <label class="chk"><input type="checkbox" id="s-outalert"> Pengeluaran sementara: sisa belum kembali, jaminan jatuh tempo</label>
-          <label>Batas umur pengeluaran sementara (hari, 0 = tanpa batas)<input type="number" id="s-outdays" min="0" max="3650" step="1" value="180"></label>
-        </details>
-      </div>
-    </details>
-    <details class="sec"><summary>Tindak lanjut dan tim</summary>
-      <div class="form-grid">
-        <label class="wide">Templat tugas sendiri<textarea id="s-tpl" rows="3" placeholder="Satu per baris. Contoh:&#10;Pembongkaran; Gate In TPS | Minta gudang kirim foto bongkar&#10;Minta PPJK kirim draf PIB"></textarea></label>
-        <p class="hint1 wide-p">Untuk status tertentu: <b>status; status | tugas</b>. Tanpa status berarti berlaku umum.</p>
-        <div class="wide-p fu-io"><button class="btn ghost" type="button" id="s-fu-exp">Ekspor tindak lanjut</button><button class="btn ghost" type="button" id="s-fu-imp">Impor</button><input type="file" id="s-fu-file" accept=".json,application/json" hidden><span class="hint1">Bagikan catatan, nomor WhatsApp, dan templat ke tim.</span></div>
         <label class="chk"><input type="checkbox" id="s-savexlsx"> Simpan Excel asli portal ke Unduhan saat mengambil isi dokumen</label>
+        <label>Data dianggap lama setelah<select id="s-stale"><option value="2">2 jam</option><option value="4">4 jam</option><option value="6">6 jam</option><option value="12">12 jam</option><option value="24">24 jam</option></select></label>
       </div>
     </details>
     <details class="sec"><summary>SLA <small>batas hari sampai dokumen dianggap terlambat</small></summary>
@@ -205,14 +183,6 @@
     <div class="dlg-actions"><button class="btn ghost" id="fu-del" type="button">Hapus</button><button class="btn ghost" value="cancel" type="submit" formnovalidate>Batal</button><span class="spacer"></span><button class="btn" value="save-copy" type="submit">Simpan &amp; salin pesan</button><button class="btn" value="save-wa" type="submit">Simpan &amp; buka WhatsApp</button><button class="btn primary" value="save" type="submit">Simpan</button></div>
   </form>
 </dialog>
-<dialog id="dlg-morning">
-  <form method="dialog">
-    <h2>Ringkasan pagi</h2>
-    <p class="muted" style="margin-top:0">Ringkasan sejak kemarin, siap ditempel ke grup WhatsApp tim atau dikirim ke atasan.</p>
-    <textarea id="mo-text" rows="18" readonly aria-label="Ringkasan pagi"></textarea>
-    <div class="dlg-actions"><button class="btn ghost" value="close" type="submit">Tutup</button><span class="spacer"></span><button class="btn" id="mo-tasks" type="button">Kirim tugas jatuh tempo</button><button class="btn" id="mo-copy" type="button">Salin</button><button class="btn primary" id="mo-wa" type="button">Buka WhatsApp</button></div>
-  </form>
-</dialog>
 <dialog id="dlg-task">
   <form method="dialog" class="task-dlg">
     <h2>Kirim tugas ke penanggung jawab</h2>
@@ -220,6 +190,23 @@
     <div class="form-grid"><label>Nama pengirim (opsional)<input type="text" id="tk-from" placeholder="Contoh: Trias, Supervisor EXIM"></label><label>Cakupan<select id="tk-scope"><option value="open">Semua tugas yang belum selesai</option><option value="overdue">Hanya yang melewati target</option><option value="due">Jatuh tempo (terlambat, hari ini, besok)</option><option value="unsent">Hanya yang belum pernah dikirim</option></select></label></div>
     <div class="tk-grid"><div class="tk-list" id="tk-list"></div><textarea id="tk-preview" rows="16" readonly aria-label="Pratinjau pesan"></textarea></div>
     <div class="dlg-actions"><button class="btn ghost" value="close" type="submit">Tutup</button><span class="spacer"></span><button class="btn" id="tk-copy" type="button">Salin pesan</button><button class="btn primary" id="tk-wa" type="button">Buka WhatsApp</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-scope" class="wide">
+  <form method="dialog" id="f-scope">
+    <h2>Ambil isi dokumen</h2>
+    <p class="muted" style="margin-top:0">Pilih dokumen yang isinya dibaca dari portal. Makin sempit cakupannya, makin cepat selesai. Dokumen yang sudah diambil dilewati.</p>
+    <div class="form-grid">
+      <label>Tanggal daftar dari<input type="date" id="sc-from"></label>
+      <label>Sampai<input type="date" id="sc-to"></label>
+      <div class="chips wide" id="sc-quick"><button class="btn ghost sm" type="button" data-q="month">Bulan ini</button><button class="btn ghost sm" type="button" data-q="q3">90 hari</button><button class="btn ghost sm" type="button" data-q="year">Tahun ini</button><button class="btn ghost sm" type="button" data-q="filter">Sesuai filter dasbor</button></div>
+    </div>
+    <div class="st-h">Jenis dokumen <small class="muted">kosong = semua</small></div>
+    <div id="sc-pk" class="pk"></div>
+    <p class="sc-sum" id="sc-sum" aria-live="polite"></p>
+    <p class="hint1" id="sc-warn" hidden>Jumlahnya besar. Anda dapat menekan tombol yang sama untuk berhenti kapan saja dan melanjutkannya nanti.</p>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" id="sc-go" type="button">Mulai ambil</button></div>
   </form>
 </dialog>
 

@@ -7,7 +7,7 @@
 | Hanya membaca | Ekstensi hanya mengirim permintaan baca (GET) ke layanan portal yang sama dengan halaman Daftar Dokumen. Tidak ada pengisian, perubahan, atau pengiriman dokumen |
 | Sesi milik pengguna | Data dibaca di tab portal dengan sesi login pengguna. Token tidak disalin, tidak disimpan, dan sesi tidak diperpanjang |
 | Tanpa server | Tidak ada server, analitik, iklan, atau pihak ketiga. Semua data disimpan di `chrome.storage.local` pada komputer pengguna, terpisah per akun |
-| Izin minimum | `storage`, `unlimitedStorage`, `scripting`, `alarms`, `notifications`, dan akses host hanya untuk `https://portal.beacukai.go.id/*` |
+| Izin minimum | `storage`, `unlimitedStorage`, `scripting`, dan `alarms`, serta akses host hanya untuk `https://portal.beacukai.go.id/*` |
 | CSP ketat | `script-src 'self'; object-src 'self'; base-uri 'none'; frame-ancestors 'self'`. Tidak ada skrip dari luar, `eval`, atau skrip inline |
 | Validasi data | Struktur data portal diperiksa setiap kali ditarik. Bila berubah, angka tidak ditampilkan agar tidak menyesatkan |
 | Kode rilis | Diminifikasi (sesuai kebijakan Chrome Web Store), tanpa obfuskasi, dengan pernyataan hak cipta di setiap berkas. Kode sumber tidak dipublikasikan dan dilindungi lisensi hak cipta |
@@ -19,12 +19,12 @@ Unduh paket hanya dari halaman [Releases](../../releases) repositori ini atau da
 
 | Berkas | SHA-256 |
 |---|---|
-| `ceisa-monitor-v1.11.0.zip` | `614c94fb357153a930662b90e45730afdacc77335d7b01bf672b6692e5d28055` |
+| `ceisa-monitor-v1.12.0.zip` | `9f3ad1d8d45020e73fbaa07dcad49f479b3f8835d3e4d45b4bc452c614d8b43a` |
 
 Cara memeriksa:
 
-- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.11.0.zip -Algorithm SHA256`
-- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.11.0.zip`
+- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.12.0.zip -Algorithm SHA256`
+- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.12.0.zip`
 
 Kode untuk setiap berkas di folder `extension/` tercantum di [SHA256SUMS.txt](SHA256SUMS.txt) dan diperiksa otomatis oleh GitHub Actions setiap ada perubahan.
 
@@ -38,8 +38,8 @@ Jangan menyertakan data asli perusahaan, nomor pengajuan, atau token sesi dalam 
 
 | Versi | Didukung |
 |---|---|
-| 1.11.x | Ya |
-| < 1.11 | Tidak, mohon perbarui |
+| 1.12.x | Ya |
+| < 1.12 | Tidak, mohon perbarui |
 
 ## Tentang perlindungan kode
 

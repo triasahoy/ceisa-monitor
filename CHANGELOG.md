@@ -1,5 +1,15 @@
 # Catatan Perubahan
 
+## 1.12.0 (29 September 2026)
+
+- **Bahasa Indonesia sejak pembukaan pertama.** Bahasa tidak lagi mengikuti bahasa Chrome; English hanya tampil bila dipilih dari tombol ID/EN.
+- **Ambil isi dokumen dengan cakupan.** Tombol membuka dialog: rentang tanggal daftar (Bulan ini, 90 hari, Tahun ini, atau sesuai filter dasbor), jenis dokumen yang dipilih dari daftar, serta ringkasan jumlah dokumen yang akan dibaca, yang dilewati karena sudah tersimpan, dan perkiraan waktu. Batas 300 dokumen per klik dihapus untuk jalur ini; pengambilan dapat dihentikan dan dilanjutkan.
+- **Pilihan jenis dokumen dari tabel referensi resmi** (243 jenis) menggantikan kolom ketik kode di Pengaturan dan di dialog pengambilan. Jenis yang ada di data Anda tampil paling atas beserta jumlahnya; ada kolom cari.
+- **Nilai dan pungutan**: total (nilai pabean, pungutan dibayar, pungutan berfasilitas, per jenis pungutan) dan tabel **rincian per dokumen** (nilai pabean, BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan. Excel mendapat lembar Nilai per Dokumen.
+- **Komposisi status** menggantikan bagan Dokumen masuk dan Dokumen selesai: donat dan daftar status dengan jumlah dan persentase; klik status untuk menyaring rincian.
+- **Riwayat pada ikon BERUBAH**: lini masa dengan tanggal lengkap, selisih hari antarstatus, dan respons portal bila isi dokumen sudah diambil.
+- **Dihapus agar lebih ringkas**: tab Pemeriksaan dan Pengeluaran sementara (beserta peringatan, lembar Excel, dan pengaturan batas hari), semua notifikasi Chrome dan ringkasan pagi (izin `notifications` dilepas dari manifest), serta bagian Notifikasi dan Tindak lanjut dan tim di Pengaturan. Catatan tindak lanjut di tabel dan penugasan WhatsApp tetap ada.
+
 ## 1.11.0 (29 September 2026)
 
 - **Riwayat dari portal dihapus.** Jam pasti status dan respons dari portal jarang dipakai untuk keputusan, sementara memperbanyak permintaan ke portal. Yang dipertahankan: kode respons angka tetap diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0, dan kartu Waktu proses tetap menampilkan hari penyelesaian serta lama per status dari rekaman Anda sendiri. Lembar Excel Riwayat Portal dan Riwayat Rinci, tombol Ambil riwayat/rincian portal, dan pengaturan teknis riwayat ikut dihapus. Setelah Perbarui data, ekstensi tidak lagi mengambil riwayat otomatis.

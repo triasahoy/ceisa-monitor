@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.11
+# Panduan Lengkap CEISA Monitor v1.12
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -11,25 +11,23 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 3. [Kepala dasbor](#3-kepala-dasbor)
 4. [Periode, pembanding, dan filter](#4-periode-pembanding-dan-filter)
 5. [Enam angka utama](#5-enam-angka-utama)
-6. [Perubahan dan rincian perubahan status](#6-perubahan-dan-rincian-perubahan-status)
-7. [Aliran dokumen](#7-aliran-dokumen)
+6. [Perubahan, rincian perubahan status, dan isi dokumen](#6-perubahan-rincian-perubahan-status-dan-isi-dokumen)
+7. [Komposisi status](#7-komposisi-status)
 8. [Status per jenis, umur dokumen, dan rincian status](#8-status-per-jenis-umur-dokumen-dan-rincian-status)
 9. [Penjaluran dan tindak lanjut](#9-penjaluran-dan-tindak-lanjut)
 10. [Rincian dokumen](#10-rincian-dokumen)
 11. [Mencatat tindak lanjut dan riwayatnya](#11-mencatat-tindak-lanjut-dan-riwayatnya)
 12. [Penugasan via WhatsApp](#12-penugasan-via-whatsapp)
-13. [Ringkasan pagi, pengingat, dan prioritas](#13-ringkasan-pagi-pengingat-dan-prioritas)
-14. [Mengelola penanggung jawab](#14-mengelola-penanggung-jawab)
-15. [Templat tugas dan berbagi data tim](#15-templat-tugas-dan-berbagi-data-tim)
-16. [Pengaturan dan SLA](#16-pengaturan-dan-sla)
-17. [Profil perusahaan](#17-profil-perusahaan)
-18. [Ekspor](#18-ekspor)
-19. [Popup dan pembaruan otomatis](#19-popup-dan-pembaruan-otomatis)
-20. [Bahasa, tema, dan mode demo](#20-bahasa-tema-dan-mode-demo)
+13. [Mengelola penanggung jawab](#13-mengelola-penanggung-jawab)
+14. [Pengaturan dan SLA](#14-pengaturan-dan-sla)
+15. [Profil perusahaan](#15-profil-perusahaan)
+16. [Ekspor](#16-ekspor)
+17. [Popup dan pembaruan otomatis](#17-popup-dan-pembaruan-otomatis)
+18. [Bahasa, tema, dan mode demo](#18-bahasa-tema-dan-mode-demo)
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.11.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.12.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -44,7 +42,7 @@ Memperbarui versi: ekstrak paket baru ke folder yang sama, lalu klik ikon muat u
 1. Masuk ke portal CEISA 4.0 seperti biasa dengan akun Anda sendiri.
 2. Buka halaman **Daftar Dokumen** (`portal.beacukai.go.id/dokumen-pabean/`) dan tunggu sampai tabel dokumen tampil. Tombol **CEISA Monitor** muncul di pojok kanan bawah portal.
 3. Buka dasbor, lalu klik **Perbarui data**. Biarkan tab portal tetap terbuka.
-4. Atur **Profil perusahaan** (bagian 17).
+4. Atur **Profil perusahaan** (bagian 15).
 
 Secara bawaan, CEISA Monitor menarik **semua data** yang tersedia di portal, termasuk tahun-tahun sebelumnya. Penarikan pertama memerlukan beberapa menit, tergantung jumlah dokumen. Bila portal membatasi jumlah hasil per permintaan, penarikan otomatis dilanjutkan per kode dokumen. Setelah itu, data diperbarui otomatis setiap kali Anda masuk ke portal dan data sudah lebih lama dari batas yang diatur (bawaan 6 jam).
 
@@ -54,12 +52,12 @@ Secara bawaan, CEISA Monitor menarik **semua data** yang tersedia di portal, ter
 
 ![Kepala dasbor](images/03_kepala.png)
 
-- **ID / EN**: mengganti bahasa antarmuka.
+- **ID / EN**: mengganti bahasa antarmuka. Dasbor selalu terbuka dalam bahasa Indonesia; English hanya tampil bila dipilih dari tombol ini.
 - **Auto / Terang / Gelap**: tema tampilan.
 - **Status sesi**: menunjukkan apakah portal terhubung dan berapa lama lagi sesi berlaku.
 - **Perbarui data**: menarik data terbaru dari portal.
 - **Ekspor**: **Buat laporan** (presentasi, laporan resmi, dan Excel sekaligus) dan **Bagikan ringkasan** (WhatsApp/surel).
-- **Profil perusahaan** dan **Pengaturan**: dijelaskan di bagian 16 dan 17.
+- **Profil perusahaan** dan **Pengaturan**: dijelaskan di bagian 14 dan 15.
 
 ## 4. Periode, pembanding, dan filter
 
@@ -79,7 +77,7 @@ Bila tanggal awal penarikan pernah diubah dan periode yang dipilih lebih awal da
 
 ## Hari ini
 
-Kartu **Hari ini** di bagian atas dasbor menampilkan hal yang perlu ditindaklanjuti sekarang: tugas terlambat atau jatuh tempo, dokumen Jalur Merah atau pemeriksaan, dokumen yang baru melewati SLA, dokumen melewati SLA yang belum memiliki penanggung jawab, serta (setelah isi dokumen diambil) pengeluaran sementara yang melewati batas hari dan jaminan yang jatuh tempo dalam 30 hari. Klik satu baris untuk langsung melihat daftarnya. Bila tidak ada yang mendesak, kartu menyatakannya.
+Kartu **Hari ini** di bagian atas dasbor menampilkan hal yang perlu ditindaklanjuti sekarang: tugas terlambat atau jatuh tempo, dokumen Jalur Merah atau pemeriksaan yang belum selesai, dokumen yang baru melewati SLA, dan dokumen melewati SLA yang belum memiliki penanggung jawab. Klik satu baris untuk langsung melihat daftarnya. Bila tidak ada yang mendesak, kartu menyatakannya.
 
 ![Kartu Hari ini](images/33_hari_ini.png)
 
@@ -89,7 +87,7 @@ Setiap kartu menampilkan nilai, keterangan, selisih terhadap pembanding (hijau b
 
 ![Dasbor](gif/dasbor.gif)
 
-## 6. Perubahan dan rincian perubahan status
+## 6. Perubahan, rincian perubahan status, dan isi dokumen
 
 ![Perubahan](images/05_perubahan.png)
 
@@ -102,21 +100,31 @@ Di tabel rincian, arahkan kursor atau klik tanda **BERUBAH** untuk melihat:
 - respons dan waktu respons dari portal (misalnya SPPB atau SPJM);
 - riwayat status dokumen.
 
+**Riwayat pada ikon BERUBAH.** Popup **BERUBAH** menyajikan riwayat status sebagai lini masa: setiap status dengan tanggal lengkap, selisih hari dari status sebelumnya, dan respons portal bila isi dokumen sudah diambil.
+
 Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data. Bila rekaman pada tanggal pembanding tidak ada, status sebelumnya diperkirakan dari tanggal daftar dan tanggal respons, dan diberi label **perkiraan**.
 
-**Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, jaminan, dan pengeluaran sementara terkait. Isinya dibaca dari layanan Unduh Excel portal. Untuk banyak dokumen, klik **Ambil isi dokumen periode ini** di kartu **Isi dokumen**, yang juga menampilkan Pengeluaran sementara (barang yang belum kembali), Nilai dan pungutan, serta Pemeriksaan otomatis. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
+**Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, dan jaminan. Isinya dibaca dari layanan Unduh Excel portal. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
 
 ![Kartu arsip pengajuan](images/29_kartu_arsip.png)
 
-![Isi dokumen: pengeluaran sementara](images/28_isi_dokumen.png)
+**Ambil isi dokumen dengan cakupan.** Untuk banyak dokumen sekaligus, klik **Ambil isi dokumen…** di kartu **Isi dokumen**. Dialog cakupan meminta:
 
-Tab **Nilai dan pungutan** merangkum nilai pabean dan pungutan per jenis fasilitas. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas; angka yang sama masuk ke lembar Nilai & Pungutan di Excel. Tab **Pemeriksaan** menandai dokumen pelengkap yang belum ada, jaminan yang jatuh tempo dalam 30 hari, invoice ganda, dan perbedaan HS. Setiap temuan dapat ditandai **Sudah dicek**.
+- **Rentang tanggal daftar**: Bulan ini, 90 hari, Tahun ini, atau Sesuai filter dasbor.
+- **Jenis dokumen**: centang dari tabel referensi resmi (243 jenis). Jenis yang ada di data Anda tampil paling atas beserta jumlahnya, dan kolom cari membantu menemukan jenis lain. Kosong berarti semua jenis.
+- **Ringkasan**: jumlah dokumen yang sesuai, yang dilewati karena isinya sudah diambil, yang akan dibaca, dan perkiraan waktu dalam menit.
+
+Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanjutkan kapan saja; dokumen yang sudah diambil dilewati.
+
+![Dialog Ambil isi dokumen](images/37_ambil_isi.png)
+
+![Isi dokumen: nilai dan pungutan](images/28_isi_dokumen.png)
+
+**Nilai dan pungutan.** Kartu Isi dokumen memiliki dua tab. Tab **Nilai dan pungutan** menampilkan kartu ringkasan (dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, netto, dan kontainer), total per jenis pungutan, dan tabel **Rincian per dokumen** dengan kolom nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas. Tabel ini dapat dicari dan diurutkan per kolom. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas. Excel mendapat lembar **Nilai per Dokumen** untuk rincian yang sama.
 
 ![Nilai dan pungutan](images/32_nilai_pungutan.png)
 
 ![Rekap bulanan](images/34_rekap_bulanan.png)
-
-![Pemeriksaan otomatis](images/30_pemeriksaan.png)
 
 **Kode respons angka.** Respons yang tampil sebagai angka (misalnya 2305) langsung diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/). Artinya bergantung pada jenis dokumen: akhiran 03 berarti SPPB pada BC 2.3, tetapi Surat Perintah Pemeriksaan Fisik pada BC 2.6.1. Sel Respons menampilkan singkatannya; klik untuk melihat nama lengkap. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi, sehingga kodenya tidak ditebak.
 
@@ -128,15 +136,11 @@ Kartu **Waktu proses** merangkum hari penyelesaian (dari tanggal daftar sampai r
 
 ![Rincian perubahan status](images/26_rincian_perubahan.png)
 
-## 7. Aliran dokumen
+## 7. Komposisi status
 
-![Aliran dokumen](images/06_aliran.png)
+![Komposisi status](images/06_komposisi_status.png)
 
-- **Panel atas**: jumlah dokumen belum selesai di akhir setiap hari, minggu, atau bulan.
-- **Panel bawah**: dokumen masuk (biru) dibandingkan dengan dokumen selesai (hijau). Bila batang hijau lebih tinggi, tumpukan berkurang.
-- Kalimat di atas grafik merangkum kesimpulannya.
-
-![Aliran dokumen](gif/aliran_dokumen.gif)
+Kartu **Komposisi status** menampilkan donat dan daftar status dengan jumlah dan persentase dokumen pada periode terpilih. Klik satu status untuk menyaring tabel rincian pada status tersebut.
 
 ## 8. Status per jenis, umur dokumen, dan rincian status
 
@@ -161,7 +165,7 @@ Grafik **Tingkat penyelesaian** menampilkan persentase dokumen yang sudah selesa
 ![Rincian dokumen](images/10_rincian.png)
 
 - Cari nomor pengajuan, nomor daftar, respons, penanggung jawab, atau catatan.
-- Saring menurut status, umur, tindak lanjut (termasuk **Jatuh tempo**), dan perubahan (termasuk **Prioritas**); urutkan menurut umur, SLA, atau target.
+- Saring menurut status, umur, tindak lanjut (termasuk **Jatuh tempo**), dan perubahan; urutkan menurut umur, SLA, atau target.
 - Klik nomor pengajuan untuk menyalinnya.
 - Baris bergaris merah di kiri adalah dokumen prioritas: Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF.
 
@@ -175,9 +179,9 @@ Klik **+ Catat** pada baris dokumen, atau centang beberapa dokumen lalu klik **I
 |---|---|
 | Penanggung jawab | Nama orang yang menangani; nama yang pernah dipakai muncul sebagai saran |
 | Status tindak lanjut | Belum ditindaklanjuti, Sedang dicek, Menunggu pihak lain, Selesai dicek |
-| Target selesai | Tanggal target; dipakai untuk pengingat dan filter Jatuh tempo |
+| Target selesai | Tanggal target; dipakai untuk kartu Hari ini dan filter Jatuh tempo |
 | Nomor WhatsApp | Disimpan per nama, cukup diisi sekali |
-| Tugas yang diminta | Terisi otomatis sesuai status dokumen. Pilih **Tulis sendiri…** untuk mengosongkan kolom lalu mengetik tugas sendiri; mengetik langsung di kolom juga bisa |
+| Tugas yang diminta | Terisi otomatis dari templat bawaan sesuai status dokumen. Pilih **Tulis sendiri…** untuk mengosongkan kolom lalu mengetik tugas sendiri; mengetik langsung di kolom juga bisa |
 | Catatan | Keterangan bebas |
 
 Bagian bawah dialog menampilkan **Riwayat status dokumen** dan **Riwayat tindak lanjut**. Setiap perubahan penanggung jawab, status, target, tugas, catatan, dan pengiriman WhatsApp tercatat dengan waktunya. Riwayat tidak dapat diubah karena berfungsi sebagai jejak audit.
@@ -215,23 +219,7 @@ Ekstensi tidak mengirim pesan sendiri. WhatsApp hanya dibuka saat Anda mengklik 
 
 ![Penugasan via WhatsApp](gif/penugasan_whatsapp.gif)
 
-## 13. Ringkasan pagi, pengingat, dan prioritas
-
-- **Bagikan ringkasan**: menu Ekspor → Bagikan ringkasan menyusun ringkasan sejak kemarin yang siap ditempel ke WhatsApp atau surel.
-- **Ringkasan pagi**: setiap hari pada jam yang diatur (bawaan 08.00), notifikasi menampilkan dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo. Tombol **Salin ringkasan WhatsApp** membuka ringkasan siap tempel ke grup tim; tombol **Kirim tugas jatuh tempo** membuka dialog penugasan. Bila komputer mati pada jam tersebut, notifikasi muncul saat Chrome dibuka kembali pada hari itu.
-- **Pengingat tugas**: tugas terlambat, jatuh tempo hari ini, dan besok. Saring di tabel rincian dengan **Tindak lanjut → Jatuh tempo**.
-- **Pengeluaran sementara**: notifikasi harian bila sisa barang belum kembali melewati batas hari (bawaan 180 hari, dapat diubah atau dimatikan dengan 0) atau jaminan jatuh tempo dalam 30 hari. Dihitung dari isi dokumen yang sudah diambil.
-- **Peringatan prioritas**: notifikasi saat dokumen baru terkena Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF. Saring dengan **Perubahan → Prioritas**.
-
-![Ringkasan pagi](images/22_ringkasan_pagi.png)
-
-![Prioritas](images/23_prioritas.png)
-
-Semua notifikasi dapat dinyalakan atau dimatikan di **Pengaturan → Tindak lanjut dan pengingat**, termasuk jam ringkasan pagi dan tombol untuk mencobanya.
-
-![Pengaturan pengingat](images/25_pengaturan_pengingat.png)
-
-## 14. Mengelola penanggung jawab
+## 13. Mengelola penanggung jawab
 
 | Keperluan | Cara |
 |---|---|
@@ -244,37 +232,26 @@ Semua notifikasi dapat dinyalakan atau dimatikan di **Pengaturan → Tindak lanj
 
 Pada pengisian massal, kolom yang dibiarkan kosong tidak mengubah isian lama. Nama di daftar saran hilang dengan sendirinya setelah tidak dipakai di dokumen mana pun.
 
-## 15. Templat tugas dan berbagi data tim
-
-**Templat tugas sendiri** diisi di Pengaturan, satu per baris:
-
-```
-Pembongkaran; Gate In TPS | Minta gudang mengirim foto dan berita acara bongkar
-Minta PPJK mengirim draf PIB untuk diperiksa
-```
-
-Nama status di depan tanda `|` membuat templat disarankan untuk status tersebut; tanpa tanda `|`, templat berlaku umum. Templat sendiri muncul paling atas di dialog tindak lanjut.
-
-**Ekspor dan impor tindak lanjut (.json)** di Pengaturan memindahkan catatan tindak lanjut, nomor WhatsApp, dan templat ke komputer rekan satu tim tanpa server. Saat impor, isian yang lebih baru dipertahankan dan riwayatnya digabung.
-
-## 16. Pengaturan dan SLA
+## 14. Pengaturan dan SLA
 
 ![Pengaturan](images/11_pengaturan.png)
 
-Empat bagian yang dapat dilipat:
+Dua bagian yang dapat dilipat:
 
-- **Data**: sejak tanggal daftar (kosong = semua data), kode dokumen (kosong = semua), pembaruan otomatis, dan batas data dianggap lama.
-- **Notifikasi**: satu pilihan (Lengkap, Ringkasan pagi saja, atau Nonaktif) dan jam ringkasan pagi. **Atur satu per satu** menyesuaikan tiap jenis, termasuk batas umur pengeluaran sementara. Lihat bagian 13.
-- **Tindak lanjut dan tim**: templat tugas sendiri, ekspor/impor catatan, dan pilihan menyimpan Excel asli portal ke Unduhan.
+- **Data**: sejak dan sampai tanggal daftar (kosong = semua data), **jenis dokumen yang ditarik**, pembaruan otomatis, pembaruan saat masuk portal, pilihan menyimpan Excel asli portal ke Unduhan, dan batas data dianggap lama.
 - **SLA**: batas hari bawaan, per jenis dokumen, dan per status. Kolom kosong mengikuti batas di atasnya.
 
-## 17. Profil perusahaan
+**Jenis dokumen yang ditarik** kini berupa pemilih centang dari tabel referensi resmi (243 jenis), bukan kolom ketik kode. Jenis yang ada di data Anda tampil paling atas beserta jumlahnya; ada kolom cari. Kosong berarti semua jenis.
+
+![Pemilih jenis dokumen](images/38_pengaturan_jenis_dokumen.png)
+
+## 15. Profil perusahaan
 
 ![Profil perusahaan](images/12_profil.png)
 
 Isi jenis fasilitas (menentukan templat SLA), nama, target SLA, warna, dan logo. **Status final** dan **Catatan kejadian** ada di bagian yang dapat dilipat. Profil dapat diekspor dan diimpor agar rekan satu perusahaan memakai pengaturan yang sama.
 
-## 18. Ekspor
+## 16. Ekspor
 
 ![Menu ekspor](images/13_menu_ekspor.png)
 
@@ -289,7 +266,7 @@ Isi jenis fasilitas (menentukan templat SLA), nama, target SLA, warna, dan logo.
 
 ![Laporan resmi](images/17_laporan_resmi.png)
 
-## 19. Popup dan pembaruan otomatis
+## 17. Popup dan pembaruan otomatis
 
 <img src="images/18_popup.png" width="360" alt="Popup">
 
@@ -297,9 +274,9 @@ Klik ikon CEISA Monitor untuk melihat umur data, status sesi, empat angka utama,
 
 Bila komputer dimatikan atau sesi portal berakhir, data diperbarui otomatis saat Anda masuk kembali ke portal atau saat Chrome dibuka dan portal sudah masuk. Tren tetap lengkap karena dihitung ulang dari tanggal daftar dan tanggal respons setiap dokumen.
 
-## 20. Bahasa, tema, dan mode demo
+## 18. Bahasa, tema, dan mode demo
 
-- Klik **ID** atau **EN** di kepala dasbor. Pilihan berlaku juga untuk popup dan notifikasi. Presentasi, laporan resmi, Excel, dan ringkasan disusun dalam bahasa Indonesia.
+- Dasbor selalu terbuka dalam bahasa Indonesia sejak pembukaan pertama, tanpa mengikuti bahasa Chrome. Klik **ID** atau **EN** di kepala dasbor untuk mengganti. Pilihan berlaku juga untuk popup. Presentasi, laporan resmi, Excel, dan ringkasan disusun dalam bahasa Indonesia.
 - Klik **Auto**, **Terang**, atau **Gelap** untuk tema tampilan.
 - Mode demo menampilkan data contoh. Untuk keluar, klik **Mode demo aktif · Keluar**.
 
