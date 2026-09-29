@@ -452,3 +452,15 @@ th.sortable{cursor:pointer;user-select:none}
 .ph-list li::before{content:"";position:absolute;left:-17px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--line);border:2px solid var(--surface)}
 .ph-list li.new{opacity:1;font-weight:600}.ph-list li.new::before{background:var(--accent,#2f6fed)}
 .ph-list time{font-family:var(--mono);font-size:11px;color:var(--ink-3);min-width:96px;font-weight:400}.ph-list em{font-style:normal;font-size:10.5px;padding:0 6px;border-radius:8px;background:var(--accent,#2f6fed);color:#fff;font-weight:600}
+
+/* v1.15: filter khusus kartu Isi dokumen */
+.isi-f{display:flex;flex-direction:column;gap:8px;margin:2px 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.isi-fr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}.isi-fl{font-size:12px;font-weight:600;color:var(--ink-2);min-width:74px}
+.isi-f .kchips{flex-wrap:wrap;overflow:visible}.isi-f .kchips small{font-family:var(--mono);font-size:11px;opacity:.75}
+.isi-f select{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.isi-fn{margin:0;font-size:11.5px}
+#isi-card .isi-rh{margin:14px 0 8px}#isi-card .tools{align-items:center;margin-top:4px}#isi-card .tools .chk{display:flex;align-items:center;gap:6px;font-size:13px}
+#jn-tbl tbody tr[data-jk]{cursor:pointer}#jn-tbl tbody tr[data-jk]:hover td{background:var(--surface-2)}#jn-tbl tr.sel td{background:#E6EEF8;box-shadow:inset 3px 0 0 var(--navy-2)}
+#nl-tbl tr.grp td{background:var(--surface-2);font-size:12px;border-top:2px solid var(--line)}
+@media print{.isi-f{display:none!important}}
+#isi-card .tools .chk{white-space:nowrap;flex:none}#isi-card .tools .chk input{flex:none;max-width:none;padding:0;width:auto}

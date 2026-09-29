@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.14
+# Panduan Lengkap CEISA Monitor v1.15
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.14.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.15.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -122,7 +122,20 @@ Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanj
 
 ![Isi dokumen: nilai dan pungutan](images/28_isi_dokumen.png)
 
-**Nilai dan pungutan.** Kartu Isi dokumen memiliki dua tab. Tab **Nilai dan pungutan** menampilkan kartu ringkasan (dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, netto, dan kontainer), total per jenis pungutan, dan tabel **Rincian per dokumen** dengan kolom nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas. Tabel ini dapat dicari dan diurutkan per kolom. BC 2.5 dan dokumen sejenis dibaca dari lembar PUNGUTAN portal, karena kolom tarif per barang di dokumen itu bernilai 0; dibayar berarti kode fasilitas 1 (dibayar) dan 7 (sudah dilunasi), sedangkan dibebaskan, ditangguhkan, ditanggung pemerintah, dan tidak dipungut dihitung sebagai fasilitas. Tabel **Menurut fasilitas** merinci porsi tiap fasilitas, dan sebuah catatan muncul bila total pungutan portal berbeda dari jumlah tarif per barang. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas. Tombol **Excel** di kartu ini membuka dialog **Ekspor nilai dan pungutan** (lihat bagian berikut). Kolom **Isi** (✓) di tabel rincian dan filter **Isi dokumen** (Sudah/Belum diambil) menunjukkan dokumen yang isinya sudah diambil; tombol **Ambil yang belum** melengkapi sisanya.
+**Nilai dan pungutan.** Kartu Isi dokumen memiliki empat tampilan: **Per pungutan**, **Per jenis dokumen**, **Per fasilitas**, dan **Per bulan**. Tiga tampilan pertama menampilkan kartu ringkasan (dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, netto, dan kontainer), satu tabel sesuai tampilan, dan tabel **Rincian per dokumen** dengan kolom nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas. Rincian dapat dicari, diurutkan per kolom, dan dikelompokkan per jenis (centang **Kelompokkan per jenis**: tiap kelompok memiliki judul dengan jumlah dokumen dan subtotal). Penghitung "Menampilkan {a} dari {b} dokumen" menunjukkan jumlah baris yang tampil; klik **Tampilkan {n} lagi** atau **Tampilkan semua**.
+
+- **Per pungutan**: total per jenis pungutan (dibayar dan fasilitas). BC 2.5 dan dokumen sejenis dibaca dari lembar PUNGUTAN portal, karena kolom tarif per barang di dokumen itu bernilai 0. Dibayar berarti kode fasilitas 1 (dibayar) dan 7 (sudah dilunasi); dibebaskan, ditangguhkan, ditanggung pemerintah, dan tidak dipungut dihitung sebagai fasilitas. Sebuah catatan muncul bila total pungutan portal berbeda dari jumlah tarif per barang.
+- **Per jenis dokumen**: satu baris per jenis dengan isi yang sudah diambil dibanding jumlah dokumen, nilai pabean, BM, PPN, PPh, total dibayar, fasilitas, dan porsi fasilitas, ditambah baris jumlah. Klik satu baris untuk menyaring rincian ke jenis itu; klik lagi untuk melepasnya.
+- **Per fasilitas**: porsi tiap fasilitas terhadap seluruh pungutan berfasilitas.
+- **Per bulan**: menurut bulan tanggal daftar, memuat jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan berfasilitas, dan persentase fasilitas.
+
+**Filter khusus kartu.** Di atas kartu ada baris filter sendiri: **Jenis dokumen** (boleh lebih dari satu, dengan jumlah yang sudah terambil dibanding jumlah dokumen), **Jalur**, dan **Pungutan** (semua dokumen, ada pungutan atau fasilitas, ada pungutan dibayar, atau ada fasilitas). Klik **Atur ulang** untuk menghapus semuanya. Filter ini hanya berlaku untuk kartu dan ekspornya; dasar datanya tetap periode dan filter dasbor di bagian atas halaman, sehingga dasbor status tidak ikut berubah.
+
+![Per jenis dokumen dengan filter kartu](images/39_per_jenis_filter.png)
+
+![Rincian dikelompokkan per jenis](images/40_rincian_kelompok.png)
+
+Tombol **Excel** di kartu ini membuka dialog **Ekspor nilai dan pungutan** (lihat bagian berikut) dengan jenis dan jalur yang sedang dipilih di kartu. Kolom **Isi** (✓) di tabel rincian dan filter **Isi dokumen** (Sudah/Belum diambil) menunjukkan dokumen yang isinya sudah diambil; tombol **Ambil yang belum** melengkapi sisanya.
 
 ![Nilai dan pungutan](images/32_nilai_pungutan.png)
 
@@ -136,7 +149,7 @@ Di bawahnya tampil ringkasan kelengkapan: dokumen dalam cakupan, yang isinya sud
 
 ![Dialog ekspor nilai dan pungutan](images/35_ekspor_nilai.png)
 
-Nama berkas memuat cakupannya, misalnya `CEISA_Nilai_Pungutan_PT-Contoh_2026-08-01_sd_2026-08-31_Pengeluaran-ke-LDP_1457.xlsx`. Isi berkas: lembar **Cakupan** (perusahaan, periode, jenis dokumen, filter, waktu ekspor, dan jumlah dokumen yang masuk maupun belum masuk perhitungan), **Nilai & Pungutan** (ringkasan, total per jenis pungutan, rekap bulanan), dan **Nilai per Dokumen** dengan kolom fasilitas terpisah (dibebaskan, ditangguhkan, tidak dipungut, ditanggung pemerintah, fasilitas lain, dan total). Baris total ikut berubah saat Anda menyaring tabel di Excel.
+Nama berkas memuat cakupannya, misalnya `CEISA_Nilai_Pungutan_PT-Contoh_2026-08-01_sd_2026-08-31_Pengeluaran-ke-LDP_1457.xlsx`. Isi berkas: lembar **Cakupan** (perusahaan, periode, jenis dokumen, filter, waktu ekspor, dan jumlah dokumen yang masuk maupun belum masuk perhitungan), **Nilai & Pungutan** (ringkasan, total per jenis pungutan, rekap bulanan), **Ringkasan per Jenis** (satu baris per jenis dokumen dengan jumlah, nilai, pungutan, fasilitas, dan porsi fasilitas), dan **Nilai per Dokumen** dengan kolom fasilitas terpisah (dibebaskan, ditangguhkan, tidak dipungut, ditanggung pemerintah, fasilitas lain, dan total). Baris total ikut berubah saat Anda menyaring tabel di Excel.
 
 ![Lembar Cakupan](images/36_excel_cakupan.png)
 

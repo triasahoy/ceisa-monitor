@@ -1,5 +1,15 @@
 # Catatan Perubahan
 
+## 1.15.0 (29 September 2026)
+
+- **Filter khusus kartu Isi dokumen.** Di atas kartu ada baris filter sendiri: jenis dokumen (boleh pilih beberapa, dengan jumlah yang sudah terambil per jenis), jalur, dan pungutan (semua, ada pungutan atau fasilitas, ada pungutan dibayar, ada fasilitas), serta tombol Atur ulang. Filter ini hanya berlaku untuk kartu dan ekspornya; dasar datanya tetap periode dan filter dasbor.
+- **Tabel Per jenis dokumen.** Satu baris per jenis: isi yang sudah diambil dibanding jumlah dokumen, nilai pabean, BM, PPN, PPh, total dibayar, fasilitas, dan porsi fasilitas, dengan baris jumlah. Klik satu baris untuk menyaring rincian ke jenis itu.
+- **Empat tampilan ringkasan**: Per pungutan, Per jenis dokumen, Per fasilitas, dan Per bulan (menggantikan dua tombol sebelumnya). Angka kartu, tabel, dan rincian mengikuti filter kartu.
+- **Rincian per dokumen**: pilihan **Kelompokkan per jenis** (judul kelompok dengan jumlah dokumen dan subtotal), penghitung "Menampilkan {a} dari {b} dokumen", dan tombol **Tampilkan semua**. Jarak antara judul dan kotak pencarian dirapikan.
+- **Ekspor mengikuti kartu**: tombol Excel membuka dialog dengan jenis dan jalur yang sedang dipilih di kartu. Berkas Excel memuat lembar baru **Ringkasan per Jenis** (satu baris per jenis dengan jumlah, nilai, pungutan, fasilitas, dan porsi), di samping Cakupan, Nilai & Pungutan, dan Nilai per Dokumen.
+- **Pengujian**: 61 pengujian otomatis (uji ekspor diperluas untuk lembar Ringkasan per Jenis).
+- **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
+
 ## 1.14.0 (29 September 2026)
 
 - **Ekspor nilai dan pungutan dengan cakupan sendiri.** Tombol Excel di kartu Isi dokumen kini membuka dialog: pilih rentang tanggal daftar dan jenis dokumen (hanya jenis yang ada di data, lengkap dengan jumlah dan yang sudah terambil). Awalnya mengikuti filter dasbor, dengan tombol cepat Bulan ini, 90 hari, Tahun ini, dan Sesuai filter dasbor. Filter jalur, perusahaan, dan kantor yang aktif ikut diterapkan.
