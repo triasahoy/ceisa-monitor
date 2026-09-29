@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.16.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.16.1.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -169,9 +169,7 @@ Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu t
 
 Kartu **Komposisi status** menampilkan donat dan daftar status dengan jumlah dan persentase dokumen pada periode terpilih. Klik satu status untuk menyaring tabel rincian pada status tersebut.
 
-Kartu **Komposisi status per jenis dokumen** menampilkan satu batang per jenis dokumen berisi porsi tiap status (tombol Persentase atau Jumlah). Klik segmen untuk menyaring rincian pada jenis dokumen dan status tersebut.
-
-![Komposisi status per jenis dokumen](images/31_komposisi_jenis.png)
+Untuk melihat komposisi per jenis dokumen, pilih tombol jenis dokumen di atas dasbor, atau lihat tabel **Status per jenis dokumen** pada bagian berikut (klik baris untuk menyaring rincian).
 
 ## 8. Status per jenis, umur dokumen, dan rincian status
 

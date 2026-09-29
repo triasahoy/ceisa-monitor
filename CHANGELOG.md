@@ -1,5 +1,11 @@
 # Catatan Perubahan
 
+## 1.16.1 (30 September 2026)
+
+- **Kartu "Komposisi status per jenis dokumen" dihapus.** Isinya tumpang tindih dengan tabel Status per jenis dokumen (klik baris untuk menyaring) dan donat Komposisi status yang mengikuti tombol jenis dokumen.
+- **Filter Pungutan kartu Isi dokumen kini tercatat pada ekspor Excel** (lembar Cakupan dan Daftar Isi), sehingga pembaca berkas tahu bahwa lembar nilai hanya memuat dokumen berpungutan atau berfasilitas.
+- **Uji asap dasbor** (`npm run smoke`): membuka dasbor demo, mengambil isi dokumen, lalu membuat presentasi, Excel, laporan, dan ringkasan. Bersifat opsional dan memerlukan Playwright.
+
 ## 1.16.0 (29 September 2026)
 
 Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan dibuat konsisten.

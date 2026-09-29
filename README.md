@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.16.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.16.1</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -29,7 +29,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Gambaran cepat | Enam angka utama untuk semua jenis dokumen, dibandingkan dengan 30 hari lalu, periode sebelumnya, atau tahun lalu |
 | Semua data | Menarik seluruh dokumen yang tersedia di portal, termasuk tahun-tahun sebelumnya |
 | Periode bebas | 7/30/90 hari, bulan ini, bulan lalu, kuartal, tahun ini, tahun lalu, semua data, atau rentang tanggal sendiri |
-| Komposisi status | Donat dan daftar status dengan jumlah dan persentase, serta komposisi status per jenis dokumen; klik status atau segmen untuk menyaring rincian |
+| Komposisi status | Donat dan daftar status dengan jumlah dan persentase; pilih jenis dokumen pada tombol di atas dasbor untuk melihatnya per jenis, dan klik status untuk menyaring rincian |
 | Verifikasi ke kantor | Dokumen Pemeriksaan Dokumen dengan jalur bukan merah bertanda **VERIFIKASI** (bukan Jalur Merah), karena dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai |
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
 | Kapan berubah | Popup ikon **BERUBAH** menampilkan **Riwayat Status dan Riwayat Respon dari portal** dengan jam persis, seperti tab di portal; status yang baru muncul ditandai. Riwayat diambil per dokumen saat popup dibuka, tanpa nama petugas. Kartu rincian memuat status sebelum dan sesudah, dengan kode respons resmi CEISA 4.0 diterjemahkan otomatis |
@@ -54,18 +54,18 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | ![Ambil isi dokumen](docs/images/37_ambil_isi.png) | ![Nilai dan pungutan](docs/images/32_nilai_pungutan.png) |
 | **Per jenis dokumen dengan filter kartu** | **Rincian dikelompokkan per jenis** |
 | ![Per jenis dokumen](docs/images/39_per_jenis_filter.png) | ![Rincian dikelompokkan](docs/images/40_rincian_kelompok.png) |
-| **Kartu arsip pengajuan** | **Komposisi status per jenis dokumen** |
-| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Komposisi status per jenis dokumen](docs/images/31_komposisi_jenis.png) |
+| **Kartu arsip pengajuan** | **Ringkasan WhatsApp/surel** |
+| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Ringkasan WhatsApp](docs/images/42_ringkasan_wa.png) |
 | **Hari ini** | **Rekap bulanan** |
 | ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
 
-Video **Yang baru di v1.15** (bernarasi dan bersubtitle): baris filter kartu Isi dokumen, tampilan per jenis dokumen, rincian berkelompok dengan subtotal, ekspor Excel, dan pengambilan isi dokumen yang dapat dilanjutkan. Unduh `CEISA_Monitor_Yang_Baru_v1.15.mp4` dari rilis [v1.16.0](../../releases/tag/v1.16.0). Video sebelumnya (v1.12) ada di rilis [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
+Video **Yang baru di v1.15** (bernarasi dan bersubtitle): baris filter kartu Isi dokumen, tampilan per jenis dokumen, rincian berkelompok dengan subtotal, ekspor Excel, dan pengambilan isi dokumen yang dapat dilanjutkan. Unduh `CEISA_Monitor_Yang_Baru_v1.15.mp4` dari rilis [v1.16.1](../../releases/tag/v1.16.1). Video sebelumnya (v1.12) ada di rilis [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.16.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.16.1.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.
