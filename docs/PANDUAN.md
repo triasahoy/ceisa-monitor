@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.8
+# Panduan Lengkap CEISA Monitor v1.10
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -97,9 +97,23 @@ Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data.
 
 **Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, jaminan, dan pengeluaran sementara terkait. Isinya dibaca dari layanan Unduh Excel portal. Untuk banyak dokumen, klik **Ambil isi dokumen periode ini** di kartu **Isi dokumen**, yang juga menampilkan Pengeluaran sementara (barang yang belum kembali), Nilai dan pungutan, serta Pemeriksaan otomatis. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
 
+![Kartu arsip pengajuan](images/29_kartu_arsip.png)
+
+![Isi dokumen: pengeluaran sementara](images/28_isi_dokumen.png)
+
+Tab **Nilai dan pungutan** merangkum nilai pabean dan pungutan per jenis fasilitas. Tab **Pemeriksaan** menandai dokumen pelengkap yang belum ada, jaminan yang jatuh tempo dalam 30 hari, invoice ganda, dan perbedaan HS. Setiap temuan dapat ditandai **Sudah dicek**.
+
+![Nilai dan pungutan](images/32_nilai_pungutan.png)
+
+![Pemeriksaan otomatis](images/30_pemeriksaan.png)
+
 **Kode respons angka.** Respons yang tampil sebagai angka (misalnya 2305) langsung diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/). Artinya bergantung pada jenis dokumen: akhiran 03 berarti SPPB pada BC 2.3, tetapi Surat Perintah Pemeriksaan Fisik pada BC 2.6.1. Sel Respons menampilkan singkatannya; klik untuk melihat nama lengkap. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi, sehingga kodenya tidak ditebak.
 
 **Riwayat dari portal (jam pasti).** Klik **Ambil riwayat dari portal** di kartu ini, di kolom Respons yang bertuliskan "tanpa nama" atau berupa angka, atau di dialog tindak lanjut. CEISA Monitor mengambil Riwayat Status (termasuk Validasi, Siap Jalur, dan Penjaluran) dan Riwayat Respon langsung dari portal, sehingga Anda tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon satu per satu. Fitur ini langsung aktif tanpa pengaturan. Untuk laporan, pilih beberapa dokumen lalu klik **Ambil riwayat portal**, atau klik **Lengkapi riwayat dari portal** di dialog Excel; lembar **Riwayat Portal** berisi waktu layanan dan lama setiap perpindahan status, dan **Riwayat Rinci** berisi setiap status dan respons dengan jamnya. Nama petugas dan pengguna tidak diambil. Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
+
+Kartu **Waktu proses** merangkum riwayat tersebut: median waktu layanan portal per jenis dokumen, hari penyelesaian, dan lama setiap perpindahan status.
+
+![Waktu proses](images/31_waktu_proses.png)
 
 ![Rincian perubahan status](images/26_rincian_perubahan.png)
 

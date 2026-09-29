@@ -49,6 +49,10 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | ![Rincian perubahan](docs/gif/rincian_perubahan.gif) | ![Aliran dokumen](docs/gif/aliran_dokumen.gif) |
 | **Tindak lanjut** | **Presentasi rapat** |
 | ![Tindak lanjut](docs/gif/tindak_lanjut.gif) | ![Presentasi](docs/gif/presentasi.gif) |
+| **Kartu arsip pengajuan** | **Isi dokumen: pengeluaran sementara** |
+| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Isi dokumen](docs/images/28_isi_dokumen.png) |
+| **Waktu proses** | **Pemeriksaan otomatis** |
+| ![Waktu proses](docs/images/31_waktu_proses.png) | ![Pemeriksaan](docs/images/30_pemeriksaan.png) |
 
 Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
 
@@ -59,7 +63,7 @@ Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF 
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.
 
-Untuk memastikan paket tidak diubah pihak lain, cocokkan kode SHA-256 di [SECURITY.md](SECURITY.md#memeriksa-keaslian-paket). Versi Chrome Web Store sedang dalam peninjauan; tautannya akan ditambahkan di sini setelah tayang.
+Untuk memastikan paket tidak diubah pihak lain, cocokkan kode SHA-256 di [SECURITY.md](SECURITY.md#memeriksa-keaslian-paket). Versi Chrome Web Store sedang disiapkan; tautannya akan ditambahkan di sini setelah tayang.
 
 ## Mulai dalam empat langkah
 
