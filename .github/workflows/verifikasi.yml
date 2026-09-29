@@ -24,7 +24,7 @@ jobs:
               t = f.read_text(encoding='utf-8')
               if re.search(r'\beval\(|new Function\(', t): bad.append(f'{f}: eval')
               for u in re.findall(r'https?://([a-z0-9.-]+)', t, re.I):
-                  if u.lower() not in ('portal.beacukai.go.id', 'apis-gw.beacukai.go.id', 'www.w3.org', 'saweria.co', 'wa.me'): bad.append(f'{f}: {u}')
+                  if u.lower() not in ('portal.beacukai.go.id', 'apis-gw.beacukai.go.id', 'www.w3.org', 'saweria.co', 'wa.me', 'www.linkedin.com', 'twitter.com', 't.me', 'triasahoy.github.io'): bad.append(f'{f}: {u}')
           if bad: print('\n'.join(bad)); sys.exit(1)
           print('Manifest, CSP, dan kode lolos pemeriksaan.')
           PY

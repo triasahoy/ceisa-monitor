@@ -91,7 +91,7 @@
   </section>
 
   <footer class="foot" id="foot"></footer>
-  <p class="support" id="support-wrap" hidden><span>CEISA Monitor gratis untuk semua pengguna.</span> <a id="support" href="#" target="_blank" rel="noopener noreferrer">Dukung pengembangannya lewat Saweria</a></p>
+  <p class="support" id="support-wrap" hidden><span>CEISA Monitor gratis untuk semua pengguna.</span> <a id="support" href="#" target="_blank" rel="noopener noreferrer">Dukung pengembangannya lewat Saweria</a> · <button type="button" class="linkbtn" id="share-open">Bagikan ke rekan</button></p>
 </div>
 
 <dialog id="dlg-profile">
@@ -141,7 +141,7 @@
       <p class="sla-sum" id="s-sla-sum"></p>
     </details>
     <p class="hint1">Data tersimpan lokal di peramban ini, terpisah per akun.</p>
-    <div class="dlg-actions"><button class="btn ghost" id="s-clear" type="button">Hapus data</button><button class="btn ghost" id="s-demo" type="button" hidden>Coba mode demo</button><a class="btn ghost" id="s-support" href="#" target="_blank" rel="noopener noreferrer" hidden>Dukung proyek ini</a><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" id="s-save" type="submit">Simpan</button></div>
+    <div class="dlg-actions"><button class="btn ghost" id="s-clear" type="button">Hapus data</button><button class="btn ghost" id="s-demo" type="button" hidden>Coba mode demo</button><button class="btn ghost" id="s-bagikan" type="button">Bagikan ke rekan</button><a class="btn ghost" id="s-support" href="#" target="_blank" rel="noopener noreferrer" hidden>Dukung proyek ini</a><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="save" id="s-save" type="submit">Simpan</button></div>
   </form>
 </dialog>
 
@@ -244,6 +244,17 @@
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit">Unduh Excel</button></div>
   </form>
 </dialog>
+<dialog id="dlg-bagikan">
+  <form method="dialog">
+    <h2>Bagikan CEISA Monitor</h2>
+    <p class="muted" style="margin-top:0">Pesan dapat diubah sebelum dikirim. Isinya hanya tautan proyek; tidak ada data dokumen yang ikut terkirim.</p>
+    <textarea id="bg-text" rows="4" style="width:100%"></textarea>
+    <div class="quick" id="bg-btns" style="margin-top:10px"><button type="button" data-n="linkedin">LinkedIn</button><button type="button" data-n="wa">WhatsApp</button><button type="button" data-n="x">X</button><button type="button" data-n="tg">Telegram</button><button type="button" data-n="copy">Salin pesan</button></div>
+    <p class="muted" id="bg-note" style="margin:8px 0 0">LinkedIn hanya memakai tautan; pesan disalin agar dapat ditempel.</p>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Tutup</button></div>
+  </form>
+</dialog>
+
 <dialog id="dlg-share">
   <form method="dialog" id="f-share">
     <h2>Ringkasan WhatsApp/surel</h2>

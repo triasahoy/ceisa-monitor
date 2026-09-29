@@ -11,7 +11,7 @@
 | CSP ketat | `script-src 'self'; object-src 'self'; base-uri 'none'; frame-ancestors 'self'`. Tidak ada skrip dari luar, `eval`, atau skrip inline |
 | Validasi data | Struktur data portal diperiksa setiap kali ditarik. Bila berubah, angka tidak ditampilkan agar tidak menyesatkan |
 | Kode rilis | Diminifikasi (sesuai kebijakan Chrome Web Store), tanpa obfuskasi, dengan pernyataan hak cipta di setiap berkas. Kode sumber tidak dipublikasikan dan dilindungi lisensi hak cipta |
-| Tautan luar | Hanya dua tautan yang dibuka sebagai tab biasa atas klik pengguna: Saweria (dukungan) dan WhatsApp (wa.me, pesan tugas). Tidak ada data yang dikirim otomatis |
+| Tautan luar | Hanya tautan yang dibuka sebagai tab biasa atas klik pengguna: Saweria (dukungan), WhatsApp (wa.me, pesan tugas), serta tombol Bagikan ke LinkedIn, WhatsApp, X, dan Telegram dengan isi berupa tautan halaman proyek (triasahoy.github.io). Tidak ada data dokumen dan tidak ada data yang dikirim otomatis |
 
 ## Memeriksa keaslian paket
 
@@ -19,12 +19,12 @@ Unduh paket hanya dari halaman [Releases](../../releases) repositori ini atau da
 
 | Berkas | SHA-256 |
 |---|---|
-| `ceisa-monitor-v1.16.2.zip` | `4548c6b58d2765d95b4eba928d46ae3133cf94f20daac7075480df2c75f269be` |
+| `ceisa-monitor-v1.16.3.zip` | `2273fdcd76e5fb9732be4c6f5e3dbfbb90bd59efaae914350a73793a184207a9` |
 
 Cara memeriksa:
 
-- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.16.2.zip -Algorithm SHA256`
-- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.16.2.zip`
+- Windows (PowerShell): `Get-FileHash .\ceisa-monitor-v1.16.3.zip -Algorithm SHA256`
+- macOS/Linux: `shasum -a 256 ceisa-monitor-v1.16.3.zip`
 
 Kode untuk setiap berkas di folder `extension/` tercantum di [SHA256SUMS.txt](SHA256SUMS.txt) dan diperiksa otomatis oleh GitHub Actions setiap ada perubahan.
 

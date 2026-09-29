@@ -1,5 +1,9 @@
 # Catatan Perubahan
 
+## 1.16.3 (30 September 2026)
+
+- **Tombol "Bagikan ke rekan"** di kaki dasbor dan Pengaturan: membuka pesan siap kirim (dapat diedit) ke LinkedIn, WhatsApp, X, Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen dan tidak ada panggilan jaringan dari ekstensi (peramban hanya membuka tab situs tujuan saat tombol diklik).
+
 ## 1.16.2 (30 September 2026)
 
 - **Perbaikan tautan dukungan sukarela**: alamat halaman Saweria yang benar adalah saweria.co/triasex (sebelumnya menunjuk ke alamat yang salah). Berlaku di kaki dasbor, popup, README, dan FAQ.

@@ -34,6 +34,7 @@
 | Apa itu Ringkasan eksekutif di dialog Buat laporan? | Mode yang memangkas presentasi dari 26 menjadi 9 slide dan laporan resmi menjadi bagian inti (ringkasan, nilai dan pungutan, usulan tindak lanjut). Nama berkas berakhiran `_Ringkas`. |
 | Mengapa bab Nilai dan pungutan tidak muncul di laporan? | Bab itu dibuat dari isi dokumen. Bila isi dokumen periode itu belum diambil, bab tidak disertakan; dialog Buat laporan menampilkan alasannya. Bila baru sebagian yang diambil, bab muncul dengan catatan cakupan. |
 | Dapatkah presentasi langsung menjadi PDF? | Tidak oleh ekstensi. Buka berkas .pptx di PowerPoint lalu Simpan sebagai PDF. Laporan resmi A4 dapat langsung dicetak ke PDF dari peramban. |
+| Bagaimana cara membagikan ekstensi ke rekan? | Klik **Bagikan ke rekan** di kaki dasbor atau di Pengaturan. Pesan siap kirim (dapat diubah) dibuka di LinkedIn, WhatsApp, X, atau Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen. |
 | Bagaimana cara menghapus semua data? | Pengaturan → Hapus data, atau hapus ekstensi dari Chrome. |
 | Ke mana saya mengirim masukan? | Buka [Issues](../../../issues/new/choose) dan pilih templat yang sesuai. |
 | Apa isi kartu Hari ini? | Daftar tindakan yang mendesak: tugas terlambat, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab. Klik satu baris untuk melihat daftarnya. |
