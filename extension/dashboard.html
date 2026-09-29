@@ -193,6 +193,22 @@
   </form>
 </dialog>
 
+<dialog id="dlg-xn" class="wide">
+  <form method="dialog" id="f-xn">
+    <h2>Ekspor nilai dan pungutan</h2>
+    <div class="form-grid">
+      <label>Tanggal daftar dari<input type="date" id="xn-from"></label>
+      <label>Sampai<input type="date" id="xn-to"></label>
+      <div class="chips wide" id="xn-quick"><button class="btn ghost sm" type="button" data-q="month">Bulan ini</button><button class="btn ghost sm" type="button" data-q="q3">90 hari</button><button class="btn ghost sm" type="button" data-q="year">Tahun ini</button><button class="btn ghost sm" type="button" data-q="filter">Sesuai filter dasbor</button></div>
+    </div>
+    <div class="st-h">Jenis dokumen <small class="muted">tanpa centang = semua</small></div>
+    <div id="xn-pk" class="pk"></div>
+    <label class="chk"><input type="checkbox" id="xn-split"> Pisahkan per jenis dokumen (satu lembar untuk setiap jenis)</label>
+    <p class="sc-sum" id="xn-sum" aria-live="polite"></p>
+    <p class="hint1" id="xn-warn" hidden></p>
+    <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn" id="xn-fetch" type="button" hidden>Ambil yang belum lalu ekspor</button><button class="btn primary" id="xn-go" type="button">Unduh Excel</button></div>
+  </form>
+</dialog>
 <dialog id="dlg-scope" class="wide">
   <form method="dialog" id="f-scope">
     <h2>Ambil isi dokumen</h2>

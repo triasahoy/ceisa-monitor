@@ -1,5 +1,16 @@
 # Catatan Perubahan
 
+## 1.14.0 (29 September 2026)
+
+- **Ekspor nilai dan pungutan dengan cakupan sendiri.** Tombol Excel di kartu Isi dokumen kini membuka dialog: pilih rentang tanggal daftar dan jenis dokumen (hanya jenis yang ada di data, lengkap dengan jumlah dan yang sudah terambil). Awalnya mengikuti filter dasbor, dengan tombol cepat Bulan ini, 90 hari, Tahun ini, dan Sesuai filter dasbor. Filter jalur, perusahaan, dan kantor yang aktif ikut diterapkan.
+- **Ringkasan kelengkapan sebelum unduh**: dialog menampilkan jumlah dokumen dalam cakupan, yang isinya sudah diambil, dan yang belum. Bila ada yang belum, tersedia **Ambil yang belum lalu ekspor** (mengambil sisanya, lalu langsung mengunduh) atau **Unduh yang sudah ada**.
+- **Nama berkas memuat cakupan**: `CEISA_Nilai_Pungutan_{perusahaan}_{dari}_sd_{sampai}_{jenis}_{jam}.xlsx`, misalnya `..._2026-08-01_sd_2026-08-31_Pengeluaran-ke-LDP_1457.xlsx`. Jam ditambahkan agar unduhan berulang tidak menjadi "(1)".
+- **Lembar Cakupan** di awal berkas: perusahaan, periode, jenis dokumen, filter yang ikut, waktu ekspor, dan jumlah dokumen (dalam cakupan, sudah diambil, belum diambil, disorot bila ada yang belum).
+- **Pisahkan per jenis dokumen** (pilihan): satu lembar Nilai untuk setiap jenis dokumen, di samping lembar Nilai per Dokumen gabungan.
+- **Kolom fasilitas dipecah**: Dibebaskan, Ditangguhkan, Tidak dipungut, Ditanggung pemerintah, Fasilitas lain, dan Total fasilitas. Baris total memakai fungsi tabel Excel sehingga ikut berubah saat Anda menyaring di Excel.
+- **Pengujian**: 61 pengujian otomatis (baru: lembar Cakupan, kolom fasilitas, lembar per jenis).
+- **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
+
 ## 1.13.0 (29 September 2026)
 
 - **Popup BERUBAH menampilkan Riwayat Status dan Riwayat Respon dari portal**, sama seperti tab di portal: setiap status dengan jam persis (mis. Perekaman Dokumen, Validasi, Siap Jalur, Penjaluran, Gate In TPB/KEK, Pembongkaran, Selesai Proses), terbaru di atas, lalu daftar respons (mis. SPPB, SPPD) dengan jamnya. Status yang muncul sejak pengecekan terakhir ditandai **baru**.

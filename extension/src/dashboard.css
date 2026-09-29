@@ -423,6 +423,7 @@ details.sec>.form-grid,details.sec>.checks,details.sec>textarea,details.sec>.sla
 .pk-i small{color:var(--ink-3);font-size:11.5px}
 .sc-sum{margin:12px 0 4px}
 #dlg-scope .chips{display:flex;gap:6px;flex-wrap:wrap}
+#dlg-xn .chips{display:flex;gap:6px;flex-wrap:wrap}
 .st-hist .rsp{font-size:12.5px;color:var(--ink-2)}
 .st-hist small{margin-left:6px}
 th.sortable{cursor:pointer;user-select:none}
@@ -437,10 +438,15 @@ th.sortable{cursor:pointer;user-select:none}
 .kk-n{text-align:right;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 #lg-kk{margin-top:12px}
 #sc-pk .pk-list{max-height:260px}#sc-pk .pk-i{padding:5px 0}#sc-pk .pk-i span{display:flex;justify-content:space-between;gap:12px;width:100%}#sc-pk .pk-i small{font-family:var(--mono);color:var(--ink-3)}
+#xn-pk .pk-list{max-height:260px}#xn-pk .pk-i{padding:5px 0}#xn-pk .pk-i span{display:flex;justify-content:space-between;gap:12px;width:100%}#xn-pk .pk-i small{font-family:var(--mono);color:var(--ink-3)}
 #sc-pk .pk-i span{align-items:center}#sc-pk .pk-i b,#sc-pk .pk-i small{display:inline;margin:0}
+#xn-pk .pk-i span{align-items:center}#xn-pk .pk-i b,#xn-pk .pk-i small{display:inline;margin:0}
 #sc-pk .pk-i span{display:flex!important;flex:1;justify-content:space-between;text-align:left}#sc-pk .pk-i b{font-weight:500}
+#xn-pk .pk-i span{display:flex!important;flex:1;justify-content:space-between;text-align:left}#xn-pk .pk-i b{font-weight:500}
 #sc-pk .pk-i span{flex-direction:row}#sc-pk .pk-i{align-items:center}
+#xn-pk .pk-i span{flex-direction:row}#xn-pk .pk-i{align-items:center}
 #dlg-scope label.chk{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+#dlg-xn label.chk{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
 
 .ph-list{list-style:none;margin:6px 0 4px;padding:0 0 0 12px;border-left:2px solid var(--line)}.ph-list li{display:flex;gap:8px;align-items:baseline;margin:4px 0;position:relative;font-size:12.5px;opacity:.72}
 .ph-list li::before{content:"";position:absolute;left:-17px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--line);border:2px solid var(--surface)}

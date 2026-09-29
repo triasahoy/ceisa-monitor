@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.13.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.14.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -34,7 +34,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
 | Kapan berubah | Popup ikon **BERUBAH** menampilkan **Riwayat Status dan Riwayat Respon dari portal** dengan jam persis, seperti tab di portal; status yang baru muncul ditandai. Riwayat diambil per dokumen saat popup dibuka, tanpa nama petugas. Kartu rincian memuat status sebelum dan sesudah, dengan kode respons resmi CEISA 4.0 diterjemahkan otomatis |
 | Isi dokumen | Tombol **Ambil isi dokumen…** dengan dialog cakupan (rentang tanggal daftar dan jenis dokumen). Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap, barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer |
-| Nilai dan pungutan | Total nilai pabean, pungutan dibayar dan berfasilitas, tabel rincian per dokumen (BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan, serta rekap bulanan; BC 2.5 dan sejenisnya dibaca dari lembar PUNGUTAN portal; tombol Excel mengunduh lembar Nilai & Pungutan |
+| Nilai dan pungutan | Total nilai pabean, pungutan dibayar dan berfasilitas, tabel rincian per dokumen (BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan, serta rekap bulanan; BC 2.5 dan sejenisnya dibaca dari lembar PUNGUTAN portal; tombol Excel membuka dialog cakupan (periode dan jenis dokumen sendiri, ringkasan kelengkapan, lembar Cakupan, pilihan satu lembar per jenis) |
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
 | Prioritas harian | Kartu **Hari ini**: tugas terlambat atau jatuh tempo, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab |
@@ -63,7 +63,7 @@ Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7)
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.13.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.14.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.
