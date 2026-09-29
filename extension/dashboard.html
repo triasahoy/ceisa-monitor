@@ -253,6 +253,8 @@
     <div class="share-grid">
       <div>
         <div class="seg" id="sh-style"><button type="button" data-s="wa" aria-pressed="true">WhatsApp</button><button type="button" data-s="plain" aria-pressed="false">Surel / teks biasa</button></div>
+        <div class="seg" id="sh-when" style="margin-top:8px;width:100%"><button type="button" data-w="" aria-pressed="true">Biasa</button><button type="button" data-w="pagi" aria-pressed="false">Pagi</button><button type="button" data-w="sore" aria-pressed="false">Sore</button></div>
+        <label class="chk" style="margin-top:8px;display:flex;align-items:center;gap:8px;text-align:left"><input type="checkbox" id="sh-compact"> Ringkas untuk ponsel</label>
         <p class="muted" style="margin:10px 0 6px">Bagian yang disertakan</p>
         <div class="checks col" id="sh-parts"></div>
         <p class="muted" id="sh-count" style="margin-top:10px"></p>
@@ -273,6 +275,8 @@
     </div>
     <div class="quick" id="k-quick"></div>
     <div id="k-fmt-wrap" hidden><div class="st-h">Buat</div><div class="checks" id="k-fmt"><label><input type="checkbox" value="pptx"> Presentasi rapat (.pptx)</label><label><input type="checkbox" value="report"> Laporan resmi A4 (PDF/Word, terbuka di tab baru)</label><label><input type="checkbox" value="xlsx"> Excel (.xlsx) <button type="button" class="linkbtn" id="k-sheets">pilih lembar</button></label></div></div>
+    <label class="chk" id="k-exec-wrap" style="margin-top:10px"><input type="checkbox" id="k-exec"> Ringkasan eksekutif (presentasi dan laporan lebih pendek)</label>
+    <p class="muted" id="k-cov" style="margin:8px 0 0"></p>
     <div class="dlg-actions"><span class="spacer"></span><button class="btn" value="cancel" type="submit" formnovalidate>Batal</button><button class="btn primary" value="make" type="submit" id="k-go">Unduh .pptx</button></div>
   </form>
 </dialog>

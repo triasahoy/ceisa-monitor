@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.15.2</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.16.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -38,7 +38,7 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
 | Prioritas harian | Kartu **Hari ini**: tugas terlambat atau jatuh tempo, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab |
-| Laporan | Presentasi .pptx 22 slide, laporan resmi A4 (PDF/Word), Excel dengan lembar Nilai per Dokumen, ringkasan WhatsApp |
+| Laporan | Presentasi .pptx (26 slide, atau 9 slide pada mode ringkasan eksekutif) dengan slide Poin utama, bab Nilai dan pungutan, dan lampiran; laporan resmi A4 (PDF/Word) dengan bab dan lampiran yang sama; Excel dengan lembar Daftar Isi, Nilai per Dokumen, dan Perubahan Status; ringkasan WhatsApp Pagi/Sore dengan nilai dan tugas hari ini |
 | Kenyamanan | Bahasa Indonesia sejak pembukaan pertama (English dari tombol ID/EN), tema terang dan gelap, mode demo |
 
 ## Lihat cara kerjanya
@@ -59,13 +59,13 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | **Hari ini** | **Rekap bulanan** |
 | ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
 
-Video **Yang baru di v1.15** (bernarasi dan bersubtitle): baris filter kartu Isi dokumen, tampilan per jenis dokumen, rincian berkelompok dengan subtotal, ekspor Excel, dan pengambilan isi dokumen yang dapat dilanjutkan. Unduh `CEISA_Monitor_Yang_Baru_v1.15.mp4` dari rilis [v1.15.2](../../releases/tag/v1.15.2). Video sebelumnya (v1.12) ada di rilis [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
+Video **Yang baru di v1.15** (bernarasi dan bersubtitle): baris filter kartu Isi dokumen, tampilan per jenis dokumen, rincian berkelompok dengan subtotal, ekspor Excel, dan pengambilan isi dokumen yang dapat dilanjutkan. Unduh `CEISA_Monitor_Yang_Baru_v1.15.mp4` dari rilis [v1.16.0](../../releases/tag/v1.16.0). Video sebelumnya (v1.12) ada di rilis [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.15.2.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.16.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.

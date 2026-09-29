@@ -1,5 +1,19 @@
 # Catatan Perubahan
 
+## 1.16.0 (29 September 2026)
+
+Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan dibuat konsisten.
+
+- **Bab Nilai dan pungutan** di presentasi dan laporan resmi: nilai pabean, BM, PPN, PPh, pungutan dibayar, dan fasilitas, per jenis dokumen dan per bulan, disertai kalimat temuan otomatis dan perbandingan dengan bulan sebelumnya. Bab hanya muncul bila isi dokumen sudah diambil, dan mencantumkan cakupannya.
+- **Slide "Poin utama"** (dan kalimat pembuka laporan) yang disusun otomatis dari angka periode.
+- **Mode ringkasan eksekutif**: kotak centang di dialog Buat laporan; presentasi dan laporan lebih pendek (nama berkas berakhiran _Ringkas).
+- **Dialog Buat laporan menampilkan cakupan**: berapa dokumen periode itu yang isinya sudah terambil, sebelum laporan dibuat.
+- **Lampiran otomatis**: dokumen belum selesai tertua dan Jalur Merah yang belum selesai.
+- **Ringkasan WhatsApp/surel**: bagian baru Nilai dan pungutan dan Tugas jatuh tempo hari ini, pilihan Biasa/Pagi/Sore, dan Ringkas untuk ponsel.
+- **Excel lebih rapi**: lembar Daftar Isi (dengan tautan dan catatan sumber) di depan, lembar Perubahan Status, serta pengaturan bawaan Untuk atasan dan Untuk tim diperbarui.
+- **Pengujian**: 66 pengujian otomatis (baru: model nilai, kalimat temuan, Daftar Isi dan Perubahan Status, ringkasan, dan jumlah slide presentasi).
+- **Batasan**: presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; gunakan Simpan sebagai PDF di PowerPoint. Lampiran jaminan belum ada.
+
 ## 1.15.2 (29 September 2026)
 
 - **Isi dokumen tidak lagi diambil ulang setiap 6 jam.** Sebelumnya dokumen yang belum berstatus final dianggap kedaluwarsa setelah 6 jam, sehingga pengambilan ulang untuk ribuan dokumen terasa selalu panjang. Kini isi dokumen (barang, nilai, pungutan, dokumen pelengkap) dianggap segar sampai **statusnya berubah** atau Anda memilih **Ambil ulang**. Setelah pengambilan pertama selesai, klik **Ambil yang belum** hanya memuat dokumen baru dan dokumen yang statusnya berubah.

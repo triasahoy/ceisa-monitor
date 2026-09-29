@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.15.2.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.16.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -287,10 +287,18 @@ Isi jenis fasilitas (menentukan templat SLA), nama, target SLA, warna, dan logo.
 
 ![Menu ekspor](images/13_menu_ekspor.png)
 
+Dialog **Buat laporan** menampilkan cakupan isi dokumen sebelum berkas dibuat ("Nilai dan pungutan mencakup 2.400 dari 2.544 dokumen periode ini"). Bab Nilai dan pungutan hanya disertakan bila isi dokumen sudah diambil, dan selalu mencantumkan cakupannya. Centang **Ringkasan eksekutif** untuk presentasi dan laporan yang lebih pendek (nama berkas berakhiran `_Ringkas`).
+
+![Dialog Buat laporan](images/41_buat_laporan.png)
+
+![Ringkasan WhatsApp](images/42_ringkasan_wa.png)
+
+Excel diawali lembar **Daftar Isi** (sumber data, waktu data, periode, filter, cakupan isi dokumen, dan tautan ke setiap lembar) dan memuat lembar **Perubahan Status** bila ada perubahan sejak pembanding. Presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; buka di PowerPoint lalu pilih Simpan sebagai PDF.
+
 | Ekspor | Isi |
 |---|---|
-| Buat laporan | Pilih periode sekali, lalu centang berkas yang dibuat: presentasi 22 slide (judul berupa kesimpulan, slide "Keputusan yang dimohon"), laporan resmi A4 format dinas (cetak ke PDF atau unduh sebagai Word), dan/atau Excel dengan lembar pilihan |
-| Bagikan ringkasan | Pratinjau, pilihan bagian, format WhatsApp atau teks biasa |
+| Buat laporan | Pilih periode sekali, lalu centang berkas yang dibuat: presentasi 26 slide (judul berupa kesimpulan, slide "Poin utama", bab Nilai dan pungutan, "Keputusan yang dimohon", dan lampiran; 9 slide bila Ringkasan eksekutif dicentang), laporan resmi A4 format dinas (cetak ke PDF atau unduh sebagai Word), dan/atau Excel dengan lembar pilihan |
+| Bagikan ringkasan | Pratinjau, pilihan bagian (angka utama, nilai dan pungutan, tugas jatuh tempo hari ini, per jenis, perlu perhatian, dokumen tertua, tindak lanjut, perubahan), format WhatsApp atau teks biasa, judul Biasa/Pagi/Sore, dan pilihan Ringkas untuk ponsel |
 
 ![Presentasi](images/14_presentasi.png)
 
