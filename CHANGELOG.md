@@ -1,5 +1,11 @@
 # Catatan Perubahan
 
+## 1.15.1 (29 September 2026)
+
+- **Perbaikan: pembaruan gagal dengan pesan "Frame with ID 0 was removed."** Pesan ini muncul bila halaman portal berpindah atau dimuat ulang saat pembaruan berjalan (mis. portal memperbarui sesi). Sebelumnya pembaruan langsung berhenti. Kini ekstensi menunggu, mencari ulang tab portal, dan mengulang hingga empat kali untuk penarikan data, pengambilan isi dokumen (Unduh Excel), dan riwayat portal.
+- **Pesan yang jelas** bila tetap gagal: "Halaman portal sedang dimuat ulang. Tunggu hingga portal selesai dimuat, lalu coba lagi." atau, bila tab portal ditutup, "Halaman portal ditutup saat proses berjalan. Buka portal CEISA dan masuk, lalu coba lagi."
+- **Pengujian**: 62 pengujian otomatis (baru: pengulangan saat frame dihapus, tab berpindah, dan tab ditutup). Penjalan uji kini menunggu pengujian async, sehingga kegagalannya tidak lagi terlewat; satu uji ekspor yang datanya kurang lengkap ikut dibetulkan.
+
 ## 1.15.0 (29 September 2026)
 
 - **Filter khusus kartu Isi dokumen.** Di atas kartu ada baris filter sendiri: jenis dokumen (boleh pilih beberapa, dengan jumlah yang sudah terambil per jenis), jalur, dan pungutan (semua, ada pungutan atau fasilitas, ada pungutan dibayar, ada fasilitas), serta tombol Atur ulang. Filter ini hanya berlaku untuk kartu dan ekspornya; dasar datanya tetap periode dan filter dasbor.
