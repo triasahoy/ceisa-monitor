@@ -54,7 +54,9 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | **Waktu proses** | **Pemeriksaan otomatis** |
 | ![Waktu proses](docs/images/31_waktu_proses.png) | ![Pemeriksaan](docs/images/30_pemeriksaan.png) |
 
-Video tutorial lengkap bernarasi dan bersubtitle (15 bagian) serta carousel PDF tersedia di halaman [Releases](../../releases/latest). Semua gambar dan video memakai data demo.
+Video **Yang baru di v1.10** (3 menit, bernarasi dan bersubtitle): riwayat portal dan kode respons, isi dokumen dan pengeluaran sementara, kartu arsip, serta waktu proses dan laporan. Unduh `CEISA_Monitor_Yang_Baru_v1.10.mp4` dari rilis [v1.10.0](../../releases/tag/v1.10.0).
+
+Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
