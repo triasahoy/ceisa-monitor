@@ -14,7 +14,7 @@ Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.12.1</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 1.13.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
 ![CEISA Monitor](docs/gif/dasbor.gif)
 
@@ -29,11 +29,12 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Gambaran cepat | Enam angka utama untuk semua jenis dokumen, dibandingkan dengan 30 hari lalu, periode sebelumnya, atau tahun lalu |
 | Semua data | Menarik seluruh dokumen yang tersedia di portal, termasuk tahun-tahun sebelumnya |
 | Periode bebas | 7/30/90 hari, bulan ini, bulan lalu, kuartal, tahun ini, tahun lalu, semua data, atau rentang tanggal sendiri |
-| Komposisi status | Donat dan daftar status dengan jumlah dan persentase; klik status untuk menyaring rincian |
+| Komposisi status | Donat dan daftar status dengan jumlah dan persentase, serta komposisi status per jenis dokumen; klik status atau segmen untuk menyaring rincian |
+| Verifikasi ke kantor | Dokumen Pemeriksaan Dokumen dengan jalur bukan merah bertanda **VERIFIKASI** (bukan Jalur Merah), karena dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai |
 | Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
-| Kapan berubah | Popup ikon **BERUBAH** menampilkan lini masa riwayat status: tanggal lengkap, selisih hari antarstatus, dan respons portal bila isi dokumen sudah diambil. Kartu rincian memuat status sebelum dan sesudah, dengan kode respons resmi CEISA 4.0 diterjemahkan otomatis; kartu Waktu proses menampilkan hari penyelesaian dan lama setiap perpindahan status |
+| Kapan berubah | Popup ikon **BERUBAH** menampilkan **Riwayat Status dan Riwayat Respon dari portal** dengan jam persis, seperti tab di portal; status yang baru muncul ditandai. Riwayat diambil per dokumen saat popup dibuka, tanpa nama petugas. Kartu rincian memuat status sebelum dan sesudah, dengan kode respons resmi CEISA 4.0 diterjemahkan otomatis |
 | Isi dokumen | Tombol **Ambil isi dokumen…** dengan dialog cakupan (rentang tanggal daftar dan jenis dokumen). Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap, barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer |
-| Nilai dan pungutan | Total nilai pabean, pungutan dibayar dan berfasilitas, tabel rincian per dokumen (BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan, serta rekap bulanan |
+| Nilai dan pungutan | Total nilai pabean, pungutan dibayar dan berfasilitas, tabel rincian per dokumen (BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan, serta rekap bulanan; BC 2.5 dan sejenisnya dibaca dari lembar PUNGUTAN portal; tombol Excel mengunduh lembar Nilai & Pungutan |
 | Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, dan riwayat perubahan |
 | Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
 | Prioritas harian | Kartu **Hari ini**: tugas terlambat atau jatuh tempo, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab |
@@ -45,24 +46,24 @@ Status dokumen ada di portal CEISA 4.0, tetapi harus dicari halaman demi halaman
 | Penugasan via WhatsApp | Komposisi status |
 |---|---|
 | ![Penugasan via WhatsApp](docs/gif/penugasan_whatsapp.gif) | ![Komposisi status](docs/images/06_komposisi_status.png) |
-| **Rincian perubahan status** | **Riwayat pada ikon BERUBAH** |
+| **Rincian perubahan status** | **Riwayat dari portal pada ikon BERUBAH** |
 | ![Rincian perubahan](docs/gif/rincian_perubahan.gif) | ![Popup BERUBAH](docs/images/05_perubahan.png) |
 | **Tindak lanjut** | **Presentasi rapat** |
 | ![Tindak lanjut](docs/gif/tindak_lanjut.gif) | ![Presentasi](docs/gif/presentasi.gif) |
 | **Ambil isi dokumen** | **Nilai dan pungutan per dokumen** |
 | ![Ambil isi dokumen](docs/images/37_ambil_isi.png) | ![Nilai dan pungutan](docs/images/32_nilai_pungutan.png) |
-| **Kartu arsip pengajuan** | **Waktu proses** |
-| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Waktu proses](docs/images/31_waktu_proses.png) |
+| **Kartu arsip pengajuan** | **Komposisi status per jenis dokumen** |
+| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Komposisi status per jenis dokumen](docs/images/31_komposisi_jenis.png) |
 | **Hari ini** | **Rekap bulanan** |
 | ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
 
-Video **Yang baru di v1.12** (bernarasi dan bersubtitle): bahasa Indonesia bawaan, ambil isi dokumen dengan cakupan, nilai dan pungutan per dokumen, komposisi status, dan riwayat status. Unduh `CEISA_Monitor_Yang_Baru_v1.12.mp4` dari rilis [v1.12.1](../../releases/tag/v1.12.1).
+Video **Yang baru di v1.12** (bernarasi dan bersubtitle): bahasa Indonesia bawaan, ambil isi dokumen dengan cakupan, nilai dan pungutan per dokumen, komposisi status, dan riwayat status. Unduh `CEISA_Monitor_Yang_Baru_v1.12.mp4` dari rilis [v1.12.0](../../releases/tag/v1.12.0). Perubahan sesudahnya (riwayat portal pada popup BERUBAH, nilai BC 2.5, Excel nilai dan pungutan) ada di [CHANGELOG](CHANGELOG.md).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 
 ## Pemasangan
 
-1. Unduh `ceisa-monitor-v1.12.1.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
+1. Unduh `ceisa-monitor-v1.13.0.zip` dari [Releases](../../releases/latest), lalu ekstrak. Anda juga dapat memakai folder [`extension/`](extension) di repositori ini.
 2. Buka `chrome://extensions` (atau `edge://extensions`), lalu aktifkan **Developer mode**.
 3. Klik **Load unpacked** dan pilih folder hasil ekstrak.
 4. Sematkan ikon CEISA Monitor di bilah alat.

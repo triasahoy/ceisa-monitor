@@ -1,5 +1,17 @@
 # Catatan Perubahan
 
+## 1.13.0 (29 September 2026)
+
+- **Popup BERUBAH menampilkan Riwayat Status dan Riwayat Respon dari portal**, sama seperti tab di portal: setiap status dengan jam persis (mis. Perekaman Dokumen, Validasi, Siap Jalur, Penjaluran, Gate In TPB/KEK, Pembongkaran, Selesai Proses), terbaru di atas, lalu daftar respons (mis. SPPB, SPPD) dengan jamnya. Status yang muncul sejak pengecekan terakhir ditandai **baru**.
+- **Waktu perubahan menjadi tepat**: bila riwayat portal tersedia, baris Sesudah menulis "terjadi {jam} (jam portal)" dan perkiraan rentang waktu tidak ditampilkan lagi.
+- **Diambil hanya saat dibutuhkan**: riwayat satu dokumen (dua permintaan baca-saja) diambil ketika popup dibuka, disimpan per akun di komputer Anda, dan dipakai ulang. Riwayat dokumen berjalan diperbarui bila statusnya berubah atau lebih dari 30 menit; dokumen final tidak diambil ulang. Pembaruan otomatis dan tarikan data tidak menambah permintaan.
+- **Berbeda dari fitur riwayat sebelum 1.12.0**: tidak ada lagi pengambilan massal, pengaturan alamat, atau lembar Excel riwayat. Hanya satu dokumen yang sedang Anda lihat.
+- **Aman untuk privasi**: nama petugas, nama pengguna, dan nomor identitas pada riwayat tidak diambil dan tidak disimpan.
+- **Pesan yang jelas** bila portal belum dibuka, sesi berakhir, atau riwayat tidak tersedia; popup tetap menampilkan rekaman ekstensi sebagai cadangan.
+- **Perbaikan penanda selisih**: catatan "total pungutan portal berbeda dari jumlah tarif per barang" tidak lagi muncul bila lembar PUNGUTAN dokumen kosong. Data contoh BC 2.5 kini memuat pungutan.
+- **Pengujian**: 60 pengujian otomatis (tiga baru: urutan dan pembersihan riwayat, bentuk resmi dataStatus/dataRespon, alamat layanan). Mode demo menampilkan riwayat contoh.
+- **Dokumentasi**: README, Panduan, FAQ, Alur Kerja, Kebijakan Privasi, Roadmap, dan gambar popup diperbarui.
+
 ## 1.12.1 (29 September 2026)
 
 - **Pemeriksaan Dokumen dibedakan dari Jalur Merah.** Dokumen berstatus Pemeriksaan Dokumen dengan jalur bukan merah kini bertanda garis kuning dan label VERIFIKASI (dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai), bukan garis merah. Kartu Hari ini memisahkannya menjadi satu baris tersendiri.

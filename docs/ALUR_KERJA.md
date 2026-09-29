@@ -32,7 +32,7 @@ Data hanya mengalir dari portal ke peramban Anda. Ekstensi tidak mengubah apa pu
 | 08.10 | Periksa dokumen **Prioritas** (Jalur Merah, pemeriksaan, SPJM) | Perubahan → Prioritas |
 | 08.15 | Klik **Tampilkan yang perlu ditindaklanjuti**, isi penanggung jawab, tugas, dan target | Tindak lanjut |
 | 08.20 | **Kirim tugas via WhatsApp** dengan cakupan "Jatuh tempo" atau "Belum pernah dikirim" | Penugasan |
-| Sepanjang hari | Klik tanda **BERUBAH** untuk melihat lini masa riwayat status dan respons portalnya | Rincian perubahan |
+| Sepanjang hari | Klik tanda **BERUBAH** untuk melihat Riwayat Status dan Riwayat Respon dari portal, lengkap dengan jamnya | Rincian perubahan |
 | Sore | Ubah status tindak lanjut yang sudah beres menjadi **Selesai dicek** | Tindak lanjut |
 
 ## Mingguan (Senin, 30 menit)

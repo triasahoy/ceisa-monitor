@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.12
+# Panduan Lengkap CEISA Monitor v1.13
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.12.1.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.13.0.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -98,11 +98,13 @@ Di tabel rincian, arahkan kursor atau klik tanda **BERUBAH** untuk melihat:
 - status sebelum dan sesudah;
 - kapan status lama terakhir terlihat dan status baru pertama terlihat, serta rentang waktu perubahannya;
 - respons dan waktu respons dari portal (misalnya SPPB atau SPJM);
-- riwayat status dokumen.
+- Riwayat Status dan Riwayat Respon dari portal, dengan jam persis.
 
-**Riwayat pada ikon BERUBAH.** Popup **BERUBAH** menyajikan riwayat status sebagai lini masa: setiap status dengan tanggal lengkap, selisih hari dari status sebelumnya, dan respons portal bila isi dokumen sudah diambil.
+**Riwayat dari portal pada ikon BERUBAH.** Saat popup dibuka, CEISA Monitor mengambil riwayat satu dokumen dari alamat yang sama dengan tab Riwayat Status dan Riwayat Respon di portal (dua permintaan baca-saja). Tampil sebagai lini masa: setiap status dengan tanggal dan jam, terbaru di atas, lalu daftar respons (misalnya SPPB, SPPD). Status yang muncul sejak pengecekan terakhir diberi label **baru**, dan baris **Sesudah** menulis "terjadi … (jam portal)". Nama petugas dan nomor identitas tidak diambil.
 
-Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data. Bila rekaman pada tanggal pembanding tidak ada, status sebelumnya diperkirakan dari tanggal daftar dan tanggal respons, dan diberi label **perkiraan**.
+Syaratnya, tab portal CEISA terbuka dan sudah masuk. Bila tidak, popup menampilkan pesan dan tetap memakai rekaman ekstensi sebagai cadangan. Riwayat disimpan di komputer Anda: dokumen berjalan diambil ulang bila statusnya berubah atau lebih dari 30 menit, dokumen final tidak diambil ulang.
+
+Bila riwayat portal tidak tersedia, waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data. Bila rekaman pada tanggal pembanding tidak ada, status sebelumnya diperkirakan dari tanggal daftar dan tanggal respons, dan diberi label **perkiraan**.
 
 **Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, dan jaminan. Isinya dibaca dari layanan Unduh Excel portal. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
 
@@ -111,7 +113,7 @@ Waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data.
 **Ambil isi dokumen dengan cakupan.** Untuk banyak dokumen sekaligus, klik **Ambil isi dokumen…** di kartu **Isi dokumen**. Dialog cakupan meminta:
 
 - **Rentang tanggal daftar**: Bulan ini, 90 hari, Tahun ini, atau Sesuai filter dasbor.
-- **Jenis dokumen**: centang dari tabel referensi resmi (243 jenis). Jenis yang ada di data Anda tampil paling atas beserta jumlahnya, dan kolom cari membantu menemukan jenis lain. Kosong berarti semua jenis.
+- **Jenis dokumen**: hanya jenis yang ada di data pada rentang tanggal terpilih, beserta jumlahnya. Kosong berarti semua jenis. Jenis yang sudah terambil menampilkan jumlah terambil dan pilihan **Ambil ulang**.
 - **Ringkasan**: jumlah dokumen yang sesuai, yang dilewati karena isinya sudah diambil, yang akan dibaca, dan perkiraan waktu dalam menit.
 
 Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanjutkan kapan saja; dokumen yang sudah diambil dilewati.
@@ -120,7 +122,7 @@ Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanj
 
 ![Isi dokumen: nilai dan pungutan](images/28_isi_dokumen.png)
 
-**Nilai dan pungutan.** Kartu Isi dokumen memiliki dua tab. Tab **Nilai dan pungutan** menampilkan kartu ringkasan (dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, netto, dan kontainer), total per jenis pungutan, dan tabel **Rincian per dokumen** dengan kolom nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas. Tabel ini dapat dicari dan diurutkan per kolom. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas. Excel mendapat lembar **Nilai per Dokumen** untuk rincian yang sama.
+**Nilai dan pungutan.** Kartu Isi dokumen memiliki dua tab. Tab **Nilai dan pungutan** menampilkan kartu ringkasan (dokumen, nilai pabean, pungutan dibayar, pungutan berfasilitas, netto, dan kontainer), total per jenis pungutan, dan tabel **Rincian per dokumen** dengan kolom nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas. Tabel ini dapat dicari dan diurutkan per kolom. BC 2.5 dan dokumen sejenis dibaca dari lembar PUNGUTAN portal, karena kolom tarif per barang di dokumen itu bernilai 0; dibayar berarti kode fasilitas 1 (dibayar) dan 7 (sudah dilunasi), sedangkan dibebaskan, ditangguhkan, ditanggung pemerintah, dan tidak dipungut dihitung sebagai fasilitas. Tabel **Menurut fasilitas** merinci porsi tiap fasilitas, dan sebuah catatan muncul bila total pungutan portal berbeda dari jumlah tarif per barang. Tab **Rekap bulanan** menampilkan, per bulan tanggal daftar, jumlah dokumen, nilai pabean, pungutan yang dibayar, pungutan yang mendapat fasilitas (ditangguhkan, dibebaskan, tidak dipungut), dan persentase fasilitas. Tombol **Excel** di kartu ini mengunduh lembar Nilai & Pungutan (ringkasan, total per jenis pungutan, rekap bulanan) dan Nilai per Dokumen untuk periode yang tampil. Kolom **Isi** (✓) di tabel rincian dan filter **Isi dokumen** (Sudah/Belum diambil) menunjukkan dokumen yang isinya sudah diambil; tombol **Ambil yang belum** melengkapi sisanya.
 
 ![Nilai dan pungutan](images/32_nilai_pungutan.png)
 
@@ -130,10 +132,6 @@ Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanj
 
 Tanda **SLA** menampilkan tanggal daftar, batas SLA, dan sejak kapan batas itu terlewati.
 
-Kartu **Waktu proses** merangkum hari penyelesaian (dari tanggal daftar sampai respons terakhir) dan lama setiap perpindahan status, dihitung dari rekaman pembaruan Anda sendiri.
-
-![Waktu proses](images/31_waktu_proses.png)
-
 ![Rincian perubahan status](images/26_rincian_perubahan.png)
 
 ## 7. Komposisi status
@@ -141,6 +139,10 @@ Kartu **Waktu proses** merangkum hari penyelesaian (dari tanggal daftar sampai r
 ![Komposisi status](images/06_komposisi_status.png)
 
 Kartu **Komposisi status** menampilkan donat dan daftar status dengan jumlah dan persentase dokumen pada periode terpilih. Klik satu status untuk menyaring tabel rincian pada status tersebut.
+
+Kartu **Komposisi status per jenis dokumen** menampilkan satu batang per jenis dokumen berisi porsi tiap status (tombol Persentase atau Jumlah). Klik segmen untuk menyaring rincian pada jenis dokumen dan status tersebut.
+
+![Komposisi status per jenis dokumen](images/31_komposisi_jenis.png)
 
 ## 8. Status per jenis, umur dokumen, dan rincian status
 
@@ -168,6 +170,7 @@ Grafik **Tingkat penyelesaian** menampilkan persentase dokumen yang sudah selesa
 - Saring menurut status, umur, tindak lanjut (termasuk **Jatuh tempo**), dan perubahan; urutkan menurut umur, SLA, atau target.
 - Klik nomor pengajuan untuk menyalinnya.
 - Baris bergaris merah di kiri adalah dokumen prioritas: Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF.
+- Baris bergaris kuning dengan label **VERIFIKASI** adalah dokumen berstatus Pemeriksaan Dokumen dengan jalur bukan merah: dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai. Ini berbeda dari Jalur Merah (pemeriksaan fisik).
 
 ## 11. Mencatat tindak lanjut dan riwayatnya
 
