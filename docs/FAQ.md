@@ -5,7 +5,7 @@
 | Pertanyaan | Jawaban |
 |---|---|
 | Apakah ini aplikasi resmi DJBC? | Bukan. CEISA Monitor adalah proyek independen yang hanya membaca data yang sudah dapat diakses pengguna yang masuk ke portal. |
-| Apakah gratis? | Ya, seluruh fitur gratis. Dukungan sukarela dapat diberikan melalui [saweria.co/triastore](https://saweria.co/triastore). |
+| Apakah gratis? | Ya, seluruh fitur gratis. Dukungan sukarela dapat diberikan melalui [saweria.co/triasex](https://saweria.co/triasex). |
 | Apakah data saya aman? | Data diolah dan disimpan di peramban Anda. Tidak ada server, analitik, atau pihak ketiga. Kata sandi dan token tidak disimpan. Lihat [SECURITY.md](../SECURITY.md). |
 | Apakah ekstensi bisa mengubah atau mengirim dokumen? | Tidak. Ekstensi hanya membaca daftar dokumen. |
 | Apakah ekstensi mengirim pesan WhatsApp sendiri? | Tidak. Pesan hanya disalin atau WhatsApp dibuka saat Anda mengklik tombolnya; Anda sendiri yang menekan kirim. |

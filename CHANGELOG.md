@@ -1,5 +1,10 @@
 # Catatan Perubahan
 
+## 1.16.2 (30 September 2026)
+
+- **Perbaikan tautan dukungan sukarela**: alamat halaman Saweria yang benar adalah saweria.co/triasex (sebelumnya menunjuk ke alamat yang salah). Berlaku di kaki dasbor, popup, README, dan FAQ.
+- **Kartu dukungan** dengan kode QR di README dan halaman web, disertai penjelasan penggunaan dana.
+
 ## 1.16.1 (30 September 2026)
 
 - **Kartu "Komposisi status per jenis dokumen" dihapus.** Isinya tumpang tindih dengan tabel Status per jenis dokumen (klik baris untuk menyaring) dan donat Komposisi status yang mengikuti tombol jenis dokumen.
