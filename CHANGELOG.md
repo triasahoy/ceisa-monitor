@@ -1,5 +1,12 @@
 # Catatan Perubahan
 
+## 1.15.2 (29 September 2026)
+
+- **Isi dokumen tidak lagi diambil ulang setiap 6 jam.** Sebelumnya dokumen yang belum berstatus final dianggap kedaluwarsa setelah 6 jam, sehingga pengambilan ulang untuk ribuan dokumen terasa selalu panjang. Kini isi dokumen (barang, nilai, pungutan, dokumen pelengkap) dianggap segar sampai **statusnya berubah** atau Anda memilih **Ambil ulang**. Setelah pengambilan pertama selesai, klik **Ambil yang belum** hanya memuat dokumen baru dan dokumen yang statusnya berubah.
+- **Kalimat "Isi {n} dari {m} dokumen" bergerak selama pengambilan berjalan** (diperbarui tiap 10 dokumen), sehingga kemajuan terlihat tanpa menunggu proses selesai.
+- **Tetap aman dihentikan kapan saja**: setiap dokumen disimpan segera setelah selesai, dan pengambilan berikutnya melewati yang sudah ada.
+- **Dokumentasi**: FAQ dan Panduan menjelaskan kapan isi dokumen diambil ulang; video baru "Yang baru di v1.15" dan teks posting LinkedIn diperbarui.
+
 ## 1.15.1 (29 September 2026)
 
 - **Perbaikan: pembaruan gagal dengan pesan "Frame with ID 0 was removed."** Pesan ini muncul bila halaman portal berpindah atau dimuat ulang saat pembaruan berjalan (mis. portal memperbarui sesi). Sebelumnya pembaruan langsung berhenti. Kini ekstensi menunggu, mencari ulang tab portal, dan mengulang hingga empat kali untuk penarikan data, pengambilan isi dokumen (Unduh Excel), dan riwayat portal.

@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.15.1.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
+1. Unduh `ceisa-monitor-v1.15.2.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
 2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
 3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
@@ -119,6 +119,8 @@ Bila riwayat portal tidak tersedia, waktu dasar yang ditampilkan adalah saat per
 Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanjutkan kapan saja; dokumen yang sudah diambil dilewati.
 
 ![Dialog Ambil isi dokumen](images/37_ambil_isi.png)
+
+Isi dokumen cukup diambil sekali. Setiap dokumen tersimpan segera setelah selesai, proses dapat dihentikan dan dilanjutkan, dan dokumen hanya diambil ulang bila statusnya berubah atau Anda memilih **Ambil ulang**. Kartu **Isi dokumen** menampilkan kemajuan "Isi {n} dari {m} dokumen" selama proses berjalan.
 
 ![Isi dokumen: nilai dan pungutan](images/28_isi_dokumen.png)
 
