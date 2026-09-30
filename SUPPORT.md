@@ -9,7 +9,7 @@
 | Pertanyaan umum dan berbagi pengalaman | [Discussions](../../discussions) |
 | Celah keamanan | Laporan privat, lihat [SECURITY.md](SECURITY.md) |
 | Data dan privasi | [PRIVACY.md](PRIVACY.md) |
-| Rencana dan jadwal rilis | [ROADMAP](ROADMAP.md) dan [CHANGELOG](CHANGELOG.md) |
+| Perubahan per versi | [CHANGELOG](CHANGELOG.md) |
 
 Sebelum melapor, periksa bahwa ekstensi terpasang dari Chrome Web Store dan sudah versi terbaru (`chrome://extensions`, aktifkan Mode pengembang, lalu klik Perbarui). Sertakan versi yang tertera di kaki dasbor. Jangan melampirkan data asli perusahaan.
 

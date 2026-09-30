@@ -5,7 +5,7 @@ CEISA Monitor dikembangkan oleh satu penulis dan kodenya tidak dipublikasikan di
 ## Yang sangat membantu
 
 1. **Laporan masalah.** Gunakan [Issues](../../issues/new/choose) dan pilih "Laporan masalah". Sebutkan versi (lihat kaki dasbor), browser, langkah yang membuat masalah muncul, dan hasil yang diharapkan.
-2. **Usulan fitur.** Pilih "Permintaan fitur" dan ceritakan pekerjaan yang ingin dipersingkat, bukan hanya tampilan yang diinginkan. Usulan dinilai dengan empat gerbang di [ROADMAP](ROADMAP.md): hanya membaca, tanpa izin baru, data tetap di perangkat, dan hanya menyajikan data.
+2. **Usulan fitur.** Pilih "Permintaan fitur" dan ceritakan pekerjaan yang ingin dipersingkat, bukan hanya tampilan yang diinginkan. Usulan dinilai dengan empat gerbang produk: hanya membaca, tanpa izin baru, data tetap di perangkat, dan hanya menyajikan data.
 3. **Perbaikan dokumentasi.** Salah ketik, kalimat yang membingungkan, atau langkah yang sudah usang di [PANDUAN](docs/PANDUAN.md), [FAQ](docs/FAQ.md), dan README dapat diajukan lewat Pull Request kecil.
 4. **Pertanyaan dan pengalaman pemakaian.** Gunakan [Discussions](../../discussions), misalnya untuk cara tim Anda membagi tugas atau menyiapkan laporan bulanan.
 
