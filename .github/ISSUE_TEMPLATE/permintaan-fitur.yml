@@ -1,6 +1,6 @@
 name: Permintaan fitur
 description: Usulkan fitur atau perbaikan
-labels: ["ide"]
+labels: ["enhancement"]
 body:
   - type: textarea
     id: masalah

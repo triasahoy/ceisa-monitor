@@ -1,6 +1,6 @@
 name: Laporan masalah
 description: Laporkan fitur yang tidak berjalan sebagaimana mestinya
-labels: ["masalah"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
