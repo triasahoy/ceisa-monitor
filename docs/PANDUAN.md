@@ -357,8 +357,8 @@ Data CEISA Monitor (pengaturan, tindak lanjut, catatan, kontak, riwayat perubaha
 - Data hilang bila ekstensi dihapus, atau bila browser/profil lain dipakai. Menghapus ekstensi berarti menghapus datanya.
 - Data dokumen dan billing dapat ditarik ulang dari portal kapan saja. Yang tidak dapat ditarik ulang adalah tindak lanjut, catatan, kontak, dan riwayat perubahan.
 - Pengaturan dan profil perusahaan dapat dipindahkan: Pengaturan, Profil perusahaan, Ekspor profil, lalu Impor profil di pemasangan lain.
-- Ekspor dan impor seluruh data (untuk ganti komputer atau memasang ulang) belum tersedia.
-- Bila sebelumnya Anda memasang ekstensi dari berkas ZIP (Load unpacked), pasang versi Chrome Web Store, lalu pindahkan pengaturan lewat Ekspor profil. Data lain di pemasangan lama tidak ikut sampai ekspor seluruh data tersedia, jadi jangan hapus pemasangan lama lebih dulu bila catatan tindak lanjutnya masih dibutuhkan. Hapus setelah pemindahan selesai, karena dua ekstensi terpasang akan menjadi dua salinan terpisah.
+- Selain pengaturan dan profil, data lain (tindak lanjut, catatan, riwayat perubahan) tidak dapat dipindahkan antarpemasangan. Data dokumen dan billing dapat ditarik ulang dari portal.
+- Bila sebelumnya Anda memasang ekstensi dari berkas ZIP (Load unpacked), pasang versi Chrome Web Store, lalu pindahkan pengaturan lewat Ekspor profil. Data lain di pemasangan lama tidak ikut pindah, jadi jangan hapus pemasangan lama lebih dulu bila catatan tindak lanjutnya masih dibutuhkan. Hapus setelah pemindahan selesai, karena dua ekstensi terpasang akan menjadi dua salinan terpisah.
 
 ## 18. Bahasa, tema, dan mode demo
 
