@@ -1,26 +1,49 @@
 name: Laporan masalah
 description: Laporkan fitur yang tidak berjalan sebagaimana mestinya
-labels: ["bug"]
+title: "[Masalah] "
+labels:
+  - bug
 body:
   - type: markdown
     attributes:
-      value: "Mohon jangan melampirkan data asli perusahaan, nomor pengajuan, atau tangkapan layar portal yang memuat data rahasia. Gunakan mode demo bila memungkinkan."
+      value: |
+        Mohon jangan melampirkan data asli perusahaan, nomor pengajuan, atau tangkapan layar portal yang memuat data rahasia. Gunakan mode demo bila memungkinkan.
   - type: input
     id: versi
-    attributes: { label: Versi CEISA Monitor, placeholder: "1.4.0 (lihat kaki dasbor)" }
-    validations: { required: true }
+    attributes:
+      label: Versi CEISA Monitor
+      description: Lihat kaki dasbor.
+      placeholder: "Contoh: 1.17.0"
+    validations:
+      required: true
   - type: dropdown
     id: browser
-    attributes: { label: Browser, options: ["Google Chrome", "Microsoft Edge", "Lainnya"] }
-    validations: { required: true }
+    attributes:
+      label: Browser
+      options:
+        - Google Chrome
+        - Microsoft Edge
+        - Lainnya
+    validations:
+      required: true
   - type: textarea
     id: langkah
-    attributes: { label: Langkah untuk memunculkan masalah, placeholder: "1. Buka dasbor\n2. Klik …\n3. …" }
-    validations: { required: true }
+    attributes:
+      label: Langkah untuk memunculkan masalah
+      placeholder: |
+        1. Buka dasbor
+        2. Klik ...
+        3. ...
+    validations:
+      required: true
   - type: textarea
     id: harapan
-    attributes: { label: Yang diharapkan dan yang terjadi }
-    validations: { required: true }
+    attributes:
+      label: Yang diharapkan dan yang terjadi
+    validations:
+      required: true
   - type: textarea
     id: pesan
-    attributes: { label: Pesan galat (bila ada), render: text }
+    attributes:
+      label: Pesan galat (bila ada)
+      description: Salin teks pesan galat. Tanpa data asli perusahaan.

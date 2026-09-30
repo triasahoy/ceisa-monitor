@@ -1,14 +1,31 @@
 name: Permintaan fitur
 description: Usulkan fitur atau perbaikan
-labels: ["enhancement"]
+title: "[Usulan] "
+labels:
+  - enhancement
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Ceritakan pekerjaan yang ingin dipersingkat. Usulan dinilai dengan empat gerbang di ROADMAP: hanya membaca, tanpa izin baru, data tetap di perangkat, dan hanya menyajikan data.
   - type: textarea
     id: masalah
-    attributes: { label: Masalah yang ingin diselesaikan, placeholder: "Contoh: setiap Senin saya harus …" }
-    validations: { required: true }
+    attributes:
+      label: Masalah yang ingin diselesaikan
+      placeholder: "Contoh: setiap Senin saya harus menyalin ..."
+    validations:
+      required: true
   - type: textarea
     id: usulan
-    attributes: { label: Usulan solusi }
+    attributes:
+      label: Usulan solusi
   - type: dropdown
     id: fasilitas
-    attributes: { label: Jenis fasilitas, options: ["KEK", "Kawasan berikat / TPB", "Importir/eksportir umum", "PPJK", "Lainnya"] }
+    attributes:
+      label: Jenis fasilitas
+      options:
+        - KEK
+        - Kawasan berikat / TPB
+        - Importir/eksportir umum
+        - PPJK
+        - Lainnya
