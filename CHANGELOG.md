@@ -51,10 +51,6 @@ Rilis di bawah dikelompokkan menjadi enam fase menurut tema. Pengelompokan ini h
 
 - Samarkan identitas: perusahaan sendiri yang tertulis dengan huruf besar-kecil berbeda di dua sumber tidak lagi menjadi "Perusahaan B"; pencocokan nama tidak membedakan huruf besar-kecil.
 
-##### Tidak masuk rilis ini
-
-- Jaminan jatuh tempo (JMN-01, ditunda atas keputusan pengguna).
-
 ### Fase 5. Ketahanan dan pelaporan lengkap
 
 *Versi 1.15.0 sampai 1.16.3.* Pembaruan lebih tahan gangguan, filter isi dokumen, dan seluruh keluaran (presentasi, laporan, Excel, ringkasan) dilengkapi bab nilai dan pungutan.
@@ -94,7 +90,7 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Ringkasan WhatsApp/surel**: bagian baru Nilai dan pungutan dan Tugas jatuh tempo hari ini, pilihan Biasa/Pagi/Sore, dan Ringkas untuk ponsel.
 - **Excel lebih rapi**: lembar Daftar Isi (dengan tautan dan catatan sumber) di depan, lembar Perubahan Status, serta pengaturan bawaan Untuk atasan dan Untuk tim diperbarui.
 - **Pengujian**: 66 pengujian otomatis (baru: model nilai, kalimat temuan, Daftar Isi dan Perubahan Status, ringkasan, dan jumlah slide presentasi).
-- **Batasan**: presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; gunakan Simpan sebagai PDF di PowerPoint. Lampiran jaminan belum ada.
+- **Batasan**: presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; gunakan Simpan sebagai PDF di PowerPoint.
 
 #### 1.15.2 · 29 September 2026
 
@@ -123,7 +119,7 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Rincian per dokumen**: pilihan **Kelompokkan per jenis** (judul kelompok dengan jumlah dokumen dan subtotal), penghitung "Menampilkan {a} dari {b} dokumen", dan tombol **Tampilkan semua**. Jarak antara judul dan kotak pencarian dirapikan.
 - **Ekspor mengikuti kartu**: tombol Excel membuka dialog dengan jenis dan jalur yang sedang dipilih di kartu. Berkas Excel memuat lembar baru **Ringkasan per Jenis** (satu baris per jenis dengan jumlah, nilai, pungutan, fasilitas, dan porsi), di samping Cakupan, Nilai & Pungutan, dan Nilai per Dokumen.
 - **Pengujian**: 61 pengujian otomatis (uji ekspor diperluas untuk lembar Ringkasan per Jenis).
-- **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
+- **Dokumentasi**: README, Panduan, FAQ, halaman utama, dan gambar diperbarui.
 
 ### Fase 4. Perampingan dan nilai pungutan
 
@@ -140,7 +136,7 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pisahkan per jenis dokumen** (pilihan): satu lembar Nilai untuk setiap jenis dokumen, di samping lembar Nilai per Dokumen gabungan.
 - **Kolom fasilitas dipecah**: Dibebaskan, Ditangguhkan, Tidak dipungut, Ditanggung pemerintah, Fasilitas lain, dan Total fasilitas. Baris total memakai fungsi tabel Excel sehingga ikut berubah saat Anda menyaring di Excel.
 - **Pengujian**: 61 pengujian otomatis (baru: lembar Cakupan, kolom fasilitas, lembar per jenis).
-- **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
+- **Dokumentasi**: README, Panduan, FAQ, halaman utama, dan gambar diperbarui.
 
 #### 1.13.0 · 29 September 2026
 
@@ -154,7 +150,7 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pesan yang jelas** bila portal belum dibuka, sesi berakhir, atau riwayat tidak tersedia; popup tetap menampilkan rekaman ekstensi sebagai cadangan.
 - **Perbaikan penanda selisih**: catatan "total pungutan portal berbeda dari jumlah tarif per barang" tidak lagi muncul bila lembar PUNGUTAN dokumen kosong. Data contoh BC 2.5 kini memuat pungutan.
 - **Pengujian**: 60 pengujian otomatis (tiga baru: urutan dan pembersihan riwayat, bentuk resmi dataStatus/dataRespon, alamat layanan). Mode demo menampilkan riwayat contoh.
-- **Dokumentasi**: README, Panduan, FAQ, Alur Kerja, Kebijakan Privasi, Roadmap, dan gambar popup diperbarui.
+- **Dokumentasi**: README, Panduan, FAQ, Alur Kerja, Kebijakan Privasi, dan gambar popup diperbarui.
 
 #### 1.12.1 · 29 September 2026
 
