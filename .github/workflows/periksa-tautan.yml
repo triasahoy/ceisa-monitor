@@ -1,0 +1,35 @@
+name: Periksa tautan dokumentasi
+
+on:
+  pull_request:
+    paths:
+      - "**.md"
+      - "docs/**"
+  schedule:
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tautan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Periksa tautan luar
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --scheme https
+            --accept 200,204,206,301,302,403,429
+            --max-retries 2
+            --timeout 20
+            --exclude 'linkedin\.com'
+            --exclude 'saweria\.co'
+            --exclude 'buymeacoffee\.com'
+            --exclude 'github\.com/triasahoy/ceisa-monitor/(security|issues|discussions)'
+            --exclude 'tautan Store'
+            './**/*.md' './docs/**/*.html'
+          fail: true
