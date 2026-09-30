@@ -1,6 +1,0 @@
-{
-  "extName": { "message": "CEISA Monitor – Customs Document Tracker (Unofficial)" },
-  "extShortName": { "message": "CEISA Monitor" },
-  "extDescription": { "message": "Track CEISA 4.0 customs document status: dashboard, SLA, follow-ups, slide decks and formal reports. Runs locally, no server." },
-  "actionTitle": { "message": "CEISA Monitor" }
-}

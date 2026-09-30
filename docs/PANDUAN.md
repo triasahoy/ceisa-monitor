@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.15
+# Panduan Lengkap CEISA Monitor v1.17
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -27,15 +27,16 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Unduh `ceisa-monitor-v1.16.3.zip` dari halaman [Releases](../../../releases/latest), lalu ekstrak.
-2. Buka `chrome://extensions` (Edge: `edge://extensions`), aktifkan **Developer mode**, klik **Load unpacked**, dan pilih folder hasil ekstrak.
-3. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
+1. Buka tautan Chrome Web Store CEISA Monitor (tercantum di [README](../../../#pemasangan)) dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
+2. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
+
+Pemasangan hanya lewat Chrome Web Store. Jangan memasang berkas ZIP atau folder ekstensi dari sumber lain.
 
 Setelah dipasang, dasbor terbuka dengan panduan empat langkah. Pilih **Coba mode demo** untuk melihat semua fitur dengan data contoh. Panduan ini dapat dibuka lagi melalui tautan **Lihat panduan** pada halaman "Belum ada data".
 
 ![Layar sambutan](images/01_sambutan.png)
 
-Memperbarui versi: ekstrak paket baru ke folder yang sama, lalu klik ikon muat ulang (↻) pada kartu CEISA Monitor di `chrome://extensions`. Data dan catatan tidak hilang.
+Memperbarui versi: otomatis oleh Chrome. Data dan catatan tidak hilang.
 
 ## 2. Menarik data pertama kali
 
@@ -194,7 +195,7 @@ Grafik **Tingkat penyelesaian** menampilkan persentase dokumen yang sudah selesa
 ![Rincian dokumen](images/10_rincian.png)
 
 - Cari nomor pengajuan, nomor daftar, respons, penanggung jawab, atau catatan.
-- Saring menurut status, umur, tindak lanjut (termasuk **Jatuh tempo**), dan perubahan; urutkan menurut umur, SLA, atau target.
+- Saring menurut status, umur, tindak lanjut (termasuk **Jatuh tempo**), dan perubahan; urutkan menurut umur dokumen, SLA, atau target.
 - Klik nomor pengajuan untuk menyalinnya.
 - Baris bergaris merah di kiri adalah dokumen prioritas: Jalur Merah, status pemeriksaan, atau respons SPJM/SPJK/SPPF.
 - Baris bergaris kuning dengan label **VERIFIKASI** adalah dokumen berstatus Pemeriksaan Dokumen dengan jalur bukan merah: dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai. Ini berbeda dari Jalur Merah (pemeriksaan fisik).
@@ -238,7 +239,7 @@ Mohon ditindaklanjuti dokumen berikut:
 1. *201049B8676F82809202601545*
    Jenis: Pemasukan dari TLDDP
    Nomor pendaftaran: 040147 tanggal 28-09-2026
-   Status: Pembongkaran · umur 9 hari (SLA 7 hari) · Jalur Hijau
+   Status: Pembongkaran · umur dokumen 9 hari (SLA 7 hari) · Jalur Hijau
    Tugas: Pastikan realisasi pembongkaran sudah dilakukan dan dicatat, lalu laporkan jumlah barang yang diterima.
    Target: *30-09-2026*
 
@@ -261,6 +262,41 @@ Ekstensi tidak mengirim pesan sendiri. WhatsApp hanya dibuka saat Anda mengklik 
 | Mengubah nomor WhatsApp | Di dialog tindak lanjut atau di dialog Kirim tugas via WhatsApp |
 
 Pada pengisian massal, kolom yang dibiarkan kosong tidak mengubah isian lama. Nama di daftar saran hilang dengan sendirinya setelah tidak dipakai di dokumen mana pun.
+
+## Tagihan (Browse Billing)
+
+Kartu **Tagihan** menampilkan billing dari menu Browse Billing di portal. Data hanya disajikan; ekstensi tidak melakukan pembayaran dan tidak mengubah billing.
+
+![Kartu Tagihan](images/44_kartu_tagihan.png)
+
+1. Pilih periode tagihan di kanan atas kartu (12 bulan terakhir, ikuti periode dasbor, bulan ini, 30 hari, 90 hari, tahun ini, atau rentang sendiri), lalu klik **Perbarui data** atau **Tarik tagihan**. Mengganti periode langsung menarik ulang tagihan.
+2. Klik salah satu dari empat angka untuk menyaring daftar (klik lagi untuk melepas), atau pilih tampilan **Semua**, **Ada NTPN**, atau **Belum ada NTPN**. Pencarian menerima kode billing, nomor dokumen, atau NTPN.
+   Pilihan **Tanpa dokumen** muncul bila ada billing yang nomor dokumennya tidak ada di data Daftar Dokumen yang ditarik (dokumen belum terdaftar, sudah dihapus, atau di luar periode/jenis yang ditarik). Ini hanya penanda.
+   Bila penarikan mencakup semua jenis dokumen, tanggal dokumen berada dalam rentang data, dan billing belum memiliki NTPN, dokumen dianggap telah dihapus. Billing itu diberi keterangan "Dokumen tidak ada di Daftar Dokumen (kemungkinan dihapus)" dan tidak dihitung pada empat angka maupun peringatan Hari ini, tetapi tetap dapat dilihat lewat pilihan **Tanpa dokumen**. Billing yang sudah memiliki NTPN tidak pernah ditandai.
+3. Bila satu dokumen punya dua billing (billing lama diganti setelah dokumen di-reject), hanya billing terbaru yang dihitung; yang lama diberi keterangan "Diganti billing berikutnya".
+4. Klik **Rincian** untuk riwayat status, bukti pembayaran (NTPN, NTB, tanggal buku, bank, nomor struk bayar, total dibayar), dan pungutan per akun. Rincian diambil dari portal saat diklik dan tidak disimpan.
+5. Klik **PDF** untuk pratinjau billing di dasbor; di Rincian tersedia juga PDF respon. Tombol Unduh dan Buka di tab baru tersedia di pratinjau.
+6. Di header dasbor, hitung mundur menunjukkan sisa waktu sesi portal.
+
+![Billing yang belum ada NTPN](images/45_tagihan_belum_ntpn.png)
+
+![Rincian billing](images/46_rincian_billing.png)
+
+![Pratinjau PDF billing](images/47_pdf_billing.png)
+
+Kartu **Hari ini** memberi tanda untuk billing yang masih berlaku dan tenggatnya dalam 3 hari.
+
+![Hari ini dengan tanda billing](images/43_hari_ini_billing.png)
+
+Lembar **Billing** ikut di ekspor Excel (pilih pada daftar lembar).
+
+## Samarkan identitas
+
+Pada dialog ekspor Excel, presentasi/laporan, dan ringkasan tersedia kotak **Samarkan identitas**. Bila dicentang, nama perusahaan menjadi Perusahaan A, B, dan seterusnya (perusahaan sendiri selalu A), logo dihapus, dan nomor pengajuan, nomor daftar, kode billing, NTPN, serta NPWP/NITKU hanya menampilkan empat angka terakhir. Nama berkas ikut disamarkan. Pilihan ini berlaku sama di ketiga dialog. Periksa hasil sebelum dibagikan.
+
+![Dialog ekspor Excel dengan Samarkan identitas](images/48_dialog_excel_samarkan.png)
+
+![Ringkasan yang disamarkan](images/49_ringkasan_samarkan.png)
 
 ## 14. Pengaturan dan SLA
 
@@ -291,6 +327,8 @@ Dialog **Buat laporan** menampilkan cakupan isi dokumen sebelum berkas dibuat ("
 
 ![Ringkasan WhatsApp](images/42_ringkasan_wa.png)
 
+Dialog **Ringkasan WhatsApp/surel** memuat dokumen belum selesai secara lengkap: angka utama (melewati SLA dan masih dalam batas SLA), per jenis dokumen, dan menurut status. Daftar **Jenis dokumen yang disertakan** memilih jenis yang ingin disampaikan; angka, nilai, tugas, dan perubahan mengikuti pilihan itu (kosong atau semua = seluruh jenis). Pilihan bagian dan jenis diingat di browser.
+
 Excel diawali lembar **Daftar Isi** (sumber data, waktu data, periode, filter, cakupan isi dokumen, dan tautan ke setiap lembar) dan memuat lembar **Perubahan Status** bila ada perubahan sejak pembanding. Presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; buka di PowerPoint lalu pilih Simpan sebagai PDF.
 
 | Ekspor | Isi |
@@ -311,6 +349,16 @@ Excel diawali lembar **Daftar Isi** (sumber data, waktu data, periode, filter, c
 Klik ikon CEISA Monitor untuk melihat umur data, status sesi, empat angka utama, dan hasil pembaruan terakhir. Lencana ikon berubah abu-abu bila data sudah lama.
 
 Bila komputer dimatikan atau sesi portal berakhir, data diperbarui otomatis saat Anda masuk kembali ke portal atau saat Chrome dibuka dan portal sudah masuk. Tren tetap lengkap karena dihitung ulang dari tanggal daftar dan tanggal respons setiap dokumen.
+
+## Memperbarui ekstensi dan menjaga data
+
+Data CEISA Monitor (pengaturan, tindak lanjut, catatan, kontak, riwayat perubahan) disimpan di penyimpanan lokal browser milik ekstensi. Chrome Web Store memberi ekstensi satu ID tetap, sehingga pembaruan otomatis tidak menghilangkan data.
+
+- Data hilang bila ekstensi dihapus, atau bila browser/profil lain dipakai. Menghapus ekstensi berarti menghapus datanya.
+- Data dokumen dan billing dapat ditarik ulang dari portal kapan saja. Yang tidak dapat ditarik ulang adalah tindak lanjut, catatan, kontak, dan riwayat perubahan.
+- Pengaturan dan profil perusahaan dapat dipindahkan: Pengaturan, Profil perusahaan, Ekspor profil, lalu Impor profil di pemasangan lain.
+- Ekspor dan impor seluruh data (untuk ganti komputer atau memasang ulang) direncanakan pada versi 1.18.0; lihat [ROADMAP](../ROADMAP.md), DTA-01.
+- Bila sebelumnya Anda memasang ekstensi dari berkas ZIP (Load unpacked), pasang versi Chrome Web Store, lalu pindahkan pengaturan lewat Ekspor profil. Data lain di pemasangan lama tidak ikut sampai ekspor seluruh data tersedia, jadi jangan hapus pemasangan lama lebih dulu bila catatan tindak lanjutnya masih dibutuhkan. Hapus setelah pemindahan selesai, karena dua ekstensi terpasang akan menjadi dua salinan terpisah.
 
 ## 18. Bahasa, tema, dan mode demo
 

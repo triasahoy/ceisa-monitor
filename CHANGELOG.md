@@ -1,21 +1,115 @@
 # Catatan Perubahan
 
-## 1.16.3 (30 September 2026)
+Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan penomoran mengikuti [Semantic Versioning](https://semver.org/lang/id/): versi MAJOR.MINOR.PATCH, dengan MINOR untuk fitur baru dan PATCH untuk perbaikan. Tanggal rilis yang sudah lewat dicatat apa adanya. Rencana dan status fitur ada di [ROADMAP.md](ROADMAP.md). Fitur diberi ID tetap (misalnya TGH-03) yang sama di kedua dokumen.
 
-- **Tombol "Bagikan ke rekan"** di kaki dasbor dan Pengaturan: membuka pesan siap kirim (dapat diedit) ke LinkedIn, WhatsApp, X, Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen dan tidak ada panggilan jaringan dari ekstensi (peramban hanya membuka tab situs tujuan saat tombol diklik).
+## Kadensi rilis
 
-## 1.16.2 (30 September 2026)
+| Kegiatan | Jadwal |
+|---|---|
+| Rilis fitur (MINOR) | Setiap dua minggu, hari Senin |
+| Pembekuan kode | Kamis sebelum hari rilis: hanya perbaikan galat |
+| Pengujian, dokumentasi, dan paket | Jumat sebelum hari rilis |
+| Rilis perbaikan (PATCH) | Sesuai kebutuhan, paling lambat dua hari kerja setelah galat dikonfirmasi |
+| Tinjauan bulanan | Senin pertama tiap bulan: struktur data portal, izin, daftar host, dan SHA-256 paket |
+| Rilis yang bergantung pada data portal | Ditunda ke jadwal berikutnya bila contoh respons belum ada pada hari Jumat sebelum rilis |
+
+## Jadwal dan status rilis
+
+| Versi | Tanggal | Tema | Status |
+|---|---|---|---|
+| 2.3.0 | Senin, 7 Desember 2026 (target) | Tim dan banyak akun: ringkasan lintas akun untuk PPJK, ekspor tugas ke kalender, preset laporan | Direncanakan |
+| 2.2.0 | Senin, 23 November 2026 (target) | Bukti dan pencarian: berkas audit, pencarian bahasa sehari-hari, lapisan bantu portal (opsional) | Direncanakan |
+| 2.1.0 | Senin, 9 November 2026 (target) | Wawasan: peta hambatan proses, beban kerja per penanggung jawab, rekonsiliasi dokumen dan billing, pemeriksaan kualitas data | Direncanakan |
+| 2.0.0 | Senin, 26 Oktober 2026 (target) | Tampilan baru (MAJOR): sidebar, KPI, tabel berpaginasi, penggabungan menu, nama jenis dokumen sesuai CEISA 4.0, aksesibilitas | Prototipe selesai |
+| 1.18.0 | Senin, 12 Oktober 2026 (target) | Data aman: ekspor dan impor data, skema data berversi, petunjuk pindah pemasangan, catatan "Baru di versi ini" | Direncanakan |
+| 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas | Dirilis |
+| 1.16.3 | 30 September 2026 | Bagikan ke rekan | Dirilis |
+| 1.16.2 | 30 September 2026 | Perbaikan tautan dukungan | Dirilis |
+| 1.16.1 | 30 September 2026 | Perampingan kartu dan uji asap | Dirilis |
+| 1.16.0 | 29 September 2026 | Isi ekspor lengkap dan konsisten | Dirilis |
+| 1.0.0 sampai 1.15.2 | 28 sampai 29 September 2026 (1.0.0 sampai 1.2.0: tanggal tidak tercatat) | 26 rilis dalam lima fase, lihat Riwayat rilis di bawah | Dirilis |
+
+## Belum dirilis
+
+Rencana dan status fitur ada di [ROADMAP.md](ROADMAP.md#daftar-fitur). Belum ada perubahan yang tercatat untuk versi berikut; setiap fitur dipindahkan ke sini bersama IDnya saat dirilis.
+
+- **1.18.0 (target Senin, 12 Oktober 2026), Data aman:** DTA-01, DTA-02, DTA-03, DST-03.
+- **2.0.0 (target Senin, 26 Oktober 2026), Tampilan baru:** UI-01 sampai UI-08.
+- **2.1.0 (target Senin, 9 November 2026), Wawasan:** WAS-01 sampai WAS-04.
+- **2.2.0 (target Senin, 23 November 2026), Bukti dan pencarian:** BKT-01 sampai BKT-03.
+- **2.3.0 (target Senin, 7 Desember 2026), Tim dan banyak akun:** KLB-01 sampai KLB-03.
+- **Distribusi (tidak terikat versi):** DST-01 dan DST-04 sedang dikerjakan; DST-02 tidak direncanakan.
+
+## Riwayat rilis
+
+Rilis di bawah dikelompokkan menjadi enam fase menurut tema. Pengelompokan ini hanya untuk memudahkan membaca; tanggal setiap rilis tetap sesuai catatan.
+
+### Fase 6. Tagihan
+
+*Versi 1.17.0.* Kartu Tagihan dari Browse Billing, dengan rincian, PDF, lembar Excel, dan pilihan menyamarkan identitas.
+
+#### 1.17.0 · 30 September 2026
+
+**Tema:** Tagihan. Status tiap fitur ada di [ROADMAP.md](ROADMAP.md#daftar-fitur).
+
+##### Ditambahkan
+
+- **TGH-01 Penghitung mundur sesi portal** (jj:mm:dd) di header dasbor, kuning di bawah 10 menit, dengan pesan jelas saat sesi berakhir. Peringatan muncul bila sesi tinggal kurang dari 5 menit sebelum penarikan data. Hanya waktu kedaluwarsa yang dibaca; token tidak disimpan.
+- **TGH-02 Diagnosa Tagihan** di Pengaturan: menyalin hanya alamat (tanpa nilai parameter) dan bentuk data (nama kolom dan tipe) dari Browse Billing dan berkas PDF-nya. Tidak ada isi data, token, atau identitas yang disalin.
+- **TGH-03 Kartu Tagihan** dari Browse Billing: billing menurut nomor NTPN, tenggat, dan nilai; tampilan Semua, Ada NTPN, dan Belum ada NTPN; pencarian kode billing, nomor dokumen, atau NTPN. Mengikuti alur CEISA: billing terbit saat Payment Verification, dan bila kedaluwarsa dokumen di-reject lalu terbit billing baru. Karena itu hanya billing terbaru per dokumen yang dihitung; billing lama yang sudah diganti tidak dihitung kedaluwarsa. Status billing dari portal (Kirim Billing, Tunggu Rekon CEISA, Rekon - CEISA) ditampilkan apa adanya. Kartu hanya menyajikan data.
+- **TGH-04 Rincian billing** per baris, diambil dari portal saat diklik dan tidak disimpan: riwayat status, bukti pembayaran (NTPN, NTB, tanggal buku, bank, nomor struk bayar, total dibayar; hanya isian yang terisi), dan pungutan per akun dengan pemeriksaan jumlah terhadap total tagihan. Untuk dokumen dengan dua billing, billing yang dibayar ditunjukkan oleh NTPN dan bukti bayarnya.
+- **TGH-05 PDF billing dan PDF respon**: tombol PDF di baris membuka Pratinjau billing; di Rincian tersedia juga Cetak Respon. Keduanya tampil sebagai pratinjau di dalam dasbor dengan pdf.js lokal (Apache-2.0), karena penampil PDF bawaan Chrome tidak tampil di bingkai halaman ekstensi. Tombol Unduh PDF dan Buka di tab baru tetap ada; berkas tidak disimpan.
+- **TGH-06 Peringatan billing** pada kartu Hari ini, hanya untuk billing yang masih berlaku dan tenggatnya dalam 3 hari.
+- **TGH-07 Lembar Billing di Excel**: satu baris per billing (kode billing, nomor dokumen, jenis, status portal, NTPN, tenggat, nilai, keterangan) dengan baris jumlah. Tidak memuat identitas wajib bayar.
+- **TGH-08 Samarkan identitas**: pilihan di dialog ekspor Excel, presentasi/laporan, dan ringkasan. Nama perusahaan menjadi Perusahaan A, B, dan seterusnya (perusahaan sendiri selalu A), logo dihapus, sedangkan nomor pengajuan, nomor daftar, kode billing, NTPN, serta NPWP dan NITKU hanya menampilkan empat angka terakhir. Nama berkas ikut disamarkan. Pilihan ini berlaku sama di ketiga dialog dan diingat di browser.
+
+##### Diubah
+
+- Istilah "peramban" diganti "browser" di seluruh antarmuka dan dokumen.
+- **DST-01, DST-04 Pemasangan hanya lewat Chrome Web Store.** Repositori GitHub hanya memuat dokumentasi, panduan, catatan perubahan, roadmap, dan video; folder ekstensi, daftar SHA-256, dan pemeriksaan paket dihapus. Paket 1.17.0 kini diminifikasi.
+- **Judul kolom "Umur (hari)" diperjelas menjadi "Umur Dokumen (Hari)"** di rincian dasbor, lembar Excel (Rincian dan Tindak Lanjut), laporan resmi, presentasi, ekspor CSV, dan pesan tugas WhatsApp ("umur dokumen N hari").
+- **Ringkasan WhatsApp/surel** kini memuat seluruh dokumen belum selesai, tidak hanya yang melewati SLA: angka utama menambah "masih dalam batas SLA", bagian Per jenis dokumen merinci melewati SLA dan dalam batas SLA, bagian baru "Belum selesai menurut status", dan daftar dokumen tertua diberi penanda SLA.
+- **Pilihan jenis dokumen pada ringkasan WhatsApp/surel**: daftar centang di dialog; angka, nilai, tugas, dan perubahan mengikuti jenis yang dipilih. Pilihan diingat di browser.
+- **TGH-09 Kartu Tagihan lebih ringkas**: periode dipilih langsung di kartu (12 bulan terakhir, ikuti periode dasbor, bulan ini, 30 hari, 90 hari, tahun ini, atau rentang sendiri) dan berlaku untuk Tarik tagihan maupun Perbarui data; empat angka menjadi filter satu klik; keterangan panjang dipindah ke ikon "i".
+- **TGH-10 Billing tanpa dokumen**: billing yang nomor dokumennya tidak ada di data Daftar Dokumen yang ditarik diberi keterangan netral dan dapat disaring dengan pilihan "Tanpa dokumen". Bila penarikan mencakup semua jenis dokumen, tanggal dokumennya berada dalam rentang data, dan billing belum memiliki NTPN, dokumen dianggap telah dihapus pengguna: billing ditandai "Dokumen tidak ada di Daftar Dokumen (kemungkinan dihapus)" dan tidak dihitung pada empat angka kartu Tagihan serta peringatan Hari ini. Billing yang sudah memiliki NTPN tidak pernah ditandai.
+- Mode demo kini menyediakan PDF contoh (berlabel "DATA DEMO - bukan dokumen resmi") untuk billing dan respon, sehingga pratinjau PDF dapat dicoba tanpa login portal. Tanggal terbit billing demo tidak lagi melewati hari ini.
+
+##### Diperbaiki
+
+- Samarkan identitas: perusahaan sendiri yang tertulis dengan huruf besar-kecil berbeda di dua sumber tidak lagi menjadi "Perusahaan B"; pencocokan nama tidak membedakan huruf besar-kecil.
+
+##### Tidak masuk rilis ini
+
+- Jaminan jatuh tempo (JMN-01, ditunda atas keputusan pengguna).
+
+### Fase 5. Ketahanan dan pelaporan lengkap
+
+*Versi 1.15.0 sampai 1.16.3.* Pembaruan lebih tahan gangguan, filter isi dokumen, dan seluruh keluaran (presentasi, laporan, Excel, ringkasan) dilengkapi bab nilai dan pungutan.
+
+#### 1.16.3 · 30 September 2026
+
+**Tema:** Bagikan ke rekan.
+
+- **Tombol "Bagikan ke rekan"** di kaki dasbor dan Pengaturan: membuka pesan siap kirim (dapat diedit) ke LinkedIn, WhatsApp, X, Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen dan tidak ada panggilan jaringan dari ekstensi (browser hanya membuka tab situs tujuan saat tombol diklik).
+
+#### 1.16.2 · 30 September 2026
+
+**Tema:** Perbaikan tautan dukungan.
 
 - **Perbaikan tautan dukungan sukarela**: alamat halaman Saweria yang benar adalah saweria.co/triasex (sebelumnya menunjuk ke alamat yang salah). Berlaku di kaki dasbor, popup, README, dan FAQ.
 - **Kartu dukungan** dengan kode QR di README dan halaman web, disertai penjelasan penggunaan dana.
 
-## 1.16.1 (30 September 2026)
+#### 1.16.1 · 30 September 2026
+
+**Tema:** Perampingan kartu dan uji asap.
 
 - **Kartu "Komposisi status per jenis dokumen" dihapus.** Isinya tumpang tindih dengan tabel Status per jenis dokumen (klik baris untuk menyaring) dan donat Komposisi status yang mengikuti tombol jenis dokumen.
 - **Filter Pungutan kartu Isi dokumen kini tercatat pada ekspor Excel** (lembar Cakupan dan Daftar Isi), sehingga pembaca berkas tahu bahwa lembar nilai hanya memuat dokumen berpungutan atau berfasilitas.
 - **Uji asap dasbor** (`npm run smoke`): membuka dasbor demo, mengambil isi dokumen, lalu membuat presentasi, Excel, laporan, dan ringkasan. Bersifat opsional dan memerlukan Playwright.
 
-## 1.16.0 (29 September 2026)
+#### 1.16.0 · 29 September 2026
+
+**Tema:** Isi ekspor lengkap dan konsisten.
 
 Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan dibuat konsisten.
 
@@ -29,20 +123,26 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pengujian**: 66 pengujian otomatis (baru: model nilai, kalimat temuan, Daftar Isi dan Perubahan Status, ringkasan, dan jumlah slide presentasi).
 - **Batasan**: presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; gunakan Simpan sebagai PDF di PowerPoint. Lampiran jaminan belum ada.
 
-## 1.15.2 (29 September 2026)
+#### 1.15.2 · 29 September 2026
+
+**Tema:** Pengambilan isi dokumen lebih hemat.
 
 - **Isi dokumen tidak lagi diambil ulang setiap 6 jam.** Sebelumnya dokumen yang belum berstatus final dianggap kedaluwarsa setelah 6 jam, sehingga pengambilan ulang untuk ribuan dokumen terasa selalu panjang. Kini isi dokumen (barang, nilai, pungutan, dokumen pelengkap) dianggap segar sampai **statusnya berubah** atau Anda memilih **Ambil ulang**. Setelah pengambilan pertama selesai, klik **Ambil yang belum** hanya memuat dokumen baru dan dokumen yang statusnya berubah.
 - **Kalimat "Isi {n} dari {m} dokumen" bergerak selama pengambilan berjalan** (diperbarui tiap 10 dokumen), sehingga kemajuan terlihat tanpa menunggu proses selesai.
 - **Tetap aman dihentikan kapan saja**: setiap dokumen disimpan segera setelah selesai, dan pengambilan berikutnya melewati yang sudah ada.
 - **Dokumentasi**: FAQ dan Panduan menjelaskan kapan isi dokumen diambil ulang; video baru "Yang baru di v1.15" dan teks posting LinkedIn diperbarui.
 
-## 1.15.1 (29 September 2026)
+#### 1.15.1 · 29 September 2026
+
+**Tema:** Ketahanan pembaruan saat portal berpindah halaman.
 
 - **Perbaikan: pembaruan gagal dengan pesan "Frame with ID 0 was removed."** Pesan ini muncul bila halaman portal berpindah atau dimuat ulang saat pembaruan berjalan (mis. portal memperbarui sesi). Sebelumnya pembaruan langsung berhenti. Kini ekstensi menunggu, mencari ulang tab portal, dan mengulang hingga empat kali untuk penarikan data, pengambilan isi dokumen (Unduh Excel), dan riwayat portal.
 - **Pesan yang jelas** bila tetap gagal: "Halaman portal sedang dimuat ulang. Tunggu hingga portal selesai dimuat, lalu coba lagi." atau, bila tab portal ditutup, "Halaman portal ditutup saat proses berjalan. Buka portal CEISA dan masuk, lalu coba lagi."
 - **Pengujian**: 62 pengujian otomatis (baru: pengulangan saat frame dihapus, tab berpindah, dan tab ditutup). Penjalan uji kini menunggu pengujian async, sehingga kegagalannya tidak lagi terlewat; satu uji ekspor yang datanya kurang lengkap ikut dibetulkan.
 
-## 1.15.0 (29 September 2026)
+#### 1.15.0 · 29 September 2026
+
+**Tema:** Filter khusus kartu Isi dokumen.
 
 - **Filter khusus kartu Isi dokumen.** Di atas kartu ada baris filter sendiri: jenis dokumen (boleh pilih beberapa, dengan jumlah yang sudah terambil per jenis), jalur, dan pungutan (semua, ada pungutan atau fasilitas, ada pungutan dibayar, ada fasilitas), serta tombol Atur ulang. Filter ini hanya berlaku untuk kartu dan ekspornya; dasar datanya tetap periode dan filter dasbor.
 - **Tabel Per jenis dokumen.** Satu baris per jenis: isi yang sudah diambil dibanding jumlah dokumen, nilai pabean, BM, PPN, PPh, total dibayar, fasilitas, dan porsi fasilitas, dengan baris jumlah. Klik satu baris untuk menyaring rincian ke jenis itu.
@@ -52,7 +152,13 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pengujian**: 61 pengujian otomatis (uji ekspor diperluas untuk lembar Ringkasan per Jenis).
 - **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
 
-## 1.14.0 (29 September 2026)
+### Fase 4. Perampingan dan nilai pungutan
+
+*Versi 1.10.0 sampai 1.14.0.* Menu disederhanakan menjadi satu pintu laporan; isi dokumen, nilai, dan pungutan menjadi inti analisis.
+
+#### 1.14.0 · 29 September 2026
+
+**Tema:** Ekspor nilai dan pungutan dengan cakupan sendiri.
 
 - **Ekspor nilai dan pungutan dengan cakupan sendiri.** Tombol Excel di kartu Isi dokumen kini membuka dialog: pilih rentang tanggal daftar dan jenis dokumen (hanya jenis yang ada di data, lengkap dengan jumlah dan yang sudah terambil). Awalnya mengikuti filter dasbor, dengan tombol cepat Bulan ini, 90 hari, Tahun ini, dan Sesuai filter dasbor. Filter jalur, perusahaan, dan kantor yang aktif ikut diterapkan.
 - **Ringkasan kelengkapan sebelum unduh**: dialog menampilkan jumlah dokumen dalam cakupan, yang isinya sudah diambil, dan yang belum. Bila ada yang belum, tersedia **Ambil yang belum lalu ekspor** (mengambil sisanya, lalu langsung mengunduh) atau **Unduh yang sudah ada**.
@@ -63,7 +169,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pengujian**: 61 pengujian otomatis (baru: lembar Cakupan, kolom fasilitas, lembar per jenis).
 - **Dokumentasi**: README, Panduan, FAQ, Roadmap, halaman utama, dan gambar diperbarui.
 
-## 1.13.0 (29 September 2026)
+#### 1.13.0 · 29 September 2026
+
+**Tema:** Riwayat status per dokumen dari portal.
 
 - **Popup BERUBAH menampilkan Riwayat Status dan Riwayat Respon dari portal**, sama seperti tab di portal: setiap status dengan jam persis (mis. Perekaman Dokumen, Validasi, Siap Jalur, Penjaluran, Gate In TPB/KEK, Pembongkaran, Selesai Proses), terbaru di atas, lalu daftar respons (mis. SPPB, SPPD) dengan jamnya. Status yang muncul sejak pengecekan terakhir ditandai **baru**.
 - **Waktu perubahan menjadi tepat**: bila riwayat portal tersedia, baris Sesudah menulis "terjadi {jam} (jam portal)" dan perkiraan rentang waktu tidak ditampilkan lagi.
@@ -75,7 +183,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Pengujian**: 60 pengujian otomatis (tiga baru: urutan dan pembersihan riwayat, bentuk resmi dataStatus/dataRespon, alamat layanan). Mode demo menampilkan riwayat contoh.
 - **Dokumentasi**: README, Panduan, FAQ, Alur Kerja, Kebijakan Privasi, Roadmap, dan gambar popup diperbarui.
 
-## 1.12.1 (29 September 2026)
+#### 1.12.1 · 29 September 2026
+
+**Tema:** Perbaikan pungutan dan Excel nilai.
 
 - **Pemeriksaan Dokumen dibedakan dari Jalur Merah.** Dokumen berstatus Pemeriksaan Dokumen dengan jalur bukan merah kini bertanda garis kuning dan label VERIFIKASI (dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai), bukan garis merah. Kartu Hari ini memisahkannya menjadi satu baris tersendiri.
 - **Kartu Waktu proses diganti Komposisi status per jenis dokumen**: satu batang per jenis dokumen berisi porsi tiap status (tombol Persentase atau Jumlah); klik segmen untuk menyaring rincian.
@@ -86,7 +196,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Kartu Nilai dan pungutan**: tabel Menurut fasilitas (dibayar, dibebaskan, ditangguhkan, dan seterusnya) serta penanda bila total pungutan portal berbeda dari jumlah tarif per barang.
 - **Dialog Ambil isi dokumen lebih ringkas**: daftar jenis dokumen hanya memuat jenis yang ada di data pada rentang tanggal terpilih (dengan jumlahnya), tanpa kolom cari dan kode.
 
-## 1.12.0 (29 September 2026)
+#### 1.12.0 · 29 September 2026
+
+**Tema:** Ambil isi bercakupan, nilai dan pungutan.
 
 - **Bahasa Indonesia sejak pembukaan pertama.** Bahasa tidak lagi mengikuti bahasa Chrome; English hanya tampil bila dipilih dari tombol ID/EN.
 - **Ambil isi dokumen dengan cakupan.** Tombol membuka dialog: rentang tanggal daftar (Bulan ini, 90 hari, Tahun ini, atau sesuai filter dasbor), jenis dokumen yang dipilih dari daftar, serta ringkasan jumlah dokumen yang akan dibaca, yang dilewati karena sudah tersimpan, dan perkiraan waktu. Batas 300 dokumen per klik dihapus untuk jalur ini; pengambilan dapat dihentikan dan dilanjutkan.
@@ -96,7 +208,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Riwayat pada ikon BERUBAH**: lini masa dengan tanggal lengkap, selisih hari antarstatus, dan respons portal bila isi dokumen sudah diambil.
 - **Dihapus agar lebih ringkas**: tab Pemeriksaan dan Pengeluaran sementara (beserta peringatan, lembar Excel, dan pengaturan batas hari), semua notifikasi Chrome dan ringkasan pagi (izin `notifications` dilepas dari manifest), serta bagian Notifikasi dan Tindak lanjut dan tim di Pengaturan. Catatan tindak lanjut di tabel dan penugasan WhatsApp tetap ada.
 
-## 1.11.0 (29 September 2026)
+#### 1.11.0 · 29 September 2026
+
+**Tema:** Kartu Hari ini dan perampingan.
 
 - **Riwayat dari portal dihapus.** Jam pasti status dan respons dari portal jarang dipakai untuk keputusan, sementara memperbanyak permintaan ke portal. Yang dipertahankan: kode respons angka tetap diterjemahkan dengan tabel Referensi Respon resmi CEISA 4.0, dan kartu Waktu proses tetap menampilkan hari penyelesaian serta lama per status dari rekaman Anda sendiri. Lembar Excel Riwayat Portal dan Riwayat Rinci, tombol Ambil riwayat/rincian portal, dan pengaturan teknis riwayat ikut dihapus. Setelah Perbarui data, ekstensi tidak lagi mengambil riwayat otomatis.
 - **Kartu Hari ini** di bagian atas dasbor: tugas terlambat atau jatuh tempo, Jalur Merah/pemeriksaan, baru melewati SLA, belum ada penanggung jawab, serta pengeluaran sementara melewati batas hari dan jaminan jatuh tempo ≤ 30 hari. Setiap baris membuka daftarnya.
@@ -107,7 +221,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - **Perbaikan**: memilih **Tulis sendiri…** pada Tugas yang diminta kini mengosongkan kolom dan langsung siap diketik; mengetik di kolom tidak lagi tertahan pada templat terpilih.
 - **Lebih ringkas**: menu Ekspor tinggal Buat laporan dan Bagikan ringkasan; tombol Ringkasan untuk tim di kartu Perubahan dihapus (fungsinya ada di menu); notifikasi diatur dengan satu pilihan (Lengkap, Ringkasan pagi saja, Nonaktif), rincian ada di Atur satu per satu.
 
-## 1.10.0 (29 September 2026)
+#### 1.10.0 · 29 September 2026
+
+**Tema:** Buat laporan terpadu.
 
 - Lebih ringkas: menu Ekspor tinggal tiga pilihan. **Buat laporan** memilih periode sekali lalu membuat presentasi, laporan resmi, dan/atau Excel sekaligus (menggantikan Paket bulanan, Presentasi, dan Laporan resmi yang terpisah); **Excel sesuai filter dasbor**; dan **Ringkasan WhatsApp/surel**. CSV dan Cetak dasbor dihapus karena sudah tercakup Excel dan laporan resmi PDF.
 - Kartu **Waktu proses** menggabungkan Waktu penyelesaian dan Rata-rata lama per status, ditambah **Waktu layanan (portal)**: median jam dari status pertama sampai respons pertama dan sampai penjaluran, per jenis dokumen, serta lama setiap perpindahan status dari riwayat portal. KPI Waktu penyelesaian ikut menampilkan waktu layanan portal.
@@ -115,7 +231,13 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Kartu Perubahan mendapat tombol **Ringkasan untuk tim** (ringkasan sejak kemarin siap ditempel ke WhatsApp).
 - Pengaturan lebih bersih: tombol teknis riwayat portal dipindah ke bagian Lanjutan; tombol mode demo cukup di layar sambutan dan kepala dasbor.
 
-## 1.9.0 (29 September 2026)
+### Fase 3. Riwayat dan isi dokumen
+
+*Versi 1.7.0 sampai 1.9.0.* Rincian perubahan status, riwayat dari portal, dan pembacaan isi lengkap dokumen.
+
+#### 1.9.0 · 29 September 2026
+
+**Tema:** Isi dokumen dari portal dan kartu arsip.
 
 - Isi dokumen dari portal: CEISA Monitor membaca isi lengkap setiap nomor pengajuan dari layanan Unduh Excel portal (21 lembar), tanpa menyimpan berkas ke folder kecuali diminta. Berlaku untuk semua jenis dokumen.
 - Kartu arsip: klik dua kali baris di tabel rincian untuk melihat dokumen pelengkap (invoice, packing list, B/L atau AWB, kontrak, COO, dan lainnya dengan nama resmi), barang, nilai dan logistik, pungutan, jaminan, pengeluaran sementara terkait, serta riwayat dari portal.
@@ -126,21 +248,27 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Tabel referensi resmi CEISA 4.0 ditambah: dokumen, negara, satuan, kemasan, fasilitas tarif, jenis pungutan, jaminan, cara angkut, valuta, dan kantor.
 - Pilihan di Pengaturan: simpan juga berkas Excel asli portal ke folder Unduhan saat mengambil isi dokumen.
 
-## 1.8.2 (29 September 2026)
+#### 1.8.2 · 29 September 2026
+
+**Tema:** Riwayat portal langsung aktif.
 
 - Riwayat dari portal langsung aktif: CEISA Monitor memakai alamat yang sama dengan tab Riwayat Status dan Riwayat Respon di portal, sehingga tidak perlu lagi Pelajari dari portal. Jam status memakai waktu mulai seperti tampilan portal, dan nama status serta respons sama persis dengan portal.
 - Ambil riwayat banyak dokumen sekaligus: pilih dokumen di tabel lalu Ambil riwayat portal, atau Lengkapi riwayat dari portal di dialog Excel (maks 300 dokumen per klik, berurutan agar tidak membebani portal).
 - Excel: lembar baru Riwayat Portal (mulai, penjaluran, respons pertama dan terakhir, waktu layanan dalam jam, serta median lama setiap perpindahan status) dan Riwayat Rinci (setiap status dan respons dengan jamnya).
 - Perbaikan Excel: tanggal tidak lagi bergeser satu hari lebih awal pada zona waktu WIB/WITA/WIT.
 
-## 1.8.1 (29 September 2026)
+#### 1.8.1 · 29 September 2026
+
+**Tema:** Kemajuan pembaruan di latar belakang.
 
 - Pembaruan yang berjalan di latar belakang (misalnya otomatis saat masuk portal) kini terlihat di dasbor: bilah kemajuan, halaman ke berapa dari total, jumlah dokumen, dan perkiraan sisa waktu. Data tampil sendiri setelah selesai.
 - Mengklik Perbarui data saat pembaruan lain berjalan tidak lagi menampilkan pesan galat merah, tetapi menampilkan kemajuan pembaruan yang sedang berjalan.
 - Kunci pembaruan memakai detak per halaman: penarikan semua data yang lama tidak lagi dianggap macet setelah 5 menit, sehingga tidak terjadi dua penarikan bersamaan. Kunci tanpa detak lebih dari 3 menit dianggap berhenti.
 - Pelajari dari portal: hasilnya tampil langsung di bawah tombol dan pesan tidak lagi tertutup jendela Pengaturan. Alamat riwayat kini dapat dipelajari walaupun data belum ditarik.
 
-## 1.8.0 (29 September 2026)
+#### 1.8.0 · 29 September 2026
+
+**Tema:** Riwayat portal dan referensi respons.
 
 - Riwayat dari portal: jam pasti setiap status (termasuk Validasi, Siap Jalur, Penjaluran) dan semua respons dokumen diambil langsung dari portal dengan satu klik, dari kartu rincian perubahan, kolom Respons, atau dialog tindak lanjut. Tidak perlu lagi mencari nomor pendaftaran, membuka dokumen, dan tab Riwayat Respon secara manual.
 - Respons "tanpa nama" atau berupa angka di tabel rincian dapat diklik dan diganti dengan nama respons terbaru dari riwayat respons portal.
@@ -148,32 +276,48 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Kode respons angka (mis. 2305) langsung diterjemahkan menjadi nama resminya sesuai jenis dokumen (mis. SPPD untuk BC 2.3) memakai tabel Referensi Respon dan Referensi Status CEISA 4.0 dari portal pengembang Bea Cukai (openapi.beacukai.go.id/portal). Berlaku di tabel rincian, grafik respons, ekspor Excel/CSV (kolom Kode Respons baru), dan riwayat dari portal. Kode yang tidak tercantum di tabel resmi (misalnya BC 4.0 dan BC 4.1) tidak ditebak.
 - Tombol Salin info teknis berisi alamat layanan dan nama kolom saja, tanpa data dokumen, untuk keperluan dukungan.
 
-## 1.7.1 (29 September 2026)
+#### 1.7.1 · 29 September 2026
+
+**Tema:** Perbaikan mode demo.
 
 - Mode demo: riwayat status contoh tidak lagi memuat tanggal di masa depan.
 - Tombol "Tampilkan ringkasan pagi sekarang" pada mode demo langsung membuka ringkasan pagi di dasbor.
 
-## 1.7.0 (29 September 2026)
+#### 1.7.0 · 29 September 2026
+
+**Tema:** Rincian perubahan status.
 
 - Rincian perubahan status: arahkan kursor atau klik tanda BERUBAH di tabel rincian untuk melihat status sebelum dan sesudah, kapan status lama terakhir terlihat dan status baru pertama terlihat, rentang waktu perubahan, respons dan waktu respons dari portal, serta riwayat status dokumen. Waktu yang diperkirakan diberi label "perkiraan".
 - Tanda SLA menampilkan tanggal daftar, batas SLA, tanggal batas terlewati, dan umur dokumen.
 - Dialog tindak lanjut menampilkan Riwayat status dokumen di samping Riwayat tindak lanjut.
 
-## 1.6.3 (29 September 2026)
+### Fase 2. Periode, bahasa, dan tindak lanjut tim
+
+*Versi 1.4.0 sampai 1.6.3.* Periode fleksibel, dua bahasa, tema, penugasan lewat WhatsApp, dan pengingat.
+
+#### 1.6.3 · 29 September 2026
+
+**Tema:** Tarik semua data.
 
 - Tarik semua data: tanggal awal penarikan kini bawaan kosong, artinya semua dokumen yang tersedia di portal CEISA 4.0 (termasuk tahun lalu dan sebelumnya). Pengaturan lama "1 Januari" otomatis diubah menjadi semua data satu kali.
 - Tombol Semua data di Pengaturan, serta pilihan Tarik semua data pada pita periode.
 - Batas penarikan dinaikkan (hingga 1 juta baris). Bila portal menolak halaman lanjutan, penarikan otomatis dilanjutkan per kode dokumen agar dokumen lama tetap tertarik; kode yang masih terpotong ditampilkan di dasbor.
 
-## 1.6.2 (28 September 2026)
+#### 1.6.2 · 28 September 2026
+
+**Tema:** Halaman kosong yang menuntun.
 
 - Halaman "Belum ada data" memakai empat langkah yang sama dengan panduan sambutan (masuk portal, buka Daftar Dokumen, Perbarui data, Profil perusahaan) dan menyediakan tautan Lihat panduan.
 
-## 1.6.1 (28 September 2026)
+#### 1.6.1 · 28 September 2026
+
+**Tema:** Perbaikan gulir tabel.
 
 - Perbaikan: saat dasbor menggulir otomatis ke tabel rincian (misalnya setelah mengklik kartu atau tombol Tampilkan yang perlu ditindaklanjuti), bagian atas tabel dan bilah pilihan massal tidak lagi tertutup bilah filter yang menempel.
 
-## 1.6.0 (28 September 2026)
+#### 1.6.0 · 28 September 2026
+
+**Tema:** Pengingat, peringatan, dan berbagi tugas tim.
 
 - Ringkasan pagi: notifikasi harian (jam dapat diatur, bawaan 08.00) berisi dokumen selesai, baru melewati SLA, prioritas baru, dan tugas jatuh tempo. Tombol notifikasi membuka ringkasan siap tempel ke grup WhatsApp atau langsung ke daftar tugas jatuh tempo. Bila komputer mati pada jamnya, notifikasi muncul saat Chrome dibuka kembali pada hari itu.
 - Pengingat tugas: tugas yang terlambat, jatuh tempo hari ini, dan besok; filter rincian "Jatuh tempo" dan cakupan yang sama di dialog Kirim tugas via WhatsApp.
@@ -182,7 +326,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Templat tugas sendiri di Pengaturan, dengan format "status; status | teks tugas" atau teks umum.
 - Ekspor dan impor tindak lanjut (.json) beserta nomor WhatsApp dan templat, untuk berbagi antarkomputer tim tanpa server. Saat impor, isian yang lebih baru dipertahankan dan riwayat digabung.
 
-## 1.5.0 (28 September 2026)
+#### 1.5.0 · 28 September 2026
+
+**Tema:** Penugasan lewat WhatsApp.
 
 - Penugasan tindak lanjut melalui WhatsApp. Dialog tindak lanjut kini memiliki kolom Tugas yang diminta (templat otomatis sesuai status dan jalur dokumen, dapat diubah) dan Nomor WhatsApp penanggung jawab (disimpan lokal per nama).
 - Tombol Simpan & salin pesan dan Simpan & buka WhatsApp menyusun pesan tugas berformat WhatsApp: nomor pengajuan, jenis, status, umur/SLA, jalur, tugas, target, dan catatan.
@@ -190,18 +336,24 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Dokumen yang tugasnya sudah dikirim ditandai "✓ WA" pada tabel rincian. Tugas juga ikut di kolom catatan Excel.
 - Ekstensi tidak mengirim pesan sendiri; WhatsApp hanya dibuka saat pengguna mengklik.
 
-## 1.4.2 (28 September 2026)
+#### 1.4.2 · 28 September 2026
+
+**Tema:** Tema tampilan.
 
 - Pilihan tema tampilan di kepala dasbor: Auto (mengikuti sistem), Terang, atau Gelap.
 - Tema gelap diperbaiki: pilihan pada daftar tarik-turun kini terbaca, bilah filter tidak lagi tembus pandang saat menggulir, dan warna status yang terlalu gelap (misalnya Gate In TPS) dicerahkan agar kontras.
 - Rincian status pada grafik Tingkat penyelesaian kini menampilkan setiap status secara lengkap, tanpa kelompok "Lainnya", dengan warna yang tidak berulang.
 - Panduan sambutan menjadi empat langkah: masuk portal, buka halaman Daftar Dokumen (portal.beacukai.go.id/dokumen-pabean/), klik Perbarui data, lalu atur Profil perusahaan.
 
-## 1.4.1 (28 September 2026)
+#### 1.4.1 · 28 September 2026
+
+**Tema:** Tautan dukungan sukarela.
 
 - Tautan dukungan sukarela ke halaman Saweria (saweria.co/triastore) di kaki dasbor, Pengaturan, dan popup. Dibuka sebagai tab biasa; tanpa pelacakan, tanpa izin tambahan, dan seluruh fitur tetap gratis.
 
-## 1.4.0 (28 September 2026)
+#### 1.4.0 · 28 September 2026
+
+**Tema:** Periode fleksibel dan dua bahasa.
 
 - Dua bahasa antarmuka: Indonesia dan English, dipilih dari tombol ID/EN di kepala dasbor (bawaan mengikuti bahasa Chrome). Berlaku untuk dasbor, popup, notifikasi, dan format angka/tanggal. Presentasi, laporan resmi, Excel, dan ringkasan WhatsApp tetap berbahasa Indonesia.
 - Periode fleksibel: 7/30/90 hari terakhir, bulan ini, bulan lalu, kuartal ini, tahun ini, tahun lalu, 12 bulan terakhir, semua data, atau rentang tanggal khusus per hari. Grafik otomatis per hari (≤ 45 hari), per minggu (≤ 200 hari), atau per bulan.
@@ -218,7 +370,13 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Ringkasan WhatsApp: bagian perubahan memuat tanggal pembanding, dokumen yang menjadi selesai, dan dokumen baru.
 - Pengujian bertambah menjadi 39 (periode, rekonstruksi, aliran, pembanding perubahan, dan bahasa).
 
-## 1.3.0 (28 September 2026), rilis Chrome Web Store pertama
+### Fase 1. Fondasi dan rilis Chrome Web Store
+
+*Versi 1.0.0 sampai 1.3.0.* Dasbor, ekspor, profil perusahaan, dan rilis publik pertama.
+
+#### 1.3.0 · 28 September 2026 (rilis Chrome Web Store pertama)
+
+**Tema:** Rilis Chrome Web Store pertama.
 
 - Nama dan deskripsi dua bahasa (Indonesia dan Inggris) melalui `_locales`, dengan penanda "Tidak Resmi".
 - Izin `tabs` dihapus; pencarian tab portal cukup memakai izin host.
@@ -247,7 +405,9 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Keterangan "tidak resmi, tidak berafiliasi dengan DJBC" di kaki dasbor.
 - Skrip `npm run build`: pengujian, pemeriksaan rilis (berkas, CSP, URL luar, eval, kata terlarang), lalu zip siap unggah.
 
-## 1.2.0
+#### 1.2.0 · tanggal tidak tercatat
+
+**Tema:** Profil perusahaan dan laporan resmi.
 
 - Profil perusahaan: fasilitas otomatis, status final, templat SLA, logo, warna, target, catatan kejadian, ekspor-impor profil.
 - Data terpisah per akun/NPWP; filter perusahaan (akun ini dan mitra) serta kantor.
@@ -256,10 +416,14 @@ Isi ekspor (presentasi, laporan resmi, Excel, ringkasan WhatsApp) dilengkapi dan
 - Pengaturan SLA dengan pratinjau jumlah dokumen yang melewati SLA.
 - Pemeriksaan struktur data portal dan validasi jumlah baris.
 
-## 1.1.0
+#### 1.1.0 · tanggal tidak tercatat
+
+**Tema:** Tindak lanjut dan deteksi perubahan.
 
 - Tindak lanjut per dokumen, deteksi perubahan, SLA per jenis dokumen dan status, pembaruan otomatis, notifikasi, mode demo.
 
-## 1.0.0
+#### 1.0.0 · tanggal tidak tercatat
+
+**Tema:** Versi awal.
 
 - Dasbor status dokumen, ekspor Excel dan presentasi.

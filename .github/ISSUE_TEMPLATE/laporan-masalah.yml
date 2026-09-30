@@ -10,8 +10,8 @@ body:
     attributes: { label: Versi CEISA Monitor, placeholder: "1.4.0 (lihat kaki dasbor)" }
     validations: { required: true }
   - type: dropdown
-    id: peramban
-    attributes: { label: Peramban, options: ["Google Chrome", "Microsoft Edge", "Lainnya"] }
+    id: browser
+    attributes: { label: Browser, options: ["Google Chrome", "Microsoft Edge", "Lainnya"] }
     validations: { required: true }
   - type: textarea
     id: langkah

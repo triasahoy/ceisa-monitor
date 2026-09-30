@@ -21,7 +21,7 @@ flowchart LR
   J --> K
 ```
 
-Data hanya mengalir dari portal ke peramban Anda. Ekstensi tidak mengubah apa pun di portal dan tidak mengirim data ke server.
+Data hanya mengalir dari portal ke browser Anda. Ekstensi tidak mengubah apa pun di portal dan tidak mengirim data ke server.
 
 ## Harian (10–15 menit)
 

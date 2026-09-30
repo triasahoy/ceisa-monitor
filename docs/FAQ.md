@@ -5,8 +5,8 @@
 | Pertanyaan | Jawaban |
 |---|---|
 | Apakah ini aplikasi resmi DJBC? | Bukan. CEISA Monitor adalah proyek independen yang hanya membaca data yang sudah dapat diakses pengguna yang masuk ke portal. |
-| Apakah gratis? | Ya, seluruh fitur gratis. Dukungan sukarela dapat diberikan melalui [saweria.co/triasex](https://saweria.co/triasex). |
-| Apakah data saya aman? | Data diolah dan disimpan di peramban Anda. Tidak ada server, analitik, atau pihak ketiga. Kata sandi dan token tidak disimpan. Lihat [SECURITY.md](../SECURITY.md). |
+| Apakah gratis? | Ya, seluruh fitur gratis. Dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) atau [Buy Me a Coffee](https://buymeacoffee.com/triase). |
+| Apakah data saya aman? | Data diolah dan disimpan di browser Anda. Tidak ada server, analitik, atau pihak ketiga. Kata sandi dan token tidak disimpan. Lihat [SECURITY.md](../SECURITY.md). |
 | Apakah ekstensi bisa mengubah atau mengirim dokumen? | Tidak. Ekstensi hanya membaca daftar dokumen. |
 | Apakah ekstensi mengirim pesan WhatsApp sendiri? | Tidak. Pesan hanya disalin atau WhatsApp dibuka saat Anda mengklik tombolnya; Anda sendiri yang menekan kirim. |
 | Mengapa perlu tab portal yang terbuka? | Data dibaca dengan sesi login Anda di tab tersebut. Ekstensi tidak pernah masuk ke portal atas nama Anda. |
@@ -25,17 +25,38 @@
 | Bisakah dipakai lebih dari satu akun perusahaan? | Bisa. Data setiap akun disimpan terpisah dan dapat dipilih di kepala dasbor. |
 | Bahasa apa yang dipakai saat pertama dibuka? | Bahasa Indonesia, tanpa mengikuti bahasa Chrome. English hanya tampil bila dipilih dari tombol ID/EN. |
 | Bagaimana jika struktur portal berubah? | Ekstensi memeriksa struktur data setiap kali menarik data. Bila berubah, angka tidak ditampilkan dan muncul pesan agar ekstensi diperbarui. |
-| Apakah tersedia di Chrome Web Store? | Sedang dalam peninjauan. Sementara itu, pasang dari halaman [Releases](../../../releases/latest). |
-| Apakah kode sumbernya terbuka? | Tidak. Repositori ini berisi paket rilis yang sudah diminifikasi dan dokumentasi. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
-| Bagaimana cara memperbarui versi? | Ekstrak paket baru ke folder yang sama (timpa berkas lama), lalu klik muat ulang (↻) di `chrome://extensions`. Data tidak hilang. Jangan memasang folder baru dengan Load unpacked: Chrome menganggapnya ekstensi lain, sehingga datanya kosong dan semua data ditarik ulang dari awal. |
+| Di mana memasang CEISA Monitor? | Hanya dari Chrome Web Store (sedang dalam peninjauan; tautan akan ditambahkan di [README](../README.md#pemasangan) setelah tayang). Repositori ini hanya berisi dokumentasi. |
+| Apakah kode sumbernya terbuka? | Tidak. Repositori ini berisi dokumentasi dan panduan. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
+| Bagaimana cara memperbarui versi? | Otomatis oleh Chrome bila dipasang dari Chrome Web Store. Data tidak hilang. |
 | Mengapa muncul "Pembaruan sedang berjalan" dan dasbor masih kosong? | Pembaruan otomatis (misalnya saat masuk portal) sedang menarik data. Dasbor menampilkan halaman ke berapa, jumlah dokumen, dan perkiraan sisa waktu; data tampil sendiri setelah selesai. Penarikan pertama untuk semua data memerlukan beberapa menit sampai puluhan menit, bergantung pada jumlah dokumen dan kecepatan internet. Biarkan tab portal tetap terbuka. |
 | Mengapa muncul "Frame with ID 0 was removed" saat pembaruan? | Halaman portal berpindah atau dimuat ulang ketika pembaruan berjalan (misalnya portal memperbarui sesinya). Sejak versi 1.15.1 ekstensi menunggu dan mengulang otomatis; bila tetap gagal, tunggu portal selesai dimuat lalu klik Perbarui data. Muat ulang ekstensi di `chrome://extensions` bila Anda masih memakai versi lama. |
 | Apakah isi dokumen harus diambil berulang dari awal? | Tidak. Isi dokumen diambil sekali, disimpan per dokumen segera setelah selesai, dan dapat dihentikan lalu dilanjutkan kapan saja. Dokumen diambil ulang hanya bila statusnya berubah atau Anda memilih **Ambil ulang**. Setelah pengambilan pertama, **Ambil yang belum** hanya memuat dokumen baru dan yang berubah. |
 | Apa itu Ringkasan eksekutif di dialog Buat laporan? | Mode yang memangkas presentasi dari 26 menjadi 9 slide dan laporan resmi menjadi bagian inti (ringkasan, nilai dan pungutan, usulan tindak lanjut). Nama berkas berakhiran `_Ringkas`. |
 | Mengapa bab Nilai dan pungutan tidak muncul di laporan? | Bab itu dibuat dari isi dokumen. Bila isi dokumen periode itu belum diambil, bab tidak disertakan; dialog Buat laporan menampilkan alasannya. Bila baru sebagian yang diambil, bab muncul dengan catatan cakupan. |
-| Dapatkah presentasi langsung menjadi PDF? | Tidak oleh ekstensi. Buka berkas .pptx di PowerPoint lalu Simpan sebagai PDF. Laporan resmi A4 dapat langsung dicetak ke PDF dari peramban. |
+| Dapatkah presentasi langsung menjadi PDF? | Tidak oleh ekstensi. Buka berkas .pptx di PowerPoint lalu Simpan sebagai PDF. Laporan resmi A4 dapat langsung dicetak ke PDF dari browser. |
 | Bagaimana cara membagikan ekstensi ke rekan? | Klik **Bagikan ke rekan** di kaki dasbor atau di Pengaturan. Pesan siap kirim (dapat diubah) dibuka di LinkedIn, WhatsApp, X, atau Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen. |
 | Bagaimana cara menghapus semua data? | Pengaturan → Hapus data, atau hapus ekstensi dari Chrome. |
 | Ke mana saya mengirim masukan? | Buka [Issues](../../../issues/new/choose) dan pilih templat yang sesuai. |
 | Apa isi kartu Hari ini? | Daftar tindakan yang mendesak: tugas terlambat, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab. Klik satu baris untuk melihat daftarnya. |
 | Apa itu Komposisi status? | Donat dan daftar status dengan jumlah dan persentase. Klik satu status untuk menyaring tabel rincian. |
+
+### Apakah data saya hilang bila ekstensi dihapus atau diganti?
+
+Ya, bila ekstensi dihapus. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap. Pengaturan dapat dipindahkan lewat Ekspor profil dan Impor profil; ekspor seluruh data direncanakan di versi 1.18.0.
+
+### Bolehkah memasang dari berkas ZIP atau dari sumber selain Chrome Web Store?
+
+Tidak dianjurkan dan tidak disediakan. Repositori ini tidak membagikan berkas ekstensi. Salinan dari sumber lain tidak dapat dipastikan keasliannya dan dapat berisi kode yang mengambil data Anda.
+
+### Apakah kartu Tagihan membayar atau mengubah billing?
+
+Tidak. Kartu Tagihan hanya membaca Browse Billing dan menyajikan datanya. Status billing tampil sebagaimana dicatat portal; ekstensi tidak menilai billing mana yang dibayar atau apa yang perlu dilakukan.
+
+### Apakah rincian dan PDF billing disimpan?
+
+Tidak. Rincian dan PDF diambil dari portal saat diklik, ditampilkan, lalu dibuang. Nama petugas perekam tidak diambil.
+
+### Bagaimana membagikan contoh laporan tanpa membuka identitas?
+
+Centang **Samarkan identitas** pada dialog ekspor. Nama perusahaan menjadi Perusahaan A, B, dan seterusnya, dan nomor penting hanya menampilkan empat angka terakhir. Tetap periksa berkas sebelum dibagikan.
+
