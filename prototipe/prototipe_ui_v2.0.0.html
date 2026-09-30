@@ -1,0 +1,686 @@
+<title>CEISA Monitor 2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Tata letak: sidebar navy tetap + kepala dengan pusat sinkronisasi; isi per tab. Token mengikuti dashboard.css 1.17.0. */
+:root{
+  --bg:#EEF2F4;--surface:#fff;--surface-2:#F6F8F9;--line:#DDE3E8;--line-2:#E9EEF1;
+  --ink:#0F1C2B;--ink-2:#44546A;--ink-3:#6B7A8C;--navy:#13315C;--navy-2:#1D4A85;--brass:#96690F;--brass-soft:#F4EAD4;
+  --bad:#B42318;--warn:#B54708;--ok:#1C8456;--new:#6D3FC0;--new-soft:#EFE8FB;
+  --side-ink:#EAF1FA;--side-ink-2:#AFC2DA;
+  --shadow:0 1px 2px rgba(15,28,43,.05),0 4px 16px rgba(15,28,43,.05);
+  --sans:"Plus Jakarta Sans","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono","Cascadia Mono",Consolas,ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#0B121B;--surface:#131E2B;--surface-2:#192636;--line:#2A3B50;--line-2:#203043;
+  --ink:#E9EFF6;--ink-2:#B4C1D1;--ink-3:#8C9BAE;--navy:#0F2340;--navy-2:#8DB4EE;--brass:#E0B65E;--brass-soft:#2E2715;
+  --bad:#F28B7D;--warn:#F5B35C;--ok:#45C08A;--new:#B99BF2;--new-soft:#2A2140;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25)}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#0B121B;--surface:#131E2B;--surface-2:#192636;--line:#2A3B50;--line-2:#203043;
+  --ink:#E9EFF6;--ink-2:#B4C1D1;--ink-3:#8C9BAE;--navy:#0F2340;--navy-2:#8DB4EE;--brass:#E0B65E;--brass-soft:#2E2715;
+  --bad:#F28B7D;--warn:#F5B35C;--ok:#45C08A;--new:#B99BF2;--new-soft:#2A2140;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-3);font-size:12.5px}
+
+/* Bilah prototipe */
+.proto{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:8px 16px;background:var(--surface);border-bottom:1px solid var(--line);font-size:12.5px}
+.proto b{font-weight:700}
+.legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--ink-2)}
+.tag{display:inline-flex;align-items:center;gap:4px;font:600 10.5px/1 var(--mono);letter-spacing:.02em;padding:3px 6px;border-radius:6px;white-space:nowrap;vertical-align:middle}
+.tag.plan{background:var(--brass-soft);color:var(--brass)}
+.tag.new{background:var(--new-soft);color:var(--new)}
+body.no-tags .tag.fid{display:none}
+.switch{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+
+/* Kerangka */
+.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:calc(100% - 42px)}
+.side{background:var(--navy);color:var(--side-ink);padding:18px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{display:flex;gap:10px;align-items:center;padding:0 8px 14px}
+.logo{width:34px;height:34px;border-radius:9px;background:#C9A55A;display:grid;place-items:center;color:var(--navy);font-weight:800;font-size:13px}
+:root .logo{color:#13315C}
+.brand small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#C9A55A;font-weight:700}
+.brand strong{font-size:15px;color:#fff}
+.nav{border:0;background:none;color:var(--side-ink-2);text-align:left;padding:9px 10px;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:600;font-size:13.5px}
+.nav:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav[aria-current="page"]{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 3px 0 0 #C9A55A}
+.nav .cnt{font:600 11px var(--mono);background:rgba(255,255,255,.12);padding:2px 7px;border-radius:999px}
+.nav .cnt.bad{background:#B42318;color:#fff}
+.side hr{border:0;border-top:1px solid rgba(255,255,255,.12);margin:10px 4px}
+.side .tag.new{background:rgba(185,155,242,.18);color:#D4C2F7}
+.side .tag.plan{background:rgba(201,165,90,.18);color:#E6C98A}
+.side-foot{margin-top:auto;font-size:11.5px;color:var(--side-ink-2);padding:10px 8px 0}
+
+.main{min-width:0;display:flex;flex-direction:column}
+.head{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.head h1{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.head-r{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sync{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:5px 10px;font-size:12.5px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.dot.warn{background:var(--warn)}
+.kbd{font:600 11px var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 5px;background:var(--surface-2);color:var(--ink-2)}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:7px 13px;font-weight:600;font-size:12.5px;cursor:pointer;color:var(--ink);display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--brass);border-color:var(--brass);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#1a1204}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#1a1204}}
+.linkbtn{border:0;background:none;color:var(--navy-2);text-decoration:underline;cursor:pointer;padding:0;font-weight:600;font-size:inherit}
+
+.page{padding:20px 24px 48px;display:flex;flex-direction:column;gap:16px;max-width:1320px;width:100%}
+.view[hidden]{display:none}
+.view{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px;min-width:0}
+.card h2{font-size:14.5px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g32{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+
+.banner{background:var(--new-soft);border:1px solid color-mix(in srgb,var(--new) 30%,transparent);border-radius:12px;padding:12px 14px;font-size:13px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.banner ul{margin:6px 0 0;padding-left:18px}
+
+/* KPI */
+.kpi{display:flex;flex-direction:column;gap:6px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.kpi:hover{border-color:var(--ink-3)}
+.kpi .lbl{font-size:12px;color:var(--ink-2);font-weight:600;display:flex;justify-content:space-between;gap:6px;align-items:center}
+.kpi .val{font:700 28px/1.1 var(--mono);letter-spacing:-.02em}
+.kpi .sub{font-size:12px;color:var(--ink-3)}
+.kpi svg{width:100%;height:34px;display:block}
+.delta.up{color:var(--bad)}.delta.down{color:var(--ok)}
+.meter{height:8px;border-radius:6px;background:var(--line-2);overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+
+/* Feed */
+.feed{display:flex;flex-direction:column}
+.feed-item{display:grid;grid-template-columns:4px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line-2)}
+.feed-item:first-child{border-top:0}
+.sev{width:4px;align-self:stretch;border-radius:3px;background:var(--ink-3)}
+.sev.bad{background:var(--bad)}.sev.warn{background:var(--warn)}.sev.info{background:var(--navy-2)}
+.feed-item b{font-weight:700}
+.feed-item .muted{display:block}
+
+/* Pill dan status */
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);white-space:nowrap}
+.pill.merah{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 40%,transparent)}
+.pill.kuning{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.pill.hijau{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 40%,transparent)}
+.pill.sla{background:color-mix(in srgb,var(--bad) 12%,var(--surface));color:var(--bad);border-color:transparent}
+
+/* Status */
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+.seg button{border:0;background:none;padding:4px 10px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.bars{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:12.5px}
+.bar-row .track{height:10px;background:var(--line-2);border-radius:5px;overflow:hidden}
+.bar-row .track i{display:block;height:100%;background:var(--navy-2);border-radius:5px}
+.bar-row .n{text-align:right;font-family:var(--mono)}
+
+/* Tabel */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line-2);white-space:nowrap}
+th{background:var(--surface-2);font-weight:700;color:var(--ink-2);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--surface-2)}
+td.r,th.r{text-align:right}
+body.rapat td{padding:5px 10px}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:12.5px}
+.pager .pages{display:flex;gap:4px}
+.pager .pages button{min-width:30px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 8px;cursor:pointer;font-family:var(--mono);font-size:12px}
+.pager .pages button[aria-current="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chipf{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer}
+.chipf[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.field{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 8px;font-size:12.5px;color:var(--ink-2)}
+.field select,.field input{border:0;background:transparent;font-weight:600;color:var(--ink);padding:3px 2px;min-width:0}
+.field input{width:160px;outline:none}
+
+/* Drawer */
+.scrim{position:fixed;inset:0;background:rgba(8,14,22,.45);z-index:30}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--surface);z-index:31;box-shadow:-12px 0 40px rgba(0,0,0,.25);display:flex;flex-direction:column}
+.drawer header{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.drawer .tabs{display:flex;gap:2px;padding:0 12px;border-bottom:1px solid var(--line);overflow-x:auto}
+.drawer .tabs button{border:0;background:none;padding:10px 10px;font-weight:600;font-size:12.5px;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.drawer .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--brass)}
+.drawer .body{padding:16px 18px;overflow:auto;display:flex;flex-direction:column;gap:12px}
+dl.kv{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 12px;margin:0;font-size:12.5px}
+dl.kv dt{color:var(--ink-3)}dl.kv dd{margin:0;font-weight:600}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:12.5px}
+.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px}
+
+/* Palet perintah */
+.cmdk{position:fixed;left:50%;top:12vh;transform:translateX(-50%);width:min(620px,calc(100% - 32px));background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);z-index:41;overflow:hidden}
+.cmdk input{width:100%;border:0;border-bottom:1px solid var(--line);padding:14px 16px;font-size:15px;background:transparent;outline:none}
+.cmdk ul{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}
+.cmdk li{padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;gap:10px;font-size:13px;cursor:pointer}
+.cmdk li:hover,.cmdk li.act{background:var(--surface-2)}
+.cmdk .grp{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);padding:8px 10px 4px;cursor:default}
+.cmdk .grp:hover{background:none}
+
+/* Buat laporan */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;background:var(--surface-2)}
+.step b{display:block;font-size:13px}
+.step.on{border-color:var(--brass);background:var(--brass-soft)}
+.outs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.out{border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;background:var(--surface);text-align:left;display:flex;flex-direction:column;gap:4px}
+.out[aria-pressed="true"]{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass)}
+.out b{font-size:13.5px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Pengaturan */
+.set{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px}
+.set nav{display:flex;flex-direction:column;gap:2px}
+.set nav button{border:0;background:none;text-align:left;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600;font-size:13px;color:var(--ink-2)}
+.set nav button[aria-current="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.form{display:grid;grid-template-columns:220px minmax(0,1fr);gap:12px 16px;align-items:center;font-size:13px}
+.form label{color:var(--ink-2);font-weight:600}
+.form select,.form input[type=text],.form input[type=number]{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 8px;max-width:320px;width:100%}
+
+/* Tindak lanjut */
+.pj{display:flex;flex-direction:column;gap:8px}
+.pj-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr) 90px;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line-2);font-size:13px}
+.pj-row:first-child{border-top:0}
+
+/* Audit */
+.aud td{white-space:normal;vertical-align:top;cursor:default}
+.aud tbody tr:hover td{background:none}
+.kind{font:700 10.5px var(--mono);padding:3px 7px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em}
+.kind.gab{background:color-mix(in srgb,var(--navy-2) 16%,var(--surface));color:var(--navy-2)}
+.kind.sed{background:var(--brass-soft);color:var(--brass)}
+.kind.hap{background:color-mix(in srgb,var(--bad) 12%,var(--surface));color:var(--bad)}
+.kind.tam{background:var(--new-soft);color:var(--new)}
+.kind.pin{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+
+.foot{font-size:12px;color:var(--ink-3);padding:0 24px 24px}
+
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g32{grid-template-columns:minmax(0,1fr)}.outs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;height:auto;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;padding:10px 12px;gap:4px}
+  .brand,.side hr,.side-foot{display:none}
+  .nav{white-space:nowrap}
+  .head,.page{padding-left:16px;padding-right:16px}
+  .g2,.steps,.set,.form{grid-template-columns:minmax(0,1fr)}
+  .bar-row{grid-template-columns:110px minmax(0,1fr) 40px}
+  .pj-row{grid-template-columns:minmax(0,1fr) 80px}.pj-row .meter{grid-column:1/-1;order:3}
+}
+@media (max-width:520px){.g4,.outs{grid-template-columns:minmax(0,1fr)}dl.kv{grid-template-columns:minmax(0,1fr)}.field input{width:120px}}
+@media (prefers-reduced-motion:no-preference){.drawer{animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(24px);opacity:.6}}}
+</style>
+
+<div class="proto" role="note">
+  <div><b>Prototipe CEISA Monitor 2.0.0</b> · data demo, bukan data perusahaan · <span class="muted">diperbarui 30 September 2026</span></div>
+  <div class="legend">
+    <span><span class="tag plan">UI-01</span> sudah di roadmap</span>
+    <span><span class="tag new">UI-10</span> usulan audit</span>
+    <label class="switch"><input type="checkbox" id="showTags" checked> Tampilkan ID fitur</label>
+    <label class="switch"><input type="checkbox" id="darkT"> Tema gelap</label>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="side" aria-label="Navigasi">
+    <div class="brand"><div class="logo">CM</div><div><small>CEISA 4.0</small><strong>CEISA Monitor</strong></div></div>
+    <button class="nav" data-v="ringkasan" aria-current="page">Ringkasan <span class="tag plan fid">UI-01</span></button>
+    <button class="nav" data-v="dokumen">Dokumen <span class="cnt">148</span></button>
+    <button class="nav" data-v="nilai">Nilai &amp; pungutan <span class="tag new fid">UI-16</span></button>
+    <button class="nav" data-v="tagihan">Tagihan <span class="cnt bad">3</span></button>
+    <button class="nav" data-v="tindak">Tindak lanjut <span class="tag new fid">UI-15</span></button>
+    <button class="nav" data-v="laporan">Buat laporan <span class="tag plan fid">UI-04</span></button>
+    <button class="nav" data-v="pengaturan">Pengaturan <span class="tag new fid">UI-17</span></button>
+    <hr>
+    <button class="nav" data-v="audit">Audit fitur 2.0.0 <span class="tag new">usulan</span></button>
+    <div class="side-foot">PT Contoh Logistik Nusantara · Kawasan Berikat<br>Data tersimpan lokal di browser ini</div>
+  </aside>
+
+  <div class="main">
+    <div class="head">
+      <h1 id="title">Ringkasan</h1>
+      <div class="head-r">
+        <div class="sync" title="Pusat sinkronisasi">
+          <span class="dot"></span>
+          <span>Sesi portal <b class="num" id="sess">42:18</b></span>
+          <span class="muted">· data 09.12 WIB</span>
+          <span class="tag new fid">UI-09</span>
+        </div>
+        <button class="btn" id="openK" aria-label="Cari atau jalankan perintah">Cari… <span class="kbd">Ctrl K</span> <span class="tag plan fid">UI-06</span></button>
+        <button class="btn primary" id="refresh">Perbarui data</button>
+      </div>
+    </div>
+
+    <main class="page">
+
+      <!-- RINGKASAN -->
+      <section class="view" id="v-ringkasan">
+        <div class="banner" id="whatsNew">
+          <div>
+            <b>Baru di versi 2.0.0.</b> Navigasi pindah ke sidebar. Data, izin, dan cara kerja tetap sama.
+            <span class="tag plan fid">DST-03</span> <span class="tag new fid">UI-14</span>
+            <ul>
+              <li>Kartu Tagihan sekarang ada di tab <b>Tagihan</b>.</li>
+              <li>Menu Ekspor, Ringkasan WhatsApp, dan Kirim tugas digabung di <b>Buat laporan</b>.</li>
+              <li>Profil perusahaan dan SLA sekarang ada di <b>Pengaturan › Perusahaan &amp; SLA</b>.</li>
+              <li>Kartu arsip, tindak lanjut, dan riwayat status dibuka di satu <b>panel dokumen</b>.</li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:8px"><button class="btn" data-go="audit">Lihat peta lengkap</button><button class="btn" id="closeNew">Tutup</button></div>
+        </div>
+
+        <div class="grid g4">
+          <button class="card kpi" data-go="dokumen" data-filter="open">
+            <span class="lbl">Belum selesai <span class="tag plan fid">UI-02</span></span>
+            <span class="val">148</span>
+            <svg viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="var(--navy-2)" stroke-width="2" points="0,20 15,22 30,18 45,19 60,14 75,16 90,11 105,12 120,9"/><circle cx="120" cy="9" r="3" fill="var(--navy-2)"/></svg>
+            <span class="sub"><span class="delta up">+12</span> dari minggu lalu</span>
+          </button>
+          <button class="card kpi" data-go="dokumen" data-filter="sla">
+            <span class="lbl">Melewati SLA</span>
+            <span class="val" style="color:var(--bad)">23</span>
+            <div class="meter" aria-hidden="true"><i style="width:15.5%;background:var(--bad)"></i><i style="width:84.5%;background:var(--line)"></i></div>
+            <span class="sub">15,5% dari belum selesai · target ≤ 10%</span>
+          </button>
+          <button class="card kpi" data-go="dokumen" data-filter="merah">
+            <span class="lbl">Jalur Merah belum selesai</span>
+            <span class="val">7</span>
+            <div class="meter" aria-hidden="true"><i style="width:62%;background:var(--ok)"></i><i style="width:24%;background:var(--warn)"></i><i style="width:14%;background:var(--bad)"></i></div>
+            <span class="sub">Hijau 62% · Kuning 24% · Merah 14%</span>
+          </button>
+          <button class="card kpi" data-go="tagihan">
+            <span class="lbl">Billing belum ada NTPN</span>
+            <span class="val">3</span>
+            <div class="meter" aria-hidden="true"><i style="width:86%;background:var(--ok)"></i><i style="width:14%;background:var(--warn)"></i></div>
+            <span class="sub">1 tenggat dalam 3 hari · Rp 84,2 jt</span>
+          </button>
+        </div>
+
+        <div class="grid g32">
+          <div class="card">
+            <div class="card-h"><h2>Perlu tindakan hari ini <span class="tag plan fid">UI-05</span></h2><span class="muted">menggantikan kartu Hari ini dan Perubahan</span></div>
+            <div class="feed" id="feed"></div>
+          </div>
+          <div class="card">
+            <div class="card-h">
+              <h2>Status dokumen <span class="tag new fid">AUD-06</span></h2>
+              <div class="seg" role="group" aria-label="Tampilan status"><button aria-pressed="true" data-sv="status">Per status</button><button aria-pressed="false" data-sv="jenis">Per jenis</button></div>
+            </div>
+            <div class="bars" id="statusBars"></div>
+            <p class="muted" style="margin:10px 0 0">Satu kartu menggantikan donat Komposisi status dan tabel Status per jenis dokumen. Klik baris untuk menyaring tab Dokumen.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-h"><h2>Umur dokumen belum selesai</h2><span class="muted">hari sejak tanggal daftar · klik sel untuk melihat dokumen</span></div>
+          <div class="tbl-wrap"><table id="ageTbl"></table></div>
+        </div>
+      </section>
+
+      <!-- DOKUMEN -->
+      <section class="view" id="v-dokumen" hidden>
+        <div class="toolbar">
+          <span class="muted">Tampilan tersimpan <span class="tag new fid">UI-11</span></span>
+          <button class="chipf" data-sv2="all" aria-pressed="true">Semua belum selesai</button>
+          <button class="chipf" data-sv2="sla" aria-pressed="false">Melewati SLA</button>
+          <button class="chipf" data-sv2="merah" aria-pressed="false">Jalur Merah</button>
+          <button class="chipf" data-sv2="baru" aria-pressed="false">Berubah hari ini</button>
+          <button class="chipf" data-sv2="isi" aria-pressed="false">Isi belum diambil</button>
+          <button class="chipf" id="saveView">+ Simpan tampilan</button>
+        </div>
+        <div class="card">
+          <div class="card-h">
+            <div class="toolbar">
+              <label class="field">Periode <select id="per"><option>90 hari</option><option>Bulan ini</option><option>Tahun ini</option></select></label>
+              <label class="field">Jenis <select id="jenis">
+                <optgroup label="Impor"><option>BC 2.0 Pemberitahuan Impor Barang</option><option>BC 2.3 Impor ke TPB</option></optgroup>
+                <optgroup label="Kawasan Berikat"><option>BC 2.5 Impor untuk Dipakai dari TPB</option><option>BC 2.6.1 Pengeluaran Sementara</option><option>BC 2.7 Antar TPB</option></optgroup>
+                <optgroup label="Ekspor"><option>BC 3.0 Pemberitahuan Ekspor Barang</option></optgroup>
+                <optgroup label="KEK"><option>KEK - PPKEK Pemasukan</option></optgroup>
+                <option selected>Semua jenis</option>
+              </select></label>
+              <span class="tag plan fid">UI-07</span>
+              <label class="field">Cari <input id="q" type="search" placeholder="Nomor pengajuan atau status"></label>
+            </div>
+            <div class="toolbar">
+              <div class="seg" role="group" aria-label="Kepadatan"><button aria-pressed="true" data-den="nyaman">Nyaman</button><button aria-pressed="false" data-den="rapat">Rapat</button></div>
+              <button class="btn" id="cols">Kolom ▾ <span class="tag new fid">UI-12</span></button>
+            </div>
+          </div>
+          <div class="tbl-wrap"><table id="docTbl"></table></div>
+          <div class="pager"><span class="muted" id="pinfo"></span><div class="pages" id="pages"></div><span class="tag plan fid">UI-03</span></div>
+        </div>
+        <p class="muted">Klik baris untuk membuka panel dokumen <span class="tag new fid">UI-10</span>. Tabel dirender per halaman agar tetap lancar sampai 20.000 dokumen <span class="tag new fid">MUT-01</span>.</p>
+      </section>
+
+      <!-- NILAI -->
+      <section class="view" id="v-nilai" hidden>
+        <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+          <div style="min-width:0;flex:1">
+            <b>Cakupan isi dokumen</b> <span class="tag new fid">AUD-04</span>
+            <div class="meter" style="margin:8px 0 4px"><i style="width:91.5%;background:var(--ok)"></i><i style="width:8.5%;background:var(--line)"></i></div>
+            <span class="muted">412 dari 450 dokumen periode ini sudah diambil isinya. Angka di bawah hanya menghitung dokumen yang sudah diambil.</span>
+          </div>
+          <button class="btn primary">Ambil 38 yang belum</button>
+        </div>
+        <div class="grid g4">
+          <div class="card kpi"><span class="lbl">Nilai pabean</span><span class="val" style="font-size:22px">Rp 48,6 M</span><span class="sub">412 dokumen</span></div>
+          <div class="card kpi"><span class="lbl">Pungutan dibayar</span><span class="val" style="font-size:22px">Rp 3,94 M</span><span class="sub">BM, PPN, PPh</span></div>
+          <div class="card kpi"><span class="lbl">Fasilitas (tidak dipungut)</span><span class="val" style="font-size:22px">Rp 6,12 M</span><span class="sub">KB, KITE</span></div>
+          <div class="card kpi"><span class="lbl">Selisih dengan billing</span><span class="val" style="font-size:22px">Rp 0</span><span class="sub">WAS-03 · 2.1.0</span></div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>Pungutan per bulan</h2><div class="seg" role="group" aria-label="Kelompok"><button aria-pressed="true">Per bulan</button><button aria-pressed="false">Per jenis</button><button aria-pressed="false">Per pungutan</button><button aria-pressed="false">Per fasilitas</button></div></div>
+          <svg viewBox="0 0 640 200" style="width:100%;height:auto;display:block" role="img" aria-label="Grafik pungutan per bulan April sampai September 2026">
+            <g stroke="var(--line-2)"><line x1="48" y1="20" x2="630" y2="20"/><line x1="48" y1="70" x2="630" y2="70"/><line x1="48" y1="120" x2="630" y2="120"/><line x1="48" y1="170" x2="630" y2="170"/></g>
+            <g fill="var(--ink-3)" font-size="11" font-family="JetBrains Mono, monospace" text-anchor="end"><text x="42" y="24">900 jt</text><text x="42" y="74">600 jt</text><text x="42" y="124">300 jt</text><text x="42" y="174">0</text></g>
+            <g fill="var(--navy-2)">
+              <rect x="70" y="67" width="60" height="103" rx="4"/><rect x="167" y="55" width="60" height="115" rx="4"/><rect x="264" y="82" width="60" height="88" rx="4"/>
+              <rect x="361" y="43" width="60" height="127" rx="4"/><rect x="458" y="60" width="60" height="110" rx="4"/><rect x="555" y="30" width="60" height="140" rx="4" fill="var(--brass)"/>
+            </g>
+            <g fill="var(--ink-2)" font-size="11" text-anchor="middle"><text x="100" y="188">Apr</text><text x="197" y="188">Mei</text><text x="294" y="188">Jun</text><text x="391" y="188">Jul</text><text x="488" y="188">Agu</text><text x="585" y="188">Sep</text></g>
+            <g fill="var(--ink)" font-size="11" font-family="JetBrains Mono, monospace" text-anchor="middle"><text x="585" y="24">840 jt</text></g>
+          </svg>
+          <p class="muted" style="margin:8px 0 0">Catatan kejadian bulanan ditulis langsung di grafik (klik bulan), tidak lagi sebagai teks YYYY-MM di Profil perusahaan <span class="tag new fid">AUD-09</span>.</p>
+        </div>
+      </section>
+
+      <!-- TAGIHAN -->
+      <section class="view" id="v-tagihan" hidden>
+        <div class="grid g4">
+          <button class="card kpi"><span class="lbl">Semua billing</span><span class="val">64</span><span class="sub">12 bulan terakhir</span></button>
+          <button class="card kpi"><span class="lbl">Ada NTPN</span><span class="val" style="color:var(--ok)">61</span><span class="sub">sudah dibayar</span></button>
+          <button class="card kpi"><span class="lbl">Belum ada NTPN</span><span class="val" style="color:var(--warn)">3</span><span class="sub">Rp 84,2 jt</span></button>
+          <button class="card kpi"><span class="lbl">Tanpa dokumen</span><span class="val">1</span><span class="sub">kemungkinan dihapus</span></button>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>Billing <span class="tag plan fid">UI-01</span></h2><span class="muted">Data disajikan apa adanya dari Browse Billing. Tidak ada saran tindakan.</span></div>
+          <div class="tbl-wrap"><table id="billTbl"></table></div>
+          <p class="muted" style="margin:10px 0 0">Nomor dokumen dapat diklik untuk membuka panel dokumen yang sama dengan tab Dokumen <span class="tag new fid">UI-10</span>.</p>
+        </div>
+      </section>
+
+      <!-- TINDAK LANJUT -->
+      <section class="view" id="v-tindak" hidden>
+        <div class="card">
+          <div class="card-h"><h2>Per penanggung jawab <span class="tag new fid">UI-15</span></h2><button class="btn primary" data-go="laporan" data-out="tugas">Kirim tugas…</button></div>
+          <div class="pj" id="pjList"></div>
+          <p class="muted" style="margin:10px 0 0">Menggabungkan kartu Tindak lanjut dan dialog Kirim tugas. Menjadi dasar Beban kerja (WAS-02, 2.1.0) dan ekspor kalender (KLB-02, 2.3.0).</p>
+        </div>
+      </section>
+
+      <!-- BUAT LAPORAN -->
+      <section class="view" id="v-laporan" hidden>
+        <div class="steps">
+          <div class="step on"><b>1. Keluaran</b>pilih satu atau lebih</div>
+          <div class="step"><b>2. Cakupan</b>periode, jenis, perusahaan</div>
+          <div class="step"><b>3. Isi</b>bagian yang disertakan</div>
+          <div class="step"><b>4. Privasi</b>samarkan identitas</div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>Preset <span class="tag new fid">KLB-03</span></h2><span class="muted">dipindah dari 2.3.0 karena satu pintu laporan membutuhkannya</span></div>
+          <div class="presets">
+            <button class="chipf" aria-pressed="true">Rapat bulanan</button>
+            <button class="chipf" aria-pressed="false">Pagi (WhatsApp)</button>
+            <button class="chipf" aria-pressed="false">Sore (WhatsApp)</button>
+            <button class="chipf" aria-pressed="false">Audit</button>
+            <button class="chipf" aria-pressed="false">+ Simpan pilihan sekarang</button>
+          </div>
+        </div>
+        <div class="outs" id="outs"></div>
+        <div class="card">
+          <div class="form">
+            <label for="cak">Cakupan <span class="tag new fid">AUD-04</span></label>
+            <div class="toolbar"><select id="cak" class="field"><option>Sesuai filter dasbor</option><option>Bulan ini</option><option>90 hari</option><option>Tahun ini</option><option>Rentang sendiri</option></select><span class="muted">412 dari 450 dokumen sudah diambil isinya</span></div>
+            <label for="sam">Samarkan identitas</label>
+            <div><input type="checkbox" id="sam"> <span class="muted">Perusahaan A, B, …; nomor hanya empat angka terakhir (TGH-08)</span></div>
+            <label for="rk">Ringkasan eksekutif</label>
+            <div><input type="checkbox" id="rk"> <span class="muted">presentasi dan laporan lebih pendek</span></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px"><button class="btn">Pratinjau</button><button class="btn primary">Buat 2 keluaran</button></div>
+        </div>
+      </section>
+
+      <!-- PENGATURAN -->
+      <section class="view" id="v-pengaturan" hidden>
+        <div class="set">
+          <nav aria-label="Bagian pengaturan" id="setNav">
+            <button aria-current="true" data-s="per">Perusahaan &amp; SLA</button>
+            <button data-s="data">Data &amp; pembaruan</button>
+            <button data-s="aman">Cadangan &amp; pindah <span class="tag plan fid">DTA-01</span></button>
+            <button data-s="tampil">Tampilan &amp; bahasa</button>
+            <button data-s="lanjut">Lanjutan</button>
+            <button data-s="tentang">Tentang</button>
+          </nav>
+          <div class="card" id="setBody"></div>
+        </div>
+      </section>
+
+      <!-- AUDIT -->
+      <section class="view" id="v-audit" hidden>
+        <div class="card">
+          <div class="card-h"><h2>Audit fitur untuk 2.0.0</h2><span class="muted">Dasar: struktur dasbor 1.16.3 dan 1.17.0. Semua usulan lolos gerbang produk: hanya membaca, tanpa izin baru, data lokal, tanpa bahasa tindakan pada billing.</span></div>
+          <div class="toolbar" style="margin-bottom:10px">
+            <button class="chipf" data-k="all" aria-pressed="true">Semua</button>
+            <button class="chipf" data-k="gab" aria-pressed="false">Gabung</button>
+            <button class="chipf" data-k="sed" aria-pressed="false">Sederhanakan</button>
+            <button class="chipf" data-k="hap" aria-pressed="false">Hapus</button>
+            <button class="chipf" data-k="pin" aria-pressed="false">Pindah</button>
+            <button class="chipf" data-k="tam" aria-pressed="false">Tambah</button>
+          </div>
+          <div class="tbl-wrap"><table class="aud" id="audTbl"></table></div>
+        </div>
+      </section>
+    </main>
+    <div class="foot">Prototipe ini tidak terhubung ke portal. Semua nama perusahaan, nomor, dan nilai adalah contoh.</div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Panel dokumen">
+  <header>
+    <div><div class="muted">Panel dokumen <span class="tag new fid">UI-10</span></div><h2 id="dTitle" class="mono" style="font-size:15px"></h2><div id="dSub" class="muted"></div></div>
+    <button class="btn" id="dClose" aria-label="Tutup panel">Tutup <span class="kbd">Esc</span></button>
+  </header>
+  <div class="tabs" role="tablist" id="dTabs">
+    <button role="tab" aria-selected="true" data-t="ring">Ringkasan</button>
+    <button role="tab" aria-selected="false" data-t="isi">Isi (kartu arsip)</button>
+    <button role="tab" aria-selected="false" data-t="riw">Riwayat status &amp; respon</button>
+    <button role="tab" aria-selected="false" data-t="tl">Tindak lanjut</button>
+    <button role="tab" aria-selected="false" data-t="bill">Billing</button>
+  </div>
+  <div class="body" id="dBody"></div>
+</aside>
+
+<div class="scrim" id="kScrim" hidden></div>
+<div class="cmdk" id="cmdk" hidden role="dialog" aria-label="Pencarian dan perintah">
+  <input id="kIn" type="text" placeholder="Cari dokumen, billing, penanggung jawab, atau perintah…" autocomplete="off">
+  <ul id="kList"></ul>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* Data demo */
+const STAT=["Menunggu Respon","Penelitian Dokumen","Pemeriksaan Fisik","Menunggu Billing","SPPB","Gate Out"];
+const JEN=["BC 2.0","BC 2.3","BC 2.5","BC 2.6.1","BC 2.7","BC 3.0","KEK - PPKEK"];
+const PJ=["Rina","Dimas","Sari","Budi","Belum ditugaskan"];
+const JAL=["Hijau","Hijau","Hijau","Kuning","Merah"];
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646};
+const docs=Array.from({length:148},(_,i)=>{
+  const umur=Math.floor(rnd()*rnd()*28)+1, st=STAT[Math.floor(rnd()*4)], j=JEN[Math.floor(rnd()*JEN.length)];
+  return {no:"0000"+(40+i%9)+"-"+String(100200+i*37).padStart(6,"0")+"-2026"+String(9).padStart(2,"0")+String(1+i%28).padStart(2,"0")+"-"+String(10000+i*131).slice(-6),
+    jenis:j, status:st, jalur:JAL[Math.floor(rnd()*JAL.length)], umur, sla:umur>(j==="BC 2.0"?5:7), pj:PJ[Math.floor(rnd()*PJ.length)],
+    isi:rnd()>.12, berubah:rnd()>.85, nilai:Math.round(rnd()*2400+60)};
+});
+docs.sort((a,b)=>b.umur-a.umur);
+
+/* Navigasi */
+const TITLES={ringkasan:"Ringkasan",dokumen:"Dokumen",nilai:"Nilai & pungutan",tagihan:"Tagihan",tindak:"Tindak lanjut",laporan:"Buat laporan",pengaturan:"Pengaturan",audit:"Audit fitur 2.0.0"};
+function go(v,opt){
+  $$(".view").forEach(s=>s.hidden=s.id!=="v-"+v);
+  $$(".nav").forEach(b=>b.dataset.v===v?b.setAttribute("aria-current","page"):b.removeAttribute("aria-current"));
+  $("#title").textContent=TITLES[v];
+  if(opt&&opt.filter){view=opt.filter;page=1;$$("[data-sv2]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.sv2===view));renderDocs()}
+  store.set("cm2.view",v);
+  window.scrollTo(0,0);
+}
+$$(".nav").forEach(b=>b.onclick=()=>go(b.dataset.v));
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g){go(g.dataset.go,{filter:g.dataset.filter==="open"?"all":g.dataset.filter})}});
+
+/* Tema dan tanda */
+$("#showTags").onchange=e=>document.body.classList.toggle("no-tags",!e.target.checked);
+$("#darkT").onchange=e=>document.documentElement.setAttribute("data-theme",e.target.checked?"dark":"light");
+$("#closeNew").onclick=()=>{$("#whatsNew").hidden=true;store.set("cm2.new","0")};
+if(store.get("cm2.new")==="0")$("#whatsNew").hidden=true;
+
+/* Sesi */
+let secs=42*60+18;setInterval(()=>{secs=Math.max(0,secs-1);$("#sess").textContent=String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0");if(secs<600)$(".sync .dot").classList.add("warn")},1000);
+$("#refresh").onclick=e=>{e.target.textContent="Memperbarui… 3/7 halaman";setTimeout(()=>e.target.textContent="Perbarui data",1600)};
+
+/* Feed */
+const feed=[
+  ["bad","7 dokumen Jalur Merah belum selesai","Tertua 21 hari · 3 belum punya penanggung jawab","dokumen","merah"],
+  ["bad","4 dokumen baru melewati SLA sejak kemarin","BC 2.0 (2), BC 2.3 (1), BC 2.7 (1)","dokumen","sla"],
+  ["warn","1 billing tenggat dalam 3 hari","Belum ada NTPN · data portal, tanpa saran tindakan","tagihan",""],
+  ["warn","5 tugas jatuh tempo hari ini","Rina (2), Dimas (2), Sari (1)","tindak",""],
+  ["info","12 dokumen berubah status sejak 08.00","9 menjadi SPPB, 2 Pemeriksaan Fisik, 1 Gate Out","dokumen","baru"],
+  ["info","38 dokumen periode ini belum diambil isinya","Nilai dan pungutan belum lengkap","nilai",""]];
+$("#feed").innerHTML=feed.map(f=>`<div class="feed-item"><span class="sev ${f[0]}"></span><div><b>${f[1]}</b><span class="muted">${f[2]}</span></div><button class="btn" data-go="${f[3]}" ${f[4]?`data-filter="${f[4]}"`:""}>Lihat</button></div>`).join("");
+
+/* Status */
+function bars(mode){
+  const keys=mode==="status"?STAT.slice(0,4):JEN, cnt=k=>docs.filter(d=>(mode==="status"?d.status:d.jenis)===k).length, max=Math.max(...keys.map(cnt));
+  $("#statusBars").innerHTML=keys.map(k=>`<div class="bar-row"><span>${k}</span><span class="track"><i style="width:${cnt(k)/max*100}%"></i></span><span class="n">${cnt(k)}</span></div>`).join("");
+}
+$$("[data-sv]").forEach(b=>b.onclick=()=>{$$("[data-sv]").forEach(x=>x.setAttribute("aria-pressed",x===b));bars(b.dataset.sv)});bars("status");
+
+/* Umur */
+(function(){const bk=[["0–3",0,3],["4–7",4,7],["8–14",8,14],["15–30",15,30]];
+ let h="<thead><tr><th>Jenis dokumen</th>"+bk.map(b=>`<th class="r">${b[0]} hari</th>`).join("")+"<th class=\"r\">Jumlah</th></tr></thead><tbody>";
+ JEN.forEach(j=>{const row=docs.filter(d=>d.jenis===j);h+=`<tr><td>${j}</td>`+bk.map(b=>{const n=row.filter(d=>d.umur>=b[1]&&d.umur<=b[2]).length;return `<td class="r num" style="${b[1]>=8&&n?"color:var(--bad);font-weight:700":""}">${n||"–"}</td>`}).join("")+`<td class="r num">${row.length}</td></tr>`});
+ $("#ageTbl").innerHTML=h+"</tbody>";})();
+
+/* Dokumen */
+let view="all",page=1,dens="nyaman";const PER=12;
+function filtered(){const q=$("#q").value.trim().toLowerCase();return docs.filter(d=>(view==="all"||view==="sla"&&d.sla||view==="merah"&&d.jalur==="Merah"||view==="baru"&&d.berubah||view==="isi"&&!d.isi)&&(!q||d.no.includes(q)||d.status.toLowerCase().includes(q)))}
+function renderDocs(){
+  const rows=filtered(),pages=Math.max(1,Math.ceil(rows.length/PER));page=Math.min(page,pages);
+  const sl=rows.slice((page-1)*PER,page*PER);
+  $("#docTbl").innerHTML="<thead><tr><th>Nomor pengajuan</th><th>Jenis</th><th>Status</th><th>Jalur</th><th class=\"r\">Umur dokumen (hari)</th><th>Penanggung jawab</th><th>Isi</th></tr></thead><tbody>"+
+   (sl.length?sl.map((d,i)=>`<tr data-i="${docs.indexOf(d)}" tabindex="0"><td class="mono">${d.no}</td><td>${d.jenis}</td><td>${d.status}${d.berubah?' <span class="pill">BERUBAH</span>':""}</td><td><span class="pill ${d.jalur.toLowerCase()}">${d.jalur}</span></td><td class="r num">${d.umur} ${d.sla?'<span class="pill sla">SLA</span>':""}</td><td>${d.pj}</td><td>${d.isi?"Sudah":"<span class=muted>Belum</span>"}</td></tr>`).join("")
+   :`<tr><td colspan="7" style="padding:28px;text-align:center;white-space:normal"><b>Tidak ada dokumen yang cocok.</b><br><span class="muted">Ubah pencarian atau pilih tampilan lain. Keadaan kosong seragam</span> <span class="tag new fid">UI-13</span></td></tr>`)+"</tbody>";
+  $("#pinfo").textContent=`${rows.length} dokumen · halaman ${page} dari ${pages}`;
+  let pb="";for(let p=1;p<=pages;p++){if(pages>7&&p>2&&p<pages-1&&Math.abs(p-page)>1){if(!pb.endsWith("…"))pb+="…";continue}pb+=`<button data-p="${p}" aria-current="${p===page}">${p}</button>`}
+  $("#pages").innerHTML=pb.replace(/…/g,'<span class="muted">…</span>');
+}
+$("#pages").onclick=e=>{const b=e.target.closest("[data-p]");if(b){page=+b.dataset.p;renderDocs()}};
+$("#q").oninput=()=>{page=1;renderDocs()};
+$$("[data-sv2]").forEach(b=>b.onclick=()=>{view=b.dataset.sv2;page=1;$$("[data-sv2]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderDocs()});
+$("#saveView").onclick=e=>{e.target.textContent="Tersimpan di browser ini";setTimeout(()=>e.target.textContent="+ Simpan tampilan",1500)};
+$$("[data-den]").forEach(b=>b.onclick=()=>{$$("[data-den]").forEach(x=>x.setAttribute("aria-pressed",x===b));document.body.classList.toggle("rapat",b.dataset.den==="rapat")});
+$("#docTbl").onclick=e=>{const tr=e.target.closest("tr[data-i]");if(tr)openDoc(docs[+tr.dataset.i])};
+$("#docTbl").onkeydown=e=>{if(e.key==="Enter"){const tr=e.target.closest("tr[data-i]");if(tr)openDoc(docs[+tr.dataset.i])}};
+renderDocs();
+
+/* Panel dokumen */
+let cur=null;
+function openDoc(d,tab){cur=d;$("#dTitle").textContent=d.no;$("#dSub").textContent=d.jenis+" · "+d.status+" · umur dokumen "+d.umur+" hari";$("#scrim").hidden=$("#drawer").hidden=false;setTab(tab||"ring");$("#dClose").focus()}
+function closeDoc(){$("#scrim").hidden=$("#drawer").hidden=true}
+function setTab(t){$$("#dTabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));const d=cur;
+ const B={
+  ring:`<dl class="kv"><dt>Jenis dokumen</dt><dd>${d.jenis}</dd><dt>Status</dt><dd>${d.status}</dd><dt>Jalur</dt><dd><span class="pill ${d.jalur.toLowerCase()}">${d.jalur}</span></dd><dt>Umur dokumen</dt><dd>${d.umur} hari ${d.sla?'<span class="pill sla">melewati SLA</span>':""}</dd><dt>Penanggung jawab</dt><dd>${d.pj}</dd><dt>Nilai pabean</dt><dd class="num">Rp ${d.nilai.toLocaleString("id-ID")} jt</dd></dl><div class="toolbar"><button class="btn">Salin nomor pengajuan</button><button class="btn">Ambil ulang isi</button></div>`,
+  isi:d.isi?`<dl class="kv"><dt>Pemasok</dt><dd>Perusahaan contoh, Singapura</dd><dt>Invoice</dt><dd class="mono">INV-2026-0918</dd><dt>B/L</dt><dd class="mono">SGSIN260918</dd><dt>Jumlah barang</dt><dd>14 pos tarif</dd><dt>BM / PPN / PPh</dt><dd class="num">Rp 12,4 jt / 28,1 jt / 6,3 jt</dd></dl>`:`<p><b>Isi dokumen belum diambil.</b></p><p class="muted">Ambil dari Unduh Excel portal. Tab portal harus tetap terbuka.</p><button class="btn primary">Ambil isi dokumen ini</button>`,
+  riw:`<ul class="tl"><li><span class="mono muted">24-09 08.14</span><span>Kirim dokumen</span></li><li><span class="mono muted">24-09 08.20</span><span>Penjaluran: ${d.jalur}</span></li><li><span class="mono muted">25-09 10.02</span><span>Respon 300: Permintaan dokumen pelengkap</span></li><li><span class="mono muted">30-09 07.55</span><span><b>${d.status}</b> ${d.berubah?'<span class="pill">BERUBAH</span>':""}</span></li></ul><p class="muted">Menggantikan popup BERUBAH. Riwayat diambil dari portal saat tab dibuka.</p>`,
+  tl:`<div class="form"><label for="tpj">Penanggung jawab</label><select id="tpj">${PJ.map(p=>`<option ${p===d.pj?"selected":""}>${p}</option>`).join("")}</select><label for="tst">Status tindak lanjut</label><select id="tst"><option>Belum mulai</option><option selected>Dikerjakan</option><option>Selesai</option></select><label for="ttg">Target selesai</label><input id="ttg" type="text" value="2 Oktober 2026"><label for="tct">Catatan</label><input id="tct" type="text" value="Tunggu dokumen pelengkap dari pemasok"></div><div class="toolbar" style="justify-content:flex-end"><button class="btn">Salin pesan tugas</button><button class="btn primary">Simpan</button></div>`,
+  bill:d.status==="Menunggu Billing"?`<dl class="kv"><dt>Kode billing</dt><dd class="mono">820260930000417</dd><dt>Status portal</dt><dd>Kirim Billing</dd><dt>Tenggat</dt><dd>3 Oktober 2026</dd><dt>NTPN</dt><dd class="muted">belum ada</dd></dl><div class="toolbar"><button class="btn">Pratinjau PDF billing</button></div>`:`<p class="muted">Tidak ada billing untuk dokumen ini pada periode tagihan yang ditarik.</p>`};
+ $("#dBody").innerHTML=B[t];}
+$("#dTabs").onclick=e=>{const b=e.target.closest("[data-t]");if(b)setTab(b.dataset.t)};
+$("#dClose").onclick=closeDoc;$("#scrim").onclick=closeDoc;
+
+/* Tagihan */
+const bills=[["820260930000417","BC 2.0","Kirim Billing","",  "3 Okt 2026","42,6 jt",""],["820260927000312","BC 2.5","Tunggu Rekon CEISA","",  "5 Okt 2026","31,0 jt",""],["820260925000118","BC 2.0","Kirim Billing","","8 Okt 2026","10,6 jt","Dokumen tidak ada di Daftar Dokumen (kemungkinan dihapus)"],["820260921000990","BC 2.3","Rekon - CEISA","A1B2C3D4E5F6G7H8","23 Sep 2026","18,9 jt",""],["820260919000245","BC 2.0","Rekon - CEISA","H8G7F6E5D4C3B2A1","21 Sep 2026","64,2 jt",""]];
+$("#billTbl").innerHTML="<thead><tr><th>Kode billing</th><th>Nomor dokumen</th><th>Jenis</th><th>Status portal</th><th>NTPN</th><th>Tenggat</th><th class=\"r\">Nilai</th><th>Keterangan</th></tr></thead><tbody>"+bills.map((b,i)=>`<tr data-b="${i}"><td class="mono">${b[0]}</td><td>${b[6]?'<span class="muted">tidak ditemukan</span>':`<button class="linkbtn mono" data-doc="${i}">${docs[i*3].no}</button>`}</td><td>${b[1]}</td><td>${b[2]}</td><td class="mono">${b[3]||'<span class="muted">belum ada</span>'}</td><td>${b[4]}</td><td class="r num">Rp ${b[5]}</td><td style="white-space:normal">${b[6]||""}</td></tr>`).join("")+"</tbody>";
+$("#billTbl").onclick=e=>{const l=e.target.closest("[data-doc]");if(l)openDoc(docs[+l.dataset.doc*3],"bill")};
+
+/* Tindak lanjut */
+$("#pjList").innerHTML=PJ.map(p=>{const r=docs.filter(d=>d.pj===p),s=r.filter(d=>d.sla).length;return `<div class="pj-row"><div><b>${p}</b><span class="muted" style="display:block">${r.length} dokumen · ${s} melewati SLA</span></div><div class="meter" title="melewati SLA dibanding total"><i style="width:${s/r.length*100}%;background:var(--bad)"></i><i style="width:${100-s/r.length*100}%;background:var(--navy-2)"></i></div><button class="btn" data-go="dokumen">Lihat</button></div>`}).join("");
+
+/* Buat laporan */
+const OUTS=[["pptx","Presentasi rapat","PowerPoint 16:9, bab nilai dan pungutan",true],["a4","Laporan resmi A4","PDF atau Word, terbuka di tab baru",false],["xlsx","Excel","pilih lembar: Rincian, Nilai, Billing, Tindak lanjut",true],["wa","Ringkasan WhatsApp/surel","Biasa, Pagi, Sore, Ringkas",false],["tugas","Pesan tugas per penanggung jawab","satu pesan per orang, dari Kirim tugas",false],["csv","CSV","data mentah sesuai cakupan",false]];
+function renderOuts(sel){$("#outs").innerHTML=OUTS.map(o=>`<button class="out" data-o="${o[0]}" aria-pressed="${sel?sel===o[0]:o[3]}"><b>${o[1]}</b><span class="muted">${o[2]}</span></button>`).join("")}
+renderOuts();
+$("#outs").onclick=e=>{const b=e.target.closest(".out");if(b)b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true")};
+document.addEventListener("click",e=>{const g=e.target.closest("[data-out]");if(g)renderOuts(g.dataset.out)});
+$$(".presets .chipf").forEach(b=>b.onclick=()=>$$(".presets .chipf").forEach(x=>x.setAttribute("aria-pressed",x===b)));
+
+/* Pengaturan */
+const SET={
+ per:`<h2 style="margin-bottom:12px">Perusahaan &amp; SLA <span class="tag new fid">UI-17</span></h2><p class="muted" style="margin:0 0 12px">Sebelumnya SLA terbelah dua: target % dan templat di Profil perusahaan, batas hari dan templat fasilitas di Pengaturan. Sekarang di satu tempat.</p><div class="form"><label for="s1">Nama yang ditampilkan</label><input id="s1" type="text" value="PT Contoh Logistik Nusantara"><label for="s2">Jenis fasilitas</label><select id="s2"><option>Kawasan Berikat</option><option>KITE</option><option>Umum</option></select><label for="s3">Target SLA (%)</label><input id="s3" type="number" value="90"><label for="s4">Batas hari bawaan</label><input id="s4" type="number" value="7"><label>Batas per jenis dokumen</label><div class="muted">BC 2.0: 5 hari · BC 2.3: 7 hari · BC 2.5: 3 hari · <button class="linkbtn">Ubah</button></div><label for="s5">Status final</label><select id="s5"><option>SPPB, Gate Out</option></select></div>`,
+ data:`<h2 style="margin-bottom:12px">Data &amp; pembaruan <span class="tag new fid">AUD-07</span></h2><div class="form"><label for="d1">Sejak tanggal daftar</label><input id="d1" type="text" value="1 Januari 2026"><label for="d2">Jenis dokumen yang ditarik</label><select id="d2"><option>Semua</option></select><label for="d3">Pembaruan otomatis</label><select id="d3"><option>Nonaktif</option><option selected>Setiap 15 menit</option><option>Setiap 1 jam</option></select><label>Data dianggap lama</label><span class="muted">Otomatis: dua kali selang pembaruan. Sebelumnya dua pilihan terpisah dengan 6 dan 5 opsi.</span></div>`,
+ aman:`<h2 style="margin-bottom:12px">Cadangan &amp; pindah</h2><p class="muted" style="margin:0 0 12px">Dari 1.18.0 (DTA-01 sampai DTA-03). Di 2.0.0 hanya dipindah ke sini.</p><div class="toolbar"><button class="btn primary">Ekspor data (Ringan)</button><button class="btn">Ekspor data (Lengkap)</button><button class="btn">Impor dari berkas…</button></div><p class="muted">Skema data saat ini: v4. Berkas dari 1.18.0 dan lebih baru dapat dibaca (DTA-02).</p>`,
+ tampil:`<h2 style="margin-bottom:12px">Tampilan &amp; bahasa</h2><div class="form"><label for="t1">Bahasa</label><select id="t1"><option>Bahasa Indonesia</option><option>English</option></select><label for="t2">Tema</label><select id="t2"><option>Ikuti sistem</option><option>Terang</option><option>Gelap</option></select><label for="t3">Kepadatan tabel</label><select id="t3"><option>Nyaman</option><option>Rapat</option></select><label>Pintasan papan ketik</label><span class="muted">Ctrl K cari · G lalu D Dokumen · G lalu T Tagihan · ? daftar pintasan <span class="tag plan fid">UI-08</span></span></div>`,
+ lanjut:`<h2 style="margin-bottom:12px">Lanjutan <span class="tag new fid">AUD-11</span></h2><div class="form"><label for="l1">Simpan Excel asli portal ke Unduhan</label><input id="l1" type="checkbox"><label>Diagnosa struktur data</label><div class="toolbar"><button class="btn">Salin diagnosa Daftar Dokumen</button><button class="btn">Salin diagnosa Tagihan</button></div><label>Hapus data</label><button class="btn" style="color:var(--bad)">Hapus data akun ini…</button></div>`,
+ tentang:`<h2 style="margin-bottom:12px">Tentang <span class="tag new fid">AUD-10</span></h2><p>CEISA Monitor 2.0.0 · gratis · tidak resmi dan tidak berafiliasi dengan DJBC.</p><div class="toolbar"><button class="btn">Bagikan ke rekan</button><button class="btn">Dukung proyek ini</button><button class="btn">Panduan</button><button class="btn">Catatan perubahan</button></div><p class="muted">Bagikan dan Dukung sebelumnya muncul di tiga tempat. Sekarang hanya di sini dan di kaki halaman.</p>`};
+function setSec(s){$$("#setNav button").forEach(b=>b.setAttribute("aria-current",b.dataset.s===s));$("#setBody").innerHTML=SET[s]}
+$("#setNav").onclick=e=>{const b=e.target.closest("[data-s]");if(b)setSec(b.dataset.s)};setSec("per");
+
+/* Audit */
+const AUD=[
+ ["gab","AUD-01","Kartu arsip, dialog Tindak lanjut, popup BERUBAH, dan Rincian billing adalah empat jendela terpisah untuk satu dokumen.","Satu panel dokumen dengan lima tab.","UI-10"],
+ ["gab","AUD-02","Menu Ekspor, dialog Ekspor Excel, Ekspor nilai dan pungutan, Buat presentasi, Ringkasan WhatsApp, dan Kirim tugas.","Satu alur Buat laporan: keluaran, cakupan, isi, privasi. Preset menyimpan pilihan.","UI-04, KLB-03"],
+ ["gab","AUD-03","Profil perusahaan dan Pengaturan. SLA diatur di dua tempat.","Pengaturan satu pintu dengan enam bagian; SLA di Perusahaan & SLA.","UI-17"],
+ ["gab","AUD-04","Pemilih periode dan jenis dokumen yang sama di dialog Ambil isi, Ekspor nilai, dan Buat presentasi.","Satu komponen Cakupan dengan penghitung isi terambil.","UI-04, UI-16"],
+ ["gab","AUD-05","Kartu Hari ini, kartu Perubahan, dan filter Perubahan di rincian.","Umpan Perlu tindakan hari ini dengan tautan ke tampilan tersaring.","UI-05"],
+ ["gab","AUD-06","Donat Komposisi status dan tabel Status per jenis dokumen.","Satu kartu Status dengan dua tampilan.","UI-02"],
+ ["sed","AUD-07","Pembaruan otomatis (6 pilihan) dan Data dianggap lama (5 pilihan).","Tiga pilihan pembaruan; ambang data lama dihitung otomatis.","UI-17"],
+ ["sed","AUD-08","Ringkasan WhatsApp: Biasa, Pagi, Sore, dan kotak Ringkas.","Menjadi preset di Buat laporan.","KLB-03"],
+ ["pin","AUD-09","Catatan kejadian ditulis sebagai teks YYYY-MM di Profil perusahaan.","Ditulis langsung dengan klik bulan pada grafik; tetap tampil di presentasi.","UI-16"],
+ ["hap","AUD-10","Bagikan ke rekan dan Dukung proyek ini muncul di kaki, Pengaturan, dan popup.","Hanya di Pengaturan › Tentang dan kaki halaman.","UI-17"],
+ ["pin","AUD-11","Simpan Excel asli portal, Diagnosa Tagihan, dan Hapus data berada di antara pengaturan harian.","Dipindah ke Pengaturan › Lanjutan.","UI-17"],
+ ["hap","AUD-12","Tombol Tampilkan lagi dan tombol Sebelumnya/Berikutnya di rincian.","Diganti paginasi bernomor.","UI-03"],
+ ["sed","AUD-13","Popup ekstensi hanya berisi status sesi dan dua tautan.","Status sesi, waktu data terakhir, jumlah Perlu tindakan, dan Buka dasbor.","UI-18"],
+ ["pin","AUD-14","Kartu Isi dokumen (empat sub-tab nilai) berada di halaman utama.","Tab sendiri Nilai & pungutan dengan bilah cakupan.","UI-16"],
+ ["pin","AUD-15","Kartu Tindak lanjut di halaman utama dan dialog Kirim tugas terpisah.","Tab Tindak lanjut per penanggung jawab.","UI-15"],
+ ["tam","UI-09","Chip sesi, teks Memeriksa sesi, dan bilah progres tersebar.","Pusat sinkronisasi di kepala: sesi, data terakhir, progres.","baru"],
+ ["tam","UI-11","Filter harus dipilih ulang setiap kali.","Tampilan tersimpan (chip) di tab Dokumen dan Tagihan.","baru"],
+ ["tam","UI-12","Kolom tabel tetap.","Pemilih kolom dan kepadatan tabel, disimpan lokal.","baru"],
+ ["tam","UI-13","Pesan kosong, galat, dan sesi habis berbeda-beda di setiap kartu.","Satu pola keadaan kosong, memuat, galat, sesi habis, dengan langkah perbaikan.","baru"],
+ ["tam","UI-14","Pengguna lama tidak tahu fitur pindah ke mana setelah MAJOR.","Peta lokasi lama ke baru pada pembukaan pertama 2.0.0, bersama DST-03.","baru"],
+ ["tam","MUT-01","Rincian menampilkan semua baris sekaligus.","Render per halaman; target lancar sampai 20.000 dokumen.","baru"],
+ ["tam","MUT-02","Uji asap hanya jalur ekspor utama.","Uji asap setiap tab, panel dokumen, dan Buat laporan, tema terang/gelap, ID/EN.","baru"]];
+const KN={gab:"Gabung",sed:"Sederhanakan",hap:"Hapus",pin:"Pindah",tam:"Tambah"};
+function renderAud(k){$("#audTbl").innerHTML="<thead><tr><th>Jenis</th><th>ID</th><th>Sekarang (1.17.0)</th><th>Usulan 2.0.0</th><th>Fitur roadmap</th></tr></thead><tbody>"+AUD.filter(a=>k==="all"||a[0]===k).map(a=>`<tr><td><span class="kind ${a[0]}">${KN[a[0]]}</span></td><td class="mono">${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td><td class="mono">${a[4]}</td></tr>`).join("")+"</tbody>"}
+$$("[data-k]").forEach(b=>b.onclick=()=>{$$("[data-k]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderAud(b.dataset.k)});renderAud("all");
+
+/* Palet perintah */
+const CMDS=[["Perintah","Perbarui data","Ctrl R",()=>$("#refresh").click()],["Perintah","Buat laporan",null,()=>go("laporan")],["Perintah","Kirim tugas ke penanggung jawab",null,()=>{go("laporan");renderOuts("tugas")}],["Perintah","Ambil isi yang belum",null,()=>go("nilai")],["Buka","Tagihan","G T",()=>go("tagihan")],["Buka","Pengaturan › Perusahaan & SLA",null,()=>{go("pengaturan");setSec("per")}],["Buka","Audit fitur 2.0.0",null,()=>go("audit")]];
+let kSel=0;
+function kRender(){const q=$("#kIn").value.trim().toLowerCase();
+ const docHits=q.length>1?docs.filter(d=>d.no.includes(q)||d.pj.toLowerCase().includes(q)).slice(0,5).map(d=>["Dokumen",d.no+" · "+d.jenis+" · "+d.status,null,()=>{go("dokumen");openDoc(d)}]):[];
+ const items=[...docHits,...CMDS.filter(c=>!q||c[1].toLowerCase().includes(q))];kSel=Math.min(kSel,Math.max(0,items.length-1));
+ let last="",h="";items.forEach((it,i)=>{if(it[0]!==last){h+=`<li class="grp">${it[0]}</li>`;last=it[0]}h+=`<li data-ki="${i}" class="${i===kSel?"act":""}"><span>${it[1]}</span>${it[2]?`<span class="kbd">${it[2]}</span>`:""}</li>`});
+ $("#kList").innerHTML=h||'<li class="grp">Tidak ada hasil. Pencarian bahasa sehari-hari menyusul di BKT-02.</li>';$("#kList")._items=items}
+function kOpen(){$("#kScrim").hidden=$("#cmdk").hidden=false;$("#kIn").value="";kSel=0;kRender();$("#kIn").focus()}
+function kClose(){$("#kScrim").hidden=$("#cmdk").hidden=true}
+function kRun(i){const it=$("#kList")._items[i];if(it){kClose();it[3]()}}
+$("#openK").onclick=kOpen;$("#kScrim").onclick=kClose;$("#kIn").oninput=()=>{kSel=0;kRender()};
+$("#kList").onclick=e=>{const li=e.target.closest("[data-ki]");if(li)kRun(+li.dataset.ki)};
+$("#kIn").onkeydown=e=>{const n=$("#kList")._items.length;if(e.key==="ArrowDown"){kSel=(kSel+1)%n;kRender();e.preventDefault()}else if(e.key==="ArrowUp"){kSel=(kSel-1+n)%n;kRender();e.preventDefault()}else if(e.key==="Enter")kRun(kSel)};
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();kOpen()}else if(e.key==="Escape"){kClose();closeDoc()}});
+
+const hash=(location.hash||"").slice(1);go(TITLES[hash]?hash:(store.get("cm2.view")&&TITLES[store.get("cm2.view")]?store.get("cm2.view"):"ringkasan"));
+})();
+</script>

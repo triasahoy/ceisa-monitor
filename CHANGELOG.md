@@ -17,10 +17,10 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 | Versi | Tanggal | Tema | Status |
 |---|---|---|---|
-| 2.3.0 | Senin, 7 Desember 2026 (target) | Tim dan banyak akun: ringkasan lintas akun untuk PPJK, ekspor tugas ke kalender, preset laporan | Direncanakan |
+| 2.3.0 | Senin, 7 Desember 2026 (target) | Tim dan banyak akun: ringkasan lintas akun untuk PPJK, ekspor tugas ke kalender | Direncanakan |
 | 2.2.0 | Senin, 23 November 2026 (target) | Bukti dan pencarian: berkas audit, pencarian bahasa sehari-hari, lapisan bantu portal (opsional) | Direncanakan |
 | 2.1.0 | Senin, 9 November 2026 (target) | Wawasan: peta hambatan proses, beban kerja per penanggung jawab, rekonsiliasi dokumen dan billing, pemeriksaan kualitas data | Direncanakan |
-| 2.0.0 | Senin, 26 Oktober 2026 (target) | Tampilan baru (MAJOR): sidebar, KPI, tabel berpaginasi, penggabungan menu, nama jenis dokumen sesuai CEISA 4.0, aksesibilitas | Prototipe selesai |
+| 2.0.0 | Senin, 26 Oktober 2026 (target) | Tampilan baru (MAJOR): sidebar, KPI, tabel berpaginasi, satu pintu laporan dengan preset, panel dokumen, pengaturan satu pintu, nama jenis dokumen sesuai CEISA 4.0, aksesibilitas | Prototipe selesai |
 | 1.18.0 | Senin, 12 Oktober 2026 (target) | Data aman: ekspor dan impor data, skema data berversi, petunjuk pindah pemasangan, catatan "Baru di versi ini" | Direncanakan |
 | 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas | Dirilis |
 | 1.16.3 | 30 September 2026 | Bagikan ke rekan | Dirilis |
@@ -34,10 +34,10 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 Rencana dan status fitur ada di [ROADMAP.md](ROADMAP.md#daftar-fitur). Belum ada perubahan yang tercatat untuk versi berikut; setiap fitur dipindahkan ke sini bersama IDnya saat dirilis.
 
 - **1.18.0 (target Senin, 12 Oktober 2026), Data aman:** DTA-01, DTA-02, DTA-03, DST-03.
-- **2.0.0 (target Senin, 26 Oktober 2026), Tampilan baru:** UI-01 sampai UI-08.
+- **2.0.0 (target Senin, 26 Oktober 2026), Tampilan baru:** UI-01 sampai UI-18, KLB-03, MUT-01, MUT-02.
 - **2.1.0 (target Senin, 9 November 2026), Wawasan:** WAS-01 sampai WAS-04.
 - **2.2.0 (target Senin, 23 November 2026), Bukti dan pencarian:** BKT-01 sampai BKT-03.
-- **2.3.0 (target Senin, 7 Desember 2026), Tim dan banyak akun:** KLB-01 sampai KLB-03.
+- **2.3.0 (target Senin, 7 Desember 2026), Tim dan banyak akun:** KLB-01 dan KLB-02.
 - **Distribusi (tidak terikat versi):** DST-01 dan DST-04 sedang dikerjakan; DST-02 tidak direncanakan.
 
 ## Riwayat rilis

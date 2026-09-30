@@ -9,10 +9,10 @@ Rilis fitur setiap dua minggu pada hari Senin. Tanggal di bawah adalah target; r
 | Versi | Target | Tema | Isi |
 |---|---|---|---|
 | 1.18.0 | Senin, 12 Oktober 2026 | Data aman | DTA-01 sampai DTA-03 dan DST-03. Data pengguna dapat dipindahkan dan tetap terbaca di versi baru |
-| 2.0.0 | Senin, 26 Oktober 2026 | Tampilan baru | UI-01 sampai UI-08. MAJOR karena navigasi berubah total; data, izin, dan cara kerja tetap |
+| 2.0.0 | Senin, 26 Oktober 2026 | Tampilan baru | UI-01 sampai UI-18, KLB-03, MUT-01, MUT-02. MAJOR karena navigasi berubah total; data, izin, dan cara kerja tetap |
 | 2.1.0 | Senin, 9 November 2026 | Wawasan | WAS-01 sampai WAS-04 |
 | 2.2.0 | Senin, 23 November 2026 | Bukti dan pencarian | BKT-01 sampai BKT-03 |
-| 2.3.0 | Senin, 7 Desember 2026 | Tim dan banyak akun | KLB-01 sampai KLB-03 |
+| 2.3.0 | Senin, 7 Desember 2026 | Tim dan banyak akun | KLB-01 dan KLB-02 |
 
 Setelah 2.3.0, isi rilis berikutnya ditentukan dari masukan pengguna dan hasil tinjauan bulanan. Jalur distribusi yang tidak terikat versi (Chrome Web Store dan GitHub sebagai dokumentasi) dicatat di bagian Distribusi.
 
@@ -20,7 +20,7 @@ Setelah 2.3.0, isi rilis berikutnya ditentukan dari masukan pengguna dan hasil t
 
 Setiap fitur punya ID tetap (huruf kelompok dan nomor) dan satu status. ID yang sama dipakai di CHANGELOG, pesan commit, dan pengujian.
 
-**Status:** Direncanakan → Dikerjakan → Siap uji (dibangun, menunggu uji pengguna di portal) → Siap rilis (lulus uji) → Dirilis. Status lain: Ditunda dan Tidak direncanakan.
+**Status:** Direncanakan (atau Direncanakan (audit) untuk usulan dari audit 2.0.0) → Dikerjakan → Siap uji (dibangun, menunggu uji pengguna di portal) → Siap rilis (lulus uji) → Dirilis. Status lain: Ditunda dan Tidak direncanakan.
 
 ### 1.17.0 · Tagihan (dirilis 30 September 2026)
 
@@ -50,18 +50,55 @@ Latar belakang: data ekstensi disimpan di penyimpanan lokal browser milik satu I
 
 ### 2.0.0 · Tampilan baru
 
-Prototipe (`prototipe_ui_v1.18.html`) sudah selesai dan disetujui arahnya. Implementasi belum dimulai.
+Prototipe interaktif ada di [`prototipe/prototipe_ui_v2.0.0.html`](prototipe/prototipe_ui_v2.0.0.html). Prototipe ini menggantikan `prototipe_ui_v1.18.html`, yang tidak pernah masuk repositori. Setiap bagiannya diberi ID fitur di bawah. Implementasi belum dimulai.
 
 | ID | Fitur | Status | Catatan |
 |---|---|---|---|
-| UI-01 | Sidebar dan tab: Ringkasan, Dokumen, Tagihan, Buat laporan, Pengaturan | Direncanakan | Kartu Tagihan pindah ke tab Tagihan |
-| UI-02 | KPI dengan visual per kartu | Direncanakan | |
+| UI-01 | Sidebar dan tab: Ringkasan, Dokumen, Nilai dan pungutan, Tagihan, Tindak lanjut, Buat laporan, Pengaturan | Direncanakan | Kartu Tagihan pindah ke tab Tagihan. Tab Nilai dan pungutan (UI-16) serta Tindak lanjut (UI-15) ditambahkan dari audit |
+| UI-02 | KPI dengan visual per kartu | Direncanakan | Empat KPI: belum selesai, melewati SLA, Jalur Merah, billing belum ada NTPN. Setiap KPI menjadi filter satu klik |
 | UI-03 | Tabel berpaginasi | Direncanakan | Menggantikan tombol "Tampilkan lagi" |
-| UI-04 | Satu pintu Buat laporan | Direncanakan | Menggabungkan menu ekspor yang tersebar |
-| UI-05 | Umpan "Perlu tindakan hari ini" untuk dokumen | Direncanakan | Tidak berlaku untuk data billing, yang hanya disajikan |
-| UI-06 | Pencarian Ctrl+K | Direncanakan | |
+| UI-04 | Satu pintu Buat laporan | Direncanakan | Alur empat langkah: keluaran, cakupan, isi, privasi. Menggabungkan menu ekspor yang tersebar (AUD-02) |
+| UI-05 | Umpan "Perlu tindakan hari ini" untuk dokumen | Direncanakan | Menggantikan kartu Hari ini dan Perubahan (AUD-05). Tidak berlaku untuk data billing, yang hanya disajikan |
+| UI-06 | Pencarian Ctrl+K | Direncanakan | Mencari dokumen, penanggung jawab, dan perintah |
 | UI-07 | Nama jenis dokumen persis seperti CEISA 4.0, kelompok dapat dibuka | Direncanakan | Menghapus pemotongan awalan "KEK - " |
 | UI-08 | Aksesibilitas: fokus terlihat, kontras AA, seluruh fitur dapat dijalankan dengan papan ketik | Direncanakan | Dikerjakan bersamaan dengan tampilan baru agar tidak diulang |
+| UI-09 | Pusat sinkronisasi di kepala halaman | Direncanakan (audit) | Sesi portal (TGH-01), waktu data terakhir, dan progres tarik/ambil isi di satu tempat |
+| UI-10 | Panel dokumen dengan lima tab: Ringkasan, Isi, Riwayat status dan respon, Tindak lanjut, Billing | Direncanakan (audit) | Menggabungkan kartu arsip, dialog Tindak lanjut, popup BERUBAH, dan Rincian billing (AUD-01). Dapat dibuka dari tab Dokumen, Tagihan, dan Ctrl+K |
+| UI-11 | Tampilan tersimpan (chip filter) di tab Dokumen dan Tagihan | Direncanakan (audit) | Disimpan lokal per akun |
+| UI-12 | Pemilih kolom dan kepadatan tabel (Nyaman/Rapat) | Direncanakan (audit) | Disimpan lokal |
+| UI-13 | Pola seragam untuk keadaan kosong, memuat, galat, dan sesi habis | Direncanakan (audit) | Setiap pesan menyebut penyebab dan langkah perbaikan |
+| UI-14 | Peta "Apa yang pindah" pada pembukaan pertama 2.0.0 | Direncanakan (audit) | Memakai mekanisme DST-03. Tampil sekali |
+| UI-15 | Tab Tindak lanjut per penanggung jawab | Direncanakan (audit) | Menggabungkan kartu Tindak lanjut dan dialog Kirim tugas (AUD-15). Menjadi dasar WAS-02 dan KLB-02 |
+| UI-16 | Tab Nilai dan pungutan dengan bilah cakupan isi terambil | Direncanakan (audit) | Memindahkan kartu Isi dokumen dari halaman utama (AUD-14) |
+| UI-17 | Pengaturan satu pintu: Perusahaan dan SLA, Data dan pembaruan, Cadangan dan pindah, Tampilan dan bahasa, Lanjutan, Tentang | Direncanakan (audit) | Menggabungkan Profil perusahaan dan Pengaturan (AUD-03) |
+| UI-18 | Popup ekstensi: status sesi, data terakhir, jumlah Perlu tindakan, Buka dasbor | Direncanakan (audit) | AUD-13 |
+| KLB-03 | Preset laporan: bagian dan urutan disimpan (Rapat bulanan, Pagi, Sore, Audit) | Direncanakan | Dipindah dari 2.3.0 karena satu pintu Buat laporan membutuhkannya. Juga menggantikan mode Biasa/Pagi/Sore ringkasan (AUD-08) |
+| MUT-01 | Kinerja: tabel dan grafik tetap lancar sampai 20.000 dokumen | Direncanakan (audit) | Render per halaman |
+| MUT-02 | Uji asap setiap tab, panel dokumen, dan Buat laporan dalam tema terang dan gelap, ID dan EN | Direncanakan (audit) | Perluasan `npm run smoke` |
+
+**Prioritas bila waktu tidak cukup.** Sesuai aturan "satu fitur, satu versi", fitur yang belum siap pada Kamis pembekuan kode digeser, bukan tanggal rilisnya. Isi wajib 2.0.0 adalah UI-01 sampai UI-05, UI-07, UI-08, UI-10, UI-14 sampai UI-17, KLB-03, dan MUT-02. Semuanya mengubah letak fitur, sehingga harus dirilis bersama agar pengguna hanya sekali menyesuaikan diri. UI-06, UI-09, UI-11 sampai UI-13, UI-18, dan MUT-01 menambah kemampuan tanpa memindahkan apa pun, sehingga dapat menyusul di 2.0.x atau 2.1.0.
+
+#### Audit fitur untuk 2.0.0
+
+Audit ini didasarkan pada struktur dasbor 1.16.3 dan 1.17.0. Setiap usulan lolos gerbang produk. Baris AUD tidak menjadi fitur tersendiri; baris itu menjelaskan alasan fitur UI di atas.
+
+| ID | Jenis | Sekarang (1.17.0) | Usulan 2.0.0 | Fitur |
+|---|---|---|---|---|
+| AUD-01 | Gabung | Kartu arsip, dialog Tindak lanjut, popup BERUBAH, dan Rincian billing adalah empat jendela untuk satu dokumen | Satu panel dokumen | UI-10 |
+| AUD-02 | Gabung | Menu Ekspor, dialog Ekspor Excel, Ekspor nilai dan pungutan, Buat presentasi, Ringkasan WhatsApp, dan Kirim tugas | Satu alur Buat laporan dengan preset | UI-04, KLB-03 |
+| AUD-03 | Gabung | Profil perusahaan dan Pengaturan; SLA diatur di dua tempat (target % dan templat di Profil, batas hari dan templat fasilitas di Pengaturan) | Pengaturan satu pintu, SLA di satu bagian | UI-17 |
+| AUD-04 | Gabung | Pemilih periode dan jenis dokumen yang sama di dialog Ambil isi, Ekspor nilai, dan Buat presentasi | Satu komponen Cakupan dengan penghitung isi terambil | UI-04, UI-16 |
+| AUD-05 | Gabung | Kartu Hari ini, kartu Perubahan, dan filter Perubahan di rincian | Umpan Perlu tindakan hari ini | UI-05 |
+| AUD-06 | Gabung | Donat Komposisi status dan tabel Status per jenis dokumen | Satu kartu Status dengan dua tampilan | UI-02 |
+| AUD-07 | Sederhanakan | Pembaruan otomatis (6 pilihan) dan Data dianggap lama (5 pilihan) | Tiga pilihan pembaruan (Nonaktif, 15 menit, 1 jam); ambang data lama dihitung otomatis | UI-17 |
+| AUD-08 | Sederhanakan | Ringkasan WhatsApp: Biasa, Pagi, Sore, dan kotak Ringkas | Menjadi preset | KLB-03 |
+| AUD-09 | Pindah | Catatan kejadian ditulis sebagai teks YYYY-MM di Profil perusahaan | Ditulis dengan klik bulan pada grafik; tetap tampil di presentasi | UI-16 |
+| AUD-10 | Hapus | Bagikan ke rekan dan Dukung proyek ini muncul di kaki, Pengaturan, dan popup | Hanya di Pengaturan › Tentang dan kaki halaman | UI-17 |
+| AUD-11 | Pindah | Simpan Excel asli portal, Diagnosa Tagihan, dan Hapus data berada di antara pengaturan harian | Pengaturan › Lanjutan | UI-17 |
+| AUD-12 | Hapus | Tombol Tampilkan lagi dan Sebelumnya/Berikutnya | Paginasi bernomor | UI-03 |
+| AUD-13 | Sederhanakan | Popup hanya berisi status sesi dan dua tautan | Popup ringkas dengan jumlah Perlu tindakan | UI-18 |
+| AUD-14 | Pindah | Kartu Isi dokumen (empat sub-tab nilai) di halaman utama | Tab Nilai dan pungutan | UI-16 |
+| AUD-15 | Pindah | Kartu Tindak lanjut di halaman utama dan dialog Kirim tugas terpisah | Tab Tindak lanjut | UI-15 |
 
 ### 2.1.0 · Wawasan
 
@@ -86,7 +123,6 @@ Prototipe (`prototipe_ui_v1.18.html`) sudah selesai dan disetujui arahnya. Imple
 |---|---|---|---|
 | KLB-01 | Ringkasan lintas akun untuk PPJK | Direncanakan | Satu tabel: belum selesai dan melewati SLA per akun perusahaan. Data tiap akun tetap terpisah dan dibaca dari penyimpanan lokal |
 | KLB-02 | Ekspor tugas jatuh tempo ke kalender (.ics) | Direncanakan | Hanya tugas internal; tanggal tenggat billing tidak diekspor |
-| KLB-03 | Preset laporan: bagian dan urutan disimpan (Rapat bulanan, Mingguan, Audit) | Direncanakan | Memangkas pemilihan berulang di dialog laporan |
 
 ### Distribusi (tidak terikat versi)
 
