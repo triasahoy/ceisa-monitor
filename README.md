@@ -134,9 +134,14 @@ Temukan masalah atau punya ide fitur? Buka [Issues](../../issues/new/choose) dan
 
 Tombol **Bagikan ke rekan** di dasbor membuka pesan siap kirim ke LinkedIn, WhatsApp, X, atau Telegram; hanya tautan proyek yang dikirim.
 
-CEISA Monitor gratis untuk semua pengguna dan seluruh fiturnya tidak dikunci. Bila bermanfaat bagi tim Anda, dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) (rupiah, QRIS, dan e-wallet; atau pindai kode QR di bawah) atau [Buy Me a Coffee](https://buymeacoffee.com/triase) (kartu dan mata uang asing). Dana dipakai untuk pengembangan, pengujian dengan data nyata, dan dokumentasi.
+CEISA Monitor gratis untuk semua pengguna dan seluruh fiturnya tidak dikunci. Bila bermanfaat bagi tim Anda, dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) (rupiah, QRIS, dan e-wallet) atau [Buy Me a Coffee](https://buymeacoffee.com/triase) (kartu dan mata uang asing), atau dengan memindai salah satu kode QR di bawah. Dana dipakai untuk pengembangan, pengujian dengan data nyata, dan dokumentasi.
 
-<p align="center"><img src="docs/images/dukung_qr.png" alt="Kode QR dukungan sukarela" width="320"></p>
+<table align="center">
+<tr>
+<td align="center"><a href="https://saweria.co/triasex"><img src="docs/images/dukung_qr.png" alt="Kode QR Saweria" width="240"></a><br><b>Saweria</b><br>rupiah, QRIS, e-wallet</td>
+<td align="center"><a href="https://buymeacoffee.com/triase"><img src="docs/images/dukung_qr_bmc.png" alt="Kode QR Buy Me a Coffee" width="240"></a><br><b>Buy Me a Coffee</b><br>kartu dan mata uang asing</td>
+</tr>
+</table>
 
 ## Lisensi
 
