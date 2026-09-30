@@ -1,44 +1,17 @@
 # Catatan Perubahan
 
-Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan penomoran mengikuti [Semantic Versioning](https://semver.org/lang/id/): versi MAJOR.MINOR.PATCH, dengan MINOR untuk fitur baru dan PATCH untuk perbaikan. Tanggal rilis yang sudah lewat dicatat apa adanya. Rencana dan status fitur ada di [ROADMAP.md](ROADMAP.md). Fitur diberi ID tetap (misalnya TGH-03) yang sama di kedua dokumen.
+Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan penomoran mengikuti [Semantic Versioning](https://semver.org/lang/id/): versi MAJOR.MINOR.PATCH, dengan MINOR untuk fitur baru dan PATCH untuk perbaikan. Tanggal rilis yang sudah lewat dicatat apa adanya. Setiap fitur diberi ID tetap (misalnya TGH-03).
 
-## Kadensi rilis
+## Rilis
 
-| Kegiatan | Jadwal |
-|---|---|
-| Rilis fitur (MINOR) | Setiap dua minggu, hari Senin |
-| Pembekuan kode | Kamis sebelum hari rilis: hanya perbaikan galat |
-| Pengujian, dokumentasi, dan paket | Jumat sebelum hari rilis |
-| Rilis perbaikan (PATCH) | Sesuai kebutuhan, paling lambat dua hari kerja setelah galat dikonfirmasi |
-| Tinjauan bulanan | Senin pertama tiap bulan: struktur data portal, izin, daftar host, dan SHA-256 paket |
-| Rilis yang bergantung pada data portal | Ditunda ke jadwal berikutnya bila contoh respons belum ada pada hari Jumat sebelum rilis |
-
-## Jadwal dan status rilis
-
-| Versi | Tanggal | Tema | Status |
-|---|---|---|---|
-| 2.3.0 | Senin, 7 Desember 2026 (target) | Tim dan banyak akun: ringkasan lintas akun untuk PPJK, ekspor tugas ke kalender, preset laporan | Direncanakan |
-| 2.2.0 | Senin, 23 November 2026 (target) | Bukti dan pencarian: berkas audit, pencarian bahasa sehari-hari, lapisan bantu portal (opsional) | Direncanakan |
-| 2.1.0 | Senin, 9 November 2026 (target) | Wawasan: peta hambatan proses, beban kerja per penanggung jawab, rekonsiliasi dokumen dan billing, pemeriksaan kualitas data | Direncanakan |
-| 2.0.0 | Senin, 26 Oktober 2026 (target) | Tampilan baru (MAJOR): sidebar, KPI, tabel berpaginasi, penggabungan menu, nama jenis dokumen sesuai CEISA 4.0, aksesibilitas | Prototipe selesai |
-| 1.18.0 | Senin, 12 Oktober 2026 (target) | Data aman: ekspor dan impor data, skema data berversi, petunjuk pindah pemasangan, catatan "Baru di versi ini" | Direncanakan |
-| 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas | Dirilis |
-| 1.16.3 | 30 September 2026 | Bagikan ke rekan | Dirilis |
-| 1.16.2 | 30 September 2026 | Perbaikan tautan dukungan | Dirilis |
-| 1.16.1 | 30 September 2026 | Perampingan kartu dan uji asap | Dirilis |
-| 1.16.0 | 29 September 2026 | Isi ekspor lengkap dan konsisten | Dirilis |
-| 1.0.0 sampai 1.15.2 | 28 sampai 29 September 2026 (1.0.0 sampai 1.2.0: tanggal tidak tercatat) | 26 rilis dalam lima fase, lihat Riwayat rilis di bawah | Dirilis |
-
-## Belum dirilis
-
-Rencana dan status fitur ada di [ROADMAP.md](ROADMAP.md#daftar-fitur). Belum ada perubahan yang tercatat untuk versi berikut; setiap fitur dipindahkan ke sini bersama IDnya saat dirilis.
-
-- **1.18.0 (target Senin, 12 Oktober 2026), Data aman:** DTA-01, DTA-02, DTA-03, DST-03.
-- **2.0.0 (target Senin, 26 Oktober 2026), Tampilan baru:** UI-01 sampai UI-08.
-- **2.1.0 (target Senin, 9 November 2026), Wawasan:** WAS-01 sampai WAS-04.
-- **2.2.0 (target Senin, 23 November 2026), Bukti dan pencarian:** BKT-01 sampai BKT-03.
-- **2.3.0 (target Senin, 7 Desember 2026), Tim dan banyak akun:** KLB-01 sampai KLB-03.
-- **Distribusi (tidak terikat versi):** DST-01 dan DST-04 sedang dikerjakan; DST-02 tidak direncanakan.
+| Versi | Tanggal | Tema |
+|---|---|---|
+| 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas |
+| 1.16.3 | 30 September 2026 | Bagikan ke rekan |
+| 1.16.2 | 30 September 2026 | Perbaikan tautan dukungan |
+| 1.16.1 | 30 September 2026 | Perampingan kartu dan uji asap |
+| 1.16.0 | 29 September 2026 | Isi ekspor lengkap dan konsisten |
+| 1.0.0 sampai 1.15.2 | 28 sampai 29 September 2026 (1.0.0 sampai 1.2.0: tanggal tidak tercatat) | 26 rilis dalam lima fase, lihat Riwayat rilis di bawah |
 
 ## Riwayat rilis
 
@@ -50,7 +23,7 @@ Rilis di bawah dikelompokkan menjadi enam fase menurut tema. Pengelompokan ini h
 
 #### 1.17.0 · 30 September 2026
 
-**Tema:** Tagihan. Status tiap fitur ada di [ROADMAP.md](ROADMAP.md#daftar-fitur).
+**Tema:** Tagihan.
 
 ##### Ditambahkan
 
@@ -66,7 +39,7 @@ Rilis di bawah dikelompokkan menjadi enam fase menurut tema. Pengelompokan ini h
 ##### Diubah
 
 - Istilah "peramban" diganti "browser" di seluruh antarmuka dan dokumen.
-- **DST-01, DST-04 Pemasangan hanya lewat Chrome Web Store.** Repositori GitHub hanya memuat dokumentasi, panduan, catatan perubahan, roadmap, dan video; folder ekstensi, daftar SHA-256, dan pemeriksaan paket dihapus. Paket 1.17.0 kini diminifikasi.
+- **DST-01, DST-04 Pemasangan hanya lewat Chrome Web Store.** Repositori GitHub hanya memuat dokumentasi, panduan, catatan perubahan, dan video; folder ekstensi, daftar SHA-256, dan pemeriksaan paket dihapus. Paket 1.17.0 kini diminifikasi.
 - **Judul kolom "Umur (hari)" diperjelas menjadi "Umur Dokumen (Hari)"** di rincian dasbor, lembar Excel (Rincian dan Tindak Lanjut), laporan resmi, presentasi, ekspor CSV, dan pesan tugas WhatsApp ("umur dokumen N hari").
 - **Ringkasan WhatsApp/surel** kini memuat seluruh dokumen belum selesai, tidak hanya yang melewati SLA: angka utama menambah "masih dalam batas SLA", bagian Per jenis dokumen merinci melewati SLA dan dalam batas SLA, bagian baru "Belum selesai menurut status", dan daftar dokumen tertua diberi penanda SLA.
 - **Pilihan jenis dokumen pada ringkasan WhatsApp/surel**: daftar centang di dialog; angka, nilai, tugas, dan perubahan mengikuti jenis yang dipilih. Pilihan diingat di browser.

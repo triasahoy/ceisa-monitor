@@ -39,7 +39,7 @@ Status dokumen, billing, dan NTPN ada di portal CEISA 4.0, tetapi tersebar di be
 - **Izin sekecil mungkin.** Akses host hanya ke `portal.beacukai.go.id`; daftar izin lengkap ada di [SECURITY.md](SECURITY.md).
 - **Keluaran siap pakai.** Presentasi rapat, laporan resmi, Excel berformat, dan pesan WhatsApp keluar dari satu sumber data.
 - **Dapat dicoba tanpa akun.** Mode demo memuat data contoh berlabel, jadi semua fitur bisa dilihat sebelum dipasang.
-- **Terbuka soal arah pengembangan.** [ROADMAP](ROADMAP.md) dan [CHANGELOG](CHANGELOG.md) memuat rencana, status, dan jadwal rilis dua mingguan; ide baru diuji dengan empat gerbang produk (hanya membaca, tanpa izin baru, data di perangkat, menyajikan data).
+- **Jelas soal batasan.** Setiap fitur baru harus lolos empat gerbang produk: hanya membaca, tanpa izin baru, data tetap di perangkat, dan hanya menyajikan data. Perubahan per versi ada di [CHANGELOG](CHANGELOG.md).
 - **Gratis dan tidak dikunci.** Dukungan bersifat sukarela.
 
 **Untuk siapa:** staf dan supervisor ekspor-impor, PPJK yang menangani banyak klien, serta pengelola kawasan berikat dan KEK.
