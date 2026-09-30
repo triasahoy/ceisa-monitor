@@ -1,6 +1,6 @@
 # Berkontribusi
 
-CEISA Monitor dikembangkan oleh satu penulis dan kodenya tidak dipublikasikan di repositori ini (lihat [LICENSE](LICENSE)). Repositori ini memuat dokumentasi, catatan perubahan, rencana pengembangan, dan video. Karena itu, kontribusi yang paling berguna adalah laporan dan masukan, bukan kode.
+CEISA Monitor dikembangkan oleh satu penulis dan kodenya tidak dipublikasikan di repositori ini (lihat [LICENSE](LICENSE)). Repositori ini memuat dokumentasi, catatan perubahan, dan video. Karena itu, kontribusi yang paling berguna adalah laporan dan masukan, bukan kode.
 
 ## Yang sangat membantu
 

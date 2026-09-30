@@ -89,7 +89,7 @@ Status dokumen, billing, dan NTPN ada di portal CEISA 4.0, tetapi tersebar di be
 | **Pratinjau PDF billing** | **Samarkan identitas** |
 | ![PDF billing](docs/images/47_pdf_billing.png) | ![Samarkan identitas](docs/images/48_dialog_excel_samarkan.png) |
 
-Video **Yang baru di v1.17** (bernarasi dan bersubtitle, sekitar 3 menit): kartu Tagihan dari Browse Billing, rincian dan PDF billing, lembar Billing di Excel, dan Samarkan identitas. Video lengkap v1.17.0 (sekitar 13 menit) membahas seluruh fitur. Keduanya, beserta subtitle SRT, ada di rilis [v1.17.0](../../releases/tag/v1.17.0). Video sebelumnya ada di rilis [v1.16.3](../../releases/tag/v1.16.3) dan [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md), rencana fitur di [ROADMAP](ROADMAP.md).
+Video **Yang baru di v1.17** (bernarasi dan bersubtitle, sekitar 3 menit): kartu Tagihan dari Browse Billing, rincian dan PDF billing, lembar Billing di Excel, dan Samarkan identitas. Video lengkap v1.17.0 (sekitar 13 menit) membahas seluruh fitur. Keduanya, beserta subtitle SRT, ada di rilis [v1.17.0](../../releases/tag/v1.17.0). Video sebelumnya ada di rilis [v1.16.3](../../releases/tag/v1.16.3) dan [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
 
 Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
 

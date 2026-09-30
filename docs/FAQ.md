@@ -42,7 +42,7 @@
 
 ### Apakah data saya hilang bila ekstensi dihapus atau diganti?
 
-Ya, bila ekstensi dihapus. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap. Pengaturan dapat dipindahkan lewat Ekspor profil dan Impor profil; ekspor seluruh data belum tersedia.
+Ya, bila ekstensi dihapus. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap. Pengaturan dapat dipindahkan lewat Ekspor profil dan Impor profil; data lain tidak ikut pindah.
 
 ### Bolehkah memasang dari berkas ZIP atau dari sumber selain Chrome Web Store?
 
