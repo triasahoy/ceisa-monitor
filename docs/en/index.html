@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CEISA Monitor – Track CEISA 4.0 customs document status</title>
+<meta name="description" content="Free browser extension for Indonesia's CEISA 4.0 customs portal: document status and history, billing and NTPN, values and duties, WhatsApp task assignment, meeting decks, official reports and Excel. Read-only, no server.">
+<link rel="canonical" href="https://triasahoy.github.io/ceisa-monitor/en/">
+<link rel="alternate" hreflang="id" href="https://triasahoy.github.io/ceisa-monitor/">
+<link rel="alternate" hreflang="en" href="https://triasahoy.github.io/ceisa-monitor/en/">
+<link rel="alternate" hreflang="x-default" href="https://triasahoy.github.io/ceisa-monitor/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="CEISA Monitor"><meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://triasahoy.github.io/ceisa-monitor/en/">
+<meta property="og:title" content="CEISA Monitor – Track CEISA 4.0 customs document status"><meta property="og:description" content="Free browser extension: document status, billing and NTPN, values and duties, WhatsApp task assignment and reports in one dashboard. Read-only, data stays in the browser.">
+<meta property="og:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="CEISA Monitor: CEISA 4.0 document status dashboard">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CEISA Monitor"><meta name="twitter:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png">
+<link rel="icon" href="../images/logo.png">
+<style>
+:root{--navy:#0B2545;--teal:#0E7C86;--amber:#F5B940;--ink:#0F1C2B;--muted:#5B6B7C;--bg:#F4F7F9}
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--teal)}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--navy),#0E3B5E 60%,var(--teal));color:#fff;padding:56px 0 72px}
+.brand{display:flex;align-items:center;gap:14px;font-weight:700;font-size:20px}.brand img{width:48px;height:48px;border-radius:12px}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:28px 0 14px;letter-spacing:-.5px}h1 span{color:var(--amber)}
+.lead{font-size:20px;color:#D6E6F0;max-width:720px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none}
+.btn.p{background:var(--amber);color:var(--navy)}.btn.s{border:1px solid rgba(255,255,255,.4);color:#fff}
+.hero{margin-top:-44px}.hero img{width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(11,37,69,.25);display:block}
+section{padding:56px 0}h2{font-size:30px;margin:0 0 10px}.sub{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(11,37,69,.08)}.card img{width:100%;border-radius:10px;display:block}.card h3{margin:14px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:15px}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:12px}.steps li{counter-increment:s;background:#fff;border-radius:12px;padding:14px 16px 14px 60px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700}
+.sec{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.sec div{background:#fff;border-radius:12px;padding:16px;border-left:4px solid var(--teal)}
+footer{padding:32px 0;color:var(--muted);font-size:14px;border-top:1px solid #DDE3E8}
+code{background:#E8EEF2;padding:1px 6px;border-radius:6px}
+</style></head><body>
+<header><div class="wrap">
+<div class="brand"><img src="../images/logo.png" alt="">CEISA Monitor</div>
+<h1>CEISA document status reports,<br><span>without half a day of copying data.</span></h1>
+<p class="lead">A Chrome and Edge extension that reads your CEISA 4.0 document list with your own login session, then builds a dashboard, follow-ups, meeting decks, official reports, Excel files and WhatsApp summaries. Everything runs in the browser, with no server.</p>
+<div class="btns"><a class="btn p" href="https://github.com/triasahoy/ceisa-monitor#english">How to install</a><a class="btn s" href="https://github.com/triasahoy/ceisa-monitor/blob/main/docs/PANDUAN.md">Illustrated guide (Indonesian)</a><a class="btn s" href="../">Bahasa Indonesia</a></div>
+</div></header>
+<div class="wrap hero"><img src="../gif/dasbor.gif" alt="CEISA Monitor dashboard demo"></div>
+<section><div class="wrap"><h2>One screen for every document type</h2><p class="sub">All screens use demo data.</p>
+<div class="grid">
+<div class="card"><img src="../gif/periode.gif" alt=""><h3>Periods and comparisons</h3><p>All data in the portal including last year; 7/30/90 days, quarters or a custom range. Every figure is compared automatically.</p></div>
+<div class="card"><img src="../images/06_komposisi_status.png" alt=""><h3>Status composition</h3><p>A donut and status list with counts and percentages; click a status to filter the detail table.</p></div>
+<div class="card"><img src="../gif/penugasan_whatsapp.gif" alt=""><h3>Assign via WhatsApp</h3><p>Tasks per document and one ready-to-send message for each person in charge.</p></div>
+<div class="card"><img src="../gif/rincian_perubahan.gif" alt=""><h3>Status change detail</h3><p>Before and after status, plus the portal's Status History and Response History with exact times, in the CHANGED popup.</p></div>
+<div class="card"><img src="../images/33_hari_ini.png" alt=""><h3>Today card</h3><p>Urgent actions in one list: overdue tasks, red-lane or inspected documents, newly past SLA, and documents with no owner.</p></div>
+<div class="card"><img src="../images/34_rekap_bulanan.png" alt=""><h3>Monthly duty recap</h3><p>Duties paid and duties under facilities per month, with the facility utilisation rate.</p></div>
+<div class="card"><img src="../images/29_kartu_arsip.png" alt=""><h3>Submission file card</h3><p>Supporting documents, goods, values, duties and guarantees from the portal's Excel download, in one click.</p></div>
+<div class="card"><img src="../images/37_ambil_isi.png" alt=""><h3>Fetch document contents</h3><p>Choose a date range and document types; the summary shows how many will be read and the estimated time.</p></div>
+<div class="card"><img src="../images/32_nilai_pungutan.png" alt=""><h3>Values and duties per document</h3><p>Customs value, import duty, VAT, income tax, total paid and facility per document, searchable and sortable. Excel export by period and document type.</p></div>
+<div class="card"><img src="../images/42_ringkasan_wa.png" alt=""><h3>WhatsApp summary</h3><p>Key figures, values and duties, and today's tasks; choose Morning or Evening and a compact mode for phones.</p></div>
+<div class="card"><img src="../gif/presentasi.gif" alt=""><h3>Meeting deck</h3><p>26 slides (or a 9-slide executive version) with conclusion-style titles, key points, values and duties, and appendices, built in seconds.</p></div>
+<div class="card"><img src="../images/17_laporan_resmi.png" alt=""><h3>Official A4 report</h3><p>Letterhead, number, subject, narrative summary and approval sheet; PDF or Word.</p></div>
+</div></div></section>
+<section style="background:#fff"><div class="wrap"><h2>Install in two minutes</h2><p class="sub">Chrome or Microsoft Edge, only from the Chrome Web Store.</p>
+<ol class="steps"><li>Open the CEISA Monitor page on the Chrome Web Store (currently in review; the link will be added to the <a href="https://github.com/triasahoy/ceisa-monitor#english">project page</a> once it is live).</li><li>Click <b>Add to Chrome</b>, then pin the CEISA Monitor icon.</li><li>Sign in to the CEISA 4.0 portal and click the CEISA Monitor icon, or choose <b>Try demo mode</b>.</li></ol></div></section>
+<section><div class="wrap"><h2>Secure by design</h2><p class="sub">Details in <a href="https://github.com/triasahoy/ceisa-monitor/blob/main/SECURITY.md">SECURITY.md</a> (Indonesian).</p>
+<div class="sec"><div><b>Read-only</b><br>Nothing is filled in, changed or submitted.</div><div><b>No server</b><br>Data stays in your browser, separated per account.</div><div><b>No passwords</b><br>Tokens are not stored and sessions are not extended.</div><div><b>Minimal permissions</b><br>Host access only to portal.beacukai.go.id.</div></div></div></section>
+<footer><div class="wrap">© 2026 Trias Purwantoro. All rights reserved. CEISA Monitor is an independent project and is not affiliated with the Directorate General of Customs and Excise (DJBC). · <a href="https://github.com/triasahoy/ceisa-monitor">GitHub</a> · <a href="../privacy-policy.html">Privacy policy (Indonesian)</a></div></footer>
+</body></html>
