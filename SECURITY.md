@@ -17,7 +17,7 @@
 
 CEISA Monitor hanya dibagikan lewat Chrome Web Store; repositori ini tidak menyediakan berkas ekstensi. Chrome Web Store menandatangani paket dan memperbarui ekstensi secara otomatis, sehingga pengguna tidak perlu memeriksa kode SHA-256 sendiri.
 
-- Pasang hanya dari tautan Chrome Web Store yang tercantum di [README](README.md#pemasangan). Periksa nama penerbit dan ID ekstensi di halaman Store.
+- Pasang hanya dari [tautan resmi Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi). Periksa nama penerbit (Trias EXIM) dan ID ekstensi (`iojgnclbfhgoapolmfgcjkphacdfjbgi`) di halaman Store.
 - Jangan memasang berkas ZIP atau folder ekstensi yang dikirim lewat pesan atau ditemukan di tempat lain, walaupun bernama CEISA Monitor.
 - Periksa izin di `chrome://extensions` → Detail. Izin yang sah persis seperti tabel Prinsip di atas: `storage`, `unlimitedStorage`, `scripting`, `alarms`, dan akses host hanya ke `https://portal.beacukai.go.id/*`. Bila ada izin lain, jangan dipakai dan laporkan lewat Issues.
 

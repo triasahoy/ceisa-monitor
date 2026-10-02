@@ -6,7 +6,7 @@
 Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat, laporan resmi, dan Excel.</p>
 
 <p align="center">
-<a href="#pemasangan"><b>Pemasangan (Chrome Web Store)</b></a> ·
+<a href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi"><b>Pasang dari Chrome Web Store</b></a> ·
 <a href="docs/PANDUAN.md">Panduan bergambar</a> ·
 <a href="docs/ALUR_KERJA.md">Alur kerja</a> ·
 <a href="docs/FAQ.md">Tanya jawab</a> ·
@@ -97,11 +97,9 @@ Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7)
 
 CEISA Monitor dipasang **hanya dari Chrome Web Store**. Repositori ini berisi dokumentasi, panduan, dan catatan proyek; berkas ekstensi tidak dibagikan di sini.
 
-**Status:** sedang dalam tinjauan Chrome Web Store. Tautan pemasangan akan ditambahkan di sini setelah tayang.
+**Tautan resmi:** [CEISA Monitor di Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (penerbit: Trias EXIM; ID ekstensi `iojgnclbfhgoapolmfgcjkphacdfjbgi`).
 
-Setelah tayang:
-
-1. Buka tautan Chrome Web Store di atas dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
+1. Buka tautan di atas dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
 2. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 3. Pembaruan berjalan otomatis lewat Chrome dan data Anda tetap tersimpan di browser.
 
@@ -120,7 +118,7 @@ Ingin mencoba dahulu tanpa masuk ke portal? Pilih **Coba mode demo** pada layar 
 
 - Hanya membaca data dengan sesi login Anda sendiri. Kata sandi dan token tidak disimpan, dan sesi tidak diperpanjang.
 - Data diolah dan disimpan di browser Anda. Tidak ada server, analitik, iklan, atau pihak ketiga.
-- Izin minimum: penyimpanan lokal, akses ke `portal.beacukai.go.id` saja, dan alarm.
+- Izin minimum: `storage` dan `unlimitedStorage` (menyimpan data di browser), `scripting` (membaca data di tab portal Anda), `alarms` (pembaruan otomatis yang Anda aktifkan), dan akses host hanya ke `portal.beacukai.go.id`.
 - Kebijakan keamanan konten (CSP) ketat: hanya skrip dari dalam paket yang boleh berjalan.
 - Pesan WhatsApp hanya disalin atau dibuka bila Anda mengklik tombolnya; ekstensi tidak mengirim pesan sendiri.
 - Dipasang dan diperbarui hanya lewat Chrome Web Store. Izin yang diminta tampil di halaman Store dan di `chrome://extensions`, dan dapat dicocokkan dengan daftar di [SECURITY.md](SECURITY.md).
@@ -152,8 +150,8 @@ Hak cipta © 2026 Trias Purwantoro. Hak cipta dilindungi. Repositori ini hanya b
 <a id="english"></a>
 ## English
 
-CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison and a status-composition donut. "Fetch document contents" opens a scope dialog (list date range and a document-type picker based on the official 243-type reference) and reads each submission's own Excel export into an archive card (supporting documents, goods, value, duties, guarantees) and a Value and duties tab with a per-document breakdown (customs value, import duty, VAT, income tax, total paid, facilities) and monthly recap. The BERUBAH popup shows a status-history timeline, and status-change details show before/after and portal responses. Also included: a Today card, follow-up tracking with WhatsApp task messages per owner, a 22-slide meeting deck, a formal A4 report, and an Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. The interface opens in Indonesian; switch to English with the ID/EN button. Light or dark theme.
+CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison and a status-composition donut. "Fetch document contents" opens a scope dialog (list date range and a document-type picker based on the official 243-type reference) and reads each submission's own Excel export into an archive card (supporting documents, goods, value, duties, guarantees) and a Value and duties tab with a per-document breakdown (customs value, import duty, VAT, income tax, total paid, facilities) and monthly recap. The BERUBAH popup shows a status-history timeline, and status-change details show before/after and portal responses. Also included: a Today card, follow-up tracking with WhatsApp task messages per owner, a meeting deck, a formal A4 report, and an Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. The interface opens in Indonesian; switch to English with the ID/EN button. Light or dark theme.
 
-Install: only from the Chrome Web Store (under review; the link will be added here once it is live). This repository holds documentation only. Try demo mode first if you do not have a CEISA account.
+Install: only from the [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (publisher: Trias EXIM). This repository holds documentation only. Try demo mode first if you do not have a CEISA account.
 
 Independent project, not affiliated with Indonesian Customs (DJBC). All rights reserved; see [LICENSE](LICENSE).

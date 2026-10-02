@@ -2,6 +2,7 @@
 
 | Kebutuhan | Tempat |
 |---|---|
+| Memasang ekstensi | [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) |
 | Cara memakai fitur | [PANDUAN](docs/PANDUAN.md) bergambar dan [FAQ](docs/FAQ.md) |
 | Alur kerja harian dan bulanan | [ALUR_KERJA](docs/ALUR_KERJA.md) |
 | Fitur tidak berjalan sebagaimana mestinya | [Laporan masalah](../../issues/new/choose) |

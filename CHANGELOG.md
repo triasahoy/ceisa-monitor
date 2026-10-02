@@ -6,7 +6,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 | Versi | Tanggal | Tema |
 |---|---|---|
-| 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas |
+| 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas. Tayang di [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) sejak 1 Oktober 2026 |
 | 1.16.3 | 30 September 2026 | Bagikan ke rekan |
 | 1.16.2 | 30 September 2026 | Perbaikan tautan dukungan |
 | 1.16.1 | 30 September 2026 | Perampingan kartu dan uji asap |

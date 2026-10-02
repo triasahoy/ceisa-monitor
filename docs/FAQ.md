@@ -25,7 +25,7 @@
 | Bisakah dipakai lebih dari satu akun perusahaan? | Bisa. Data setiap akun disimpan terpisah dan dapat dipilih di kepala dasbor. |
 | Bahasa apa yang dipakai saat pertama dibuka? | Bahasa Indonesia, tanpa mengikuti bahasa Chrome. English hanya tampil bila dipilih dari tombol ID/EN. |
 | Bagaimana jika struktur portal berubah? | Ekstensi memeriksa struktur data setiap kali menarik data. Bila berubah, angka tidak ditampilkan dan muncul pesan agar ekstensi diperbarui. |
-| Di mana memasang CEISA Monitor? | Hanya dari Chrome Web Store (sedang dalam peninjauan; tautan akan ditambahkan di [README](../README.md#pemasangan) setelah tayang). Repositori ini hanya berisi dokumentasi. |
+| Di mana memasang CEISA Monitor? | Hanya dari [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (penerbit: Trias EXIM). Repositori ini hanya berisi dokumentasi. |
 | Apakah kode sumbernya terbuka? | Tidak. Repositori ini berisi dokumentasi dan panduan. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
 | Bagaimana cara memperbarui versi? | Otomatis oleh Chrome bila dipasang dari Chrome Web Store. Data tidak hilang. |
 | Mengapa muncul "Pembaruan sedang berjalan" dan dasbor masih kosong? | Pembaruan otomatis (misalnya saat masuk portal) sedang menarik data. Dasbor menampilkan halaman ke berapa, jumlah dokumen, dan perkiraan sisa waktu; data tampil sendiri setelah selesai. Penarikan pertama untuk semua data memerlukan beberapa menit sampai puluhan menit, bergantung pada jumlah dokumen dan kecepatan internet. Biarkan tab portal tetap terbuka. |

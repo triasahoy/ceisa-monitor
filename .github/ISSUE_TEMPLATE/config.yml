@@ -3,6 +3,9 @@ contact_links:
   - name: Laporkan celah keamanan (privat)
     url: https://github.com/triasahoy/ceisa-monitor/security/advisories/new
     about: Jangan laporkan celah keamanan melalui Issues publik.
+  - name: Pasang dari Chrome Web Store
+    url: https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi
+    about: Satu-satunya saluran pemasangan resmi.
   - name: Panduan bergambar
     url: https://github.com/triasahoy/ceisa-monitor/blob/main/docs/PANDUAN.md
     about: Sebagian besar pertanyaan terjawab di panduan.

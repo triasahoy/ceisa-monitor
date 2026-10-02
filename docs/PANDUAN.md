@@ -27,7 +27,7 @@ Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai la
 
 ## 1. Pemasangan dan layar sambutan
 
-1. Buka tautan Chrome Web Store CEISA Monitor (tercantum di [README](../../../#pemasangan)) dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
+1. Buka [CEISA Monitor di Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
 2. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 
 Pemasangan hanya lewat Chrome Web Store. Jangan memasang berkas ZIP atau folder ekstensi dari sumber lain.
