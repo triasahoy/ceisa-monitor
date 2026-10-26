@@ -46,6 +46,29 @@ Status dokumen, billing, dan NTPN ada di portal CEISA 4.0, tetapi tersebar di be
 
 **Dibuat oleh** Trias Purwantoro, praktisi ekspor-impor dan Ahli Kepabeanan bersertifikat, sebagai proyek independen yang dipakai dan diperbaiki dari pekerjaan sehari-hari. Kritik dan usul fitur disampaikan lewat [Issues](../../issues/new/choose).
 
+## Segera hadir: CEISA Monitor 2.0
+
+Tampilan baru sedang diuji sebagai versi pratinjau sebelum terbit di Chrome Web Store. Prinsipnya tetap sama: hanya membaca, data tetap di browser Anda, tanpa server. Pengguna versi 1 akan menerima pembaruan otomatis lewat Chrome Web Store; data, tindak lanjut, dan pengaturan dipindahkan otomatis, dengan cadangan yang dibuat lebih dulu.
+
+| Ringkasan dengan kesimpulan dan "Perlu perhatian hari ini" | Kotak masuk perubahan status |
+|---|---|
+| ![Ringkasan CEISA Monitor 2.0](docs/images/60_v2_ringkasan.png) | ![Kotak masuk CEISA Monitor 2.0](docs/images/61_v2_kotak_masuk.png) |
+| **Panel dokumen: tahapan dan lama di setiap status** | **Nilai dan pungutan per jenis dokumen** |
+| ![Panel dokumen CEISA Monitor 2.0](docs/images/62_v2_panel_dokumen.png) | ![Nilai per jenis dokumen CEISA Monitor 2.0](docs/images/63_v2_nilai_per_jenis.png) |
+
+Yang baru di 2.0:
+
+- **Navigasi baru** per pekerjaan: Ringkasan, Dokumen, Tagihan, Nilai dan pungutan, Tindak lanjut, dan Buat laporan, dengan kalimat kesimpulan di setiap halaman.
+- **Jalur Merah dalam pemeriksaan.** Dokumen Jalur Merah dihitung hanya selama masih diperiksa (termasuk yang menunggu pemeriksaan); sesudah Stuffing, Gate In/Out, atau Pembongkaran dihitung sebagai belum selesai biasa. Aturan yang sama berlaku di dasbor dan semua laporan.
+- **Panel dokumen** dengan tahapan dari Riwayat Status portal, lama di setiap status, dokumen pelengkap, pungutan, tindak lanjut, dan billing dalam satu tempat.
+- **Pemantauan pilihan** (mati secara bawaan): perubahan status dan langkah baru di portal masuk ke Kotak masuk, dengan pemberitahuan browser bila diizinkan. Tetap hanya membaca dan memakai tab portal yang Anda buka sendiri.
+- **Gambaran nilai dan pungutan per jenis dokumen:** dibayar, fasilitas, perlakuan pungutan (dibayar, tidak dipungut, ditangguhkan, dibebaskan), PPN lokal tersendiri, dan grafik 12 bulan.
+- **Mode layar kantor** untuk monitor bersama, dengan pilihan menyamarkan nomor.
+- **Halaman Kesehatan** untuk memeriksa sesi portal, penarikan terakhir, dan ukuran data, serta berkas diagnostik tanpa data pribadi.
+- **Lebih ringan untuk data besar:** dasbor dengan puluhan ribu dokumen terbuka dalam hitungan detik, dan browser tetap lancar saat Ambil isi dokumen berjalan.
+
+Gambar di atas memakai data fiktif berlabel DATA DEMO. Sampai 2.0 terbit, versi yang dipasang dari Chrome Web Store tetap versi 1 yang dijelaskan di halaman ini.
+
 ## Fitur
 
 | Kebutuhan | Yang disediakan |
@@ -151,6 +174,8 @@ Hak cipta © 2026 Trias Purwantoro. Hak cipta dilindungi. Repositori ini hanya b
 ## English
 
 CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison and a status-composition donut. "Fetch document contents" opens a scope dialog (list date range and a document-type picker based on the official 243-type reference) and reads each submission's own Excel export into an archive card (supporting documents, goods, value, duties, guarantees) and a Value and duties tab with a per-document breakdown (customs value, import duty, VAT, income tax, total paid, facilities) and monthly recap. The BERUBAH popup shows a status-history timeline, and status-change details show before/after and portal responses. Also included: a Today card, follow-up tracking with WhatsApp task messages per owner, a meeting deck, a formal A4 report, and an Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. The interface opens in Indonesian; switch to English with the ID/EN button. Light or dark theme.
+
+Coming soon: CEISA Monitor 2.0, a redesigned interface now in preview testing. It keeps the same principles (read-only, data stays in your browser, no server) and adds task-based navigation, a "Red lane under inspection" rule, a document panel with stage timeline and time in each status, optional background monitoring with an inbox (off by default), value and duties per document type, an office display mode, a Health page, and better performance for large datasets. Version 1 users will be updated automatically through the Chrome Web Store, with data and settings migrated and backed up first.
 
 Install: only from the [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (publisher: Trias EXIM). This repository holds documentation only. Try demo mode first if you do not have a CEISA account.
 
