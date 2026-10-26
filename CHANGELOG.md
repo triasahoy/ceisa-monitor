@@ -6,6 +6,8 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 | Versi | Tanggal | Tema |
 |---|---|---|
+| 1.19.0 | 26 Oktober 2026 | Laporan per jenis dokumen, Ambil isi dokumen di latar belakang, arah dan pihak pengiriman di Excel dan CSV. Tayang di Chrome Web Store bersama seluruh isi 1.18.0 |
+| 1.18.0 | 12 Oktober 2026 (dirampungkan; tidak diterbitkan terpisah, tersedia lewat 1.19.0) | Data aman: ekspor dan impor data, identitas tidak disimpan, petugas pemeriksa Jalur Merah, daftar dokumen lengkap di ringkasan, dokumen pelengkap dari Detail Dokumen |
 | 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas. Tayang di [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) sejak 1 Oktober 2026 |
 | 1.16.3 | 30 September 2026 | Bagikan ke rekan |
 | 1.16.2 | 30 September 2026 | Perbaikan tautan dukungan |
@@ -15,7 +17,57 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 ## Riwayat rilis
 
-Rilis di bawah dikelompokkan menjadi enam fase menurut tema. Pengelompokan ini hanya untuk memudahkan membaca; tanggal setiap rilis tetap sesuai catatan.
+Rilis di bawah dikelompokkan menjadi tujuh fase menurut tema. Pengelompokan ini hanya untuk memudahkan membaca; tanggal setiap rilis tetap sesuai catatan.
+
+### Fase 7. Data aman
+
+*Versi 1.18.0 dan 1.19.0.* Data dapat dipindahkan dalam satu berkas, identitas tidak lagi disimpan, ringkasan memuat daftar dokumen lengkap, dan Ambil isi dokumen berjalan di latar belakang. 1.18.0 tidak diterbitkan terpisah; pengguna Chrome Web Store menerima isinya bersama 1.19.0.
+
+#### 1.19.0 · 26 Oktober 2026
+
+**Tema:** Laporan per jenis dan pengambilan di latar belakang.
+
+##### Ditambahkan
+
+- **LAP-01 Pilih jenis dokumen di Buat laporan.** Dialog Buat laporan memiliki daftar centang jenis dokumen; presentasi, laporan resmi, dan Excel hanya memuat jenis yang dipilih. Kosong atau semua berarti seluruh jenis.
+- **EKS-01 Arah barang dan pihak pengiriman di Excel dan CSV.** Lembar Rincian dan ekspor CSV memuat kolom Arah barang, Pengirim barang untuk dokumen pemasukan, dan Penerima barang untuk dokumen pengeluaran. Laporan resmi menampilkannya pada daftar dokumen belum selesai. Ikut disamarkan bila Samarkan identitas aktif.
+
+##### Diubah
+
+- **ISI-02 Ambil isi dokumen berjalan di latar belakang** (service worker ekstensi). Selama pengambilan, Anda dapat membuka tab lain, menutup dasbor, atau mematikan layar; tab portal CEISA 4.0 harus tetap terbuka dan masuk. Kemajuan tersimpan per dokumen, sehingga pengambilan dapat dihentikan dan dilanjutkan seperti sebelumnya. Tanpa izin baru.
+
+#### 1.18.0 · 12 Oktober 2026
+
+**Tema:** Data aman.
+
+##### Ditambahkan
+
+- **DTA-01 Ekspor dan impor data** di Pengaturan → Data dan pemindahan: seluruh data dalam satu berkas `.ceisadata`, pilihan Ringan (pengaturan, profil, tindak lanjut, catatan, kontak, riwayat perubahan) atau Lengkap (ditambah isi dokumen, riwayat portal, dan billing). Berkas dimampatkan di browser; impor menampilkan pratinjau per akun dan pilihan Gabung, Ganti, atau Lewati. Tanpa izin baru dan tanpa jaringan.
+- **DTA-02 Skema data berversi** dengan migrasi otomatis. Berkas dari versi sebelumnya tetap terbaca; berkas dari versi yang lebih baru ditolak dengan pesan jelas.
+- **DTA-03 Impor data dari layar sambutan** ("Punya data dari pemasangan sebelumnya?") untuk pemasangan baru atau komputer lain.
+- **DST-03 Kartu "Baru di versi ini"** tampil sekali setelah Chrome memperbarui ekstensi. Teksnya ada di dalam paket; tanpa jaringan.
+- **DST-08 Tautan dukungan per bahasa**: Saweria pada tampilan Indonesia, Buy Me a Coffee pada tampilan English. Dibuka sebagai tab biasa atas klik pengguna. Seluruh fitur tetap gratis.
+- **TLJ-01 Petugas pemeriksa barang** di dialog Tindak lanjut, hanya untuk dokumen Jalur Merah dan diisi manual. Tercatat di riwayat tindak lanjut, ikut di Excel (lembar Rincian) dan CSV, dan disamarkan bila Samarkan identitas aktif. Tidak diambil dari portal.
+- **RKS-01 Daftar dokumen lengkap dan statusnya** di Ringkasan WhatsApp/surel: Belum selesai atau Semua dalam periode, per jenis dokumen, paling banyak 300 dokumen (100 dalam mode Ringkas untuk ponsel).
+- **RKS-02 Tanggal daftar dan pihak pengiriman** di setiap baris daftar: Pengirim barang untuk dokumen pemasukan, Penerima barang untuk dokumen pengeluaran (BC 2.7 dari mitra dihitung pemasukan).
+- **RKS-03 Nomor invoice** di setiap baris daftar. Bila tidak ada invoice, dipakai dokumen pengganti dengan urutan Delivery Order, Faktur Pajak, Packing List, Kontrak, Purchase Order, B/L, AWB; bila tidak ada sama sekali, tertulis "Invoice: belum tercatat".
+
+##### Diubah
+
+- **ISI-01 Dokumen pelengkap lebih lengkap.** Selain lembar DOKUMEN di Unduh Excel portal, ekstensi membaca daftar dokumen pelengkap yang dipakai Detail Dokumen di portal (layanan yang sama, baca-saja). Pada sebagian dokumen, terutama KEK Pemasukan dari TLDDP, lembar DOKUMEN di Excel portal kosong atau tidak lengkap. Kedua sumber digabung tanpa duplikat dan baris kosong dibuang. Yang disimpan hanya jenis, nomor, tanggal, seri, fasilitas, dan izin. Isi yang diambil dengan versi sebelumnya dilengkapi lewat **Ambil yang belum**, tanpa mengunduh ulang Excel.
+- **Samarkan identitas** kini juga berlaku untuk ekspor CSV, nama pengirim dan penerima barang, nomor invoice, dan kolom petugas pemeriksa.
+
+##### Keamanan
+
+- **SEC-01** NPWP, NITKU, dan nama pengguna tidak lagi disimpan. Kunci akun berupa sidik acak (hash) satu arah. Data dari versi sebelumnya dinaikkan otomatis saat ekstensi dibuka; kunci lama dihapus setelah penulisan baru berhasil.
+- **SEC-02** Berkas profil dan berkas data diperiksa bentuknya sebelum dipakai, dan kebijakan keamanan konten diperketat (`default-src 'self'`, gambar hanya dari paket, `data:`, atau `blob:`).
+- **SEC-03** Ekspor CSV mencegah sel dibaca sebagai rumus.
+- **SEC-06** Diagnosa Tagihan (TGH-02) dihapus dari Pengaturan dan dari paket.
+- **SEC-09** Pesan antarbagian ekstensi hanya diterima dari ekstensi sendiri.
+
+##### Diperbaiki
+
+- **LNG-36** Pesan galat berawalan kini diterjemahkan pada tampilan English. **LNG-18** Kunci bahasa yang tidak dipakai lagi dihapus.
 
 ### Fase 6. Tagihan
 

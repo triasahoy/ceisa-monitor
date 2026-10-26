@@ -1,4 +1,4 @@
-# Panduan Lengkap CEISA Monitor v1.17
+# Panduan Lengkap CEISA Monitor v1.19
 
 Panduan ini menjelaskan setiap fitur secara berurutan, dari pemasangan sampai laporan. Semua gambar memakai data demo.
 
@@ -36,7 +36,11 @@ Setelah dipasang, dasbor terbuka dengan panduan empat langkah. Pilih **Coba mode
 
 ![Layar sambutan](images/01_sambutan.png)
 
-Memperbarui versi: otomatis oleh Chrome. Data dan catatan tidak hilang.
+Pada layar sambutan juga tersedia tautan **Impor data** ("Punya data dari pemasangan sebelumnya?") untuk memasukkan berkas `.ceisadata` dari pemasangan atau komputer lain. Lihat [Memperbarui ekstensi dan menjaga data](#memperbarui-ekstensi-dan-menjaga-data).
+
+Memperbarui versi: otomatis oleh Chrome. Data dan catatan tidak hilang. Setelah pembaruan, kartu **Baru di versi ini** tampil sekali di atas dasbor dan menjelaskan perubahan; klik **Mengerti** untuk menutupnya.
+
+![Kartu Baru di versi ini](images/53_baru_di_versi.png)
 
 ## 2. Menarik data pertama kali
 
@@ -107,7 +111,7 @@ Syaratnya, tab portal CEISA terbuka dan sudah masuk. Bila tidak, popup menampilk
 
 Bila riwayat portal tidak tersedia, waktu dasar yang ditampilkan adalah saat perubahan terlihat pada pembaruan data. Bila rekaman pada tanggal pembanding tidak ada, status sebelumnya diperkirakan dari tanggal daftar dan tanggal respons, dan diberi label **perkiraan**.
 
-**Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, dan jaminan. Isinya dibaca dari layanan Unduh Excel portal. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
+**Kartu arsip dan isi dokumen.** Klik dua kali baris di tabel rincian untuk membuka kartu arsip: dokumen pelengkap dengan nama resmi, barang, nilai dan logistik, pungutan, dan jaminan. Isinya dibaca dari layanan Unduh Excel portal. Sejak 1.18.0, daftar dokumen pelengkap juga dibaca dari daftar yang dipakai Detail Dokumen di portal, karena pada sebagian dokumen (terutama KEK Pemasukan dari TLDDP) lembar DOKUMEN di Unduh Excel kosong atau tidak lengkap. Kedua sumber digabung tanpa duplikat. Isi yang diambil dengan versi sebelumnya dilengkapi dengan **Ambil yang belum**, tanpa mengunduh ulang Excel. Kotak pencarian rincian ikut mencari nomor invoice, B/L, kontrak, dan kontainer.
 
 ![Kartu arsip pengajuan](images/29_kartu_arsip.png)
 
@@ -118,6 +122,8 @@ Bila riwayat portal tidak tersedia, waktu dasar yang ditampilkan adalah saat per
 - **Ringkasan**: jumlah dokumen yang sesuai, yang dilewati karena isinya sudah diambil, yang akan dibaca, dan perkiraan waktu dalam menit.
 
 Tidak ada batas jumlah per klik. Klik tombol yang sama untuk berhenti, lalu lanjutkan kapan saja; dokumen yang sudah diambil dilewati.
+
+Sejak 1.19.0, pengambilan berjalan di latar belakang. Selama proses, Anda dapat membuka tab lain, menutup dasbor, atau mematikan layar. Tab portal CEISA 4.0 harus tetap terbuka dan masuk; bila sesi berakhir, pengambilan berhenti dan dapat dilanjutkan setelah Anda masuk lagi. Buka dasbor kapan saja untuk melihat kemajuannya.
 
 ![Dialog Ambil isi dokumen](images/37_ambil_isi.png)
 
@@ -213,7 +219,10 @@ Klik **+ Catat** pada baris dokumen, atau centang beberapa dokumen lalu klik **I
 | Target selesai | Tanggal target; dipakai untuk kartu Hari ini dan filter Jatuh tempo |
 | Nomor WhatsApp | Disimpan per nama, cukup diisi sekali |
 | Tugas yang diminta | Terisi otomatis dari templat bawaan sesuai status dokumen. Pilih **Tulis sendiri…** untuk mengosongkan kolom lalu mengetik tugas sendiri; mengetik langsung di kolom juga bisa |
+| Petugas pemeriksa barang (Jalur Merah) | Hanya tampil untuk dokumen Jalur Merah. Diisi manual, paling banyak 80 karakter; tidak diambil dari portal. Ikut di Excel (lembar Rincian) dan CSV, dan disamarkan bila Samarkan identitas dicentang |
 | Catatan | Keterangan bebas |
+
+![Kolom petugas pemeriksa barang](images/51_petugas_pemeriksa.png)
 
 Bagian bawah dialog menampilkan **Riwayat status dokumen** dan **Riwayat tindak lanjut**. Setiap perubahan penanggung jawab, status, target, tugas, catatan, dan pengiriman WhatsApp tercatat dengan waktunya. Riwayat tidak dapat diubah karena berfungsi sebagai jejak audit.
 
@@ -292,7 +301,7 @@ Lembar **Billing** ikut di ekspor Excel (pilih pada daftar lembar).
 
 ## Samarkan identitas
 
-Pada dialog ekspor Excel, presentasi/laporan, dan ringkasan tersedia kotak **Samarkan identitas**. Bila dicentang, nama perusahaan menjadi Perusahaan A, B, dan seterusnya (perusahaan sendiri selalu A), logo dihapus, dan nomor pengajuan, nomor daftar, kode billing, NTPN, serta NPWP/NITKU hanya menampilkan empat angka terakhir. Nama berkas ikut disamarkan. Pilihan ini berlaku sama di ketiga dialog. Periksa hasil sebelum dibagikan.
+Pada dialog ekspor Excel, presentasi/laporan, dan ringkasan tersedia kotak **Samarkan identitas**. Bila dicentang, nama perusahaan menjadi Perusahaan A, B, dan seterusnya (perusahaan sendiri selalu A), logo dihapus, dan nomor pengajuan, nomor daftar, kode billing, NTPN, serta NPWP/NITKU hanya menampilkan empat angka terakhir. Sejak 1.18.0 yang ikut disamarkan juga: nama pengirim dan penerima barang (menjadi alias Perusahaan), nomor invoice dan dokumen pengganti (empat karakter terakhir), kolom petugas pemeriksa, dan berkas CSV. Nama berkas ikut disamarkan. Pilihan ini berlaku sama di ketiga dialog. Periksa hasil sebelum dibagikan.
 
 ![Dialog ekspor Excel dengan Samarkan identitas](images/48_dialog_excel_samarkan.png)
 
@@ -306,6 +315,8 @@ Dua bagian yang dapat dilipat:
 
 - **Data**: sejak dan sampai tanggal daftar (kosong = semua data), **jenis dokumen yang ditarik**, pembaruan otomatis, pembaruan saat masuk portal, pilihan menyimpan Excel asli portal ke Unduhan, dan batas data dianggap lama.
 - **SLA**: batas hari bawaan, per jenis dokumen, dan per status. Kolom kosong mengikuti batas di atasnya.
+
+- **Data dan pemindahan**: ekspor dan impor semua data dalam satu berkas `.ceisadata`. Lihat [Memperbarui ekstensi dan menjaga data](#memperbarui-ekstensi-dan-menjaga-data).
 
 **Jenis dokumen yang ditarik** kini berupa pemilih centang dari tabel referensi resmi (243 jenis), bukan kolom ketik kode. Jenis yang ada di data Anda tampil paling atas beserta jumlahnya; ada kolom cari. Kosong berarti semua jenis.
 
@@ -321,7 +332,7 @@ Isi jenis fasilitas (menentukan templat SLA), nama, target SLA, warna, dan logo.
 
 ![Menu ekspor](images/13_menu_ekspor.png)
 
-Dialog **Buat laporan** menampilkan cakupan isi dokumen sebelum berkas dibuat ("Nilai dan pungutan mencakup 2.400 dari 2.544 dokumen periode ini"). Bab Nilai dan pungutan hanya disertakan bila isi dokumen sudah diambil, dan selalu mencantumkan cakupannya. Centang **Ringkasan eksekutif** untuk presentasi dan laporan yang lebih pendek (nama berkas berakhiran `_Ringkas`).
+Dialog **Buat laporan** menampilkan cakupan isi dokumen sebelum berkas dibuat ("Nilai dan pungutan mencakup 2.400 dari 2.544 dokumen periode ini"). Bab Nilai dan pungutan hanya disertakan bila isi dokumen sudah diambil, dan selalu mencantumkan cakupannya. Centang **Ringkasan eksekutif** untuk presentasi dan laporan yang lebih pendek (nama berkas berakhiran `_Ringkas`). Sejak 1.19.0, daftar **Jenis dokumen yang disertakan** memilih jenis yang dimuat di presentasi, laporan resmi, dan Excel; kosong atau semua berarti seluruh jenis.
 
 ![Dialog Buat laporan](images/41_buat_laporan.png)
 
@@ -329,12 +340,25 @@ Dialog **Buat laporan** menampilkan cakupan isi dokumen sebelum berkas dibuat ("
 
 Dialog **Ringkasan WhatsApp/surel** memuat dokumen belum selesai secara lengkap: angka utama (melewati SLA dan masih dalam batas SLA), per jenis dokumen, dan menurut status. Daftar **Jenis dokumen yang disertakan** memilih jenis yang ingin disampaikan; angka, nilai, tugas, dan perubahan mengikuti pilihan itu (kosong atau semua = seluruh jenis). Pilihan bagian dan jenis diingat di browser.
 
+**Daftar dokumen lengkap dan statusnya.** Centang bagian ini untuk menyertakan daftar per dokumen, lalu pilih **Belum selesai** atau **Semua dalam periode** di kolom **Daftar dokumen**. Daftar dikelompokkan per jenis dokumen; dokumen belum selesai diurutkan dari yang tertua. Setiap baris memuat:
+
+- nomor pengajuan, nomor daftar, dan tanggal daftar;
+- **Pengirim barang** untuk dokumen pemasukan, atau **Penerima barang** untuk dokumen pengeluaran (BC 2.7 dari mitra dihitung pemasukan);
+- **nomor invoice**; bila tidak ada, dipakai dokumen pengganti dengan urutan Delivery Order, Faktur Pajak, Packing List, Kontrak, Purchase Order, B/L, AWB, dan bila tidak ada sama sekali tertulis "Invoice: belum tercatat";
+- status, Jalur Merah atau Kuning, umur dokumen, dan tanda melewati SLA.
+
+Nama pengirim atau penerima dan nomor invoice berasal dari isi dokumen, jadi hanya tampil untuk dokumen yang isinya sudah diambil; di akhir daftar tercatat berapa dokumen yang belum. Daftar dibatasi 300 dokumen (100 bila **Ringkas untuk ponsel** dicentang) agar tetap dapat dikirim; sisanya dirujuk ke Excel.
+
+![Ringkasan dengan daftar dokumen](images/52_ringkasan_daftar.png)
+
+Lembar **Rincian** di Excel dan ekspor CSV memuat kolom **Arah barang**, **Pengirim barang** (dokumen pemasukan), dan **Penerima barang** (dokumen pengeluaran); laporan resmi menampilkannya pada daftar dokumen belum selesai. Kolom ini berasal dari isi dokumen dan ikut disamarkan bila Samarkan identitas aktif.
+
 Excel diawali lembar **Daftar Isi** (sumber data, waktu data, periode, filter, cakupan isi dokumen, dan tautan ke setiap lembar) dan memuat lembar **Perubahan Status** bila ada perubahan sejak pembanding. Presentasi tidak dapat langsung dijadikan PDF oleh ekstensi; buka di PowerPoint lalu pilih Simpan sebagai PDF.
 
 | Ekspor | Isi |
 |---|---|
 | Buat laporan | Pilih periode sekali, lalu centang berkas yang dibuat: presentasi 26 slide (judul berupa kesimpulan, slide "Poin utama", bab Nilai dan pungutan, "Keputusan yang dimohon", dan lampiran; 9 slide bila Ringkasan eksekutif dicentang), laporan resmi A4 format dinas (cetak ke PDF atau unduh sebagai Word), dan/atau Excel dengan lembar pilihan |
-| Bagikan ringkasan | Pratinjau, pilihan bagian (angka utama, nilai dan pungutan, tugas jatuh tempo hari ini, per jenis, perlu perhatian, dokumen tertua, tindak lanjut, perubahan), format WhatsApp atau teks biasa, judul Biasa/Pagi/Sore, dan pilihan Ringkas untuk ponsel |
+| Bagikan ringkasan | Pratinjau, pilihan bagian (angka utama, nilai dan pungutan, tugas jatuh tempo hari ini, per jenis, perlu perhatian, dokumen tertua, tindak lanjut, perubahan, daftar dokumen lengkap), format WhatsApp atau teks biasa, judul Biasa/Pagi/Sore, dan pilihan Ringkas untuk ponsel |
 
 ![Presentasi](images/14_presentasi.png)
 
@@ -352,13 +376,20 @@ Bila komputer dimatikan atau sesi portal berakhir, data diperbarui otomatis saat
 
 ## Memperbarui ekstensi dan menjaga data
 
-Data CEISA Monitor (pengaturan, tindak lanjut, catatan, kontak, riwayat perubahan) disimpan di penyimpanan lokal browser milik ekstensi. Chrome Web Store memberi ekstensi satu ID tetap, sehingga pembaruan otomatis tidak menghilangkan data.
+Data CEISA Monitor (pengaturan, tindak lanjut, catatan, kontak, riwayat perubahan) disimpan di penyimpanan lokal browser milik ekstensi. Chrome Web Store memberi ekstensi satu ID tetap, sehingga pembaruan otomatis tidak menghilangkan data. Data hilang bila ekstensi dihapus, atau bila browser atau profil lain dipakai, kecuali Anda sudah menyimpan cadangan.
 
-- Data hilang bila ekstensi dihapus, atau bila browser/profil lain dipakai. Menghapus ekstensi berarti menghapus datanya.
-- Data dokumen dan billing dapat ditarik ulang dari portal kapan saja. Yang tidak dapat ditarik ulang adalah tindak lanjut, catatan, kontak, dan riwayat perubahan.
-- Pengaturan dan profil perusahaan dapat dipindahkan: Pengaturan, Profil perusahaan, Ekspor profil, lalu Impor profil di pemasangan lain.
-- Selain pengaturan dan profil, data lain (tindak lanjut, catatan, riwayat perubahan) tidak dapat dipindahkan antarpemasangan. Data dokumen dan billing dapat ditarik ulang dari portal.
-- Bila sebelumnya Anda memasang ekstensi dari berkas ZIP (Load unpacked), pasang versi Chrome Web Store, lalu pindahkan pengaturan lewat Ekspor profil. Data lain di pemasangan lama tidak ikut pindah, jadi jangan hapus pemasangan lama lebih dulu bila catatan tindak lanjutnya masih dibutuhkan. Hapus setelah pemindahan selesai, karena dua ekstensi terpasang akan menjadi dua salinan terpisah.
+Sejak 1.18.0, seluruh data dapat dipindahkan dalam satu berkas:
+
+1. Buka **Pengaturan → Data dan pemindahan**.
+2. Pilih **Lengkap** (pengaturan, tindak lanjut, data terakhir, riwayat, billing, dan isi dokumen yang pernah dibuka) atau **Ringan** (pengaturan, profil, dan catatan tindak lanjut saja; data dokumen ditarik ulang dari portal).
+3. Klik **Ekspor data**. Berkas `.ceisadata` dibuat di browser dan disimpan ke folder unduhan. Berkas memuat data perusahaan, jadi simpan seperti dokumen internal.
+4. Di pemasangan baru atau komputer lain, klik **Impor data** di layar sambutan atau di bagian yang sama di Pengaturan. Pratinjau menampilkan isi berkas per akun; pilih **Gabung**, **Ganti**, atau **Lewati** untuk setiap akun.
+
+![Data dan pemindahan](images/50_data_pemindahan.png)
+
+- Berkas dari versi sebelumnya tetap terbaca setelah pembaruan. Berkas dari versi yang lebih baru ditolak dengan pesan yang jelas.
+- Bila sebelumnya Anda memasang ekstensi dari berkas ZIP (Load unpacked), ekspor data dari pemasangan lama, pasang versi Chrome Web Store, impor berkasnya, lalu hapus pemasangan lama. Dua ekstensi yang terpasang bersamaan menyimpan dua salinan data yang terpisah.
+- Sejak 1.18.0, NPWP, NITKU, dan nama pengguna tidak disimpan; data akun dipisahkan dengan kunci berupa sidik acak (hash). Data dari versi sebelumnya dibersihkan otomatis saat pembaruan.
 
 ## 18. Bahasa, tema, dan mode demo
 

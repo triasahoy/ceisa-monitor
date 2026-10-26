@@ -7,11 +7,14 @@
 | Hanya membaca | Ekstensi hanya mengirim permintaan baca (GET) ke layanan portal yang sama dengan halaman Daftar Dokumen. Tidak ada pengisian, perubahan, atau pengiriman dokumen |
 | Sesi milik pengguna | Data dibaca di tab portal dengan sesi login pengguna. Token tidak disalin, tidak disimpan, dan sesi tidak diperpanjang |
 | Tanpa server | Tidak ada server, analitik, iklan, atau pihak ketiga. Semua data disimpan di `chrome.storage.local` pada komputer pengguna, terpisah per akun |
+| Identitas tidak disimpan | Sejak 1.18.0, kunci akun berupa sidik acak (hash) satu arah. NPWP, NITKU, dan nama pengguna tidak disimpan; data versi lama dibersihkan otomatis saat pembaruan |
 | Izin minimum | `storage`, `unlimitedStorage`, `scripting`, dan `alarms`, serta akses host hanya untuk `https://portal.beacukai.go.id/*` |
-| CSP ketat | `script-src 'self'; object-src 'self'; base-uri 'none'; frame-ancestors 'self'`. Tidak ada skrip dari luar, `eval`, atau skrip inline |
+| CSP ketat | `default-src 'self'`, gambar hanya dari paket, `data:`, atau `blob:`, serta `base-uri 'none'` dan `frame-ancestors 'self'` (sejak 1.18.0). Tidak ada skrip dari luar, `eval`, atau skrip inline |
+| Berkas dari pengguna | Berkas profil dan berkas data (`.ceisadata`) diperiksa bentuknya sebelum dipakai; markup dan gambar dari luar ditolak. Ekspor CSV mencegah sel dibaca sebagai rumus |
+| Pesan antarbagian | Hanya pesan dari bagian ekstensi sendiri yang diterima |
 | Validasi data | Struktur data portal diperiksa setiap kali ditarik. Bila berubah, angka tidak ditampilkan agar tidak menyesatkan |
 | Kode rilis | Diminifikasi (sesuai kebijakan Chrome Web Store), tanpa obfuskasi, dengan pernyataan hak cipta di setiap berkas. Kode tidak dipublikasikan di GitHub dan dilindungi lisensi hak cipta |
-| Tautan luar | Hanya tautan yang dibuka sebagai tab biasa atas klik pengguna: Saweria (dukungan), WhatsApp (wa.me, pesan tugas), serta tombol Bagikan ke LinkedIn, WhatsApp, X, dan Telegram dengan isi berupa tautan halaman proyek (triasahoy.github.io). Tidak ada data dokumen dan tidak ada data yang dikirim otomatis |
+| Tautan luar | Hanya tautan yang dibuka sebagai tab biasa atas klik pengguna: Saweria (dukungan, tampilan Indonesia), Buy Me a Coffee (dukungan, tampilan English), WhatsApp (wa.me, pesan tugas), serta tombol Bagikan ke LinkedIn, WhatsApp, X, dan Telegram dengan isi berupa tautan halaman proyek (triasahoy.github.io). Tidak ada data dokumen dan tidak ada data yang dikirim otomatis |
 
 ## Memastikan pemasangan asli
 

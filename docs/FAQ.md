@@ -15,7 +15,8 @@
 | Bagaimana jika komputer mati atau sesi habis? | Data diperbarui otomatis saat Anda masuk kembali. Tren tetap lengkap karena dihitung ulang dari tanggal dokumen. |
 | Seberapa tepat waktu perubahan status? | Popup **BERUBAH** menampilkan Riwayat Status dan Riwayat Respon dari portal dengan jam persis, diambil saat popup dibuka (tab portal harus terbuka dan sudah masuk). Bila riwayat tidak tersedia, popup memakai saat perubahan pertama kali terlihat pada pembaruan data; perbarui lebih sering (Pengaturan → Pembaruan otomatis, mulai 5 menit) untuk perkiraan yang lebih rapat. |
 | Respons tampil sebagai angka, misalnya 2305. Apa artinya? | Kode respons angka diterjemahkan otomatis dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/), sesuai jenis dokumen (2305 pada BC 2.3 = SPPD). Arahkan kursor atau klik sel Respons untuk melihat nama lengkapnya. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi; kode untuk dokumen tersebut ditampilkan apa adanya. |
-| Apa itu isi dokumen dan kartu arsip? | CEISA Monitor membaca isi lengkap nomor pengajuan dari layanan Unduh Excel portal, dengan sesi Anda sendiri. Klik dua kali baris di tabel rincian untuk kartu arsip, atau klik **Ambil isi dokumen…** di kartu Isi dokumen untuk memilih cakupan (rentang tanggal daftar dan jenis dokumen). Berkas Excel tidak disimpan ke folder kecuali Anda mengaktifkannya di Pengaturan. |
+| Apa itu isi dokumen dan kartu arsip? | CEISA Monitor membaca isi lengkap nomor pengajuan dari layanan Unduh Excel portal, dengan sesi Anda sendiri. Sejak 1.18.0, daftar dokumen pelengkap juga dibaca dari daftar yang sama dengan Detail Dokumen di portal. Klik dua kali baris di tabel rincian untuk kartu arsip, atau klik **Ambil isi dokumen…** di kartu Isi dokumen untuk memilih cakupan (rentang tanggal daftar dan jenis dokumen). Berkas Excel tidak disimpan ke folder kecuali Anda mengaktifkannya di Pengaturan. |
+| Apakah dasbor harus tetap terbuka selama Ambil isi dokumen? | Tidak, sejak 1.19.0. Pengambilan berjalan di latar belakang, jadi Anda dapat membuka tab lain, menutup dasbor, atau mematikan layar. Tab portal CEISA 4.0 harus tetap terbuka dan masuk; bila sesi berakhir, pengambilan berhenti dan dapat dilanjutkan setelah Anda masuk lagi. |
 | Apakah ada batas jumlah dokumen saat mengambil isi dokumen? | Tidak. Dialog cakupan menampilkan jumlah dokumen yang akan dibaca, yang dilewati karena sudah diambil, dan perkiraan menit. Klik tombol yang sama untuk berhenti, lalu lanjutkan nanti. |
 | Bagaimana memilih jenis dokumen? | Di dialog Ambil isi dokumen dan di Pengaturan → Data, centang dari tabel referensi resmi (243 jenis). Jenis yang ada di data Anda tampil paling atas; kosong berarti semua jenis. |
 | Bagaimana melihat nilai dan pungutan per dokumen? | Setelah isi dokumen diambil, buka tab **Nilai dan pungutan** di kartu Isi dokumen. Tabel Rincian per dokumen dapat dicari dan diurutkan, dan tersedia juga sebagai lembar **Nilai per Dokumen** di Excel. |
@@ -42,7 +43,9 @@
 
 ### Apakah data saya hilang bila ekstensi dihapus atau diganti?
 
-Ya, bila ekstensi dihapus. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap. Pengaturan dapat dipindahkan lewat Ekspor profil dan Impor profil; data lain tidak ikut pindah.
+Ya, bila ekstensi dihapus tanpa cadangan. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap.
+
+Sejak 1.18.0, buka **Pengaturan → Data dan pemindahan**, lalu klik **Ekspor data** untuk menyimpan seluruh data ke satu berkas `.ceisadata`. Pilih **Ringan** (pengaturan, profil, tindak lanjut, catatan, kontak, riwayat perubahan) atau **Lengkap** (ditambah isi dokumen, riwayat portal, dan billing). Di pemasangan baru atau komputer lain, klik **Impor data** di layar sambutan atau di Pengaturan, periksa pratinjau per akun, lalu pilih Gabung, Ganti, atau Lewati.
 
 ### Bolehkah memasang dari berkas ZIP atau dari sumber selain Chrome Web Store?
 
@@ -60,3 +63,23 @@ Tidak. Rincian dan PDF diambil dari portal saat diklik, ditampilkan, lalu dibuan
 
 Centang **Samarkan identitas** pada dialog ekspor. Nama perusahaan menjadi Perusahaan A, B, dan seterusnya, dan nomor penting hanya menampilkan empat angka terakhir. Tetap periksa berkas sebelum dibagikan.
 
+### Mengapa dokumen pelengkap di Excel portal kosong, padahal Detail Dokumen menampilkan lampirannya?
+
+Pada sebagian dokumen, terutama KEK Pemasukan dari TLDDP, lembar DOKUMEN di Unduh Excel portal memang kosong atau tidak lengkap, sedangkan Detail Dokumen dan lembar lanjutan PDF memakai daftar lain yang lengkap. Sejak 1.18.0, CEISA Monitor membaca kedua sumber dan menggabungkannya tanpa duplikat. Untuk isi yang diambil dengan versi sebelumnya, klik **Ambil yang belum** di kartu Isi dokumen; yang dilengkapi hanya daftar dokumen pelengkap, tanpa mengunduh ulang Excel.
+
+### Apakah nama atau NIP petugas diambil dari portal?
+
+Tidak. Kolom **Petugas pemeriksa barang** di dialog Tindak lanjut hanya tampil untuk dokumen Jalur Merah dan diisi manual oleh Anda. Isinya tercatat di riwayat tindak lanjut, ikut di Excel dan CSV, dan disamarkan bila **Samarkan identitas** dicentang.
+
+### Apa isi Daftar dokumen di Ringkasan WhatsApp/surel?
+
+Centang **Daftar dokumen lengkap dan statusnya**, lalu pilih **Belum selesai** atau **Semua dalam periode**. Daftar dikelompokkan per jenis dokumen; tiap baris memuat nomor pengajuan, nomor dan tanggal daftar, status, umur, dan tanda melewati SLA. Bila isi dokumen sudah diambil, tiap baris juga memuat:
+
+- **Pengirim barang** untuk dokumen pemasukan, atau **Penerima barang** untuk dokumen pengeluaran (BC 2.7 dari mitra dihitung pemasukan).
+- **Nomor invoice**. Bila tidak ada invoice, dipakai dokumen pengganti dengan urutan Delivery Order, Faktur Pajak, Packing List, Kontrak, Purchase Order, B/L, AWB. Bila tidak ada sama sekali, tertulis "Invoice: belum tercatat".
+
+Daftar dibatasi 300 dokumen (100 dalam mode Ringkas untuk ponsel); sisanya dirujuk ke Excel.
+
+### Apakah NPWP atau NITKU saya disimpan?
+
+Tidak, sejak 1.18.0. Nomor identitas hanya dipakai sesaat untuk membuat kunci akun berupa sidik acak (hash) satu arah. Data dari versi sebelumnya dibersihkan otomatis saat pembaruan.
