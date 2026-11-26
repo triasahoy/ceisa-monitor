@@ -1,0 +1,13 @@
+CEISA Monitor - Versi pustaka pihak ketiga (vendor)
+Diperiksa: 26 November 2026. Versi dibaca dari banner di dalam berkas. Berkas tidak diubah dari sumbernya.
+Perbarui berkas ini setiap kali sebuah pustaka diganti. Lisensi: lihat THIRD_PARTY_NOTICES.txt.
+
+Nama        Versi    Sumber                                     Berkas                       SHA-256
+ExcelJS     4.4.0    https://github.com/exceljs/exceljs         vendor/exceljs.min.js        997fc838a155088a55adf05fed94f1f9af695bfaaedb3ebd6fe633933393f8b4
+PptxGenJS   4.0.1    https://github.com/gitbrent/PptxGenJS      vendor/pptxgen.bundle.js     4fb9eac5cfefb213e2d8743c2b7151025f31bfb3f834c73c12062916daa0f3f8
+pdf.js      6.3.289  https://github.com/mozilla/pdf.js          vendor/pdfjs/pdf.min.mjs     f401927e692efc7735e0cd528c490d0dd31b7f0972c122b7040df805be45cce4
+pdf.js      6.3.289  https://github.com/mozilla/pdf.js          vendor/pdfjs/pdf.worker.min.mjs  a33cfe728c584fdba4fcc1fd54bcdc2f9f2f13889ddbb5b2bd1d0f8cbe49b84e
+JSZip       3.10.1   https://github.com/Stuk/jszip              (di dalam exceljs.min.js dan pptxgen.bundle.js)
+
+Catatan: banner exceljs.min.js bertanggal 19-10-2023 dan memuat JSZip 3.10.1; banner pptxgen.bundle.js menyebut 4.0.1 (25-06-2025).
+Versi ExcelJS 4.4.0 diambil dari keterangan pemilik proyek dan tanggal build itu; angka "4.4.0" tidak tertulis di banner berkas.

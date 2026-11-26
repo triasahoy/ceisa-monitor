@@ -1,0 +1,21 @@
+/* CEISA Monitor – gaya halaman panduan dan 404 (dibuat oleh store/build_situs.py); memakai variabel mulai.css */
+body.gp .top{background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);color:var(--ink)}
+.doc{max-width:860px;margin:0 auto;padding:96px 16px 0}
+.crumb{font-size:13px;color:var(--ink-3)}.crumb a{color:var(--navy-2)}
+.gnav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 26px}
+.gnav a{text-decoration:none;font-size:13.5px;font-weight:600;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 13px}
+.gnav a:hover{border-color:var(--navy-2)}.gnav a[aria-current]{background:var(--navy);border-color:var(--navy);color:#fff}
+.doc h1{font-size:clamp(28px,4vw,40px);max-width:none;margin:6px 0 14px;line-height:1.15;color:var(--ink)}
+.doc h2{font-size:24px;margin:40px 0 10px;letter-spacing:-.01em;line-height:1.25}.doc h3{font-size:19px;margin:28px 0 8px}
+.doc p,.doc li{font-size:16px;line-height:1.7}.doc li{margin:4px 0}
+.doc p a,.doc li a,.doc td a{color:var(--navy-2)}
+.doc img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;margin:12px 0}
+.tw{overflow-x:auto;margin:14px 0}.doc table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.55}
+.doc th,.doc td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.doc th{background:var(--surface-2)}
+.doc td img{margin:0;min-width:120px}
+.doc code{background:var(--surface-2);padding:1px 5px;border-radius:5px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.9em}
+.doc pre{background:var(--surface-2);border-radius:10px;padding:12px 14px;overflow-x:auto}.doc pre code{padding:0;background:none}
+.doc blockquote{border-left:3px solid var(--gold);margin:14px 0;padding:2px 14px;color:var(--ink-2)}
+.endcta{margin:44px 0 0;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.endcta p{margin:0 0 12px}
+.doc.nf{text-align:center;padding-top:140px}.doc.nf .cta{justify-content:center;margin-top:20px}
+@media (max-width:560px){.top .right .btn{display:none}}

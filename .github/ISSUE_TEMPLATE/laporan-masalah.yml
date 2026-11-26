@@ -12,8 +12,8 @@ body:
     id: versi
     attributes:
       label: Versi CEISA Monitor
-      description: Lihat kaki dasbor.
-      placeholder: "Contoh: 1.17.0"
+      description: Lihat kaki sidebar dasbor atau halaman chrome://extensions.
+      placeholder: "Contoh: 2.0.0"
     validations:
       required: true
   - type: dropdown
@@ -23,6 +23,9 @@ body:
       options:
         - Google Chrome
         - Microsoft Edge
+        - Brave
+        - Opera
+        - Arc
         - Lainnya
     validations:
       required: true
@@ -47,3 +50,10 @@ body:
     attributes:
       label: Pesan galat (bila ada)
       description: Salin teks pesan galat. Tanpa data asli perusahaan.
+  - type: textarea
+    id: diagnostik
+    attributes:
+      label: Berkas diagnostik (disarankan)
+      description: Di dasbor buka Pengaturan > Kesehatan, buat berkas diagnostik, lalu tempel isinya di sini atau lampirkan berkasnya. Berkas ini tidak memuat nomor dokumen, nama perusahaan, atau identitas pajak.
+    validations:
+      required: false

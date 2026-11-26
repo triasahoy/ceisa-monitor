@@ -1,64 +1,242 @@
 <!doctype html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CEISA Monitor – Pantau status dokumen CEISA 4.0</title>
-<meta name="description" content="Ekstensi Chrome untuk memantau status dokumen pabean CEISA 4.0: dasbor, isi dokumen, nilai dan pungutan, tindak lanjut, presentasi, laporan resmi, dan Excel. Tanpa server.">
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEISA Monitor – Pantau Status Dokumen CEISA 4.0 (Gratis)</title>
+<meta name="description" content="Ekstensi Chrome gratis untuk memantau status dokumen CEISA 4.0: Jalur Merah, SLA, tindak lanjut tim, laporan rapat, Excel. Hanya membaca, data di browser.">
 <meta name="google-site-verification" content="30NjWgojyVokLorG2mr3A_l5PLNn4DxCkSMCY1HcdbU" />
+<meta name="theme-color" content="#13315C">
 <link rel="canonical" href="https://triasahoy.github.io/ceisa-monitor/">
-<link rel="alternate" hreflang="id" href="https://triasahoy.github.io/ceisa-monitor/">
-<link rel="alternate" hreflang="en" href="https://triasahoy.github.io/ceisa-monitor/en/">
-<link rel="alternate" hreflang="x-default" href="https://triasahoy.github.io/ceisa-monitor/">
+<link rel="alternate" hreflang="id" href="https://triasahoy.github.io/ceisa-monitor/"><link rel="alternate" hreflang="en" href="https://triasahoy.github.io/ceisa-monitor/en/"><link rel="alternate" hreflang="x-default" href="https://triasahoy.github.io/ceisa-monitor/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="CEISA Monitor"><meta property="og:locale" content="id_ID">
-<meta property="og:url" content="https://triasahoy.github.io/ceisa-monitor/">
-<meta property="og:title" content="CEISA Monitor – Pantau status dokumen CEISA 4.0"><meta property="og:description" content="Ekstensi browser gratis: status dokumen, billing dan NTPN, nilai dan pungutan, penugasan WhatsApp, dan laporan dalam satu dasbor. Hanya membaca, data tetap di browser.">
-<meta property="og:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="CEISA Monitor: dasbor status dokumen CEISA 4.0">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CEISA Monitor"><meta name="twitter:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png">
-<link rel="icon" href="images/logo.png">
-<style>
-:root{--navy:#0B2545;--teal:#0E7C86;--amber:#F5B940;--ink:#0F1C2B;--muted:#5B6B7C;--bg:#F4F7F9}
-*{box-sizing:border-box}body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
-a{color:var(--teal)}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header{background:linear-gradient(135deg,var(--navy),#0E3B5E 60%,var(--teal));color:#fff;padding:56px 0 72px}
-.brand{display:flex;align-items:center;gap:14px;font-weight:700;font-size:20px}.brand img{width:48px;height:48px;border-radius:12px}
-h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:28px 0 14px;letter-spacing:-.5px}h1 span{color:var(--amber)}
-.lead{font-size:20px;color:#F1F7FB;max-width:720px}
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none}
-.btn.p{background:var(--amber);color:var(--navy)}.btn.s{border:1px solid rgba(255,255,255,.4);color:#fff}
-.hero{margin-top:-44px}.hero img{width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(11,37,69,.25);display:block}
-section{padding:56px 0}h2{font-size:30px;margin:0 0 10px}.sub{color:var(--muted);margin:0 0 28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(11,37,69,.08)}.card img{width:100%;border-radius:10px;display:block}.card h3{margin:14px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:15px}
-.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:12px}.steps li{counter-increment:s;background:#fff;border-radius:12px;padding:14px 16px 14px 60px;position:relative}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700}
-.sec{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.sec div{background:#fff;border-radius:12px;padding:16px;border-left:4px solid var(--teal)}
-footer{padding:32px 0;color:var(--muted);font-size:14px;border-top:1px solid #DDE3E8}
-code{background:#E8EEF2;padding:1px 6px;border-radius:6px}
-</style></head><body>
-<header><div class="wrap">
-<div class="brand"><img src="images/logo.png" alt="">CEISA Monitor</div>
-<h1>Laporan status dokumen CEISA,<br><span>tanpa setengah hari menyalin data.</span></h1>
-<p class="lead">Ekstensi Chrome yang membaca daftar dokumen CEISA 4.0 dengan sesi login Anda sendiri, lalu menyusun dasbor, tindak lanjut, presentasi rapat, laporan resmi, Excel, dan ringkasan WhatsApp. Semua diproses di browser, tanpa server.</p>
-<div class="btns"><a class="btn p" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi">Pasang dari Chrome Web Store</a><a class="btn s" href="https://github.com/triasahoy/ceisa-monitor/blob/main/docs/PANDUAN.md">Panduan bergambar</a><a class="btn s" href="https://github.com/triasahoy/ceisa-monitor/blob/main/docs/ALUR_KERJA.md">Alur kerja</a><a class="btn s" href="privacy-policy.html">Kebijakan privasi</a><a class="btn s" href="en/">English</a></div>
-</div></header>
-<div class="wrap hero"><img src="gif/dasbor.gif" alt="Demo dasbor CEISA Monitor"></div>
-<section><div class="wrap"><h2>Satu layar untuk semua jenis dokumen</h2><p class="sub">Semua tampilan memakai data demo.</p>
-<div class="grid">
-<div class="card"><img src="gif/periode.gif" alt=""><h3>Periode dan pembanding</h3><p>Semua data di portal termasuk tahun lalu; 7/30/90 hari, kuartal, atau rentang sendiri. Setiap angka dibandingkan otomatis.</p></div>
-<div class="card"><img src="images/06_komposisi_status.png" alt=""><h3>Komposisi status</h3><p>Donat dan daftar status dengan jumlah dan persentase; klik status untuk menyaring rincian.</p></div>
-<div class="card"><img src="gif/penugasan_whatsapp.gif" alt=""><h3>Penugasan via WhatsApp</h3><p>Tugas per dokumen dan satu pesan siap kirim untuk setiap penanggung jawab.</p></div>
-<div class="card"><img src="gif/rincian_perubahan.gif" alt=""><h3>Rincian perubahan status</h3><p>Status sebelum dan sesudah, Riwayat Status dan Riwayat Respon dari portal dengan jam persis pada popup BERUBAH.</p></div>
-<div class="card"><img src="images/33_hari_ini.png" alt=""><h3>Kartu Hari ini</h3><p>Daftar tindakan yang mendesak: tugas terlambat, Jalur Merah atau pemeriksaan, baru melewati SLA, dan belum ada penanggung jawab.</p></div>
-<div class="card"><img src="images/34_rekap_bulanan.png" alt=""><h3>Rekap pungutan bulanan</h3><p>Pungutan dibayar dan pungutan berfasilitas per bulan, dengan persentase pemanfaatan fasilitas.</p></div>
-<div class="card"><img src="images/29_kartu_arsip.png" alt=""><h3>Kartu arsip pengajuan</h3><p>Dokumen pelengkap, barang, nilai, pungutan, dan jaminan dari Unduh Excel dan Detail Dokumen portal, dengan sekali klik.</p></div>
-<div class="card"><img src="images/37_ambil_isi.png" alt=""><h3>Ambil isi dokumen</h3><p>Pilih rentang tanggal daftar dan jenis dokumen; ringkasan menunjukkan jumlah yang akan dibaca dan perkiraan waktunya.</p></div>
-<div class="card"><img src="images/32_nilai_pungutan.png" alt=""><h3>Nilai dan pungutan per dokumen</h3><p>Nilai pabean, BM, PPN, PPh, total dibayar, dan fasilitas per dokumen, dapat dicari dan diurutkan. Excel dapat diekspor per periode dan jenis dokumen.</p></div>
-<div class="card"><img src="images/52_ringkasan_daftar.png" alt=""><h3>Ringkasan WhatsApp</h3><p>Angka utama, nilai dan pungutan, tugas hari ini, dan daftar dokumen lengkap dengan tanggal daftar, pengirim atau penerima barang, dan nomor invoice; pilih Pagi atau Sore dan mode ringkas untuk ponsel.</p></div>
-<div class="card"><img src="images/50_data_pemindahan.png" alt=""><h3>Pindah dan cadangan data</h3><p>Ekspor seluruh data ke satu berkas dan impor kembali di komputer atau pemasangan lain, dengan pratinjau per akun.</p></div>
-<div class="card"><img src="gif/presentasi.gif" alt=""><h3>Presentasi rapat</h3><p>26 slide (atau 9 slide ringkas) dengan judul berupa kesimpulan, poin utama, nilai dan pungutan, serta lampiran, dibuat dalam hitungan detik.</p></div>
-<div class="card"><img src="images/17_laporan_resmi.png" alt=""><h3>Laporan resmi A4</h3><p>Kop, nomor, perihal, ringkasan naratif, dan lembar pengesahan; PDF atau Word.</p></div>
-</div></div></section>
-<section style="background:#fff"><div class="wrap"><h2>Pasang dalam dua menit</h2><p class="sub">Chrome atau Microsoft Edge, hanya lewat Chrome Web Store.</p>
-<ol class="steps"><li>Buka <a href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi">CEISA Monitor di Chrome Web Store</a> dengan Chrome atau Edge.</li><li>Klik <b>Tambahkan ke Chrome</b>, lalu sematkan ikon CEISA Monitor.</li><li>Masuk ke portal CEISA 4.0, lalu klik ikon CEISA Monitor. Atau pilih <b>Coba mode demo</b>.</li></ol></div></section>
-<section><div class="wrap"><h2>Aman sejak dirancang</h2><p class="sub">Rincian di <a href="https://github.com/triasahoy/ceisa-monitor/blob/main/SECURITY.md">SECURITY.md</a>.</p>
-<div class="sec"><div><b>Hanya membaca</b><br>Tidak ada pengisian atau perubahan dokumen.</div><div><b>Tanpa server</b><br>Data tersimpan di browser Anda, terpisah per akun.</div><div><b>Tanpa kata sandi</b><br>Token tidak disimpan dan sesi tidak diperpanjang.</div><div><b>Izin minimum</b><br>Akses host hanya ke portal.beacukai.go.id.</div></div></div></section>
-<footer><div class="wrap">© 2026 Trias Purwantoro. Hak cipta dilindungi. CEISA Monitor adalah proyek independen dan tidak berafiliasi dengan Direktorat Jenderal Bea dan Cukai. · <a href="https://github.com/triasahoy/ceisa-monitor">GitHub</a></div></footer>
-</body></html>
+<meta property="og:url" content="https://triasahoy.github.io/ceisa-monitor/"><meta property="og:title" content="CEISA Monitor – Pantau Status Dokumen CEISA 4.0 (Gratis)">
+<meta property="og:description" content="Ekstensi Chrome gratis untuk memantau status dokumen CEISA 4.0: Jalur Merah, SLA, tindak lanjut tim, laporan rapat, Excel. Hanya membaca, data di browser.">
+<meta property="og:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="CEISA Monitor 2.0 dengan data demo">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CEISA Monitor – Pantau Status Dokumen CEISA 4.0 (Gratis)"><meta name="twitter:description" content="Ekstensi Chrome gratis untuk memantau status dokumen CEISA 4.0: Jalur Merah, SLA, tindak lanjut tim, laporan rapat, Excel. Hanya membaca, data di browser."><meta name="twitter:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CEISA Monitor", "description": "Ekstensi Chrome gratis untuk memantau status dokumen CEISA 4.0: Jalur Merah, SLA, tindak lanjut tim, laporan rapat, Excel. Hanya membaca, data di browser.", "applicationCategory": "BusinessApplication", "operatingSystem": "Chrome", "inLanguage": "id", "image": "https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png", "screenshot": "https://triasahoy.github.io/ceisa-monitor/assets/land/ringkasan.webp", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"}, "url": "https://triasahoy.github.io/ceisa-monitor/", "downloadUrl": "https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi", "softwareHelp": "https://triasahoy.github.io/ceisa-monitor/panduan/", "author": {"@type": "Person", "name": "Trias Purwantoro"}}</script>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<style>/* navigasi situs memuat lebih banyak tautan daripada di ekstensi: satu baris, lebih rapat */
+.top{gap:20px;padding-left:max(16px,calc((100vw - 1320px)/2));padding-right:max(16px,calc((100vw - 1320px)/2))}.links{gap:16px;white-space:nowrap}.logo span{white-space:nowrap}
+.links a[href="demo/"]{opacity:1;font-weight:700;color:var(--gold,#C9A55A)}
+@media (max-width:1280px){.links{gap:12px;font-size:13px}.links a[hreflang=en]{display:none}}
+@media (max-width:1200px){.links a[href="#alur"],.links a[href="#aman"]{display:none}}</style>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="mulai.css">
+<link rel="stylesheet" href="mulai2.css">
+<link rel="stylesheet" href="mulai3.css">
+<link rel="icon" href="assets/ikon.png">
+<noscript><style>
+/* Tanpa JavaScript: tampilkan isi statis, sembunyikan kontrol yang tidak berfungsi */
+.fl::after{transform:none}.ftok,.ltabs,.lcur,.ttabs,#tpins,#tbox,.tlist,.rgrid,.ci,.ghost,.sprog{display:none!important}
+.tour{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "stage"}.cw{grid-template-columns:minmax(0,1fr)}
+</style></noscript>
+</head>
+<body>
+<div class="sprog" aria-hidden="true"><i id="sprog"></i></div>
+<header class="top" id="top">
+  <a class="logo" href="./" aria-label="CEISA Monitor, halaman awal">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#C9A55A"/><path d="M11 7h9l5 5v15H11z" fill="#13315C"/><path d="M20 7v5h5" fill="none" stroke="#C9A55A" stroke-width="1.6"/><path d="M14.5 19.5l2.6 2.6 4.6-5.2" fill="none" stroke="#F4EAD4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><b>CEISA Monitor</b><small>2.0</small></span>
+  </a>
+  <nav class="links" aria-label="Bagian halaman"><a href="#alur">Alur dokumen</a><a href="#tur">Tur produk</a><a href="#laporan">Laporan</a><a href="#aman">Keamanan</a><a href="#mulai">Mulai</a><a href="demo/">Coba demo</a><a href="panduan/">Panduan</a><a href="tanya-jawab/">Tanya jawab</a><a href="en/" hreflang="en">English</a></nav>
+  <div class="right">
+    <button type="button" class="ghost" id="presBtn" title="Mode presentasi (tombol P)"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 20h8M12 16v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Mode presentasi</span></button>
+    <button type="button" class="ghost" id="theme" aria-label="Ganti tema"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span id="themeT">Otomatis</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="copy" id="hcopy">
+      <h1>Semua status dokumen pabean dalam satu dasbor.</h1>
+      <p class="lead">Untuk tim ekspor-impor di CEISA 4.0: baca status, bagi tugas, dan susun laporan rapat.</p>
+      <div class="cta"><a class="btn gold lg" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" id="heroCta" rel="noopener"><span>Pasang di Chrome — gratis</span></a><a class="btn line lg" href="demo/" id="heroDemo">Coba demo</a><a class="btn line lg" href="tutorial/"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video tutorial</a></div>
+      <p class="ctanote">Gratis dari Chrome Web Store, tanpa akun, tanpa server pihak ketiga.</p>
+      <p class="ctanote" style="margin-top:8px;max-width:540px">CEISA Monitor adalah alat independen buatan pengguna, bukan produk resmi dan tidak berafiliasi dengan Direktorat Jenderal Bea dan Cukai.</p>
+    </div>
+    <div class="lshot" id="lshot">
+      <div class="lwin">
+        <div class="lview" id="lview"><em class="ldemo in">Data contoh</em>
+          <figure class="ls on" data-i="0" data-u="Ringkasan dengan Perlu perhatian hari ini"><img src="assets/land/ringkasan.webp" alt="Ringkasan: kesimpulan, angka utama, dan Perlu perhatian hari ini" width="1440" height="900" fetchpriority="high"></figure>
+          <figure class="ls" data-i="1" data-u="Dokumen dengan panel dokumen: tahapan dan lama di setiap status"><img src="assets/land/panel.webp" alt="Dokumen dengan panel dokumen: tahapan dan lama di setiap status" width="1440" height="900" loading="lazy"></figure>
+          <figure class="ls" data-i="2" data-u="Buat laporan, dimulai dari tujuan"><img src="assets/land/laporan.webp" alt="Buat laporan dimulai dari tujuan" width="1440" height="900" loading="lazy"></figure>
+          <figure class="ls" data-i="3" data-u="Laporan per penanggung jawab: WhatsApp dan Excel per orang"><img src="assets/land/tim.webp" alt="Laporan per penanggung jawab: WhatsApp dan Excel per orang" width="1440" height="900" loading="lazy"></figure>
+          <span class="lcur" id="lcur" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.5L8.5 20z" fill="#fff" stroke="#0F1C2B" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+      <div class="lcap"><span id="lurl">Ringkasan dengan Perlu perhatian hari ini</span></div>
+      <div class="ltabs" role="tablist" aria-label="Halaman yang diperlihatkan">
+        <button type="button" role="tab" data-i="0" aria-selected="true"><b>Ringkasan</b><span>prioritas hari ini</span><i></i></button>
+        <button type="button" role="tab" data-i="1" aria-selected="false"><b>Dokumen</b><span>tahapan per dokumen</span><i></i></button>
+        <button type="button" role="tab" data-i="2" aria-selected="false"><b>Laporan</b><span>mulai dari tujuan</span><i></i></button>
+        <button type="button" role="tab" data-i="3" aria-selected="false"><b>Tim</b><span>tugas per orang</span><i></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <ul class="strip">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><b>Hanya membaca</b><span>tidak mengisi atau mengubah apa pun di portal</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><b>Tanpa server</b><span>data tetap di browser Anda, terpisah per akun</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><div><b>4 tujuan laporan</b><span>rapat, kabar harian, arsip, dan tugas tim</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><div><b>Dibuat praktisi</b><span>Ahli Kepabeanan bersertifikat, dari pekerjaan sehari-hari</span></div></li>
+  </ul>
+
+  <section id="alur" class="flow live reveal">
+    <div class="fhead">
+      <h2>Jalur Merah dihitung hanya selama pemeriksaan</h2>
+      <p class="sub">Setiap tahap di CEISA 4.0 terpantau. Sesudah pemeriksaan, dokumen kembali dihitung belum selesai biasa sampai Selesai Proses.</p>
+    </div>
+    <div class="fl" id="flow">
+      <svg class="flp" viewBox="0 0 1000 8" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="4" x2="1000" y2="4" pathLength="1"/></svg>
+      <div class="ftok" id="ftok" aria-hidden="true"><b id="ftAju">…0926-099810</b><span id="ftAge">Umur 0 hari</span><em id="ftTag">Belum selesai</em></div>
+      <ol>
+        <li style="--i:0"><span class="fn">1</span><b>Pengajuan</b><p>Nomor pengajuan, tanggal daftar, dan jenis dokumen.</p></li>
+        <li style="--i:1"><span class="fn">2</span><b>Penjaluran</b><p>Siap Jalur: Hijau, Kuning, atau Merah.</p><span class="fc" aria-hidden="true"><i class="h"></i><i class="k"></i><i class="m"></i></span></li>
+        <li style="--i:2"><span class="fn m">3</span><b>Pemeriksaan Fisik</b><p>Jalur Merah dalam pemeriksaan: tampil di Perlu perhatian hari ini.</p></li>
+        <li style="--i:3"><span class="fn">4</span><b>Pembongkaran / Gate In</b><p>Masih belum selesai, tetapi bukan lagi Jalur Merah dalam pemeriksaan.</p></li>
+        <li style="--i:4"><span class="fn ok">✓</span><b>Selesai Proses</b><p>Waktu penyelesaian dan Sesuai SLA untuk laporan rapat.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="tur" class="tour reveal">
+    <h2>Lihat setiap bagian, lalu klik titiknya</h2>
+    <div class="ttabs" role="tablist" aria-label="Halaman dasbor">
+      <button type="button" role="tab" data-t="ringkasan" aria-selected="true">Ringkasan</button><button type="button" role="tab" data-t="dokumen" aria-selected="false">Dokumen</button><button type="button" role="tab" data-t="laporan" aria-selected="false">Buat laporan</button><button type="button" role="tab" data-t="tim" aria-selected="false">Tim</button>
+    </div>
+    <div class="tgrid">
+      <div class="tstage" id="tstage"><img id="timg" src="assets/land/ringkasan.webp" alt="Halaman Ringkasan" width="1440" height="900" loading="lazy"><div class="tbox" id="tbox" aria-hidden="true"></div><div id="tpins"></div><span class="ldemo in">Data contoh</span></div>
+      <ol class="tlist" id="tlist"></ol>
+    </div>
+  </section>
+
+  <section id="beda" class="vs reveal">
+    <h2>Satu layar yang siap ditindaklanjuti</h2>
+    <div class="vsgrid">
+      <article class="before">
+        <h3><span class="vi" aria-hidden="true">✕</span>Hanya dengan portal CEISA 4.0</h3>
+        <ul>
+          <li>Status dicek per nomor pengajuan, berpindah-pindah halaman</li>
+          <li>Dokumen yang perlu ditangani hari ini dicari sendiri</li>
+          <li>Tugas untuk tim diketik satu per satu ke WhatsApp</li>
+          <li>Bahan rapat dan laporan disusun ulang setiap bulan</li>
+        </ul>
+      </article>
+      <article class="after">
+        <h3><span class="vi" aria-hidden="true">✓</span>Dengan CEISA Monitor</h3>
+        <ul>
+          <li>Semua dokumen, status, jalur, dan umur dalam satu dasbor</li>
+          <li>Perlu perhatian hari ini: Jalur Merah dalam pemeriksaan dan dokumen lebih dari 30 hari</li>
+          <li>Pesan WhatsApp dan Excel per penanggung jawab, hasilnya kembali ke dasbor</li>
+          <li>Pilih tujuan, lalu presentasi, laporan A4, Excel, dan pesan siap dalam detik</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="laporan" class="rep reveal">
+    <h2>Pilih tujuannya. Berkasnya tersusun sendiri.</h2>
+    <p class="sub">Angka di setiap berkas sama persis dengan dasbor dan mengikuti filter yang sedang aktif. Semua dibuat di browser dan tersimpan di folder Unduhan.</p>
+    <noscript><p class="sub">Contoh keluaran per tujuan tampil bila JavaScript aktif: presentasi, laporan resmi A4, Excel berformat, dan pesan WhatsApp.</p></noscript>
+    <div class="rgrid">
+      <div class="rgoals" role="tablist" aria-label="Tujuan laporan">
+        <button type="button" role="tab" data-g="rapat" aria-selected="true"><b>Rapat bulanan</b><span>Presentasi, laporan resmi A4, dan Excel</span><i></i></button>
+        <button type="button" role="tab" data-g="kabar" aria-selected="false"><b>Kabar harian</b><span>Pesan WhatsApp singkat untuk atasan</span><i></i></button>
+        <button type="button" role="tab" data-g="arsip" aria-selected="false"><b>Arsip dan audit</b><span>Laporan resmi A4 dan Excel berformat</span><i></i></button>
+        <button type="button" role="tab" data-g="tim" aria-selected="false"><b>Tugas tim</b><span>WhatsApp dan Excel per penanggung jawab</span><i></i></button>
+      </div>
+      <div class="rstage2" id="rstage2" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="hemat" class="calc reveal">
+    <h2>Berapa jam yang bisa dihemat tim Anda?</h2>
+    <div class="cw">
+      <div class="ci">
+        <label><span>Dokumen per bulan <b id="cvD">500</b></span><input type="range" id="cD" min="50" max="5000" step="50" value="500"></label>
+        <label><span>Pengecekan status per dokumen sampai selesai <b id="cvX">3 kali</b></span><input type="range" id="cX" min="1" max="10" step="1" value="3"></label>
+        <label><span>Menit per pengecekan di portal <b id="cvY">2 menit</b></span><input type="range" id="cY" min="1" max="10" step="1" value="2"></label>
+        <label><span>Jam menyusun laporan per bulan <b id="cvZ">6 jam</b></span><input type="range" id="cZ" min="0" max="40" step="1" value="6"></label>
+      </div>
+      <div class="co">
+        <small>Perkiraan waktu yang dihemat</small>
+        <b class="big"><span id="cH">52</span><em>jam / bulan</em></b>
+        <span class="eq" id="cE">setara 6,5 hari kerja, dari ±56 jam menjadi ±4 jam</span>
+        <noscript><p class="cnote">Contoh dengan isian bawaan: 500 dokumen per bulan, 3 kali pengecekan, 2 menit per pengecekan, dan 6 jam menyusun laporan.</p></noscript>
+        <p class="cnote">Perkiraan dari isian Anda, dengan anggapan pemantauan lewat CEISA Monitor sekitar 10 menit per hari kerja dan laporan dibuat dalam 30 menit. Bukan jaminan hasil.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="aman" class="safe reveal">
+    <h2>Dibuat untuk data perusahaan yang sensitif</h2>
+    <div class="sdg" role="img" aria-label="Alur data: dari portal CEISA 4.0 ke browser Anda, lalu ke berkas laporan Anda, tanpa server pihak ketiga">
+      <svg viewBox="0 0 900 230" aria-hidden="true">
+        <defs><linearGradient id="sdgL" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="750" y2="0"><stop offset="0" stop-color="#1D4A85"/><stop offset="1" stop-color="#C9A55A"/></linearGradient></defs>
+        <path id="sdp1" d="M150 95 H390" class="ln"/><path id="sdp2" d="M510 95 H750" class="ln"/><path d="M450 140 V190 H660" class="ln no"/>
+        <circle r="5" class="pt"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#sdp1"/></animateMotion></circle>
+        <circle r="5" class="pt"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#sdp2"/></animateMotion></circle>
+        <g class="nd" transform="translate(30 55)"><rect width="120" height="80" rx="16"/><text x="60" y="36">Portal</text><text x="60" y="56" class="s">CEISA 4.0</text></g>
+        <g class="nd me" transform="translate(390 45)"><rect width="120" height="100" rx="18"/><text x="60" y="44">Browser Anda</text><text x="60" y="66" class="s">CEISA Monitor</text></g>
+        <g class="nd" transform="translate(750 55)"><rect width="120" height="80" rx="16"/><text x="60" y="36">Berkas</text><text x="60" y="56" class="s">laporan Anda</text></g>
+        <g class="nd off" transform="translate(660 165)"><rect width="190" height="50" rx="14"/><text x="95" y="31">Server pihak ketiga</text></g>
+        <g class="xm" transform="translate(600 190)"><circle r="13"/><path d="M-5 -5 L5 5 M5 -5 L-5 5"/></g>
+        <text x="270" y="80" class="lb">hanya membaca</text><text x="630" y="80" class="lb">Anda yang menyimpan</text>
+      </svg>
+    </div>
+    <ol class="sdgm"><li><b>Portal</b><span>CEISA 4.0</span></li><li class="lk">hanya membaca</li><li class="self"><b>Browser Anda</b><span>CEISA Monitor</span></li><li class="lk">Anda yang menyimpan</li><li><b>Berkas</b><span>laporan Anda</span></li><li class="off">Tanpa server pihak ketiga</li></ol>
+    <div class="sgrid">
+      <article><span class="si ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Yang dibaca</h3><p>Daftar dokumen, isi dokumen, riwayat status, dan billing akun Anda, memakai sesi login Anda sendiri di tab portal.</p></article>
+      <article><span class="si bad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span><h3>Yang tidak dilakukan</h3><p>Tidak mengisi, mengirim, atau mengubah apa pun di portal. Nama dan NIP petugas tidak diambil. Kata sandi tidak disentuh.</p></article>
+      <article><span class="si nv"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><h3>Di mana data tersimpan</h3><p>Hanya di penyimpanan lokal browser ini. Tanpa server pihak ketiga. Cadangan .ceisadata dibuat dan dibuka oleh Anda sendiri.</p></article>
+    </div>
+  </section>
+
+  <section id="mulai" class="choose reveal">
+    <span class="kick">Mulai</span>
+    <h2>Pasang dalam satu menit</h2>
+    <ol class="qsteps"><li><b>1</b>Pasang dari Chrome Web Store, lalu sematkan ikonnya</li><li><b>2</b>Masuk ke portal CEISA 4.0, lalu klik Tarik data</li><li><b>3</b>Atur Profil perusahaan, lalu buka Ringkasan</li></ol>
+    <div class="cards">
+      <article class="card main">
+        <span class="tag ok">Gratis</span>
+        <h3>Pasang dari Chrome Web Store</h3>
+        <p>Untuk Chrome dan Microsoft Edge versi 116 atau lebih baru. Pasang hanya dari Chrome Web Store, penerbit Trias EXIM.</p>
+        <ul class="ticks"><li>Hanya membaca portal dengan sesi Anda sendiri</li><li>Data tersimpan di browser Anda, tanpa server pihak ketiga</li><li>Pengguna versi 1 diperbarui otomatis dengan cadangan lengkap</li></ul>
+        <div class="act"><a class="btn pri lg" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Buka Chrome Web Store</a></div>
+      </article>
+      <article class="card">
+        <span class="tag demo">Coba dulu</span>
+        <h3>Demo, panduan, dan video</h3>
+        <p>Coba dasbor langsung di browser dengan data contoh fiktif, tanpa memasang apa pun dan tanpa login portal.</p>
+        <ul class="ticks"><li><a href="demo/">Coba demo dasbor</a></li><li><a href="panduan/">Panduan bergambar</a></li><li><a href="tutorial/">Video tutorial enam bab</a></li><li><a href="tanya-jawab/">Tanya jawab</a> dan <a href="alur-kerja/">alur kerja tim</a></li></ul>
+        <div class="act"><a class="btn lg" href="demo/">Coba demo</a><a class="btn lg" href="panduan/">Baca panduan</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="faq" class="faq reveal">
+    <h2>Pertanyaan yang sering diajukan</h2>
+    <div class="fq">
+      <details><summary>Apakah aman? Apa saja yang diakses?</summary><p>Ekstensi hanya membaca data dari tab portal CEISA 4.0 yang Anda buka, dengan sesi login Anda sendiri. Ekstensi tidak mengisi, mengirim, atau mengubah apa pun di portal. Nama dan NIP petugas tidak diambil.</p></details>
+      <details><summary>Di mana data disimpan?</summary><p>Di penyimpanan lokal browser ini saja. Tidak ada server pihak ketiga. Untuk pindah komputer, gunakan cadangan .ceisadata di Pengaturan.</p></details>
+      <details><summary>Apakah membebani portal?</summary><p>Data ditarik saat Anda meminta, dengan jeda antarhalaman. Pemantauan otomatis tersedia sebagai pilihan dan mati secara bawaan; bila dinyalakan, permintaan dijalankan satu per satu dan berhenti sendiri saat sesi portal berakhir.</p></details>
+      <details><summary>Dokumen saya yang lama terdaftar dengan NPWP 15 digit. Ikut terbaca?</summary><p>Ya. Dokumen yang terdaftar dengan NPWP 15 digit ikut ditarik dan digabung ke akun yang sama. Dokumen yang belum final lebih dari setahun dipisahkan dari angka utama, tanpa mengubah statusnya.</p></details>
+      <details><summary>Apakah ekstensi mengirim WhatsApp sendiri?</summary><p>Tidak. Pesan disusun di browser; WhatsApp hanya dibuka saat Anda mengklik, dan Anda sendiri yang menekan kirim.</p></details>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <div><h2>Siap mencoba?</h2><p>Pasang gratis, lalu coba mode demo atau langsung tarik data dari portal Anda.</p></div>
+    <div class="cta"><a class="btn gold lg" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Pasang di Chrome</a><a class="btn line lg" href="panduan/">Baca panduan</a></div>
+  </section>
+</main>
+<div class="mcta" id="mcta" hidden><a class="btn gold" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Pasang gratis</a><a class="btn" href="panduan/">Panduan</a></div>
+<footer class="foot"><span>© 2026 Trias Purwantoro · CEISA Monitor adalah alat independen buatan pengguna, bukan produk resmi dan tidak berafiliasi dengan Direktorat Jenderal Bea dan Cukai.</span><span><a href="panduan/">Panduan</a> · <a href="tanya-jawab/">Tanya jawab</a> · <a href="tutorial/">Tutorial</a> · <a href="privacy-policy.html">Kebijakan privasi</a> · <a href="https://github.com/triasahoy/ceisa-monitor">GitHub</a> · <a href="en/" hreflang="en">English</a></span></footer>
+<script type="module" src="situs.js"></script>
+<script type="module" src="mulai2.js"></script>
+<script type="module" src="mulai3.js"></script>
+</body>
+</html>

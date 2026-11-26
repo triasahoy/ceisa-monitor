@@ -1,22 +1,25 @@
 <p align="center"><img src="docs/images/logo.png" width="96" alt="Logo CEISA Monitor"></p>
 
-<h1 align="center">CEISA Monitor</h1>
+<h1 align="center">CEISA Monitor 2.0</h1>
 
-<p align="center">Pantau status dokumen pabean di portal CEISA 4.0 dalam satu layar.<br>
-Dasbor, penugasan via WhatsApp, nilai dan pungutan per dokumen, presentasi rapat, laporan resmi, dan Excel.</p>
+<p align="center">Pantau status dokumen pabean di portal CEISA 4.0 dalam satu dasbor.<br>
+Ringkasan, Jalur Merah dalam pemeriksaan, tindak lanjut, laporan per penanggung jawab, presentasi rapat, laporan resmi A4, Excel, dan WhatsApp.</p>
 
 <p align="center">
 <a href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi"><b>Pasang dari Chrome Web Store</b></a> ·
 <a href="docs/PANDUAN.md">Panduan bergambar</a> ·
+<a href="docs/TUTORIAL.md">Video tutorial</a> ·
 <a href="docs/ALUR_KERJA.md">Alur kerja</a> ·
 <a href="docs/FAQ.md">Tanya jawab</a> ·
 <a href="SECURITY.md">Keamanan</a> ·
 <a href="#english">English</a>
 </p>
 
-<p align="center"><b>Versi 1.19.0</b> · Chrome dan Edge · Bahasa Indonesia dan English · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
+<p align="center"><b>Versi 2.0.0</b> · Chrome dan Edge · Bahasa Indonesia · Gratis · Tidak resmi, tidak berafiliasi dengan DJBC</p>
 
-![CEISA Monitor](docs/gif/dasbor.gif)
+![CEISA Monitor 2.0](docs/gif/v2/dasbor.gif)
+
+<p align="center"><a href="../../releases/tag/v2.0.0">Tonton video perkenalan 2.0 (38 detik)</a> · semua gambar dan video memakai data fiktif berlabel DATA DEMO</p>
 
 ## Mengapa CEISA Monitor
 
@@ -24,98 +27,67 @@ Status dokumen, billing, dan NTPN ada di portal CEISA 4.0, tetapi tersebar di be
 
 | Pekerjaan | Cara biasa | Dengan CEISA Monitor |
 |---|---|---|
-| Melihat status semua dokumen | Membuka Daftar Dokumen, menyaring jenis demi jenis | Satu dasbor: enam angka utama, komposisi status, dan dokumen yang melewati SLA |
-| Mengetahui apa yang berubah | Membandingkan tampilan hari ini dengan ingatan atau catatan kemarin | Tanda BERUBAH beserta Riwayat Status dan Respon dari portal dengan jam persis |
-| Memeriksa billing dan NTPN | Membuka Browse Billing, mencocokkan nomor dokumen secara manual | Kartu Tagihan: NTPN, tenggat, nilai, rincian pembayaran, dan PDF di dasbor |
-| Menugaskan tim | Mengetik pesan WhatsApp per orang | Satu pesan siap kirim per penanggung jawab, berisi nomor, status, tugas, dan target |
-| Menyusun laporan rapat | Menyalin data ke Excel dan PowerPoint | Presentasi, laporan resmi A4, Excel, dan ringkasan WhatsApp dari data yang sama |
+| Melihat status semua dokumen | Membuka Daftar Dokumen, menyaring jenis demi jenis | Halaman Ringkasan: belum selesai, Sesuai SLA, umur dokumen, dan di status mana dokumen tertahan |
+| Menentukan prioritas hari ini | Mencari sendiri dokumen yang bermasalah | "Perlu perhatian hari ini": Jalur Merah dalam pemeriksaan, dokumen lebih dari 30 hari, dokumen yang dipantau |
+| Menugaskan tim | Mengetik pesan WhatsApp per orang | Laporan per penanggung jawab: pesan WhatsApp dan Excel per orang, hasilnya diimpor kembali |
+| Menyusun laporan rapat | Menyalin data ke Excel dan PowerPoint | Pilih tujuan (Rapat bulanan, Kabar harian, Arsip dan audit, Tugas tim); berkas jadi dalam hitungan detik |
+| Menghitung pungutan | Membuka dokumen satu per satu | Nilai dan pungutan dari isi dokumen: dibayar, fasilitas, per bulan, per jenis |
 | Membagikan contoh ke pihak luar | Menghapus identitas satu per satu | Pilihan Samarkan identitas pada semua keluaran |
-
-### Yang membedakan
-
-- **Dibuat dari alur kerja kepabeanan yang nyata.** Jenis dokumen, jalur, SLA, fasilitas, respons resmi CEISA 4.0, dan alur billing sampai NTPN dipahami langsung, bukan sekadar tabel umum.
-- **Hanya membaca.** Ekstensi tidak mengisi, mengubah, atau mengirim apa pun ke portal, dan tidak menilai billing mana yang perlu dibayar.
-- **Data tetap di komputer Anda.** Tanpa server, analitik, iklan, atau pihak ketiga; kata sandi dan token tidak disimpan.
-- **Izin sekecil mungkin.** Akses host hanya ke `portal.beacukai.go.id`; daftar izin lengkap ada di [SECURITY.md](SECURITY.md).
-- **Keluaran siap pakai.** Presentasi rapat, laporan resmi, Excel berformat, dan pesan WhatsApp keluar dari satu sumber data.
-- **Dapat dicoba tanpa akun.** Mode demo memuat data contoh berlabel, jadi semua fitur bisa dilihat sebelum dipasang.
-- **Jelas soal batasan.** Setiap fitur baru harus lolos empat gerbang produk: hanya membaca, tanpa izin baru, data tetap di perangkat, dan hanya menyajikan data. Perubahan per versi ada di [CHANGELOG](CHANGELOG.md).
-- **Gratis dan tidak dikunci.** Dukungan bersifat sukarela.
 
 **Untuk siapa:** staf dan supervisor ekspor-impor, PPJK yang menangani banyak klien, serta pengelola kawasan berikat dan KEK.
 
 **Dibuat oleh** Trias Purwantoro, praktisi ekspor-impor dan Ahli Kepabeanan bersertifikat, sebagai proyek independen yang dipakai dan diperbaiki dari pekerjaan sehari-hari. Kritik dan usul fitur disampaikan lewat [Issues](../../issues/new/choose).
 
-## Segera hadir: CEISA Monitor 2.0
+## Yang baru di 2.0
 
-Tampilan baru sedang diuji sebagai versi pratinjau sebelum terbit di Chrome Web Store. Prinsipnya tetap sama: hanya membaca, data tetap di browser Anda, tanpa server. Pengguna versi 1 akan menerima pembaruan otomatis lewat Chrome Web Store; data, tindak lanjut, dan pengaturan dipindahkan otomatis, dengan cadangan yang dibuat lebih dulu.
+- **Tampilan baru per pekerjaan:** Ringkasan, Dokumen, Tagihan, Nilai dan pungutan, Tindak lanjut, Buat laporan, serta Pengaturan dan profil. Setiap halaman diawali kesimpulan singkat.
+- **Perlu perhatian hari ini.** Jalur Merah dihitung hanya selama masih dalam pemeriksaan (Penjaluran/Siap Jalur, Pemeriksaan Fisik/Barang, Penerimaan Dokumen Pelengkap). Aturan yang sama berlaku di dasbor dan semua laporan.
+- **Dokumen NPWP 15 digit ikut ditarik** dan digabung ke akun yang sama. Dokumen lama (belum final lebih dari setahun) dipisahkan dari angka utama dan dapat ditampilkan bila perlu.
+- **Buat laporan dimulai dari tujuan.** Presentasi rapat sekitar 15 slide dengan judul berupa kesimpulan, laporan resmi A4 dengan ikhtisar halaman pertama, Excel berformat, dan pesan WhatsApp versi Singkat atau Lengkap.
+- **Laporan per penanggung jawab:** pesan WhatsApp dan Excel per orang. Kolom Hasil yang diisi tim dapat diimpor kembali menjadi status dan catatan tindak lanjut.
+- **Panel dokumen:** tahapan dari Riwayat Status portal, lama di setiap status, isi dokumen, pungutan, tindak lanjut, dan billing dalam satu tempat.
+- **Pemantauan (pilihan, mati secara bawaan):** perubahan status masuk ke kotak masuk di lonceng, dengan pemberitahuan browser bila diizinkan.
+- **Lebih ringan untuk data besar:** Perbarui data dan Ambil isi dokumen berjalan di latar belakang; dasbor puluhan ribu dokumen terbuka dalam hitungan detik.
+- **Mode layar kantor**, tema gelap, tampilan ponsel, dan halaman Kesehatan.
 
-| Ringkasan dengan kesimpulan dan "Perlu perhatian hari ini" | Kotak masuk perubahan status |
+Pengguna versi 1 diperbarui otomatis oleh Chrome. Data, tindak lanjut, dan pengaturan tetap ada; cadangan otomatis dibuat sebelum pembaruan. Tampilan English belum tersedia di 2.0 dan menyusul di versi berikutnya. Rincian perubahan ada di [CHANGELOG](CHANGELOG.md).
+
+## Lihat cara kerjanya
+
+| Ringkasan | Perlu perhatian hari ini |
 |---|---|
-| ![Ringkasan CEISA Monitor 2.0](docs/images/60_v2_ringkasan.png) | ![Kotak masuk CEISA Monitor 2.0](docs/images/61_v2_kotak_masuk.png) |
-| **Panel dokumen: tahapan dan lama di setiap status** | **Nilai dan pungutan per jenis dokumen** |
-| ![Panel dokumen CEISA Monitor 2.0](docs/images/62_v2_panel_dokumen.png) | ![Nilai per jenis dokumen CEISA Monitor 2.0](docs/images/63_v2_nilai_per_jenis.png) |
+| ![Ringkasan](docs/images/v2/01_ringkasan.jpg) | ![Perlu perhatian](docs/images/v2/02_perlu_perhatian.jpg) |
+| **Buat laporan: mulai dari tujuan** | **Laporan per penanggung jawab** |
+| ![Buat laporan](docs/gif/v2/buat_laporan.gif) | ![Laporan per penanggung jawab](docs/gif/v2/penanggung_jawab.gif) |
+| **Panel dokumen** | **Nilai dan pungutan** |
+| ![Panel dokumen](docs/images/v2/04_panel_dokumen.jpg) | ![Nilai dan pungutan](docs/images/v2/06_nilai_pungutan.jpg) |
+| **Presentasi rapat** | **Laporan resmi A4** |
+| ![Presentasi](docs/images/v2/19_presentasi.jpg) | ![Laporan resmi A4](docs/images/v2/20_laporan_a4.jpg) |
+| **Pesan WhatsApp** | **Tindak lanjut** |
+| ![WhatsApp](docs/images/v2/10_whatsapp.jpg) | ![Tindak lanjut](docs/images/v2/05_tindak_lanjut.jpg) |
 
-Yang baru di 2.0:
-
-- **Navigasi baru** per pekerjaan: Ringkasan, Dokumen, Tagihan, Nilai dan pungutan, Tindak lanjut, dan Buat laporan, dengan kalimat kesimpulan di setiap halaman.
-- **Jalur Merah dalam pemeriksaan.** Dokumen Jalur Merah dihitung hanya selama masih diperiksa (termasuk yang menunggu pemeriksaan); sesudah Stuffing, Gate In/Out, atau Pembongkaran dihitung sebagai belum selesai biasa. Aturan yang sama berlaku di dasbor dan semua laporan.
-- **Panel dokumen** dengan tahapan dari Riwayat Status portal, lama di setiap status, dokumen pelengkap, pungutan, tindak lanjut, dan billing dalam satu tempat.
-- **Pemantauan pilihan** (mati secara bawaan): perubahan status dan langkah baru di portal masuk ke Kotak masuk, dengan pemberitahuan browser bila diizinkan. Tetap hanya membaca dan memakai tab portal yang Anda buka sendiri.
-- **Gambaran nilai dan pungutan per jenis dokumen:** dibayar, fasilitas, perlakuan pungutan (dibayar, tidak dipungut, ditangguhkan, dibebaskan), PPN lokal tersendiri, dan grafik 12 bulan.
-- **Mode layar kantor** untuk monitor bersama, dengan pilihan menyamarkan nomor.
-- **Halaman Kesehatan** untuk memeriksa sesi portal, penarikan terakhir, dan ukuran data, serta berkas diagnostik tanpa data pribadi.
-- **Lebih ringan untuk data besar:** dasbor dengan puluhan ribu dokumen terbuka dalam hitungan detik, dan browser tetap lancar saat Ambil isi dokumen berjalan.
-
-Gambar di atas memakai data fiktif berlabel DATA DEMO. Sampai 2.0 terbit, versi yang dipasang dari Chrome Web Store tetap versi 1 yang dijelaskan di halaman ini.
+Video tutorial per bab ada di [docs/TUTORIAL.md](docs/TUTORIAL.md). Video versi 1 tetap tersedia di rilis lama, misalnya [v1.17.0](../../releases/tag/v1.17.0).
 
 ## Fitur
 
 | Kebutuhan | Yang disediakan |
 |---|---|
-| Gambaran cepat | Enam angka utama untuk semua jenis dokumen, dibandingkan dengan 30 hari lalu, periode sebelumnya, atau tahun lalu |
-| Semua data | Menarik seluruh dokumen yang tersedia di portal, termasuk tahun-tahun sebelumnya |
-| Periode bebas | 7/30/90 hari, bulan ini, bulan lalu, kuartal, tahun ini, tahun lalu, semua data, atau rentang tanggal sendiri |
-| Komposisi status | Donat dan daftar status dengan jumlah dan persentase; pilih jenis dokumen pada tombol di atas dasbor untuk melihatnya per jenis, dan klik status untuk menyaring rincian |
-| Verifikasi ke kantor | Dokumen Pemeriksaan Dokumen dengan jalur bukan merah bertanda **VERIFIKASI** (bukan Jalur Merah), karena dokumen perlu disampaikan dan diverifikasi ke kantor Bea Cukai |
-| Apa yang berubah | Perubahan sejak kemarin, sejak Senin, 7 hari terakhir, atau sejak terakhir dibuka |
-| Kapan berubah | Popup ikon **BERUBAH** menampilkan **Riwayat Status dan Riwayat Respon dari portal** dengan jam persis, seperti tab di portal; status yang baru muncul ditandai. Riwayat diambil per dokumen saat popup dibuka, tanpa nama petugas. Kartu rincian memuat status sebelum dan sesudah, dengan kode respons resmi CEISA 4.0 diterjemahkan otomatis |
-| Isi dokumen | Tombol **Ambil isi dokumen…** dengan dialog cakupan (rentang tanggal daftar dan jenis dokumen); pengambilan berjalan di latar belakang, jadi dasbor boleh ditutup selama tab portal tetap terbuka. Kartu arsip per pengajuan (klik dua kali baris): dokumen pelengkap (dari Unduh Excel dan daftar Detail Dokumen portal), barang, nilai, pungutan, jaminan; pencarian nomor invoice, B/L, dan kontainer |
-| Nilai dan pungutan | Total nilai pabean, pungutan dibayar dan berfasilitas, tabel rincian per dokumen (BM, PPN, PPh, total dibayar, fasilitas) yang dapat dicari dan diurutkan, serta rekap bulanan; BC 2.5 dan sejenisnya dibaca dari lembar PUNGUTAN portal; tombol Excel membuka dialog cakupan (periode dan jenis dokumen sendiri, ringkasan kelengkapan, lembar Cakupan, pilihan satu lembar per jenis) |
-| Siapa yang menangani | Tindak lanjut per dokumen: penanggung jawab, tugas, target, catatan, petugas pemeriksa barang untuk Jalur Merah (diisi manual), dan riwayat perubahan |
-| Penugasan | Satu pesan WhatsApp per penanggung jawab, berisi nomor pengajuan, nomor pendaftaran, status, tugas, dan target |
-| Tagihan | Kartu dari Browse Billing: billing menurut NTPN, tenggat, dan nilai. Rincian per billing (riwayat status, bukti pembayaran, pungutan per akun) serta PDF billing dan PDF respon dengan pratinjau di dasbor. Hanya menyajikan data; rincian diambil saat diklik dan tidak disimpan |
-| Samarkan identitas | Pilihan pada Excel, CSV, presentasi/laporan, dan ringkasan: nama perusahaan, pengirim, dan penerima menjadi Perusahaan A, B, dan seterusnya, logo dihapus, nomor pengajuan, invoice, kode billing, NTPN, dan NPWP/NITKU hanya menampilkan empat karakter terakhir |
-| Pindah dan cadangan | Ekspor seluruh data ke satu berkas `.ceisadata` (Ringan atau Lengkap) dan impor kembali di pemasangan atau komputer lain, dengan pratinjau per akun |
-| Prioritas harian | Kartu **Hari ini**: tugas terlambat atau jatuh tempo, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab |
-| Laporan | Presentasi .pptx (26 slide, atau 9 slide pada mode ringkasan eksekutif) dengan slide Poin utama, bab Nilai dan pungutan, dan lampiran; laporan resmi A4 (PDF/Word) dengan bab dan lampiran yang sama; Excel dengan lembar Daftar Isi, Nilai per Dokumen, dan Perubahan Status, serta kolom arah barang dan pengirim atau penerima barang; jenis dokumen yang disertakan dapat dipilih; ringkasan WhatsApp Pagi/Sore dengan nilai, tugas hari ini, dan daftar dokumen lengkap (tanggal daftar, pengirim atau penerima barang, nomor invoice, status) |
-| Kenyamanan | Bahasa Indonesia sejak pembukaan pertama (English dari tombol ID/EN), tema terang dan gelap, mode demo |
-
-## Lihat cara kerjanya
-
-| Penugasan via WhatsApp | Komposisi status |
-|---|---|
-| ![Penugasan via WhatsApp](docs/gif/penugasan_whatsapp.gif) | ![Komposisi status](docs/images/06_komposisi_status.png) |
-| **Rincian perubahan status** | **Riwayat dari portal pada ikon BERUBAH** |
-| ![Rincian perubahan](docs/gif/rincian_perubahan.gif) | ![Popup BERUBAH](docs/images/05_perubahan.png) |
-| **Tindak lanjut** | **Presentasi rapat** |
-| ![Tindak lanjut](docs/gif/tindak_lanjut.gif) | ![Presentasi](docs/gif/presentasi.gif) |
-| **Ambil isi dokumen** | **Nilai dan pungutan per dokumen** |
-| ![Ambil isi dokumen](docs/images/37_ambil_isi.png) | ![Nilai dan pungutan](docs/images/32_nilai_pungutan.png) |
-| **Per jenis dokumen dengan filter kartu** | **Rincian dikelompokkan per jenis** |
-| ![Per jenis dokumen](docs/images/39_per_jenis_filter.png) | ![Rincian dikelompokkan](docs/images/40_rincian_kelompok.png) |
-| **Kartu arsip pengajuan** | **Ringkasan WhatsApp/surel** |
-| ![Kartu arsip](docs/images/29_kartu_arsip.png) | ![Ringkasan WhatsApp](docs/images/42_ringkasan_wa.png) |
-| **Hari ini** | **Rekap bulanan** |
-| ![Hari ini](docs/images/33_hari_ini.png) | ![Rekap bulanan](docs/images/34_rekap_bulanan.png) |
-| **Kartu Tagihan** | **Rincian billing** |
-| ![Kartu Tagihan](docs/images/44_kartu_tagihan.png) | ![Rincian billing](docs/images/46_rincian_billing.png) |
-| **Pratinjau PDF billing** | **Samarkan identitas** |
-| ![PDF billing](docs/images/47_pdf_billing.png) | ![Samarkan identitas](docs/images/48_dialog_excel_samarkan.png) |
-
-Video **Yang baru di v1.17** (bernarasi dan bersubtitle, sekitar 3 menit): kartu Tagihan dari Browse Billing, rincian dan PDF billing, lembar Billing di Excel, dan Samarkan identitas. Video lengkap v1.17.0 (sekitar 13 menit) membahas seluruh fitur. Keduanya, beserta subtitle SRT, ada di rilis [v1.17.0](../../releases/tag/v1.17.0). Video sebelumnya ada di rilis [v1.16.3](../../releases/tag/v1.16.3) dan [v1.12.0](../../releases/tag/v1.12.0). Perubahan lengkap ada di [CHANGELOG](CHANGELOG.md).
-
-Video tutorial lengkap untuk dasar pemakaian (15 bagian, direkam pada versi 1.7) tersedia di rilis [v1.7.0](../../releases/tag/v1.7.0). Semua gambar dan video memakai data demo.
+| Gambaran cepat | Total per bulan, belum selesai, Sesuai SLA, umur dokumen, tertahan di status, dan pungutan; kesimpulan satu kalimat |
+| Prioritas | Perlu perhatian hari ini; tampilan Dokumen Jalur Merah dalam pemeriksaan, Melewati SLA, Belum ada penanggung jawab, dan tampilan tersimpan |
+| Semua data | Seluruh dokumen yang tersedia di portal, termasuk dokumen ber-NPWP 15 digit; dokumen lama dipisahkan |
+| Periode dan filter | Semua data, bulan, kuartal, tahun, atau rentang tanggal; jalur; jenis dokumen |
+| Panel dokumen | Tahapan dan lama di setiap status, isi dokumen, dokumen pelengkap, pungutan, tindak lanjut, billing |
+| Isi dokumen | Ambil isi dokumen di latar belakang, dapat dihentikan dan dilanjutkan; cakupan isi per bulan terlihat |
+| Nilai dan pungutan | Dibayar dan berfasilitas, ke mana pungutan (dibayar, tidak dipungut, ditangguhkan, dibebaskan), per bulan dan per jenis |
+| Tagihan | Billing dari Browse Billing apa adanya: NTPN, tenggat, nilai, rincian, dan PDF |
+| Tindak lanjut | Penanggung jawab, tugas, target, catatan, papan per status, dan riwayat |
+| Laporan per penanggung jawab | Pesan WhatsApp dan Excel per orang (Rekap, satu sheet per orang, Belum ditugaskan); impor kolom Hasil dan Keterangan |
+| Buat laporan | Tujuan Rapat bulanan, Kabar harian, Arsip dan audit, Tugas tim; presentasi .pptx, laporan resmi A4 (PDF/Word), Excel berformat, pesan WhatsApp Singkat atau Lengkap; riwayat Terakhir dibuat |
+| Samarkan identitas | Nama perusahaan, nomor pengajuan, pengirim atau penerima, invoice, dan penanggung jawab disamarkan di semua keluaran |
+| Pemantauan | Pilihan, mati secara bawaan: perubahan status ke kotak masuk dan pemberitahuan browser |
+| Cadangan dan pindah | Berkas `.ceisadata` Ringan atau Lengkap; impor dengan pratinjau per akun |
+| Banyak akun | Data per akun terpisah; daftar akun di browser ini dengan pilihan pakai dan hapus |
+| Kenyamanan | Tema terang dan gelap, tampilan ponsel, mode layar kantor, popup ikon, tombol di halaman portal |
 
 ## Pemasangan
 
@@ -123,30 +95,28 @@ CEISA Monitor dipasang **hanya dari Chrome Web Store**. Repositori ini berisi do
 
 **Tautan resmi:** [CEISA Monitor di Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (penerbit: Trias EXIM; ID ekstensi `iojgnclbfhgoapolmfgcjkphacdfjbgi`).
 
-1. Buka tautan di atas dengan Chrome atau Edge, lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
+1. Buka tautan di atas dengan Chrome atau Edge (versi 128 atau lebih baru), lalu klik **Tambahkan ke Chrome** (Edge: **Dapatkan**) dan konfirmasi.
 2. Klik ikon puzzle di bilah alat, lalu sematkan CEISA Monitor.
 3. Pembaruan berjalan otomatis lewat Chrome dan data Anda tetap tersimpan di browser.
 
-Jangan memasang berkas ZIP atau folder ekstensi dari sumber lain, termasuk yang mengaku sebagai CEISA Monitor. Satu-satunya saluran resmi adalah tautan Chrome Web Store yang tercantum di halaman ini. Bila tautan berubah, halaman ini yang diperbarui lebih dulu.
+Jangan memasang berkas ZIP atau folder ekstensi dari sumber lain, termasuk yang mengaku sebagai CEISA Monitor.
 
 ## Mulai dalam empat langkah
 
-1. **Masuk ke portal CEISA 4.0** seperti biasa dengan akun Anda sendiri.
-2. **Buka halaman Daftar Dokumen** (`portal.beacukai.go.id/dokumen-pabean/`) dan tunggu sampai tabel tampil.
-3. **Buka dasbor CEISA Monitor, lalu klik Perbarui data.** Penarikan pertama untuk semua data memerlukan beberapa menit. Biarkan tab portal tetap terbuka.
-4. **Atur Profil perusahaan**: jenis fasilitas, status final, dan target SLA.
+1. **Masuk ke portal CEISA 4.0** seperti biasa dengan akun Anda sendiri dan biarkan tabnya terbuka.
+2. **Buka CEISA Monitor** dari ikon ekstensi atau tombol CEISA Monitor di halaman portal.
+3. **Klik Perbarui data.** Penarikan pertama untuk semua data memerlukan beberapa menit dan berjalan di latar belakang.
+4. **Atur Profil perusahaan** di Pengaturan: jenis fasilitas, status final, dan target SLA.
 
-Ingin mencoba dahulu tanpa masuk ke portal? Pilih **Coba mode demo** pada layar sambutan. Langkah lengkap ada di [Panduan](docs/PANDUAN.md), dan contoh rutinitas harian, mingguan, dan bulanan ada di [Alur kerja](docs/ALUR_KERJA.md).
+Ingin mencoba dulu tanpa masuk ke portal? Pilih **Lihat mode demo** di halaman awal. Langkah lengkap ada di [Panduan](docs/PANDUAN.md); rutinitas harian, mingguan, dan bulanan ada di [Alur kerja](docs/ALUR_KERJA.md).
 
 ## Keamanan dan privasi
 
 - Hanya membaca data dengan sesi login Anda sendiri. Kata sandi dan token tidak disimpan, dan sesi tidak diperpanjang.
 - Data diolah dan disimpan di browser Anda. Tidak ada server, analitik, iklan, atau pihak ketiga.
-- Izin minimum: `storage` dan `unlimitedStorage` (menyimpan data di browser), `scripting` (membaca data di tab portal Anda), `alarms` (pembaruan otomatis yang Anda aktifkan), dan akses host hanya ke `portal.beacukai.go.id`.
-- Kebijakan keamanan konten (CSP) ketat: hanya skrip dari dalam paket yang boleh berjalan.
-- NPWP, NITKU, dan nama pengguna tidak disimpan; data akun dipisahkan dengan kunci berupa sidik acak (hash).
+- Izin: `storage` dan `unlimitedStorage` (menyimpan data di browser), `scripting` (membaca data di tab portal Anda), `alarms` (lencana dan Pemantauan bila dinyalakan), akses host hanya ke `portal.beacukai.go.id`, serta `notifications` sebagai izin **pilihan** yang baru diminta saat Anda menyalakan pemberitahuan.
+- NPWP, NITKU, dan nama pengguna tidak disimpan; data akun dipisahkan dengan sidik (hash) sebagai nama samaran, bukan rahasia yang tidak dapat dibalik.
 - Pesan WhatsApp hanya disalin atau dibuka bila Anda mengklik tombolnya; ekstensi tidak mengirim pesan sendiri.
-- Dipasang dan diperbarui hanya lewat Chrome Web Store. Izin yang diminta tampil di halaman Store dan di `chrome://extensions`, dan dapat dicocokkan dengan daftar di [SECURITY.md](SECURITY.md).
 - Rincian: [SECURITY.md](SECURITY.md) · [Kebijakan privasi](docs/privacy-policy.html) · [PRIVACY.md](PRIVACY.md)
 
 ## Masukan dan dukungan
@@ -155,9 +125,7 @@ Temukan masalah atau punya ide fitur? Buka [Issues](../../issues/new/choose) dan
 
 ## Dukung proyek ini
 
-Tombol **Bagikan ke rekan** di dasbor membuka pesan siap kirim ke LinkedIn, WhatsApp, X, atau Telegram; hanya tautan proyek yang dikirim.
-
-CEISA Monitor gratis untuk semua pengguna dan seluruh fiturnya tidak dikunci. Bila bermanfaat bagi tim Anda, dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) (rupiah, QRIS, dan e-wallet) atau [Buy Me a Coffee](https://buymeacoffee.com/triase) (kartu dan mata uang asing), atau dengan memindai salah satu kode QR di bawah. Dana dipakai untuk pengembangan, pengujian dengan data nyata, dan dokumentasi.
+CEISA Monitor gratis untuk semua pengguna dan seluruh fiturnya tidak dikunci. Bila bermanfaat bagi tim Anda, dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) (rupiah, QRIS, dan e-wallet) atau [Buy Me a Coffee](https://buymeacoffee.com/triase) (kartu dan mata uang asing). Dana dipakai untuk pengembangan, pengujian, dan dokumentasi.
 
 <table align="center">
 <tr>
@@ -175,9 +143,11 @@ Hak cipta © 2026 Trias Purwantoro. Hak cipta dilindungi. Repositori ini hanya b
 <a id="english"></a>
 ## English
 
-CEISA Monitor is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It pulls all documents available to your account and turns them into a dashboard with any period and comparison and a status-composition donut. "Fetch document contents" opens a scope dialog (list date range and a document-type picker based on the official 243-type reference) and reads each submission's own Excel export into an archive card (supporting documents, goods, value, duties, guarantees) and a Value and duties tab with a per-document breakdown (customs value, import duty, VAT, income tax, total paid, facilities) and monthly recap. The BERUBAH popup shows a status-history timeline, and status-change details show before/after and portal responses. Also included: a Today card, follow-up tracking (including a manually entered inspection officer for Red Lane documents) with WhatsApp task messages per owner, a WhatsApp/email summary that can list every document with registration date, goods sender or receiver, and invoice number, export and import of all data in one file for moving to another computer, a meeting deck, a formal A4 report, and an Excel workbook. It reads data with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only. The interface opens in Indonesian; switch to English with the ID/EN button. Light or dark theme.
+CEISA Monitor 2.0 is a free Chrome and Edge extension for Indonesia's CEISA 4.0 customs portal. It reads the documents available to your account with your own login session and processes everything locally in the browser: no server, no stored passwords, read-only.
 
-Coming soon: CEISA Monitor 2.0, a redesigned interface now in preview testing. It keeps the same principles (read-only, data stays in your browser, no server) and adds task-based navigation, a "Red lane under inspection" rule, a document panel with stage timeline and time in each status, optional background monitoring with an inbox (off by default), value and duties per document type, an office display mode, a Health page, and better performance for large datasets. Version 1 users will be updated automatically through the Chrome Web Store, with data and settings migrated and backed up first.
+What 2.0 offers: a task-based dashboard (Summary, Documents, Billing, Value and duties, Follow-ups, Reports); a "Needs attention today" list where the Red Lane counts only while a document is still under inspection; documents filed under the old 15-digit NPWP merged into the same account, with stale documents (not final after more than a year) kept apart; reports that start from a purpose (monthly meeting, daily update, archive and audit, team tasks) and produce a concise meeting deck of about 15 slides, a formal A4 report with a one-page overview, a formatted Excel workbook, and a short or full WhatsApp message; a per-owner report with a WhatsApp message and Excel file per person whose filled-in Result column can be imported back; a document panel with stage timeline; optional background monitoring with an inbox (off by default); background refresh and document fetching for tens of thousands of documents; an office display mode, dark theme, and mobile layout.
+
+The 2.0 interface is in Indonesian; English returns in a later version. Version 1 users are updated automatically by Chrome, with data and settings kept and a backup made first.
 
 Install: only from the [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (publisher: Trias EXIM). This repository holds documentation only. Try demo mode first if you do not have a CEISA account.
 

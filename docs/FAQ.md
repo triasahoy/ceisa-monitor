@@ -1,85 +1,112 @@
-# Tanya Jawab
+# Tanya Jawab CEISA Monitor 2.0
 
-[Kembali ke README](../README.md)
+[Kembali ke README](../README.md) · [Panduan](PANDUAN.md) · [Video tutorial](TUTORIAL.md)
+
+## Umum
 
 | Pertanyaan | Jawaban |
 |---|---|
 | Apakah ini aplikasi resmi DJBC? | Bukan. CEISA Monitor adalah proyek independen yang hanya membaca data yang sudah dapat diakses pengguna yang masuk ke portal. |
 | Apakah gratis? | Ya, seluruh fitur gratis. Dukungan sukarela dapat diberikan melalui [Saweria](https://saweria.co/triasex) atau [Buy Me a Coffee](https://buymeacoffee.com/triase). |
-| Apakah data saya aman? | Data diolah dan disimpan di browser Anda. Tidak ada server, analitik, atau pihak ketiga. Kata sandi dan token tidak disimpan. Lihat [SECURITY.md](../SECURITY.md). |
-| Apakah ekstensi bisa mengubah atau mengirim dokumen? | Tidak. Ekstensi hanya membaca daftar dokumen. |
-| Apakah ekstensi mengirim pesan WhatsApp sendiri? | Tidak. Pesan hanya disalin atau WhatsApp dibuka saat Anda mengklik tombolnya; Anda sendiri yang menekan kirim. |
-| Mengapa perlu tab portal yang terbuka? | Data dibaca dengan sesi login Anda di tab tersebut. Ekstensi tidak pernah masuk ke portal atas nama Anda. |
-| Apakah data tahun lalu ikut ditarik? | Ya. Secara bawaan semua data yang tersedia di portal ditarik. Bila tanggal awal pernah diubah, klik **Semua data** di Pengaturan. |
-| Penarikan pertama lama? | Wajar untuk ribuan dokumen. Biarkan tab portal terbuka; pembaruan berikutnya berjalan otomatis. |
-| Bagaimana jika komputer mati atau sesi habis? | Data diperbarui otomatis saat Anda masuk kembali. Tren tetap lengkap karena dihitung ulang dari tanggal dokumen. |
-| Seberapa tepat waktu perubahan status? | Popup **BERUBAH** menampilkan Riwayat Status dan Riwayat Respon dari portal dengan jam persis, diambil saat popup dibuka (tab portal harus terbuka dan sudah masuk). Bila riwayat tidak tersedia, popup memakai saat perubahan pertama kali terlihat pada pembaruan data; perbarui lebih sering (Pengaturan → Pembaruan otomatis, mulai 5 menit) untuk perkiraan yang lebih rapat. |
-| Respons tampil sebagai angka, misalnya 2305. Apa artinya? | Kode respons angka diterjemahkan otomatis dengan tabel Referensi Respon resmi CEISA 4.0 dari [portal pengembang Bea Cukai](https://openapi.beacukai.go.id/portal/), sesuai jenis dokumen (2305 pada BC 2.3 = SPPD). Arahkan kursor atau klik sel Respons untuk melihat nama lengkapnya. BC 4.0 dan BC 4.1 tidak tercantum di tabel resmi; kode untuk dokumen tersebut ditampilkan apa adanya. |
-| Apa itu isi dokumen dan kartu arsip? | CEISA Monitor membaca isi lengkap nomor pengajuan dari layanan Unduh Excel portal, dengan sesi Anda sendiri. Sejak 1.18.0, daftar dokumen pelengkap juga dibaca dari daftar yang sama dengan Detail Dokumen di portal. Klik dua kali baris di tabel rincian untuk kartu arsip, atau klik **Ambil isi dokumen…** di kartu Isi dokumen untuk memilih cakupan (rentang tanggal daftar dan jenis dokumen). Berkas Excel tidak disimpan ke folder kecuali Anda mengaktifkannya di Pengaturan. |
-| Apakah dasbor harus tetap terbuka selama Ambil isi dokumen? | Tidak, sejak 1.19.0. Pengambilan berjalan di latar belakang, jadi Anda dapat membuka tab lain, menutup dasbor, atau mematikan layar. Tab portal CEISA 4.0 harus tetap terbuka dan masuk; bila sesi berakhir, pengambilan berhenti dan dapat dilanjutkan setelah Anda masuk lagi. |
-| Apakah ada batas jumlah dokumen saat mengambil isi dokumen? | Tidak. Dialog cakupan menampilkan jumlah dokumen yang akan dibaca, yang dilewati karena sudah diambil, dan perkiraan menit. Klik tombol yang sama untuk berhenti, lalu lanjutkan nanti. |
-| Bagaimana memilih jenis dokumen? | Di dialog Ambil isi dokumen dan di Pengaturan → Data, centang dari tabel referensi resmi (243 jenis). Jenis yang ada di data Anda tampil paling atas; kosong berarti semua jenis. |
-| Bagaimana melihat nilai dan pungutan per dokumen? | Setelah isi dokumen diambil, buka tab **Nilai dan pungutan** di kartu Isi dokumen. Tabel Rincian per dokumen dapat dicari dan diurutkan, dan tersedia juga sebagai lembar **Nilai per Dokumen** di Excel. |
-| Bagaimana mengekspor nilai dan pungutan untuk periode atau jenis dokumen tertentu? | Klik **Excel** di kartu Isi dokumen, lalu pilih rentang tanggal daftar dan jenis dokumen di dialog. Nama berkas dan lembar **Cakupan** mencatat pilihan itu. Dokumen yang isinya belum diambil tidak masuk perhitungan; dialog menawarkan **Ambil yang belum lalu ekspor**. Pilihan **Pisahkan per jenis dokumen** membuat satu lembar untuk setiap jenis. |
-| Bagaimana melihat nilai dan pungutan per jenis dokumen? | Di kartu Isi dokumen, pilih tampilan **Per jenis dokumen**. Klik satu baris untuk menyaring rincian ke jenis itu, atau gunakan baris filter di atas kartu (jenis, jalur, pungutan). Filter ini hanya berlaku untuk kartu dan ekspornya, tidak mengubah dasbor status. Di Excel, lembar **Ringkasan per Jenis** memuat angka yang sama. |
-| Apakah bisa dipakai PPJK atau kawasan berikat? | Bisa. Pilih jenis fasilitas di Profil perusahaan. PPJK dapat menyaring dasbor, presentasi, dan laporan per klien. |
-| Bisakah dipakai lebih dari satu akun perusahaan? | Bisa. Data setiap akun disimpan terpisah dan dapat dipilih di kepala dasbor. |
-| Bahasa apa yang dipakai saat pertama dibuka? | Bahasa Indonesia, tanpa mengikuti bahasa Chrome. English hanya tampil bila dipilih dari tombol ID/EN. |
-| Bagaimana jika struktur portal berubah? | Ekstensi memeriksa struktur data setiap kali menarik data. Bila berubah, angka tidak ditampilkan dan muncul pesan agar ekstensi diperbarui. |
 | Di mana memasang CEISA Monitor? | Hanya dari [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) (penerbit: Trias EXIM). Repositori ini hanya berisi dokumentasi. |
-| Apakah kode sumbernya terbuka? | Tidak. Repositori ini berisi dokumentasi dan panduan. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
-| Bagaimana cara memperbarui versi? | Otomatis oleh Chrome bila dipasang dari Chrome Web Store. Data tidak hilang. |
-| Mengapa muncul "Pembaruan sedang berjalan" dan dasbor masih kosong? | Pembaruan otomatis (misalnya saat masuk portal) sedang menarik data. Dasbor menampilkan halaman ke berapa, jumlah dokumen, dan perkiraan sisa waktu; data tampil sendiri setelah selesai. Penarikan pertama untuk semua data memerlukan beberapa menit sampai puluhan menit, bergantung pada jumlah dokumen dan kecepatan internet. Biarkan tab portal tetap terbuka. |
-| Mengapa muncul "Frame with ID 0 was removed" saat pembaruan? | Halaman portal berpindah atau dimuat ulang ketika pembaruan berjalan (misalnya portal memperbarui sesinya). Sejak versi 1.15.1 ekstensi menunggu dan mengulang otomatis; bila tetap gagal, tunggu portal selesai dimuat lalu klik Perbarui data. Muat ulang ekstensi di `chrome://extensions` bila Anda masih memakai versi lama. |
-| Apakah isi dokumen harus diambil berulang dari awal? | Tidak. Isi dokumen diambil sekali, disimpan per dokumen segera setelah selesai, dan dapat dihentikan lalu dilanjutkan kapan saja. Dokumen diambil ulang hanya bila statusnya berubah atau Anda memilih **Ambil ulang**. Setelah pengambilan pertama, **Ambil yang belum** hanya memuat dokumen baru dan yang berubah. |
-| Apa itu Ringkasan eksekutif di dialog Buat laporan? | Mode yang memangkas presentasi dari 26 menjadi 9 slide dan laporan resmi menjadi bagian inti (ringkasan, nilai dan pungutan, usulan tindak lanjut). Nama berkas berakhiran `_Ringkas`. |
-| Mengapa bab Nilai dan pungutan tidak muncul di laporan? | Bab itu dibuat dari isi dokumen. Bila isi dokumen periode itu belum diambil, bab tidak disertakan; dialog Buat laporan menampilkan alasannya. Bila baru sebagian yang diambil, bab muncul dengan catatan cakupan. |
+| Browser apa yang didukung? | Chrome dan Microsoft Edge versi 128 atau lebih baru sudah diuji. Brave, Opera, dan Arc belum diuji, tetapi diperkirakan berjalan karena memakai mesin yang sama. |
+| Apakah ekstensi melewati login portal atau membaca data pihak lain? | Tidak. Ekstensi hanya membaca data milik Anda sendiri lewat sesi login Anda sendiri di tab portal, dan tidak melewati proses masuk (login) portal. |
+| Apakah kode sumbernya terbuka? | Tidak. Hak cipta dilindungi; lihat [LICENSE](../LICENSE). |
+| Bahasa apa yang dipakai? | Versi 2.0 tampil dalam bahasa Indonesia. Tampilan English menyusul di versi berikutnya. |
+
+## Pembaruan dari versi 1
+
+| Pertanyaan | Jawaban |
+|---|---|
+| Apakah saya perlu memasang ulang? | Tidak. Chrome memperbarui ekstensi otomatis karena ID ekstensinya sama. |
+| Apakah data versi 1 hilang? | Tidak. Data dokumen, tindak lanjut, kontak WhatsApp, dan pengaturan tetap dipakai. Sebelum perubahan apa pun, 2.0 membuat cadangan lengkap di browser (disimpan 60 hari) yang dapat diunduh dari Pengaturan → Kesehatan. |
+| Pembaruan otomatis versi 1 ke mana? | Dialihkan ke **Pemantauan** dengan selang terdekat (15, 30, atau 60 menit). Catatan pembaruan tampil sekali di lonceng. |
+| Saya memakai tampilan English di versi 1. | Versi 2.0 tampil dalam bahasa Indonesia; catatan tentang hal ini tampil sekali di lonceng. English kembali di versi berikutnya. |
+| Chrome saya versi lama. | Versi 2.0.0 memerlukan Chrome 116 atau lebih baru; mulai versi 2.1.0 diperlukan Chrome 128 atau lebih baru. Pada Chrome yang lebih lama, versi 1 tetap berjalan sampai browser diperbarui. |
+
+## Data dan angka
+
+| Pertanyaan | Jawaban |
+|---|---|
+| Mengapa perlu tab portal yang terbuka? | Data dibaca dengan sesi login Anda di tab tersebut. Ekstensi tidak pernah masuk ke portal atas nama Anda dan tidak membuka tab portal sendiri. |
+| Apakah dasbor harus tetap terbuka saat Perbarui data atau Ambil isi dokumen? | Tidak. Keduanya berjalan di latar belakang. Tab portal harus tetap terbuka dan masuk; bila sesi berakhir, proses berhenti dan dapat dilanjutkan. |
+| Mengapa jumlah dokumen bertambah setelah memperbarui ke 2.0? | Dokumen yang terdaftar dengan NPWP 15 digit (sebelum pergantian ke NITKU 22 digit) kini ikut ditarik dan digabung ke akun yang sama. Pilihan ini ada di Pengaturan → Data dan pembaruan. |
+| Apa itu dokumen lama? | Dokumen yang belum berstatus final dan berumur lebih dari 365 hari. Dokumen ini dipisahkan dari angka utama secara bawaan agar tidak mendistorsi angka harian; statusnya tidak diubah. Catatan di bilah filter menawarkan Lihat, Hitung semua, atau Buat Excel. |
+| Bagaimana Reject dihitung? | Sebagai status final, tetapi tidak dihitung sebagai selesai (sama seperti Pembatalan). |
+| Kapan dokumen dihitung Jalur Merah dalam pemeriksaan? | Hanya selama berstatus Penjaluran/Siap Jalur, Pemeriksaan Fisik/Barang, atau Penerimaan Dokumen Pelengkap. Sesudah Stuffing, Gate In/Out, atau Pembongkaran, dokumen dihitung belum selesai biasa. Pemeriksaan Dokumen tidak termasuk. |
+| Apakah Gate In dan Gate Out dihitung selesai? | Tidak. Status final bawaan adalah Selesai Proses dan Pembatalan (ditambah Reject); dapat diubah di Profil perusahaan. |
+| Sampai kapan SLA dihitung? | Sampai Selesai Proses. |
+| Mengapa bulan tertentu di Nilai dan pungutan diarsir? | Isi dokumen bulan itu belum diambil, sehingga pungutannya belum dapat dihitung. Klik **Ambil isi** untuk melengkapinya. |
+| Bagaimana bila struktur portal berubah? | Ekstensi memeriksa struktur data setiap kali menarik data. Bila berubah, angka tidak ditampilkan dan muncul pesan galat, bukan angka contoh. |
+
+## Laporan
+
+| Pertanyaan | Jawaban |
+|---|---|
+| Laporan memakai data apa? | Data dan filter yang sama dengan dasbor, sehingga angkanya selalu cocok dengan layar. |
+| Berapa slide presentasinya? | Sekitar 15 slide; versi ringkas sekitar 7. Rincian per jenis hanya dibuat untuk paling banyak dua jenis yang perlu perhatian. |
+| Apakah isian kop dan tanda tangan harus diketik ulang setiap bulan? | Tidak. Di laporan resmi A4, klik **Ingat isian kop dan tanda tangan**. Isian dipakai lagi untuk laporan berikutnya di browser yang sama. |
 | Dapatkah presentasi langsung menjadi PDF? | Tidak oleh ekstensi. Buka berkas .pptx di PowerPoint lalu Simpan sebagai PDF. Laporan resmi A4 dapat langsung dicetak ke PDF dari browser. |
-| Bagaimana cara membagikan ekstensi ke rekan? | Klik **Bagikan ke rekan** di kaki dasbor atau di Pengaturan. Pesan siap kirim (dapat diubah) dibuka di LinkedIn, WhatsApp, X, atau Telegram, atau disalin. Hanya tautan halaman proyek yang dikirim; tidak ada data dokumen. |
-| Bagaimana cara menghapus semua data? | Pengaturan → Hapus data, atau hapus ekstensi dari Chrome. |
-| Ke mana saya mengirim masukan? | Buka [Issues](../../../issues/new/choose) dan pilih templat yang sesuai. |
-| Apa isi kartu Hari ini? | Daftar tindakan yang mendesak: tugas terlambat, Jalur Merah atau pemeriksaan yang belum selesai, baru melewati SLA, dan belum ada penanggung jawab. Klik satu baris untuk melihat daftarnya. |
-| Apa itu Komposisi status? | Donat dan daftar status dengan jumlah dan persentase. Klik satu status untuk menyaring tabel rincian. |
+| Apa beda pesan WhatsApp Singkat dan Lengkap? | Singkat berisi lima baris angka utama untuk atasan. Lengkap berisi bagian yang dipilih (angka utama, nilai, tugas jatuh tempo, perlu perhatian) dan dapat ditambah daftar dokumen. |
+| Apakah Samarkan identitas berlaku untuk semua berkas? | Ya: presentasi, laporan A4, Excel, pesan WhatsApp, dan nama berkas. Tetap periksa berkas sebelum dibagikan. |
 
-### Apakah data saya hilang bila ekstensi dihapus atau diganti?
+## Laporan per penanggung jawab
 
-Ya, bila ekstensi dihapus tanpa cadangan. Data disimpan di penyimpanan lokal browser milik ekstensi. Pembaruan otomatis dari Chrome Web Store tidak menghilangkan data karena ID ekstensi tetap.
+| Pertanyaan | Jawaban |
+|---|---|
+| Dokumen mana yang masuk laporan? | Dokumen belum selesai yang sudah punya penanggung jawab. Dokumen tanpa penanggung jawab dihitung terpisah dengan tautan Lihat dan tugaskan. |
+| Bagaimana urutan dokumen dalam pesan? | Jalur Merah dalam pemeriksaan lebih dulu, lalu yang lewat target atau SLA, lalu lainnya. |
+| Bolehkah kolom Hasil diisi bebas? | Boleh. Pilihan Selesai, Sedang diproses, dan Menunggu pihak lain mengubah status tindak lanjut; teks bebas dan Keterangan disimpan sebagai catatan bertanggal tanpa mengubah status. |
+| Apa yang terjadi saat impor? | Berkas dibaca di browser, lalu pratinjau menunjukkan dokumen yang akan diperbarui. Tidak ada yang berubah sebelum Anda menekan Terapkan ke tindak lanjut. |
+| Apakah ada pengingat otomatis? | Tidak. Laporan dibuat kapan saja Anda perlukan. |
+| Apakah ekstensi mengirim pesan WhatsApp sendiri? | Tidak. Pesan hanya disalin atau WhatsApp dibuka saat Anda mengklik tombolnya; Anda sendiri yang memilih penerima dan menekan kirim. |
 
-Sejak 1.18.0, buka **Pengaturan → Data dan pemindahan**, lalu klik **Ekspor data** untuk menyimpan seluruh data ke satu berkas `.ceisadata`. Pilih **Ringan** (pengaturan, profil, tindak lanjut, catatan, kontak, riwayat perubahan) atau **Lengkap** (ditambah isi dokumen, riwayat portal, dan billing). Di pemasangan baru atau komputer lain, klik **Impor data** di layar sambutan atau di Pengaturan, periksa pratinjau per akun, lalu pilih Gabung, Ganti, atau Lewati.
+## Keamanan, cadangan, dan akun
 
-### Bolehkah memasang dari berkas ZIP atau dari sumber selain Chrome Web Store?
+| Pertanyaan | Jawaban |
+|---|---|
+| Apakah data saya aman? | Data diolah dan disimpan di browser Anda. Tidak ada server, analitik, atau pihak ketiga. Kata sandi dan token tidak disimpan. Lihat [SECURITY.md](../SECURITY.md). |
+| Apakah NPWP atau NITKU saya disimpan? | Tidak. Nomor identitas hanya dipakai sesaat untuk membuat kunci akun berupa sidik (hash) sebagai nama samaran. Kunci ini diturunkan dari nomor identitas dan bukan rahasia yang tidak dapat dibalik, sehingga berkas cadangan (`.ceisadata`) perlu diperlakukan sebagai data rahasia. |
+| Apakah data diperbarui tanpa saya menekan tombol? | Ya, bila **Perbarui data otomatis** menyala (bawaan): pemeriksaan tiap jam menarik data ketika tab portal terbuka, Anda sudah masuk, dan data tersimpan lebih lama dari 6 jam. Hanya membaca, tidak membuka tab portal sendiri, dan dapat dimatikan di Pengaturan → Data dan pembaruan. |
+| Apakah Pemantauan berjalan sendiri tanpa saya ketahui? | Tidak. Pemantauan mati secara bawaan dan hanya berjalan setelah Anda menyalakannya, ketika tab portal terbuka dan Anda sudah masuk. |
+| Mengapa ekstensi meminta izin pemberitahuan? | Hanya bila Anda menyalakan pemberitahuan browser di Pengaturan → Pemantauan. Izin ini bersifat pilihan. |
+| Bagaimana memindahkan data ke komputer lain? | Pengaturan → Cadangan: buat cadangan Ringan atau Lengkap (`.ceisadata`), lalu impor di komputer lain. Impor menampilkan pratinjau per akun sebelum digabung. |
+| Bisakah dipakai lebih dari satu akun perusahaan? | Bisa. Data setiap akun terpisah. Pengaturan → Lanjutan → Akun di browser ini menampilkan semua akun, dengan pilihan pakai atau hapus akun yang tidak dipakai. |
+| Bagaimana menghapus semua data? | Pengaturan → Lanjutan → Hapus data tersimpan (perlu konfirmasi), atau hapus ekstensi dari Chrome. Buat cadangan lebih dulu bila masih diperlukan. |
+| Apakah tagihan dibayar atau diubah? | Tidak. Tagihan hanya membaca Browse Billing dan menampilkan datanya apa adanya. |
+| Apakah nama atau NIP petugas diambil dari portal? | Tidak. Pelaku di riwayat hanya ditandai Sistem atau Petugas. |
 
-Tidak dianjurkan dan tidak disediakan. Repositori ini tidak membagikan berkas ekstensi. Salinan dari sumber lain tidak dapat dipastikan keasliannya dan dapat berisi kode yang mengambil data Anda.
+## Pesan galat
 
-### Apakah kartu Tagihan membayar atau mengubah billing?
+Tulisan di kolom kiri sama dengan yang tampil di ekstensi, sehingga dapat dicari. Ekstensi memakai sesi login Anda yang sudah ada dan tidak pernah masuk ke portal sendiri, termasuk bila portal meminta verifikasi dua langkah (MFA): selesaikan masuk di portal, lalu ulangi.
 
-Tidak. Kartu Tagihan hanya membaca Browse Billing dan menyajikan datanya. Status billing tampil sebagaimana dicatat portal; ekstensi tidak menilai billing mana yang dibayar atau apa yang perlu dilakukan.
+| Pesan | Arti dan tindakan |
+|---|---|
+| Akun portal berganti saat data diambil. Data tidak disimpan. Perbarui data lagi. | Akun di portal berubah (misalnya Anda masuk dengan perusahaan lain) di tengah penarikan, sehingga hasilnya dibuang agar data dua akun tidak tercampur. Pastikan akun di portal yang Anda inginkan, lalu tekan Perbarui data. |
+| Akun yang masuk di portal berbeda dengan akun di dasbor. | Akun di portal tidak sama dengan akun yang sedang dibuka di dasbor. Ganti akun di portal atau di sidebar dasbor, lalu coba lagi. |
+| Halaman portal ditutup saat proses berjalan. Buka portal CEISA dan masuk, lalu coba lagi. | Tab portal tertutup ketika data sedang dibaca. Buka lagi portal CEISA 4.0, masuk, dan ulangi. Proses tidak melanjutkan sendiri tanpa tab portal. |
+| Halaman portal sedang dimuat ulang. Tunggu hingga portal selesai dimuat, lalu coba lagi. | Tab portal sedang berpindah halaman atau memuat ulang. Tunggu sampai halaman portal tampil penuh, lalu ulangi. |
+| Portal tidak dapat dihubungi. Coba lagi nanti. | Portal tidak menjawab atau memberi galat; rincian singkat tampil di belakang pesan. Periksa jaringan dan buka portal di tab biasa. Bila portal sedang gangguan, coba beberapa saat lagi. |
+| Koneksi ke portal terputus. Periksa jaringan, lalu coba lagi. | Sambungan internet terputus di tengah permintaan. Periksa jaringan, lalu ulangi. |
+| Buka portal CEISA 4.0 di tab lain dan masuk (login), lalu coba lagi. | Ekstensi membaca lewat tab portal yang sudah terbuka dan tidak membukanya sendiri. Buka portal CEISA 4.0 di tab lain, masuk, lalu ulangi. |
+| Sesi portal belum aktif. Masuk (login) di portal CEISA 4.0, lalu coba lagi. | Sesi login di portal belum ada atau sudah habis, termasuk saat portal menunggu verifikasi dua langkah. Masuk dulu di portal; ekstensi tidak masuk atas nama Anda. |
+| Sesi portal berakhir. Masuk kembali di portal. | Sesi habis ketika proses berjalan. Masuk kembali di portal; Ambil isi dokumen dan Pemantauan dapat dilanjutkan setelahnya. |
+| Perbarui data atau Ambil isi dokumen sedang berjalan. Tunggu sampai selesai, lalu impor lagi. | Impor ditolak selama ada pekerjaan latar belakang agar data tidak tertimpa. Tunggu pekerjaan selesai (kemajuannya tampil di kepala halaman), lalu impor lagi. Hapus data juga ditolak selama Perbarui data berjalan. |
+| Cadangan tidak dapat dibuat. Coba cadangan Ringan, atau hapus akun yang tidak dipakai. | Cadangan yang diminta sebelum penghapusan gagal dibuat (rincian singkat tampil di belakang pesan), sehingga tidak ada yang dihapus. Pilih cadangan Ringan, atau hapus akun yang tidak dipakai lebih dulu. |
+| Cadangan tidak dapat dibuat, sehingga akun tidak dihapus. | Penghapusan akun dibatalkan karena cadangan yang diminta gagal. Akun tetap utuh; coba lagi atau hapus tanpa cadangan bila memang tidak diperlukan. |
+| Kata sandi berkas tidak cocok. | Kata sandi yang diketik tidak sama dengan yang dipakai saat berkas dibuat. Kata sandi tidak disimpan di mana pun dan tidak dapat dipulihkan; coba kata sandi lain yang mungkin Anda pakai. |
+| Kata sandi minimal 8 karakter. | Kata sandi cadangan terlalu pendek. Pakai paling sedikit 8 karakter. |
+| Berkas rusak atau bukan berkas data CEISA Monitor. | Berkas tidak dapat dibaca atau sudah berubah. Pakai berkas `.ceisadata` asli dari Ekspor data. |
+| Struktur data portal CEISA berubah (kolom ... tidak ditemukan). Data tidak diproses agar angka tidak keliru. Mohon perbarui ekstensi. | Portal mengubah isi datanya, sehingga ekstensi sengaja tidak menampilkan angka daripada menampilkan angka keliru. Perbarui ekstensi dari Chrome Web Store dan laporkan lewat Issues bila tetap muncul. Versi untuk tagihan: Struktur data tagihan berubah (kolom ... tidak ditemukan). Data tidak diproses. |
+| Hasil portal tidak lengkap; ... dokumen dari daftar sebelumnya dipertahankan. Perbarui data lagi nanti. | Portal menjawab sebagian, sehingga dokumen yang tidak ikut tertarik tetap memakai data dari penarikan sebelumnya (riwayat status ikut bertahan). Pesan ini tampil di Pengaturan > Kesehatan. Perbarui data lagi beberapa saat kemudian; tidak ada dokumen yang dihapus. Sebagian jenis tidak lengkap (...) berarti hanya jenis dokumen yang disebut yang terkena. |
+| Data tidak ditemukan | Jawaban portal untuk hasil kosong, misalnya akun tanpa dokumen NPWP 15 digit atau pencarian yang tidak memiliki hasil. Ini bukan galat dan tidak menggagalkan Perbarui data. |
+| Portal tidak mengembalikan daftar tagihan. | Portal tidak mengirim daftar billing yang dapat dibaca. Coba lagi nanti; tagihan tidak diubah. |
+| Akun pada berkas tindak lanjut ini belum ada di browser ini. Perbarui data dari portal untuk akun tersebut, lalu impor lagi. | Berkas Tindak lanjut saja hanya digabung ke akun yang sudah ada. Tarik data akun itu dari portal lebih dulu, lalu impor ulang. |
+| Berkas tidak memuat akun. | Berkas impor kosong atau bukan berkas data. Pilih berkas hasil Ekspor data. |
+| Akun yang sedang dipakai tidak dapat dihapus. Pindah ke akun lain dulu. | Akun yang sedang dibuka tidak boleh dihapus. Ganti ke akun lain di sidebar, lalu hapus. |
+| Ketik paling sedikit 6 angka atau huruf dari nomor pengajuan. | Cari di portal memerlukan paling sedikit 6 karakter agar hasilnya tidak terlalu luas. Tambahkan karakter. |
+| Pembaruan lain sedang berjalan (misalnya pembaruan otomatis). Tunggu sebentar, lalu coba kembali. | Hanya satu penarikan data yang boleh berjalan sekali waktu. Tunggu sampai selesai, lalu ulangi. |
 
-### Apakah rincian dan PDF billing disimpan?
+## Masukan
 
-Tidak. Rincian dan PDF diambil dari portal saat diklik, ditampilkan, lalu dibuang. Nama petugas perekam tidak diambil.
-
-### Bagaimana membagikan contoh laporan tanpa membuka identitas?
-
-Centang **Samarkan identitas** pada dialog ekspor. Nama perusahaan menjadi Perusahaan A, B, dan seterusnya, dan nomor penting hanya menampilkan empat angka terakhir. Tetap periksa berkas sebelum dibagikan.
-
-### Mengapa dokumen pelengkap di Excel portal kosong, padahal Detail Dokumen menampilkan lampirannya?
-
-Pada sebagian dokumen, terutama KEK Pemasukan dari TLDDP, lembar DOKUMEN di Unduh Excel portal memang kosong atau tidak lengkap, sedangkan Detail Dokumen dan lembar lanjutan PDF memakai daftar lain yang lengkap. Sejak 1.18.0, CEISA Monitor membaca kedua sumber dan menggabungkannya tanpa duplikat. Untuk isi yang diambil dengan versi sebelumnya, klik **Ambil yang belum** di kartu Isi dokumen; yang dilengkapi hanya daftar dokumen pelengkap, tanpa mengunduh ulang Excel.
-
-### Apakah nama atau NIP petugas diambil dari portal?
-
-Tidak. Kolom **Petugas pemeriksa barang** di dialog Tindak lanjut hanya tampil untuk dokumen Jalur Merah dan diisi manual oleh Anda. Isinya tercatat di riwayat tindak lanjut, ikut di Excel dan CSV, dan disamarkan bila **Samarkan identitas** dicentang.
-
-### Apa isi Daftar dokumen di Ringkasan WhatsApp/surel?
-
-Centang **Daftar dokumen lengkap dan statusnya**, lalu pilih **Belum selesai** atau **Semua dalam periode**. Daftar dikelompokkan per jenis dokumen; tiap baris memuat nomor pengajuan, nomor dan tanggal daftar, status, umur, dan tanda melewati SLA. Bila isi dokumen sudah diambil, tiap baris juga memuat:
-
-- **Pengirim barang** untuk dokumen pemasukan, atau **Penerima barang** untuk dokumen pengeluaran (BC 2.7 dari mitra dihitung pemasukan).
-- **Nomor invoice**. Bila tidak ada invoice, dipakai dokumen pengganti dengan urutan Delivery Order, Faktur Pajak, Packing List, Kontrak, Purchase Order, B/L, AWB. Bila tidak ada sama sekali, tertulis "Invoice: belum tercatat".
-
-Daftar dibatasi 300 dokumen (100 dalam mode Ringkas untuk ponsel); sisanya dirujuk ke Excel.
-
-### Apakah NPWP atau NITKU saya disimpan?
-
-Tidak, sejak 1.18.0. Nomor identitas hanya dipakai sesaat untuk membuat kunci akun berupa sidik acak (hash) satu arah. Data dari versi sebelumnya dibersihkan otomatis saat pembaruan.
+Temukan masalah atau punya ide fitur? Buka [Issues](../../../issues/new/choose). Jangan melampirkan data asli perusahaan, nomor pengajuan, atau tangkapan layar portal yang memuat data rahasia. Pengaturan → Kesehatan dapat membuat berkas diagnostik tanpa data pribadi untuk dilampirkan.

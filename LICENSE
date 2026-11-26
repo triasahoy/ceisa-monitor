@@ -19,11 +19,13 @@ Perangkat lunak ini disediakan "sebagaimana adanya" tanpa jaminan apa pun. Pemeg
 hak cipta tidak bertanggung jawab atas kerugian yang timbul dari pemakaiannya.
 CEISA Monitor adalah proyek independen dan tidak berafiliasi dengan Direktorat
 Jenderal Bea dan Cukai.
+Angka yang ditampilkan dihitung dari data portal dan bukan sumber resmi untuk keperluan
+hukum atau audit.
 
 Permohonan izin: melalui https://github.com/triasahoy/ceisa-monitor/issues
 
 ---------------------------------------------------------------------------------
-English summary: Copyright (c) 2026 Trias Purwantoro. All rights reserved. You may
+English summary: Figures are computed from portal data and are not an official source for legal or audit purposes. Copyright (c) 2026 Trias Purwantoro. All rights reserved. You may
 install and use the extension from official channels for your own work. Copying,
 modifying, redistributing, selling, or reusing the code without written permission
 is not permitted. Provided "as is", without warranty. Not affiliated with DJBC.
@@ -32,3 +34,6 @@ is not permitted. Provided "as is", without warranty. Not affiliated with DJBC.
 Pustaka pihak ketiga di folder vendor/ tetap memakai lisensinya sendiri:
 - ExcelJS (MIT License), https://github.com/exceljs/exceljs
 - PptxGenJS (MIT License), https://github.com/gitbrent/PptxGenJS
+- pdf.js (Apache License 2.0), https://github.com/mozilla/pdf.js
+- JSZip (dipakai di bawah lisensi MIT), https://github.com/Stuk/jszip
+Pemberitahuan lengkap dikirim di dalam ekstensi: vendor/THIRD_PARTY_NOTICES.txt.

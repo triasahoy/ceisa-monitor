@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan CEISA Monitor 2.0 – Cara Memantau Dokumen CEISA 4.0</title>
+<meta name="description" content="Panduan bergambar CEISA Monitor: tarik data, Ringkasan, Jalur Merah, SLA, tindak lanjut, laporan rapat, laporan per penanggung jawab, Pemantauan, dan Pengaturan.">
+<meta name="theme-color" content="#13315C">
+<link rel="canonical" href="https://triasahoy.github.io/ceisa-monitor/panduan/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="CEISA Monitor"><meta property="og:locale" content="id_ID">
+<meta property="og:url" content="https://triasahoy.github.io/ceisa-monitor/panduan/"><meta property="og:title" content="Panduan CEISA Monitor 2.0 – Cara Memantau Dokumen CEISA 4.0"><meta property="og:description" content="Panduan bergambar CEISA Monitor: tarik data, Ringkasan, Jalur Merah, SLA, tindak lanjut, laporan rapat, laporan per penanggung jawab, Pemantauan, dan Pengaturan.">
+<meta property="og:image" content="https://triasahoy.github.io/ceisa-monitor/images/sosial_1280x640.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Panduan CEISA Monitor 2.0 – Cara Memantau Dokumen CEISA 4.0"><meta name="twitter:description" content="Panduan bergambar CEISA Monitor: tarik data, Ringkasan, Jalur Merah, SLA, tindak lanjut, laporan rapat, laporan per penanggung jawab, Pemantauan, dan Pengaturan.">
+<link rel="icon" href="../assets/ikon.png">
+<link rel="stylesheet" href="../fonts.css"><link rel="stylesheet" href="../mulai.css"><link rel="stylesheet" href="../halaman.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://triasahoy.github.io/ceisa-monitor/"}, {"@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://triasahoy.github.io/ceisa-monitor/panduan/"}]}</script>
+</head>
+<body class="gp">
+<header class="top solid" id="top">
+  <a class="logo" href="../" aria-label="CEISA Monitor, halaman awal">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#C9A55A"/><path d="M11 7h9l5 5v15H11z" fill="#13315C"/><path d="M20 7v5h5" fill="none" stroke="#C9A55A" stroke-width="1.6"/><path d="M14.5 19.5l2.6 2.6 4.6-5.2" fill="none" stroke="#F4EAD4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><b>CEISA Monitor</b><small>2.0</small></span>
+  </a>
+  <nav class="links" aria-label="Halaman situs"><a href="../demo/">Coba demo</a><a href="../panduan/">Panduan</a><a href="../tanya-jawab/">Tanya jawab</a><a href="../tutorial/">Tutorial</a><a href="../alur-kerja/">Alur kerja</a></nav>
+  <div class="right">
+    <button type="button" class="ghost" id="theme" aria-label="Ganti tema"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span id="themeT">Otomatis</span></button>
+    <a class="btn pri" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Pasang gratis</a>
+  </div>
+</header>
+<main class="doc" id="isi">
+<nav class="crumb" aria-label="Jejak halaman"><a href="../">Beranda</a> › <span aria-current="page">Panduan</span></nav>
+<nav class="gnav" aria-label="Panduan"><a href="../panduan/" aria-current="page">Panduan</a><a href="../tanya-jawab/">Tanya jawab</a><a href="../tutorial/">Tutorial</a><a href="../alur-kerja/">Alur kerja</a></nav>
+<article>
+<h1 id="panduan-ceisa-monitor-20">Panduan CEISA Monitor 2.0</h1>
+<p>Panduan ini untuk versi 2.0. Semua gambar memakai data fiktif berlabel DATA DEMO. Istilah yang dipakai sama dengan di dasbor: <b>belum selesai</b> berarti status selain status final, <b>umur dokumen</b> dihitung sejak tanggal pendaftaran, dan <b>Jalur Merah dalam pemeriksaan</b> hanya mencakup Penjaluran/Siap Jalur, Pemeriksaan Fisik/Barang, dan Penerimaan Dokumen Pelengkap.</p>
+<h2 id="daftar-isi">Daftar isi</h2>
+<ol><li><a href="#1-sebelum-mulai">Sebelum mulai</a></li><li><a href="#2-tarik-data-pertama">Tarik data pertama</a></li><li><a href="#3-ringkasan">Ringkasan</a></li><li><a href="#4-periode-dan-filter">Periode dan filter</a></li><li><a href="#5-dokumen-dan-panel-dokumen">Dokumen dan panel dokumen</a></li><li><a href="#6-tagihan">Tagihan</a></li><li><a href="#7-nilai-dan-pungutan">Nilai dan pungutan</a></li><li><a href="#8-tindak-lanjut">Tindak lanjut</a></li><li><a href="#9-buat-laporan">Buat laporan</a></li><li><a href="#10-laporan-per-penanggung-jawab">Laporan per penanggung jawab</a></li><li><a href="#11-pemantauan-dan-kotak-masuk">Pemantauan dan kotak masuk</a></li><li><a href="#12-pengaturan">Pengaturan</a></li><li><a href="#13-popup-tombol-portal-layar-kantor-dan-ponsel">Popup, tombol portal, layar kantor, dan ponsel</a></li></ol>
+<h2 id="1-sebelum-mulai">1. Sebelum mulai</h2>
+<ul><li>Chrome atau Microsoft Edge versi 116 atau lebih baru.</li><li>Akun portal CEISA 4.0 milik Anda sendiri. CEISA Monitor tidak pernah masuk atas nama Anda; data dibaca dari tab portal yang Anda buka.</li><li>Pasang <b>hanya</b> dari <a href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Chrome Web Store</a> (penerbit Trias EXIM), lalu sematkan ikonnya di bilah alat.</li></ul>
+<p><b>Memperbarui dari versi 1.</b> Chrome memperbarui ekstensi otomatis. Sebelum perubahan apa pun, 2.0 membuat cadangan lengkap data versi 1 di browser (disimpan 60 hari dan dapat diunduh dari Pengaturan → Kesehatan). Data dokumen, tindak lanjut, kontak WhatsApp, dan pengaturan tetap terpakai. Pembaruan otomatis versi 1 dialihkan ke <b>Pemantauan</b> dengan selang terdekat, dan catatan pembaruan muncul sekali di lonceng. Tampilan English versi 1 belum tersedia di 2.0; dasbor tampil dalam bahasa Indonesia.</p>
+<p><img src="../images/v2/18_halaman_awal.jpg" alt="Halaman awal" loading="lazy" decoding="async"></p>
+<h2 id="2-tarik-data-pertama">2. Tarik data pertama</h2>
+<ol><li>Masuk ke portal CEISA 4.0 dan biarkan tabnya terbuka.</li><li>Buka CEISA Monitor dari ikon ekstensi atau tombol <b>CEISA Monitor</b> di halaman portal.</li><li>Klik <b>Perbarui data</b>. Penarikan berjalan di latar belakang: kemajuannya tampil di pil status di kepala halaman, dan Anda boleh membuka tab lain. Biarkan tab portal tetap terbuka sampai selesai.</li></ol>
+<p>Dokumen yang terdaftar dengan <b>NPWP 15 digit</b> (sebelum pergantian ke NITKU 22 digit) ikut ditarik dan digabung ke akun yang sama. Pilihan ini dapat dimatikan di Pengaturan → Data dan pembaruan.</p>
+<p>Ingin melihat dulu tanpa portal? Pilih <b>Lihat mode demo</b> di halaman awal atau menu di kepala dasbor.</p>
+<h2 id="3-ringkasan">3. Ringkasan</h2>
+<p><img src="../images/v2/01_ringkasan.jpg" alt="Ringkasan" loading="lazy" decoding="async"></p>
+<p>Bagian atas halaman berisi <b>kesimpulan</b> satu kalimat dan pintasan ke hal yang paling mendesak. Kartu angka utama:</p>
+<div class="tw"><table><thead><tr><th>Kartu</th><th>Isi</th></tr></thead><tbody><tr><td>Total dokumen</td><td>Jumlah dokumen per bulan dalam periode</td></tr><tr><td>Belum selesai</td><td>Jumlah dan sebaran umur dokumen belum selesai</td></tr><tr><td>Sesuai SLA</td><td>Persentase dokumen yang selesai atau masih dalam batas SLA, dengan penanda target</td></tr><tr><td>Tertahan di status</td><td>Status dengan dokumen belum selesai terbanyak</td></tr><tr><td>Pungutan</td><td>Total pungutan dari isi dokumen yang sudah diambil, dibayar dan berfasilitas</td></tr></tbody></table></div>
+<p><img src="../images/v2/02_perlu_perhatian.jpg" alt="Perlu perhatian hari ini" loading="lazy" decoding="async"></p>
+<p><b>Perlu perhatian hari ini</b> mengurutkan hal yang perlu ditangani: Jalur Merah dalam pemeriksaan, dokumen lebih dari 30 hari, dokumen dipantau yang belum selesai, dan dokumen yang melewati SLA. Baris dengan angka nol disembunyikan. Klik baris untuk membuka daftar dokumennya.</p>
+<p>Di bawahnya ada <b>Tren bulanan</b>, <b>Per jenis dokumen</b>, <b>Penjaluran</b>, dan <b>Umur dokumen</b>. Klik jenis dokumen untuk membuka halaman jenis tersebut.</p>
+<h2 id="4-periode-dan-filter">4. Periode dan filter</h2>
+<p>Bilah filter di atas setiap halaman berlaku untuk semua angka, tabel, dan laporan:</p>
+<ul><li><b>Periode</b>: Semua data, bulan, kuartal, tahun, atau rentang tanggal.</li><li><b>Jalur</b>: Semua jalur, Hijau, Kuning, atau Merah.</li><li><b>Jenis dokumen</b>: satu atau beberapa jenis.</li><li><b>Dokumen lama</b>: dokumen belum final yang berumur lebih dari 365 hari dipisahkan dari angka utama secara bawaan. Catatan di bilah filter menunjukkan jumlahnya, dengan pilihan <b>Lihat</b>, <b>Hitung semua</b>, atau <b>Buat Excel</b> untuk ditelusuri.</li></ul>
+<p><b>Atur ulang</b> mengembalikan filter bawaan.</p>
+<h2 id="5-dokumen-dan-panel-dokumen">5. Dokumen dan panel dokumen</h2>
+<p><img src="../images/v2/03_dokumen.jpg" alt="Dokumen" loading="lazy" decoding="async"></p>
+<p>Tab di atas tabel: <b>Semua</b>, <b>Belum selesai</b>, <b>Jalur Merah</b>, dan <b>Melewati SLA</b>. Tampilan cepat: Berubah hari ini, Belum ada penanggung jawab, Isi belum diambil, Dipantau, dan Tanpa invoice. <b>Simpan filter sekarang</b> menyimpan kombinasi filter sebagai tampilan sendiri.</p>
+<p>Kotak pencarian menerima nomor pengajuan, invoice, mitra, atau penanggung jawab. Tombol <b>Kolom</b> mengatur kolom, dan <b>Unduh</b> membuat Excel dari tabel yang tampil.</p>
+<p><img src="../images/v2/04_panel_dokumen.jpg" alt="Panel dokumen" loading="lazy" decoding="async"></p>
+<p>Klik baris untuk membuka <b>panel dokumen</b>:</p>
+<ul><li><b>Tahapan</b>: rel tahapan dari Riwayat Status portal dan lama di setiap status. Tombol <b>Ambil riwayat dari portal</b> membaca riwayat terbaru (nama dan NIP petugas tidak dibaca).</li><li><b>Isi</b>: dokumen pelengkap, barang, nilai, dan pungutan dari isi dokumen yang sudah diambil.</li><li><b>Tindak lanjut</b>: penanggung jawab, tugas, target, status tindak lanjut, catatan, dan pemeriksaan fisik untuk Jalur Merah.</li><li><b>Billing</b>: kode billing terkait dokumen beserta NTPN.</li></ul>
+<p>Tanda bintang memasukkan dokumen ke daftar <b>Dipantau</b>.</p>
+<h2 id="6-tagihan">6. Tagihan</h2>
+<p>Daftar billing dari Browse Billing di portal, ditampilkan apa adanya: kode billing, nomor pengajuan, jenis, tenggat, nilai, status, dan NTPN. Rincian dan PDF billing diambil saat diklik dan tidak disimpan. CEISA Monitor tidak melakukan pembayaran dan tidak menilai billing mana yang harus dibayar.</p>
+<h2 id="7-nilai-dan-pungutan">7. Nilai dan pungutan</h2>
+<p><img src="../images/v2/06_nilai_pungutan.jpg" alt="Nilai dan pungutan" loading="lazy" decoding="async"></p>
+<p>Angka di halaman ini dihitung dari <b>isi dokumen</b> yang diambil dari portal. Bagian atas menunjukkan berapa dokumen yang isinya sudah diambil; klik <b>Ambil isi</b> untuk melengkapinya. Pengambilan berjalan di latar belakang dan dapat dihentikan lalu dilanjutkan.</p>
+<ul><li><b>Kartu</b>: Nilai pabean, Dibayar, dan Fasilitas.</li><li><b>Pungutan per bulan</b>: Semua, Dibayar, atau Fasilitas, per bulan, kuartal, atau tahun. Bulan yang isinya belum diambil diberi arsiran, bukan ditulis nol.</li><li><b>Ke mana pungutan</b>: dibayar, tidak dipungut, ditangguhkan, dibebaskan, dan perlakuan lain, dengan nama perlakuan (bukan kode).</li><li><b>Per jenis dokumen</b>: komposisi perlakuan, besar pungutan, dan cakupan isi per jenis.</li></ul>
+<h2 id="8-tindak-lanjut">8. Tindak lanjut</h2>
+<p><img src="../images/v2/05_tindak_lanjut.jpg" alt="Tindak lanjut" loading="lazy" decoding="async"></p>
+<p>Papan tindak lanjut mengelompokkan dokumen belum selesai yang punya catatan menurut statusnya (Belum ditindaklanjuti, Sedang dicek, Menunggu pihak lain, Selesai dicek). Isi atau ubah tindak lanjut dari panel dokumen. Untuk banyak dokumen sekaligus, pilih baris di tabel Dokumen lalu atur penanggung jawabnya bersama.</p>
+<h2 id="9-buat-laporan">9. Buat laporan</h2>
+<p><img src="../images/v2/07_buat_laporan.jpg" alt="Buat laporan" loading="lazy" decoding="async"></p>
+<p><b>Langkah 1. Untuk apa laporan ini?</b> Pilih tujuan, dan berkas yang cocok langsung terpilih:</p>
+<div class="tw"><table><thead><tr><th>Tujuan</th><th>Berkas</th></tr></thead><tbody><tr><td>Rapat bulanan</td><td>Presentasi, laporan resmi A4, Excel</td></tr><tr><td>Kabar harian</td><td>Pesan WhatsApp versi Singkat</td></tr><tr><td>Arsip dan audit</td><td>Laporan resmi A4 dan Excel</td></tr><tr><td>Tugas tim</td><td>Laporan per penanggung jawab</td></tr></tbody></table></div>
+<p>Kartu berkas tetap dapat diklik untuk menambah atau mengurangi. Arahkan kursor ke kartu untuk melihat isinya.</p>
+<p><b>Langkah 2. Periksa data dan pilihan.</b> Cakupan mengikuti filter di atas halaman. Kesiapan data tampil sebagai satu tanda: <b>Data siap</b>, atau <b>Dapat dibuat</b> dengan hal yang sebaiknya dilengkapi (misalnya daftar dokumen sudah lama atau isi dokumen belum lengkap). Pilihan: <b>Pakai SLA</b>, <b>Versi ringkas</b>, dan <b>Samarkan identitas</b>.</p>
+<p><b>Langkah 3. Ringkasan berkas.</b> Satu baris per berkas: nama berkas persis seperti yang akan diunduh dan jumlah bagiannya. Klik <b>Buat</b> di bilah bawah. Berkas tersimpan di folder Unduhan; tidak ada data yang dikirim ke internet.</p>
+<p><b>Terakhir dibuat</b> menyimpan tiga pembuatan terakhir beserta pilihannya di browser ini. <b>Buat lagi</b> memakai pilihan yang sama dengan data terbaru.</p>
+<h3 id="presentasi-rapat">Presentasi rapat</h3>
+<p><img src="../images/v2/19_presentasi.jpg" alt="Presentasi rapat" loading="lazy" decoding="async"></p>
+<p>Sekitar 15 slide (versi ringkas sekitar 7). Judul setiap slide berupa kesimpulan, dan nama jenis dokumen ditulis tanpa kode. Isinya: ringkasan eksekutif, bulan terakhir dan volume per jenis, tren penyelesaian terhadap target, perbandingan jenis dokumen, umur dokumen, rincian paling banyak dua jenis yang perlu perhatian, waktu penyelesaian, penjaluran, nilai dan pungutan, tindak lanjut, temuan dan keputusan yang dimohon, serta lampiran.</p>
+<h3 id="laporan-resmi-a4">Laporan resmi A4</h3>
+<p><img src="../images/v2/20_laporan_a4.jpg" alt="Laporan resmi A4" loading="lazy" decoding="async"></p>
+<p>Dibuka di tab baru. Halaman pertama memuat <b>ikhtisar</b> (empat angka utama, hal pokok, dan usulan utama) sehingga dapat dibaca tanpa membuka halaman lain. Kolom bergaris putus-putus (nomor, kepada, kota, penanda tangan) dapat disunting langsung. <b>Ingat isian kop dan tanda tangan</b> menyimpan isian tersebut untuk laporan berikutnya. Cetak atau simpan sebagai PDF, atau unduh .doc.</p>
+<h3 id="excel-berformat">Excel berformat</h3>
+<p>Lembar Ringkasan, Per jenis (dengan Selesai, % Selesai, Lebih dari 30 hari, dan baris Jumlah), Dokumen (dokumen lebih dari 30 hari dan yang melewati SLA diberi tanda), serta Tagihan dan Nilai per jenis bila datanya ada. Semua lembar memakai filter dan baris kepala beku.</p>
+<h3 id="pesan-whatsapp">Pesan WhatsApp</h3>
+<p><img src="../images/v2/10_whatsapp.jpg" alt="Pesan WhatsApp" loading="lazy" decoding="async"></p>
+<p>Pratinjau berupa gelembung pesan. Pilih <b>Singkat</b> (lima baris angka utama, untuk atasan) atau <b>Lengkap</b> (bagian yang dipilih, untuk tim). <b>Salin</b> menyalin teksnya; <b>Buka WhatsApp</b> membuka WhatsApp dengan teks tersebut, dan Anda sendiri yang memilih penerima dan menekan kirim.</p>
+<h2 id="10-laporan-per-penanggung-jawab">10. Laporan per penanggung jawab</h2>
+<p><img src="../images/v2/11_laporan_per_penanggung_jawab.jpg" alt="Laporan per penanggung jawab" loading="lazy" decoding="async"></p>
+<p>Dibuka dari tujuan <b>Tugas tim</b> atau dari papan Tindak lanjut. Setiap baris menunjukkan satu orang dengan jumlah dokumen belum selesai, Jalur Merah, dan yang lewat target atau SLA.</p>
+<ol><li><b>Kirim.</b> Isi nomor WhatsApp (disimpan di browser ini), lalu <b>Pratinjau</b>, <b>Salin</b>, atau <b>WhatsApp</b>. Pesan tersusun menurut prioritas: Jalur Merah, lewat target, lalu lainnya, masing-masing dengan tugas yang disarankan. Tombol <b>Excel</b> membuat berkas khusus orang itu.</li><li><b>Isi.</b> Penanggung jawab mengisi kolom <b>Hasil</b> (pilihan Selesai, Sedang diproses, Menunggu pihak lain, atau ketik bebas) dan <b>Keterangan</b> di Excel.</li><li><b>Impor.</b> Klik <b>Impor hasil…</b> dan pilih berkas yang sudah diisi. Pratinjau menunjukkan apa yang akan berubah sebelum Anda menekan <b>Terapkan ke tindak lanjut</b>. Pilihan Hasil menjadi status tindak lanjut; teks bebas dan Keterangan menjadi catatan bertanggal. Dokumen yang dilaporkan Selesai tidak masuk laporan berikutnya.</li></ol>
+<p><img src="../images/v2/12_pesan_penanggung_jawab.jpg" alt="Pesan per penanggung jawab" loading="lazy" decoding="async"></p>
+<p><b>Unduh Excel semua orang</b> membuat satu berkas berisi Rekap untuk Anda, satu sheet per orang, dan sheet Belum ditugaskan. Laporan dibuat kapan saja; tidak ada pengingat terjadwal.</p>
+<h2 id="11-pemantauan-dan-kotak-masuk">11. Pemantauan dan kotak masuk</h2>
+<p><img src="../images/v2/15_pemantauan.jpg" alt="Pemantauan" loading="lazy" decoding="async"></p>
+<p>Pemantauan <b>mati secara bawaan</b>. Bila dinyalakan di Pengaturan → Pemantauan:</p>
+<ul><li><b>Pantau perubahan status</b> membaca daftar dokumen dalam rentang hari tertentu dengan selang 15, 30, atau 60 menit.</li><li><b>Pantau ketat</b> membaca riwayat status dan respons dokumen berbintang dan Jalur Merah dalam pemeriksaan yang belum selesai (paling banyak 50 dokumen) setiap 10 menit.</li><li>Perubahan masuk ke <b>kotak masuk</b> di ikon lonceng. <b>Pemberitahuan browser</b> baru diminta izinnya saat Anda menyalakannya.</li></ul>
+<p>Pemantauan hanya berjalan bila tab portal terbuka dan Anda sudah masuk. Ekstensi tidak membuka tab portal sendiri, menjalankan permintaan satu per satu dengan jeda, dan berhenti bila sesi berakhir atau akun berbeda.</p>
+<h2 id="12-pengaturan">12. Pengaturan</h2>
+<p><img src="../images/v2/13_pengaturan_profil.jpg" alt="Profil perusahaan" loading="lazy" decoding="async"></p>
+<div class="tw"><table><thead><tr><th>Bagian</th><th>Isi</th></tr></thead><tbody><tr><td>Profil perusahaan</td><td>Nama tampilan, jenis fasilitas, status final, status Jalur Merah dalam pemeriksaan, target SLA, catatan kejadian</td></tr><tr><td>Data dan pembaruan</td><td>Rentang tanggal dan jenis dokumen yang ditarik, serta dokumen NPWP 15 digit</td></tr><tr><td>Pemantauan</td><td>Pantau perubahan status, pantau ketat, dan pemberitahuan browser</td></tr><tr><td>Cadangan</td><td>Ekspor dan impor berkas <code>.ceisadata</code>: Ringan (pengaturan, profil, tindak lanjut, catatan, kontak) atau Lengkap (ditambah isi dokumen, riwayat, dan billing)</td></tr><tr><td>SLA</td><td>Pakai SLA atau tidak, dan batas hari per jenis dokumen</td></tr><tr><td>Tampilan</td><td>Tema Otomatis, Terang, atau Gelap; tingkat tampilan; tampilan menurut peran</td></tr><tr><td>Kesehatan</td><td>Status portal dan sesi, penarikan terakhir, data tersimpan, cadangan pembaruan, dan berkas diagnostik tanpa data pribadi</td></tr><tr><td>Lanjutan</td><td>Akun di browser ini (pakai atau hapus akun yang tidak dipakai), laporkan masalah, dan hapus semua data tersimpan</td></tr></tbody></table></div>
+<p>Isian yang memakai tombol Simpan menampilkan bilah <b>Perubahan belum disimpan</b> di bawah layar. Saklar langsung tersimpan.</p>
+<p><img src="../images/v2/14_cadangan.jpg" alt="Cadangan" loading="lazy" decoding="async"></p>
+<h2 id="13-popup-tombol-portal-layar-kantor-dan-ponsel">13. Popup, tombol portal, layar kantor, dan ponsel</h2>
+<ul><li><b>Popup ikon</b>: ringkasan singkat, keadaan sesi portal, dan tombol membuka dasbor.</li><li><b>Tombol CEISA Monitor di halaman portal</b>: membuka dasbor; dapat disembunyikan.</li><li><b>Mode layar kantor</b>: tampilan layar penuh dengan huruf besar untuk monitor bersama, dengan pilihan menyamarkan nomor.</li><li><b>Tema gelap</b> dan <b>tampilan ponsel</b> dengan menu di bawah layar.</li></ul>
+<div class="tw"><table><thead><tr><th>Tema gelap</th><th>Ponsel</th></tr></thead><tbody><tr><td><img src="../images/v2/16_tema_gelap.jpg" alt="Tema gelap" loading="lazy" decoding="async"></td><td><img src="../images/v2/17_ponsel.jpg" alt="Ponsel" loading="lazy" decoding="async"></td></tr></tbody></table></div>
+<p>---</p>
+<p>Butuh bantuan? Lihat <a href="../tanya-jawab/">Tanya jawab</a> atau buka <a href="https://github.com/triasahoy/ceisa-monitor/issues/new/choose" rel="noopener">Issues</a>. Jangan melampirkan data asli perusahaan atau tangkapan layar portal yang memuat data rahasia.</p>
+</article>
+<div class="endcta"><p><b>Pasang CEISA Monitor gratis dari Chrome Web Store.</b> Hanya membaca, data tetap di browser Anda.</p><a class="btn pri" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Buka Chrome Web Store</a></div>
+</main>
+<footer class="foot"><span>© 2026 Trias Purwantoro · CEISA Monitor adalah alat independen buatan pengguna, bukan produk resmi dan tidak berafiliasi dengan Direktorat Jenderal Bea dan Cukai.</span><span><a href="../">Beranda</a> · <a href="../panduan/">Panduan</a> · <a href="../tanya-jawab/">Tanya jawab</a> · <a href="../privacy-policy.html">Kebijakan privasi</a> · <a href="https://github.com/triasahoy/ceisa-monitor" rel="noopener">GitHub</a></span></footer>
+<script type="module" src="../situs.js"></script>
+</body>
+</html>

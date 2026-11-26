@@ -1,0 +1,29 @@
+/* Demo CEISA Monitor: pita DATA DEMO yang selalu tampil dan penyesuaian tata letak (dibuat oleh store/build_situs.py). */
+:root{--dh:40px}
+#demoBar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 18px;
+  padding:6px 14px;background:#C9A55A;color:#13315C;font:600 13.5px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 1px 0 rgba(0,0,0,.18)}
+#demoBar b{font-weight:800;letter-spacing:.04em}
+#demoBar .demo-act{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+#demoBar a{color:#13315C;text-decoration:underline;text-underline-offset:2px;font-weight:700}
+#demoBar .demo-btn{background:#13315C;color:#fff;text-decoration:none;border-radius:8px;padding:4px 12px;font-weight:700}
+#demoBar .demo-btn:hover{background:#0B2140}
+#demoBar a:focus-visible{outline:2px solid #13315C;outline-offset:2px}
+html{padding-top:var(--dh)}
+/* bagian yang menempel di atas jendela harus turun sebesar pita */
+.side{top:var(--dh)!important;height:calc(100vh - var(--dh))!important}
+.drawer,.v6sheet{top:var(--dh)!important;height:calc(100vh - var(--dh))!important}
+.v6sheet{bottom:auto!important}
+.v6 .fbar{top:var(--dh)!important}
+.v10snav{top:calc(var(--dh) + 12px)!important}
+.v6steps>.step:nth-child(3){top:calc(var(--dh) + 76px)!important}
+#v27tv{top:var(--dh)!important}
+.pal{padding-top:calc(14vh + var(--dh))}
+body.more .side{top:var(--dh)!important;height:auto!important}
+@media (max-width:820px){.side{top:auto!important;height:auto!important}body.more .side{top:var(--dh)!important}}
+/* menu yang mengarah ke mode demo bawaan ekstensi atau data portal tidak berlaku di situs */
+[data-m="demo"],[data-m="back"],[data-m="portal"]{display:none!important}
+#demoToast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);max-width:min(92vw,520px);background:#13315C;color:#fff;padding:10px 16px;border-radius:10px;font:600 13px/1.4 system-ui,sans-serif;opacity:0;pointer-events:none;transition:opacity .15s;z-index:1100}
+#demoToast.on{opacity:1}
+@media (max-width:560px){#demoBar{font-size:12px;padding:5px 10px;gap:3px 12px}#demoBar .demo-act{gap:4px 12px;justify-content:center}#demoBar .demo-btn{padding:3px 10px}}
+@media print{#demoBar,#demoToast{display:none}html{padding-top:0}}
+@media (prefers-reduced-motion:reduce){#demoToast{transition:none}}

@@ -1,0 +1,65 @@
+CEISA Monitor - Pemberitahuan pustaka pihak ketiga / Third-party notices
+========================================================================
+
+CEISA Monitor memuat pustaka pihak ketiga berikut di folder vendor/ dan fonts/, tanpa diubah. Setiap pustaka tetap memakai
+lisensinya sendiri. Berkas ini bukan nasihat hukum; berkas ini hanya mencatat apa yang disertakan.
+CEISA Monitor includes the following third-party libraries in vendor/ and fonts/, unmodified. Each keeps its own licence.
+
+Versi dan SHA-256 setiap berkas: lihat vendor/VERSIONS.txt.
+
+1. ExcelJS 4.4.0 (berkas: vendor/exceljs.min.js) - MIT License
+   Proyek: https://github.com/exceljs/exceljs
+   Hak cipta: Copyright (c) 2014-2019 Guyon Roche (sesuai berkas LICENSE di repositori proyek).
+   Dipakai untuk membuat dan membaca berkas Excel di browser.
+   Bundel ExcelJS memuat komponen pihak ketiga lain. Yang tertera pada banner di dalam berkas:
+   - JSZip 3.10.1 (lihat butir 3)
+   - modul "buffer" untuk browser, Feross Aboukhadijeh (https://github.com/feross/buffer), MIT
+   - safe-buffer, Feross Aboukhadijeh (https://github.com/feross/safe-buffer), MIT
+   - ieee754, Feross Aboukhadijeh (https://github.com/feross/ieee754), BSD-3-Clause (teks lisensi: lihat butir 6)
+   - xmlchars (kelas karakter XML), Louis-Dominique Dubeau (https://github.com/lddubeau/xmlchars), MIT
+   Bundel ini juga memuat pustaka lain tanpa banner di dalam berkas (misalnya dayjs, fast-csv, pako). Untuk daftar lengkap
+   dan pemegang hak ciptanya, lihat repositori ExcelJS dan daftar dependensi package.json untuk versi 4.4.0.
+
+2. PptxGenJS 4.0.1 (berkas: vendor/pptxgen.bundle.js) - MIT License
+   Proyek: https://github.com/gitbrent/PptxGenJS
+   Hak cipta: Copyright (c) 2015-2022 Brent Ely (sesuai berkas LICENSE di repositori proyek).
+   Dipakai untuk membuat presentasi PowerPoint di browser. Bundel memuat JSZip 3.10.1 (butir 3).
+
+3. JSZip 3.10.1 (di dalam kedua bundel di atas) - pilihan lisensi: MIT
+   Proyek: https://github.com/Stuk/jszip
+   Hak cipta: (c) 2009-2016 Stuart Knightley <stuart [at] stuartk.com> (sesuai banner di dalam berkas).
+   JSZip diterbitkan dengan lisensi ganda MIT atau GPLv3. CEISA Monitor memilih dan memakainya di bawah lisensi MIT.
+   JSZip memakai pustaka pako (https://github.com/nodeca/pako) yang dirilis dengan lisensi MIT.
+   JSZip is dual licensed (MIT or GPLv3); CEISA Monitor uses it under the MIT licence.
+
+4. pdf.js 6.3.289 (folder: vendor/pdfjs/) - Apache License 2.0
+   Proyek: https://github.com/mozilla/pdf.js
+   Hak cipta: Mozilla Foundation (banner di dalam berkas). Teks lisensi lengkap: vendor/pdfjs/LICENSE-pdfjs.txt.
+
+5. Font Plus Jakarta Sans dan JetBrains Mono (folder: fonts/) - SIL Open Font License 1.1
+   Plus Jakarta Sans: https://github.com/tokotype/PlusJakartaSans - The Plus Jakarta Sans Project Authors.
+   JetBrains Mono: https://github.com/JetBrains/JetBrainsMono - The JetBrains Mono Project Authors.
+   Teks lisensi lengkap: fonts/LICENSE-PlusJakartaSans.txt dan fonts/LICENSE-JetBrainsMono.txt.
+
+6. ieee754 - BSD-3-Clause (ringkas)
+   Hak cipta (c) Feross Aboukhadijeh dan pengontribusi. Penyebaran ulang dalam bentuk biner wajib mempertahankan
+   pemberitahuan hak cipta, daftar ketentuan, dan penafian ini; nama pemegang hak cipta tidak boleh dipakai untuk
+   mendukung produk turunan tanpa izin tertulis. Perangkat lunak disediakan "sebagaimana adanya" tanpa jaminan apa pun.
+   Teks lengkap: https://github.com/feross/ieee754/blob/master/LICENSE
+
+Teks lisensi MIT (berlaku untuk butir 1 sampai 3 dan komponen MIT di dalamnya)
+-----------------------------------------------------------------------------
+Pemegang hak cipta masing-masing komponen tertera di atas atau di repositori proyeknya.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

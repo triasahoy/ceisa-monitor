@@ -1,69 +1,69 @@
-# Alur Kerja dengan CEISA Monitor
+# Alur Kerja dengan CEISA Monitor 2.0
 
 Contoh rutinitas tim ekspor-impor: harian, mingguan, dan bulanan. Sesuaikan dengan prosedur perusahaan Anda.
 
-[Kembali ke README](../README.md) · [Panduan lengkap](PANDUAN.md)
+[Kembali ke README](../README.md) · [Panduan](PANDUAN.md) · [Video tutorial](TUTORIAL.md)
 
 ## Gambaran besar
 
 ```mermaid
 flowchart LR
-  A[Masuk portal CEISA 4.0] --> B[Buka Daftar Dokumen]
-  B --> C[Perbarui data<br>otomatis atau manual]
-  C --> D[Dasbor dan Perubahan]
-  D --> E{Perlu tindakan?}
-  E -- Ya --> F[Catat tindak lanjut<br>penanggung jawab, tugas, target]
-  F --> G[Kirim tugas via WhatsApp]
-  G --> H[Penanggung jawab menindaklanjuti]
-  H --> I[Perbarui status tindak lanjut<br>Selesai dicek]
-  E -- Tidak --> J[Pantau]
-  I --> K[Rapat bulanan:<br>presentasi, laporan resmi, Excel]
-  J --> K
+  A[Masuk portal CEISA 4.0] --> B[Perbarui data<br>di latar belakang]
+  B --> C[Ringkasan:<br>Perlu perhatian hari ini]
+  C --> D{Perlu tindakan?}
+  D -- Ya --> E[Tindak lanjut:<br>penanggung jawab, tugas, target]
+  E --> F[Laporan per penanggung jawab<br>WhatsApp dan Excel]
+  F --> G[Tim mengisi kolom Hasil]
+  G --> H[Impor hasil ke tindak lanjut]
+  D -- Tidak --> I[Pantau]
+  H --> J[Buat laporan:<br>Rapat bulanan, Arsip dan audit]
+  I --> J
 ```
 
 Data hanya mengalir dari portal ke browser Anda. Ekstensi tidak mengubah apa pun di portal dan tidak mengirim data ke server.
 
 ## Harian (10–15 menit)
 
-| Waktu | Langkah | Fitur |
+| Waktu | Langkah | Tempat |
 |---|---|---|
-| 08.00 | Buka dasbor, lihat kartu **Hari ini** | Hari ini |
-| 08.05 | Lihat kartu **Perubahan** "Sejak kemarin"; klik **Ekspor → Bagikan ringkasan** untuk ditempel ke grup WhatsApp tim | Perubahan |
-| 08.10 | Periksa dokumen **Prioritas** (Jalur Merah, pemeriksaan, SPJM) | Perubahan → Prioritas |
-| 08.15 | Klik **Tampilkan yang perlu ditindaklanjuti**, isi penanggung jawab, tugas, dan target | Tindak lanjut |
-| 08.20 | **Kirim tugas via WhatsApp** dengan cakupan "Jatuh tempo" atau "Belum pernah dikirim" | Penugasan |
-| Sepanjang hari | Klik tanda **BERUBAH** untuk melihat Riwayat Status dan Riwayat Respon dari portal, lengkap dengan jamnya | Rincian perubahan |
-| Sore | Ubah status tindak lanjut yang sudah beres menjadi **Selesai dicek** | Tindak lanjut |
+| 08.00 | Masuk portal, buka CEISA Monitor, klik **Perbarui data** (atau biarkan Pemantauan bekerja bila dinyalakan) | Kepala dasbor |
+| 08.05 | Baca kesimpulan dan **Perlu perhatian hari ini**: Jalur Merah dalam pemeriksaan, lebih dari 30 hari, dipantau, melewati SLA | Ringkasan |
+| 08.10 | Buka tampilan **Belum ada penanggung jawab**, pilih dokumen, tetapkan penanggung jawab dan target | Dokumen |
+| 08.15 | **Buat laporan → Tugas tim**: kirim pesan WhatsApp atau Excel ke setiap penanggung jawab | Laporan per penanggung jawab |
+| 08.20 | **Buat laporan → Kabar harian**: salin pesan Singkat untuk atasan atau grup | Buat laporan |
+| Sepanjang hari | Periksa lonceng (kotak masuk) untuk perubahan status bila Pemantauan menyala | Lonceng |
+| Sore | **Impor hasil…** dari Excel yang diisi tim, atau ubah status tindak lanjut di panel dokumen | Laporan per penanggung jawab |
 
 ## Mingguan (Senin, 30 menit)
 
-1. Pilih pembanding **Sejak Senin** atau **7 hari terakhir** di kartu Perubahan.
-2. Lihat kartu **Komposisi status**: status mana yang menumpuk? Klik statusnya untuk melihat dokumennya.
-3. Saring **Tindak lanjut → Melewati target**, lalu kirim ulang tugas kepada penanggung jawab.
-4. Periksa **peta umur dokumen**: status mana yang paling lama tertahan?
-5. Bagikan **Ringkasan WhatsApp** mingguan kepada atasan.
+1. Tampilan **Melewati SLA** dan **Dokumen lama**: apa yang menumpuk dan mengapa?
+2. Kartu **Tertahan di status** dan **Umur dokumen**: status mana yang paling lama?
+3. Papan **Tindak lanjut**: kartu di kolom Menunggu pihak lain yang targetnya sudah lewat.
+4. Kirim ulang laporan per penanggung jawab untuk dokumen yang belum selesai.
+5. Buat cadangan **Ringan** (Pengaturan → Cadangan) agar tindak lanjut dan catatan aman.
 
 ## Bulanan (rapat, 15 menit persiapan)
 
-1. Klik **Ambil isi dokumen…**, pilih **Bulan ini** (dokumen yang sudah diambil dilewati), lalu periksa tab **Nilai dan pungutan**.
-2. **Ekspor → Buat laporan**: pilih bulan, centang presentasi, laporan resmi A4, dan Excel, lalu klik Buat.
-3. Periksa slide **Keputusan yang dimohon** dan sesuaikan usulan.
-4. Cetak atau simpan laporan resmi sebagai PDF/Word untuk tanda tangan.
-5. Bandingkan dengan **Periode sama tahun lalu** untuk melihat tren musiman.
+1. Atur periode ke bulan yang dilaporkan di bilah filter.
+2. Klik **Ambil isi** di Nilai dan pungutan agar bab pungutan lengkap.
+3. **Buat laporan → Rapat bulanan**: presentasi, laporan resmi A4, dan Excel sekaligus.
+4. Periksa slide **Temuan, usulan, dan keputusan yang dimohon**, lalu sesuaikan.
+5. Lengkapi kop dan penanda tangan di laporan A4, klik **Ingat isian kop dan tanda tangan**, lalu cetak atau simpan sebagai PDF.
 
 ## Pembagian peran yang disarankan
 
 | Peran | Tanggung jawab di CEISA Monitor |
 |---|---|
-| Supervisor EXIM | Memeriksa kartu Hari ini, menetapkan penanggung jawab dan target, mengirim tugas, menyiapkan laporan bulanan |
-| Staf dokumen | Menindaklanjuti tugas, melaporkan perkembangan melalui balasan WhatsApp |
-| Koordinator gudang | Menangani tugas Gate In, Pembongkaran, Stuffing, dan pemeriksaan fisik |
-| Atasan | Menerima ringkasan WhatsApp dan laporan resmi bulanan |
+| Supervisor EXIM | Membaca Perlu perhatian, menetapkan penanggung jawab dan target, mengirim laporan per penanggung jawab, mengimpor hasil, menyiapkan laporan bulanan |
+| Staf dokumen | Menindaklanjuti tugas, mengisi kolom Hasil dan Keterangan di Excel |
+| Koordinator gudang | Menangani tugas Gate In, Pembongkaran, Stuffing, dan pemeriksaan fisik Jalur Merah |
+| Atasan | Menerima pesan Kabar harian dan laporan resmi bulanan |
 
-Catatan tindak lanjut tersimpan di komputer masing-masing.
+Catatan tindak lanjut tersimpan di browser masing-masing. Untuk berbagi dengan rekan, gunakan berkas Excel per penanggung jawab atau cadangan Ringan.
 
 ## Menyesuaikan dengan perusahaan Anda
 
-- **Profil perusahaan**: pilih jenis fasilitas agar templat SLA dan status final sesuai (KEK, kawasan berikat, importir umum, PPJK).
-- **SLA per jenis dan status**: misalnya Pembongkaran 2 hari, Gate In TPB/KEK 3 hari.
-- **Jenis dokumen yang ditarik**: pilih jenis yang relevan di Pengaturan → Data agar penarikan lebih cepat.
+- **Profil perusahaan**: jenis fasilitas, status final, dan status Jalur Merah dalam pemeriksaan.
+- **SLA**: pakai atau tidak, dan batas hari per jenis dokumen.
+- **Data dan pembaruan**: jenis dokumen yang ditarik dan dokumen NPWP 15 digit.
+- **Pemantauan**: nyalakan bila ingin perubahan status masuk ke lonceng tanpa menekan Perbarui data.

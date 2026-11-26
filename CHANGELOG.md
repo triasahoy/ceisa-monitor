@@ -6,6 +6,8 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 | Versi | Tanggal | Tema |
 |---|---|---|
+| 2.1.0 | November 2026 (dikirim ke Chrome Web Store; tersedia setelah peninjauan) | Cadangan berkata sandi, Yang berubah sejak, Cari di portal, semua akun, tampilan dan halaman awal baru, angka yang sama di semua laporan |
+| 2.0.0 | November 2026 | Tampilan baru per pekerjaan, NPWP 15 digit, Buat laporan dari tujuan, laporan per penanggung jawab, Pemantauan pilihan, data besar di latar belakang |
 | 1.19.0 | 26 Oktober 2026 | Laporan per jenis dokumen, Ambil isi dokumen di latar belakang, arah dan pihak pengiriman di Excel dan CSV. Tayang di Chrome Web Store bersama seluruh isi 1.18.0 |
 | 1.18.0 | 12 Oktober 2026 (dirampungkan; tidak diterbitkan terpisah, tersedia lewat 1.19.0) | Data aman: ekspor dan impor data, identitas tidak disimpan, petugas pemeriksa Jalur Merah, daftar dokumen lengkap di ringkasan, dokumen pelengkap dari Detail Dokumen |
 | 1.17.0 | 30 September 2026 | Tagihan: Browse Billing, rincian dan PDF billing, hitung mundur sesi, lembar Billing di Excel, samarkan identitas. Tayang di [Chrome Web Store](https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi) sejak 1 Oktober 2026 |
@@ -18,6 +20,84 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 ## Riwayat rilis
 
 Rilis di bawah dikelompokkan menjadi tujuh fase menurut tema. Pengelompokan ini hanya untuk memudahkan membaca; tanggal setiap rilis tetap sesuai catatan.
+
+### Versi 2.0
+
+#### 2.1.0 · November 2026
+
+**Tema:** hasil tiga putaran audit (keamanan data, kesesuaian angka, tampilan) dan beberapa fitur baru. Prinsip tetap: hanya membaca, tanpa server, data di browser pengguna. Versi ini dikirim ke Chrome Web Store dan tersedia setelah peninjauan selesai. Memerlukan Chrome 128 atau lebih baru.
+
+##### Ditambahkan
+
+- **Cadangan berkata sandi:** berkas cadangan dapat dienkripsi (AES-256-GCM). Kata sandi tidak pernah disimpan.
+- **Berkas tindak lanjut saja:** catatan tindak lanjut dapat dibagikan ke rekan tanpa mengirim seluruh data.
+- **Yang berubah sejak:** perubahan status sejak tanggal yang dipilih, di Ringkasan dan di presentasi.
+- **Lama per tahap** di halaman jenis dokumen, dari Riwayat Status portal.
+- **Lihat semua akun:** ringkasan setiap akun perusahaan dalam satu tampilan.
+- **Kalender target tindak lanjut** (berkas .ics).
+- **Cari di portal:** mencari nomor pengajuan langsung di portal bila dokumen belum ada di data tersimpan.
+- **Pencarian dari bilah alamat:** ketik `cm` lalu spasi.
+- **BC 1.1 dan PPJK** di panel dokumen, pencarian, dan Excel bila portal mengisinya.
+- **Kesesuaian data portal** di Pengaturan → Kesehatan: peringatan bila susunan data portal berubah.
+- **Demo di situs:** dasbor dapat dicoba dengan data contoh tanpa memasang ekstensi.
+
+##### Diubah
+
+- **Satu cakupan untuk semua keluaran:** dasbor, presentasi, laporan A4, Excel, dan WhatsApp memakai rentang tanggal dan rumus yang sama.
+- **Halaman awal dan dasbor dirapikan:** satu jumlah di layar, kata "Tagihan" di seluruh dasbor, kepala tabel yang tetap terlihat, grafik yang terbaca di ponsel dan tema gelap, merah hanya untuk Jalur Merah dan Melewati SLA.
+- **Grafik tren** ikut menghitung dokumen lama pada periode pendaftarannya.
+- **Lencana Tindak lanjut** hanya menghitung yang sedang dikerjakan dan yang targetnya sudah lewat.
+
+##### Diperbaiki
+
+- Penarikan yang terpotong tidak lagi menimpa daftar dokumen yang sudah tersimpan.
+- Data selalu disimpan ke akun yang sedang ditarik walau akun aktif diganti di tengah jalan.
+- Samarkan identitas kini berlaku di presentasi dan laporan A4.
+- Tanggal di Excel tidak lagi mundur sehari.
+- Dokumen yang dibatalkan tidak lagi ikut dihitung dalam nilai dan pungutan.
+
+#### 2.0.0 · November 2026
+
+**Tema:** tampilan baru yang lebih ringkas, laporan yang dimulai dari tujuan, dan kerja tim per penanggung jawab. Prinsip tetap: hanya membaca, tanpa server, data di browser pengguna. Versi ini dikembangkan dan diuji sebagai pratinjau 2.0.0.1 sampai 2.0.0.46 sebelum terbit.
+
+##### Ditambahkan
+
+- **Navigasi per pekerjaan:** Ringkasan, Dokumen, Tagihan, Nilai dan pungutan, Tindak lanjut, Buat laporan, serta Pengaturan dan profil, dengan kesimpulan singkat di setiap halaman. Tema terang dan gelap, tampilan ponsel, dan mode layar kantor.
+- **Perlu perhatian hari ini** di Ringkasan: Jalur Merah dalam pemeriksaan, dokumen lebih dari 30 hari, dokumen dipantau, dan melewati SLA.
+- **Jalur Merah dalam pemeriksaan:** dihitung hanya selama Penjaluran/Siap Jalur, Pemeriksaan Fisik/Barang, atau Penerimaan Dokumen Pelengkap. Aturan yang sama di dasbor, Pemantauan, layar kantor, dan semua laporan.
+- **Dokumen NPWP 15 digit** ikut ditarik dan digabung ke akun yang sama (dapat dimatikan di Pengaturan → Data dan pembaruan).
+- **Dokumen lama** (belum final lebih dari 365 hari) dipisahkan dari angka utama tanpa mengubah statusnya, dengan pilihan Lihat, Hitung semua, atau Buat Excel.
+- **Panel dokumen:** tahapan dari Riwayat Status portal dan lama di setiap status, isi dokumen, pungutan, tindak lanjut, dan billing.
+- **Nilai dan pungutan:** Ke mana pungutan (dibayar, tidak dipungut, ditangguhkan, dibebaskan), pungutan per bulan dengan penanda cakupan isi, dan gambaran per jenis dokumen.
+- **Buat laporan dari tujuan:** Rapat bulanan, Kabar harian, Arsip dan audit, Tugas tim; gambar kecil isi berkas, kesiapan data sebagai satu tanda, nama berkas yang sama persis dengan hasil unduhan, dan riwayat Terakhir dibuat dengan Buat lagi.
+- **Laporan per penanggung jawab:** pesan WhatsApp dan Excel per orang (Rekap, satu sheet per orang, Belum ditugaskan); kolom Hasil berupa pilihan yang juga menerima teks bebas; Impor hasil memperbarui status dan catatan tindak lanjut setelah pratinjau.
+- **Laporan resmi A4:** ikhtisar halaman pertama (angka utama, hal pokok, usulan utama) dan Ingat isian kop dan tanda tangan.
+- **Pesan WhatsApp** versi Singkat (untuk atasan) dan Lengkap (untuk tim) dengan pratinjau gelembung pesan.
+- **Pemantauan (pilihan, mati secara bawaan):** Pantau perubahan status dan Pantau ketat, kotak masuk di lonceng, dan pemberitahuan browser dengan izin pilihan.
+- **Akun di browser ini:** daftar akun dengan pilihan pakai atau hapus akun yang tidak dipakai.
+- **Kesehatan:** status portal dan sesi, penarikan terakhir, ukuran data, cadangan pembaruan, dan berkas diagnostik tanpa data pribadi.
+
+##### Diubah
+
+- **Presentasi rapat** sekitar 15 slide (sebelumnya 26): ringkasan eksekutif memuat poin utama, satu slide perbandingan jenis dokumen, rincian hanya untuk jenis yang perlu perhatian, temuan dan keputusan dalam satu slide.
+- **Excel:** kepala tabel berwarna, angka berformat, filter dan baris kepala beku di semua lembar; lembar Per jenis dengan % Selesai, Lebih dari 30 hari, dan baris Jumlah.
+- **Perbarui data dan Ambil isi dokumen** berjalan di latar belakang; dasbor dengan puluhan ribu dokumen terbuka dalam hitungan detik.
+- **Reject** dihitung final, tetapi tidak sebagai selesai.
+- **Umur dokumen** di presentasi, laporan A4, dan Excel sama dengan dasbor.
+- **Pengaturan** per bagian dengan saklar seragam, pemilih status dua kolom, dan bilah Perubahan belum disimpan.
+- Chrome minimum 116.
+
+##### Pembaruan dari versi 1
+
+- Cadangan lengkap otomatis sebelum perubahan (60 hari, dapat diunduh dari Pengaturan → Kesehatan).
+- Kunci data sama, sehingga dokumen, tindak lanjut, kontak, dan pengaturan tetap dipakai.
+- Pembaruan otomatis versi 1 dialihkan ke Pemantauan; catatan pembaruan tampil sekali di lonceng.
+- Tampilan English belum tersedia di 2.0.
+
+##### Keamanan
+
+- Tidak ada izin wajib baru. `notifications` adalah izin pilihan yang hanya diminta saat pemberitahuan dinyalakan.
+- Samarkan identitas kini berlaku juga untuk Excel dan nama berkas.
 
 ### Fase 7. Data aman
 

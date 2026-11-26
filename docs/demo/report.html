@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo CEISA Monitor (DATA DEMO)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="icons/icon32.png">
+<link rel="stylesheet" href="demo.css">
+<link rel="stylesheet" href="lib/report.css">
+</head>
+<body>
+<div id="demoBar" role="region" aria-label="Pemberitahuan demo">
+  <span class="demo-msg"><b>DATA DEMO</b> – contoh tampilan, bukan data perusahaan mana pun</span>
+  <span class="demo-act">
+    <a class="demo-btn" href="https://chromewebstore.google.com/detail/iojgnclbfhgoapolmfgcjkphacdfjbgi" rel="noopener">Pasang di Chrome</a>
+    <a class="demo-lnk" href="#" id="demoReset">Mulai ulang demo</a>
+    <a class="demo-lnk" href="../">Kembali ke situs</a>
+  </span>
+</div>
+<script src="demo-data.js"></script><script src="demo-boot.js"></script>
+<div class="bar noprint">
+  <strong>Laporan resmi</strong>
+  <span class="muted">Kolom bergaris putus-putus dapat disunting langsung sebelum dicetak.</span>
+  <span class="sp"></span>
+  <button id="b-keep" type="button" title="Kepada, lampiran, kota, dan tanda tangan dipakai lagi untuk laporan berikutnya">Ingat isian kop dan tanda tangan</button>
+  <button id="b-doc" type="button">Unduh .doc (Word)</button>
+  <button id="b-print" type="button" class="pri">Cetak / Simpan PDF</button>
+</div>
+<main id="doc" class="page"><p class="muted">Memuat laporan…</p></main>
+<script type="module" src="lib/report.js"></script>
+</body>
+</html>

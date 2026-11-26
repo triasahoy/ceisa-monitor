@@ -1,0 +1,120 @@
+/* Hallmark · shape: Split Studio · genre: modern-minimal · theme: brand · redesign: full · job: try
+ * paper: oklch(99% 0.003 255) · accent: oklch(74% 0.09 84) · display: Plus Jakarta Sans 800 · body: Plus Jakarta Sans 400 · hero: Stage · nav: dense bar · footer: colophon · signature: the real Ringkasan capture at or near 1:1, Perlu perhatian hari ini readable on the first screen
+ * axes: light/grotesk-heavy/warm · posture: restrained · contrast: pass · fold: pass · draw: d4b907, nav masthead and footer index columns swapped · imagery: screenshots from assets/land, DATA DEMO, labelled Data contoh · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: H, the page keeps every fact the old one stated, so heads stay short and the four trust facts left the hero for their own band */
+/* Hallmark · hero-review: subagent, fix · 4 findings · 4 resolved (run after the sections existed, not before them) */
+/* Hallmark · finish-review: subagent, fix · 8 findings · 6 resolved, 1 noted (58: the owner's words around the working portal card), 1 outside the redesign (demo seed ages against today's date) · gap: none */
+/* Hallmark · dropped hbg, hcv, hvid · the night port canvas is a drawn scene behind the hero and assets/aset.json lists no hero video; the hero is now the real capture */
+/* Hallmark · dropped tick, tickIn · a moving strip of sample status rows under the hero; the journey section shows the same statuses */
+/* Hallmark · answered F23 · build_situs.py writes the public page description; a second meta tag here would duplicate it on the site */
+/* Hallmark · dismissed 3 · the three safety notes carry a 24px line icon beside each heading, no tile and no icon above a heading */
+/* Hallmark · dismissed F4 · Tur 60 detik is .btn.line with a transparent fill and a 1px edge; Mulai sekarang is the one filled control in the hero */
+/* Hallmark · dismissed 25 · the journey station lines are one sentence captions under each station, set at 26ch to fit a fifth of the track */
+
+/* CEISA Monitor 2.0 – halaman awal: token, dasar, kepala halaman, tombol, kaki halaman.
+   Dipakai juga oleh halaman panduan situs (store/build_situs.py), jadi nama variabel lama (--bg, --ink, --navy, ...) tetap. */
+:root{
+  --brand-navy:#13315C;--brand-gold:#C9A55A;
+  --bg:#FBFCFD;--surface:#FFFFFF;--surface-2:#F1F4F9;--surface-3:#E6EBF2;
+  --ink:#0F1C2B;--ink-2:#43536A;--ink-3:#5B6A7D;--line:#DCE3EC;--field-edge:#7B8794;
+  --navy:#13315C;--navy-2:#1D4A85;--navy-hover:#1D4A85;--deep:#0B1F3A;--gold:#C9A55A;--gold-2:#E2C687;--gold-ink:#13315C;
+  --ok:#1C8456;--warn:#B7791F;--bad:#B42318;--ok-ink:#176B45;--warn-ink:#8A5A00;--bad-ink:#A8221A;
+  --on-navy:#FFFFFF;--band:#13315C;--on-band:#FFFFFF;--on-band-2:#C3CFDF;--band-line:#3A5A88;--band-node:#1C3D6B;--band-hover:#1F4374;
+  --tag-demo-bg:#FFF4DB;--tag-demo-ink:#6E4700;--tag-ok-bg:#E3F4EA;--tag-ok-ink:#176B45;
+  --st-info-bg:#E6EEF9;--st-info-ink:#1D4A85;--st-bad-bg:#FBE4E1;--st-bad-ink:#9F1F15;--st-ok-bg:#E3F4EA;--st-ok-ink:#176B45;
+  --jalur-h:#1C8456;--jalur-k:#C99A16;--jalur-m:#B42318;
+  --capture-bg:#F6F7FB;--frame-edge:#C9D2DE;--tour-dim:rgba(11,31,58,.38);--scrim:rgba(8,19,33,.55);--select:#E9DBB4;
+  --paper-white:#FFFFFF;--sample-ink:#0F1C2B;--sample-ink-2:#43536A;--sample-line:#E2E8F0;--sample-row:#F7F9FC;--sample-edge:#CBD5E1;--sample-bad:#FDECEA;--sample-head:#13315C;
+  --phone:#0F1C2B;--wa-head:#075E54;--wa-paper:#E5DDD5;--wa-bubble:#DCF8C6;--wa-ink:#111B21;
+  --diagram-off:#6E7F96;--diagram-off-ink:#A3B1C2;--mask:#000;
+  --shadow:0 1px 2px rgba(15,28,43,.06);--shadow-sample:0 14px 30px -14px rgba(15,28,43,.45);--shadow-modal:0 30px 70px -30px rgba(8,19,33,.6);
+  --focus:#13315C;--focus-on-band:#E2C687;
+  --font-body:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;--font-display:var(--font-body);--font-mono:"JetBrains Mono",ui-monospace,monospace;
+  --space-3xs:2px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:40px;--space-2xl:64px;--space-3xl:96px;--space-4xl:144px;
+  --text-2xs:.6875rem;--text-xs:.8125rem;--text-sm:.875rem;--text-md:1rem;--text-lg:1.25rem;
+  --text-hero:clamp(2.5rem,2.6vw + 1.25rem,3.75rem);--text-section:clamp(2rem,2.5vw + 1rem,3.25rem);--text-title:clamp(1.25rem,.75vw + .875rem,1.5rem);--text-lead:clamp(1.0625rem,.35vw + .95rem,1.3125rem);--text-figure:clamp(2.75rem,3vw + 1.5rem,4.5rem);
+  --ease-out:cubic-bezier(.16,1,.3,1);--ease-in:cubic-bezier(.7,0,.84,0);--ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-micro:120ms;--dur-short:220ms;--dur-long:420ms;
+  --container:1440px;--gutter:64px;--gap-columns:32px;--section-gap-s:120px;--section-gap:144px;--section-gap-l:176px;--nav-h:72px;
+  --radius-sm:8px;--radius:12px;--radius-lg:16px;--radius-pill:999px;
+  --z-raised:10;--z-sticky:200;--z-sticky-nav:300;--z-modal:400;--z-toast:500;
+  color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0E141B;--surface:#151C25;--surface-2:#1B2430;--surface-3:#222D3B;--ink:#E9EFF6;--ink-2:#B4C1D1;--ink-3:#8D9CAE;--line:#2B3644;--field-edge:#5E7189;
+  --navy:#2A4F86;--navy-2:#7FA8E0;--navy-hover:#335C98;--deep:#081321;--ok-ink:#6FD3A0;--warn-ink:#F2C46B;--bad-ink:#F08A7E;
+  --band:#13284A;--band-node:#1A3560;--band-hover:#1D3D6C;
+  --tag-demo-bg:#3A2E12;--tag-demo-ink:#F2D27E;--tag-ok-bg:#173A2A;--tag-ok-ink:#7FE0AE;
+  --st-info-bg:#1E3354;--st-info-ink:#B9D0F2;--st-bad-bg:#4A1C17;--st-bad-ink:#F6A99F;--st-ok-bg:#173A2A;--st-ok-ink:#7FE0AE;
+  --capture-bg:#0E141B;--frame-edge:#33404F;--tour-dim:rgba(0,0,0,.5);--select:#4A3F22;
+  --shadow:0 0 0 1px rgba(255,255,255,.04);--focus:#E2C687;color-scheme:dark}}
+:root[data-theme=dark]{
+  --bg:#0E141B;--surface:#151C25;--surface-2:#1B2430;--surface-3:#222D3B;--ink:#E9EFF6;--ink-2:#B4C1D1;--ink-3:#8D9CAE;--line:#2B3644;--field-edge:#5E7189;
+  --navy:#2A4F86;--navy-2:#7FA8E0;--navy-hover:#335C98;--deep:#081321;--ok-ink:#6FD3A0;--warn-ink:#F2C46B;--bad-ink:#F08A7E;
+  --band:#13284A;--band-node:#1A3560;--band-hover:#1D3D6C;
+  --tag-demo-bg:#3A2E12;--tag-demo-ink:#F2D27E;--tag-ok-bg:#173A2A;--tag-ok-ink:#7FE0AE;
+  --st-info-bg:#1E3354;--st-info-ink:#B9D0F2;--st-bad-bg:#4A1C17;--st-bad-ink:#F6A99F;--st-ok-bg:#173A2A;--st-ok-ink:#7FE0AE;
+  --capture-bg:#0E141B;--frame-edge:#33404F;--tour-dim:rgba(0,0,0,.5);--select:#4A3F22;
+  --shadow:0 0 0 1px rgba(255,255,255,.04);--focus:#E2C687;color-scheme:dark}
+@media (max-width:60rem){:root{--gutter:24px;--section-gap-s:80px;--section-gap:96px;--section-gap-l:120px;--nav-h:64px}}
+@media (max-width:40rem){:root{--gutter:16px;--section-gap-s:56px;--section-gap:72px;--section-gap-l:96px;--gap-columns:16px}}
+
+/* ---------- dasar ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--space-3xl)}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--text-md);line-height:1.6;-webkit-font-smoothing:antialiased;font-synthesis:none}
+::selection{background:var(--select);color:var(--ink)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.16em}
+img{max-width:100%;height:auto}
+button,input{font:inherit}
+p{text-wrap:pretty}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;line-height:1.08;overflow-wrap:break-word;min-width:0;text-wrap:balance}
+h3{font-weight:700;letter-spacing:-.01em;line-height:1.25}
+b,strong{font-weight:700}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.final :focus-visible,.co :focus-visible,.sdg :focus-visible,.pbar :focus-visible{outline-color:var(--focus-on-band)}
+[hidden]{display:none!important}
+
+/* ---------- kepala halaman: satu baris rapat, padat saat digulir ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:var(--z-sticky-nav);display:flex;align-items:center;gap:var(--space-lg);min-height:var(--nav-h);padding:var(--space-sm) max(var(--gutter),calc((100% - var(--container))/2 + var(--gutter)));color:var(--ink);transition:background-color var(--dur-short) var(--ease-out),box-shadow var(--dur-short) var(--ease-out),transform var(--dur-long) var(--ease-out)}
+.top.solid{background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;flex:none;gap:var(--space-xs);align-items:center;text-decoration:none}
+.logo svg{flex:none}
+.logo span{display:flex;flex-direction:column;line-height:1.15;white-space:nowrap}
+.logo small{font-size:var(--text-xs);color:var(--ink-3)}
+.links{display:flex;gap:var(--space-lg);font-size:var(--text-sm);white-space:nowrap}
+.links a{text-decoration:none;color:var(--ink-2);padding:var(--space-xs) 0}
+.links a:hover{color:var(--ink);text-decoration:underline}
+.right{margin-left:auto;display:flex;gap:var(--space-xs);align-items:center}
+.ghost{display:inline-flex;gap:var(--space-xs);align-items:center;min-height:44px;padding:0 var(--space-sm);border:1px solid transparent;border-radius:var(--radius-pill);background:none;color:inherit;font-size:var(--text-sm);font-weight:700;white-space:nowrap;cursor:pointer;transition:background-color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out)}
+.ghost:hover{background:var(--surface-2);border-color:var(--field-edge)}
+.ghost:active{background:var(--surface-3)}
+.ghost svg{flex:none}
+.top #toDash{background:none;border-color:transparent;color:var(--ink)}
+.top #toDash:hover{background:var(--surface-2)}
+
+/* ---------- tombol ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);min-height:44px;padding:0 var(--space-md);border:1px solid var(--field-edge);border-radius:var(--radius);background:var(--surface);color:var(--ink);font-size:var(--text-sm);font-weight:700;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
+.btn:hover{background:var(--surface-2);border-color:var(--ink-2)}
+.btn:active{transform:translateY(1px)}
+.btn svg{flex:none}
+.btn:disabled,.btn.pri:disabled{background:var(--surface-2);border:1px dashed var(--field-edge);color:var(--ink-3);cursor:not-allowed;transform:none}
+.btn.pri{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.btn.pri:hover{background:var(--navy-hover);border-color:var(--navy-hover)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.btn.gold:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--surface-2)}
+.btn.lg{min-height:52px;padding:0 var(--space-lg);font-size:var(--text-md)}
+.btn.sm{min-height:44px;padding:0 var(--space-sm);font-size:var(--text-xs);border-radius:var(--radius-sm)}
+.cta{display:flex;gap:var(--space-sm);flex-wrap:wrap}
+
+/* ---------- kaki halaman: satu kolofon di bawah garis tipis ---------- */
+.foot{display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-lg);justify-content:space-between;max-width:var(--container);margin:var(--space-2xl) auto 0;padding:var(--space-xl) var(--gutter) var(--space-2xl);border-top:1px solid var(--line);color:var(--ink-3);font-size:var(--text-sm)}
+.foot a{color:var(--ink-2)}
+
+/* ---------- reveal mati: halaman sudah tersusun saat dibuka (kelas .reveal tetap untuk skrip) ---------- */
+@media (max-width:75rem){.links{gap:var(--space-md)}#presBtn span{display:none}}
+@media (max-width:60rem){.links{display:none}.top{gap:var(--space-sm)}}
+@media (max-width:40rem){#themeT{display:none}.ghost{padding:0 var(--space-sm)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
