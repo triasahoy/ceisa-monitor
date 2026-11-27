@@ -45,7 +45,37 @@
 (() => {
   const TXT = 'Tidak tersedia di demo. Pasang ekstensi untuk memakai data Anda sendiri.';
   const LS = '__chromeStub';
-  if (!localStorage.getItem(LS) && window.__DEMO_DATA) localStorage.setItem(LS, JSON.stringify(window.__DEMO_DATA));
+  // Data demo bertanggal tetap; geser semua tanggal agar dokumen terbaru berumur satu hari (kalau tidak, semua dokumen tampak usang).
+  // Ditanam ulang sekali sehari supaya pengunjung yang kembali tidak melihat data basi.
+  const segar = D => {
+    const P = n => String(n).padStart(2, '0'), DMY = /^(\d{2})-(\d{2})-(\d{4})(.*)$/, ISO = /^(\d{4})-(\d{2})-(\d{2})(T.*)?$/;
+    let max = 0;
+    for (const r of D?.snapshot?.rows || []) { const m = DMY.exec(r.tgl || ''); if (m) max = Math.max(max, Date.UTC(+m[3], m[2] - 1, +m[1])); }
+    if (!max) return D;
+    const now = new Date(), d = Math.round((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - 864e5 - max) / 864e5);
+    if (!d) return D;
+    const day = (y, m, dd) => new Date(Date.UTC(y, m - 1, dd) + d * 864e5);
+    const str = v => {
+      let m = DMY.exec(v); if (m) { const t = day(+m[3], +m[2], +m[1]); return P(t.getUTCDate()) + '-' + P(t.getUTCMonth() + 1) + '-' + t.getUTCFullYear() + m[4]; }
+      m = ISO.exec(v); if (!m) return v;
+      if (m[4]) { const t = new Date(v); return isNaN(t) ? v : new Date(+t + d * 864e5).toISOString(); }
+      const t = day(+m[1], +m[2], +m[3]); return t.getUTCFullYear() + '-' + P(t.getUTCMonth() + 1) + '-' + P(t.getUTCDate());
+    };
+    const walk = (v, k) => {
+      if (typeof v === 'string') return str(v);
+      if (typeof v === 'number') return /^(at|ts|time|t)$/i.test(k || '') && v > 1e12 && v < 4e12 ? v + d * 864e5 : v;
+      if (Array.isArray(v)) return v.map(x => walk(x));
+      if (v && typeof v === 'object') { const o = {}; for (const q in v) o[/^\d{4}-\d{2}-\d{2}$/.test(q) ? str(q) : q] = walk(v[q], q); return o; }
+      return v;
+    };
+    const S = walk(D);
+    if (S.snapshot && typeof D.snapshot.at === 'string') S.snapshot.at = new Date(Date.now() - 12 * 6e4).toISOString();
+    return S;
+  };
+  const HARI = new Date().toLocaleDateString('sv-SE');
+  if (window.__DEMO_DATA && (!localStorage.getItem(LS) || localStorage.getItem('__demoDay') !== HARI)) {
+    localStorage.setItem(LS, JSON.stringify(segar(window.__DEMO_DATA))); localStorage.setItem('__demoDay', HARI);
+  }
   delete window.__DEMO_DATA;
   // Pesan singkat: memakai toast dasbor bila sudah ada, kalau belum (mis. halaman laporan) elemen sendiri.
   let tt;
