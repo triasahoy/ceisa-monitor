@@ -55,6 +55,12 @@ Rilis di bawah dikelompokkan menjadi tujuh fase menurut tema. Pengelompokan ini 
 - Samarkan identitas kini berlaku di presentasi dan laporan A4.
 - Tanggal di Excel tidak lagi mundur sehari.
 - Dokumen yang dibatalkan tidak lagi ikut dihitung dalam nilai dan pungutan.
+- Memulihkan cadangan tidak lagi menghilangkan tanda NPWP 15 digit, nama PPJK, dan BC 1.1.
+- Impor berkas besar jauh lebih ringan (memori puncak sekitar seperempat dari sebelumnya) dan menampilkan kemajuan; impor yang terhenti tidak meninggalkan data setengah jadi.
+- Cadangan Ringan dan Tindak lanjut selesai seketika pada data besar.
+- Berkas berkata sandi yang rusak kini disebut rusak, bukan "kata sandi tidak cocok" terus-menerus.
+- Waktu penyelesaian per jalur memakai median di dasbor, presentasi, dan laporan A4.
+- Kartu Pungutan menampilkan semua perlakuan; tagihan tidak lagi muncul di Kotak masuk; merah hanya untuk Jalur Merah dan Melewati SLA di tema terang dan gelap.
 
 #### 2.0.0 · November 2026
 

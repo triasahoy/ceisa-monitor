@@ -19,7 +19,7 @@ Ringkasan, Jalur Merah dalam pemeriksaan, tindak lanjut, laporan per penanggung 
 
 ![CEISA Monitor 2.0](docs/gif/v2/dasbor.gif)
 
-<p align="center"><a href="../../releases/tag/v2.0.0">Tonton video perkenalan 2.0 (38 detik)</a> · semua gambar dan video memakai data fiktif berlabel DATA DEMO</p>
+<p align="center"><a href="../../releases/tag/v2.1.0">Tonton video perkenalan (39 detik)</a> · semua gambar dan video memakai data fiktif berlabel DATA DEMO</p>
 
 ## Mengapa CEISA Monitor
 

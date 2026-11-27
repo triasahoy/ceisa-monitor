@@ -1507,6 +1507,33 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
 #board .bcol:not(:has(.bc)){min-height:0}
 #board .v58e{margin:0;padding:2px 2px 4px;font-size:12.5px;color:var(--ink-3)}
 #board .bcol:has(.bc) .v58e{display:none}
+/* 2.0.0.59 (data nyata): perbaikan kecil dari audit tampilan dengan data nyata (referensi/audit/AUDIT_2026-11-27_data_nyata.md bagian B) */
+/* F10: merah hanya untuk Jalur Merah dan Melewati SLA: ikon PDF tagihan netral; garis kiri Perlu perhatian biru tua (angka Jalur Merah tetap merah) */
+.pdfbtn svg.i{color:var(--ink-3)}
+body .card.act,body.vb .card.act{border-left-color:var(--navy-2)}
+/* F11: peta umur, kolom 8–14 dan 15–30 hari dari token tema (kolom lain: --st-open dan --warn); warna jalur memakai --ok/--a3/--bad (pratinjau.js, nyata.js) */
+:root{--hm1:#C99A16;--hm2:#D66E1E}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--hm1:var(--a3);--hm2:var(--a4)}}
+:root[data-theme=dark]{--hm1:var(--a3);--hm2:var(--a4)}
+.hm button.c{background:var(--hmbg)}
+:root[data-theme=dark] .hm button.c{background:var(--hmbgd,var(--hmbg))}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .hm button.c{background:var(--hmbgd,var(--hmbg))}}
+/* F15: tautan "Langsung ke isi" (tampil saat difokus); kontras "portal tertutup" di pil kepala halaman */
+.skip{position:absolute;left:12px;top:-80px;z-index:1000;background:var(--surface);color:var(--ink);border:2px solid var(--brass);border-radius:8px;padding:8px 14px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+#main:focus{outline:none}
+#modeChip .v27p.warn b{color:var(--warn)}
+/* F16: teks terkecil 11 px (persen di tabel Pungutan menurut perlakuan, lencana Dipakai) */
+.v33mx td.num small,.v41row em{font-size:11px}
+/* F16/F26: grafik halaman jenis dokumen di ponsel digulir mendatar agar teks sumbu tetap 11 px; dibuka di periode terbaru (v38.js) */
+@media (max-width:640px){.v33p .card:has(>.v33ch){overflow-x:auto;overscroll-behavior-x:contain}.v33ch{min-width:560px}}
+/* F18: sel Penanggung jawab kosong ("–" dengan tooltip); di kartu ponsel tidak menulis apa pun */
+@media (max-width:640px){#tw td.v59e .hint{visibility:hidden}}
+/* F20: daftar Tagihan ikut gulir halaman (tanpa kotak 440 px); judul kolom tetap menempel di atas layar (overflow:clip, seperti tabel Dokumen) */
+#tab-tagihan .tw{max-height:none}
+@media (min-width:641px){#tab-tagihan .tw{overflow:clip}}
+/* F5: Per mitra diciutkan ke 10 baris teratas */
+.v59more{margin-top:8px}
 </style>
 
 </head>
@@ -1547,6 +1574,7 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
   </defs>
 </svg>
 
+<a class="skip" href="#main">Langsung ke isi</a>
 <div class="app">
   <aside class="side">
     <div class="brand"><svg class="logo2" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#C9A55A"/><path d="M11 7h9l5 5v15H11z" fill="#13315C"/><path d="M20 7v5h5" fill="none" stroke="#C9A55A" stroke-width="1.6"/><path d="M14.5 19.5l2.6 2.6 4.6-5.2" fill="none" stroke="#F4EAD4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>CEISA Monitor</b><small>2.0 · pratinjau</small><span class="fid vis">VIS-19</span></div><button class="railbtn" type="button" id="railBtn" aria-label="Ciutkan sidebar" title="Ciutkan sidebar ( [ )">«</button></div>
@@ -1570,14 +1598,14 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
     </div>
   </aside>
 
-  <main class="main">
+  <main class="main" id="main">
     <div class="demobar" id="demoChip">Mode demo: data contoh, bukan data perusahaan. <button type="button" id="demoOut">Keluar dari mode demo</button><span class="fid vis">VIS-01</span></div>
     <div class="bar">
       <div><div class="crumb" id="crumb">Ringkasan</div><h1 id="title">Ringkasan status dokumen</h1><div class="greet" id="greet"></div></div>
       <div class="tools">
         <button class="search" type="button" id="open-pal" aria-label="Cari (Ctrl+K)"><svg class="i"><use href="#srch"/></svg><span class="stx">Cari pengajuan, tagihan, menu</span><kbd>Ctrl K</kbd><span class="fid plan">UI-06</span></button>
         <span class="pill" id="sess" title="Sesi portal, waktu pembaruan data terakhir, dan kemajuan"><i></i>Sesi <b class="mono" id="sesst">01:47:12</b><span style="color:var(--ink-3)">· data <span class="age">8 jam lalu</span></span><span class="fid new">UI-09</span></span>
-        <span class="pill job" id="bgjob" hidden role="status" title="Ambil isi dokumen berjalan di service worker ekstensi, bukan di tab ini"><i></i><span>Ambil isi <b class="mono" id="bgjobN">0/0</b> · latar belakang</span><button type="button" id="bgjobStop">Hentikan</button><span class="fid r19">BGR-01</span></span>
+        <span class="pill job" id="bgjob" hidden role="status" title="Ambil isi dokumen berjalan di latar belakang, bukan di tab ini."><i></i><span>Ambil isi <b class="mono" id="bgjobN">0/0</b> · latar belakang</span><button type="button" id="bgjobStop">Hentikan</button><span class="fid r19">BGR-01</span></span>
         <div class="seg vbsw" id="vbsw" role="group" aria-label="Bandingkan tampilan" title="Bandingkan tampilan lama (A) dan baru (B). Tekan Shift+B untuk berganti."><button type="button" data-vb="a" aria-pressed="false">A</button><button type="button" data-vb="b" aria-pressed="true">B</button></div><span class="fid vis">VIS-22</span>
         <button class="btn" type="button" id="rapatBtn" title="Mode rapat: layar penuh untuk TV atau proyektor" aria-label="Mode rapat"><svg class="i vb-i" aria-hidden="true"><use href="#tv"/></svg><span class="vb-t">Mode rapat</span><span class="fid nxt">NXT-06</span></button>
         <span class="rapatbar" id="rapatInfo"></span>
@@ -1720,7 +1748,7 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
         <div class="card-h"><h2>Daftar tagihan<span class="fid fix">FIX-01</span></h2><span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label class="fld">Periode <select id="tp"><option>12 bulan terakhir</option><option>Ikuti periode dasbor</option><option>Bulan ini</option><option>90 hari</option><option>Pilih tanggal…</option></select></label><button class="btn sm pri" type="button" data-toast="CEISA_Tagihan_12-bulan-terakhir.xlsx dibuat mengikuti periode dan filter kartu. Samarkan mengikuti Pengaturan."><svg class="i" style="width:15px;height:15px"><use href="#dl"/></svg>Unduh Excel<span class="fid fix">FIX-17</span></button><button class="linkbtn" type="button" data-toast="CEISA_Tagihan_12-bulan-terakhir.csv dibuat.">CSV</button>
         </span></div>
         <div class="crange" id="cr-tp" hidden><label>Dari tanggal<input type="date" lang="id" value="2026-01-01"></label><label>Sampai tanggal<input type="date" lang="id" value="2026-09-30"></label><div class="q"><button class="chipf" type="button" data-q="bl">Bulan lalu</button><button class="chipf" type="button" data-q="kl">Kuartal lalu</button><button class="chipf" type="button" data-q="sm">Semester ini</button></div><button class="btn sm pri" type="button" data-apply="tp">Terapkan</button><span class="hint" data-sum="tp"></span></div>
-        <div class="pull" style="margin:8px 0 10px"><span>Terakhir ditarik <b style="color:var(--ink-2)">30 Sep 2026 00.41</b> dari Browse Billing (hanya membaca).</span><button class="btn sm" type="button" id="billPull"><svg class="i" style="width:15px;height:15px"><use href="#sync"/></svg>Tarik tagihan sekarang</button><span class="fid fix">FIX-23</span><span>Juga ikut diperbarui saat Anda klik <b style="color:var(--ink-2)">Perbarui data</b> atau pembaruan otomatis berjalan. Periode mengikuti pilihan di kartu ini. Hanya tagihan terbaru per dokumen yang dihitung.</span></div>
+        <div class="pull" style="margin:8px 0 10px"><span>Terakhir diperbarui <b style="color:var(--ink-2)">30 Sep 2026 00.41</b> · 64 kode billing.</span><button class="btn sm" type="button" id="billPull"><svg class="i" style="width:15px;height:15px"><use href="#sync"/></svg>Perbarui tagihan sekarang</button><span class="fid fix">FIX-23</span></div>
         <div class="tw"><table><thead><tr><th>Kode billing</th><th>Status portal</th><th>NTPN</th><th>Tenggat</th><th>Nomor pengajuan dan jenis</th><th class="r">Nilai</th><th>Berkas PDF<span class="fid fix">FIX-22</span></th></tr></thead><tbody id="bt"></tbody></table></div>
         <div class="pgB" id="bpg"></div><span class="fid fix">FIX-25</span>
         <p class="hint" style="margin:10px 0 0">Status sesuai portal. Identitas wajib bayar tidak disimpan.</p>
@@ -1731,7 +1759,7 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
     <section id="tab-nilai" class="stack" hidden>
       <div class="card cov"><div><b>Isi dokumen: <span class="mono">912</span> dari <span class="mono">1.048</span> terambil</b><div class="hint">136 dokumen belum diambil isinya; angka di bawah memakai yang sudah terambil.</div></div>
         <progress value="912" max="1048" aria-label="Kemajuan pengambilan isi"></progress>
-        <span style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="fetchOpen" aria-expanded="false">Ambil isi dokumen…</button><button class="btn sm pri" type="button" data-go="laporan">Ekspor Excel nilai...</button></span></div>
+        <span style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="fetchOpen" aria-expanded="false">Ambil isi dokumen…</button><button class="btn sm pri" type="button" data-go="laporan">Unduh Excel nilai…</button></span></div>
       <div class="card fetchp" id="fetchPanel" hidden><div class="card-h" style="margin:0"><h2>Ambil isi dokumen<span class="fid fix">FIX-24</span></h2><button class="x" type="button" id="fetchX" aria-label="Tutup" style="background:none;border:0;font-size:18px;cursor:pointer;color:var(--ink-3)">&times;</button></div>
         <div class="row"><label class="fld">Periode tanggal daftar <select id="ftP"><option>Sesuai filter dasbor</option><option>Bulan ini</option><option>90 hari terakhir</option><option selected>Tahun ini</option><option>Pilih tanggal…</option></select></label></div>
         <div class="crange" id="cr-ft" hidden><label>Dari tanggal<input type="date" lang="id" value="2026-01-01"></label><label>Sampai tanggal<input type="date" lang="id" value="2026-09-30"></label><div class="q"><button class="chipf" type="button" data-q="bl">Bulan lalu</button><button class="chipf" type="button" data-q="kl">Kuartal lalu</button><button class="chipf" type="button" data-q="sm">Semester ini</button></div><button class="btn sm pri" type="button" data-apply="ft">Terapkan</button><span class="hint" data-sum="ft"></span></div>
@@ -2101,7 +2129,7 @@ body.v10 .side .nyacct .v15ac-meta{flex-wrap:wrap;row-gap:3px}
   <div class="body" id="dbody"></div>
 </aside>
 
-<div class="pal" id="pal" hidden><div class="box" role="dialog" aria-modal="true" aria-label="Pencarian cepat"><input id="pin" placeholder="Ketik nomor aju, invoice, mitra, jenis dokumen, atau menu" aria-label="Pencarian cepat" role="combobox" aria-expanded="true" aria-controls="pl" aria-autocomplete="list"><ul id="pl" role="listbox" aria-label="Hasil"></ul></div></div>
+<div class="pal" id="pal" hidden><div class="box" role="dialog" aria-modal="true" aria-label="Pencarian cepat"><input id="pin" placeholder="Ketik nomor pengajuan, invoice, mitra, jenis dokumen, atau menu" aria-label="Pencarian cepat" role="combobox" aria-expanded="true" aria-controls="pl" aria-autocomplete="list"><ul id="pl" role="listbox" aria-label="Hasil"></ul></div></div>
 
 <script type="module" src="nyata.js"></script>
 </body>
