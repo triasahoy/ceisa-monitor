@@ -6,7 +6,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 
 | Versi | Tanggal | Tema |
 |---|---|---|
-| 2.1.0 | November 2026 (dikirim ke Chrome Web Store; tersedia setelah peninjauan) | Cadangan berkata sandi, Yang berubah sejak, Cari di portal, semua akun, tampilan dan halaman awal baru, angka yang sama di semua laporan |
+| 2.1.0 | 28 November 2026 | Cadangan berkata sandi, Yang berubah sejak, Cari di portal, semua akun, tampilan dan halaman awal baru, angka yang sama di semua laporan |
 | 2.0.0 | November 2026 | Tampilan baru per pekerjaan, NPWP 15 digit, Buat laporan dari tujuan, laporan per penanggung jawab, Pemantauan pilihan, data besar di latar belakang |
 | 1.19.0 | 26 Oktober 2026 | Laporan per jenis dokumen, Ambil isi dokumen di latar belakang, arah dan pihak pengiriman di Excel dan CSV. Tayang di Chrome Web Store bersama seluruh isi 1.18.0 |
 | 1.18.0 | 12 Oktober 2026 (dirampungkan; tidak diterbitkan terpisah, tersedia lewat 1.19.0) | Data aman: ekspor dan impor data, identitas tidak disimpan, petugas pemeriksa Jalur Merah, daftar dokumen lengkap di ringkasan, dokumen pelengkap dari Detail Dokumen |
